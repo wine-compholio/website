@@ -1,0 +1,16 @@
+Title: Release 1.7.34
+Date: Sa, 10 Jan 2015
+
+<p>We are happy to announce some major new features for Wine Staging 1.7.34, which were developed during the Christmas holidays. Upstream Wine skipped the last release which gave us the possibility to add more new features than usual in this release. One of the new features is support for CUDA, the GPU calculation platform used by NVIDIA graphic cards.</p>
+
+<p>Staging 1.7.34 contains a wrapper for <code>nvcuda.dll</code> which redirects the function calls to the native <code>libcuda.so</code>. Previous approaches tried to wrap <code>cudart.dll</code> (the cuda runtime dll), but in contrast to our solutions this does not work for statically linked CUDA programs. The implementation is not yet complete and misses some Direct3D interop functions, which are rarely used by applications. If you would like to test this new feature make sure to read our Wiki entry about <a href="https://github.com/wine-compholio/wine-staging/wiki/CUDA">CUDA</a> to ensure that everything is set up correctly.</p>
+
+<!--PREVIEW-->
+
+<p>Another new feature which directly depends on CUDA is GPU accelerated PhysX support. This feature is still a bit experimental since PhysX depends on a working <code>nvapi.dll</code> implementation. This dll is part of the NVIDIA driver on Windows and provides functions to query and alter graphic cards settings. Our current implementation is sufficient for the software we tested but might not work for all games. In order to use PhysX you need to install the necessary files as explained in our Wiki entry about <a href="https://github.com/wine-compholio/wine-staging/wiki/PhysX">PhysX</a>. We tested several PhysX benchmarks and also the Windows version of Borderlands 2, but feel free to tell us your results in our bug tracker or on our IRC channel (#wine-staging on FreeNode).</p>
+
+<p>Last but not least we also added message mode support for named pipes on Linux. In contrary to byte-based communication methods this mode allows applications to send and receive full packages/messages. Linux kernel 3.4 introduced the <code>SO_PEEK_OFF</code> socket option which can be used in conjunction with sequential packets (<code>SOCK_SEQPACKET</code>) to emulate such a message mode on Linux. The current implementation already fixes a lot of bugs but is not completely race-condition free, for example when multiple threads peek messages from the same pipe. These bugs can not be solved without kernel changes, but we are confident that we can solve this problem in cooperation with the kernel developers. We are also open to idea from *BSD kernel hackers in order to implement the same feature on BSD based system.</p>
+
+<p>As usual you can find all remaining bug fixes, like the experimental patch for the Hearthstone timeout bug, in our <a href="https://github.com/wine-compholio/wine-staging/blob/v1.7.34/debian/changelog">changelog</a>.</p>
+
+<p>PS: This release also completes the name change from <code>wine-compholio</code> to <code>wine-staging</code> for our provided packages. The packages are currently building and will shortly be available under their new name.</p>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="keywords" content="Wine, Staging, wine-staging" />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Wine Staging</title>
+	<link href="/css/style.css" rel="stylesheet" type="text/css" media="screen" />
+</head>
+<body>
+<div id="wrapper">
+	<div id="header-wrapper">
+		<div id="header">
+			<div id="logo">
+				<h1><a href="/index.html">Wine <span>Staging</span></a></h1>
+			</div>
+			<div id="menu">
+				<ul>
+					<li><a href="/index.html">Home</a></li>
+					<li><a href="/news.html">News</a></li>
+					<li><a href="https://github.com/wine-compholio/wine-staging/wiki/Installation" target="_blank">Install</a></li>
+					<li><a href="https://github.com/wine-compholio/wine-staging/wiki" target="_blank">Wiki</a></li>
+					<li><a href="http://bugs.wine-staging.com" target="_blank">Bugs</a></li>
+					<li><a href="/source.html">Source</a></li>
+				</ul>
+			</div>
+			<div style="clear: both;"></div>
+		</div>
+	</div>
+	<!-- end #header -->
+	<div id="page">
+		<div id="content">
+			
+        <div class="post">
+                <h2 class="title"><a href="/news/2015-01-10-release-1.7.34.html">Release 1.7.34</a></h2>
+                <p class="meta"><span class="author">Wine Staging Team</span>&nbsp;-&nbsp<span class="date">Sa, 10 Jan 2015</span></p>
+                <div class="entry">
+                    <p>We are happy to announce some major new features for Wine Staging 1.7.34, which were developed during the Christmas holidays. Upstream Wine skipped the last release which gave us the possibility to add more new features than usual in this release. One of the new features is support for CUDA, the GPU calculation platform used by NVIDIA graphic cards.</p>
+
+<p>Staging 1.7.34 contains a wrapper for <code>nvcuda.dll</code> which redirects the function calls to the native <code>libcuda.so</code>. Previous approaches tried to wrap <code>cudart.dll</code> (the cuda runtime dll), but in contrast to our solutions this does not work for statically linked CUDA programs. The implementation is not yet complete and misses some Direct3D interop functions, which are rarely used by applications. If you would like to test this new feature make sure to read our Wiki entry about <a href="https://github.com/wine-compholio/wine-staging/wiki/CUDA">CUDA</a> to ensure that everything is set up correctly.</p>
+
+
+                    <p><a href="/news/2015-01-10-release-1.7.34.html">Read more</a></p>
+                </div>
+            </div>
+    
+
+        <div class="post">
+                <h2 class="title"><a href="/news/2014-12-15-release-1.7.33.html">Release 1.7.33</a></h2>
+                <p class="meta"><span class="author">Wine Staging Team</span>&nbsp;-&nbsp<span class="date">Mon, 15 Dec 2014</span></p>
+                <div class="entry">
+                    <p>We just released the updated patchset for Wine 1.7.33. Besides the 29 bugs fixed upstream since the last release, we have added about 14 additional bug fixes to Wine Staging. You can take a look at the <a href="https://raw.githubusercontent.com/wine-compholio/wine-staging/v1.7.33/debian/changelog">changelog</a> for the full list of changes. There is one feature I would like to point out since it was requested a lot by our users: CSMT (command stream multithreaded) support.</p>
+
+<p>Although originally announced by Codeweavers employee Stefan Dösinger about a year ago, there still wasn't much progress with upstreaming these patches. We were hesitating to add these patches in the past because they are known to have a negative effect for some apps. Thanks to the newly introduced <a href="https://github.com/wine-compholio/wine-staging/wiki/DLL-Redirects">dll redirection scheme</a> it was possible to add it anyway, by providing a CSMT and a non-CSMT version of wined3d. In order to test the CSMT feature, it is sufficient to enable it in <code>winecfg</code> - take a look <a href="https://github.com/wine-compholio/wine-staging/wiki/DLL-Redirects">here</a> for instructions how to do that.</p>
+
+                    <p><a href="/news/2014-12-15-release-1.7.33.html">Read more</a></p>
+                </div>
+            </div>
+    
+		</div>
+		<div style="clear: both;"></div>
+	</div>
+	<!-- end #page -->
+</div>
+<div id="footer">
+	<p><a href="/impressum.html">Impressum</a> - Design based on Perfect Blemish by <a href="http://templated.co" rel="nofollow">TEMPLATED</a> (<a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>).</p>
+</div>
+<!-- end #footer -->
+</body>
+</html>
