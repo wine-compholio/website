@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="keywords" content="Wine, Staging, wine-staging" />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Wine Staging</title>
+	<link href="/css/style.css" rel="stylesheet" type="text/css" media="screen" />
+</head>
+<body>
+<div id="wrapper">
+	<div id="header-wrapper">
+		<div id="header">
+			<div id="logo">
+				<h1><a href="/index.html">Wine <span>Staging</span></a></h1>
+			</div>
+			<div id="menu">
+				<ul>
+					<li><a href="/index.html">Home</a></li>
+					<li><a href="/news.html">News</a></li>
+					<li><a href="https://github.com/wine-compholio/wine-staging/wiki/Installation" target="_blank">Install</a></li>
+					<li><a href="https://github.com/wine-compholio/wine-staging/wiki" target="_blank">Wiki</a></li>
+					<li><a href="http://bugs.wine-staging.com" target="_blank">Bugs</a></li>
+					<li><a href="/source.html">Source</a></li>
+				</ul>
+			</div>
+			<div style="clear: both;"></div>
+		</div>
+	</div>
+	<!-- end #header -->
+	<div id="page">
+		<div id="content">
+			
+        <div class="post">
+                <h2 class="title">Release 1.7.35</h2>
+                <p class="meta"><span class="author">Wine Staging Team</span>&nbsp;-&nbsp<span class="date">Sat, 24 Jan 2015</span></p>
+                <div class="entry">
+                    <p>
+Today we released Wine Staging 1.7.35 which introduces the basis for further interesting features. This release is not as exciting as the last one from a user perspective, but contains quite some important changes for developers and contributors. We added a driver testing framework in Wine Staging which should help us to improve the ntoskrnl.exe component of Wine. Besides that Wine Staging 1.7.35 also contains various new patches and improvements, for example several improvements of CUDA support (which was added in the last release), patches to fix broken raw input in multiple games (upstream regression, which exists since 1.5.29 in upstream Wine), and also patches for Child of Light and Valiant Hearts.
+</p>
+
+<!--PREVIEW-->
+
+<p>
+Most hardware related device drivers do not work in Wine by design, because Wine executes them only with user mode permissions and they can't directly access the hardware. Nevertheless, there are also some drivers which work perfectly fine without communicating to hardware, for example anti cheat software or copy protection drivers. In order to improve the support for such drivers, we implemented a testing framework, which allows to write kernel driver tests. ReactOS already provides a similar testing framework since some time, but so far Wine developers didn't have any suitable solution yet. Hopefully this feature will allow developers to extend the functionality a bit faster in the future, while ensuring that it is still compatible with Windows.
+</p>
+
+<p>
+Whereas generic hardware access is impossible, specific devices can be emulated by using equivalent Linux libraries. In the past there were already several interesting ideas like attempts to integrate USB driver support via <code>libusb</code> into Wine, which were not accepted because of missing tests. We were planning to look at some of this previous work, and check if its possible to integrate that into our staging tree.
+</p>
+
+<p>As usual you can find all remaining bug fixes in our <a href="https://github.com/wine-compholio/wine-staging/blob/v1.7.35/debian/changelog">changelog</a>.</p>
+
+<p>
+We also did several changes of our infrastructure. As you might have noticed this website looks a bit different now, and we're now also hosting our own bugtracker instead of using the github integrated one.
+</p>
+
+                    
+                </div>
+            </div>
+    
+		</div>
+		<div style="clear: both;"></div>
+	</div>
+	<!-- end #page -->
+</div>
+<div id="footer">
+	<p><a href="/impressum.html">Impressum</a> - Design based on Perfect Blemish by <a href="http://templated.co" rel="nofollow">TEMPLATED</a> (<a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>).</p>
+</div>
+<!-- end #footer -->
+</body>
+</html>
