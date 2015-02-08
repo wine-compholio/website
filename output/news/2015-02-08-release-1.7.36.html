@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="keywords" content="Wine, Staging, wine-staging" />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Wine Staging</title>
+	<link href="/css/style.css" rel="stylesheet" type="text/css" media="screen" />
+</head>
+<body>
+<div id="wrapper">
+	<div id="header-wrapper">
+		<div id="header">
+			<div id="logo">
+				<h1><a href="/index.html">Wine <span>Staging</span></a></h1>
+			</div>
+			<div id="menu">
+				<ul>
+					<li><a href="/index.html">Home</a></li>
+					<li><a href="/news.html">News</a></li>
+					<li><a href="https://github.com/wine-compholio/wine-staging/wiki/Installation" target="_blank">Install</a></li>
+					<li><a href="https://github.com/wine-compholio/wine-staging/wiki" target="_blank">Wiki</a></li>
+					<li><a href="http://bugs.wine-staging.com" target="_blank">Bugs</a></li>
+					<li><a href="/source.html">Source</a></li>
+				</ul>
+			</div>
+			<div style="clear: both;"></div>
+		</div>
+	</div>
+	<!-- end #header -->
+	<div id="page">
+		<div id="content">
+			
+        <div class="post">
+                <h2 class="title">Release 1.7.36</h2>
+                <p class="meta"><span class="author">Wine Staging Team</span>&nbsp;-&nbsp<span class="date">Sun, 08 Feb 2015</span></p>
+                <div class="entry">
+                    <p>
+We just released Wine Staging 1.7.36 and we are happy to announce some interesting new features in this version. A lot of work went into the implementation of the Threadpool API framework, which is available on Windows Vista and newer. The Threadpool API provides a lot of convenience functions to simplify writing multithreaded programs, for example to assign work items to a pool of worker threads, wait for their execution and call cleanup handlers afterwards. The number of applications using this API is steadily increasing, so we decided that its definitely time to add an implementation. There are still some unimplemented functions left but the core components are available now and sufficient for most applications, including Adobe Lightroom 5.3.
+</p>
+
+<!--PREVIEW-->
+
+<p>
+Another addition of 1.7.36 is the nvencodeapi.dll implementation which makes it possible to use the GPU encoding engine NVENC by NVIDIA. NVENC is a successor of the CUDA based nvcuvenc and is available for Kepler / Maxwell based NVIDIA cards (i.e. Geforce >= 600). Unlike nvcuvenc, which can be used in Wine Staging through the native dll, nvencodeapi.dll is a wrapper to the libnvidia-encode.so library. The wrapper implements NVENC 5.0 and requires at least version 346.22 of the linux NVIDIA driver. While the current implementation is feature complete, it lacks asynchronous encoding mode since the linux drivers does not support it yet. At the moment the asynchronous mode is emulated using the synchronous mode which may decrease the performance. We are looking forward to add a more efficient emulation in the next release.
+</p>
+
+<p>
+As usual there were also some other small improvements like an upgrade of the CUDA wrapper to CUDA 7.0 RC and fixes for mouse jittering in games like Planetside 2. The full list of changes is available in our <a href="https://github.com/wine-compholio/wine-staging/blob/v1.7.35/debian/changelog">changelog</a>.
+</p>
+                    
+                </div>
+            </div>
+    
+		</div>
+		<div style="clear: both;"></div>
+	</div>
+	<!-- end #page -->
+</div>
+<div id="footer">
+	<p><a href="/impressum.html">Impressum</a> - Design based on Perfect Blemish by <a href="http://templated.co" rel="nofollow">TEMPLATED</a> (<a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>).</p>
+</div>
+<!-- end #footer -->
+</body>
+</html>

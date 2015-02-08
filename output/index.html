@@ -37,14 +37,15 @@
 
 	<p><strong>Wine Staging</strong> (formerly wine-compholio) is a special wine version containing bug fixes and features, which are not yet available in regular wine versions. The idea behind Wine Staging is to provide new features faster to end users and to give developers the possibility to discuss and improve their patches before they are sent <a href="https://www.winehq.org/">upstream</a>. We also intend to create a community of wine developers to share experience and to make it easier for beginners to start hacking on wine.</p>
 
-	<p>Please note that our Wine Staging repository does not contain the full Wine source, which would be very intransparent for our users and developers. Instead we're providing Wine Staging as a patchset which has to be applied on top of the corresponding upstream Wine version. Package maintainers can decide if they want to include our full patchset, or only want to cherry-pick patches for specific bugs. Our current version includes fixes for about 130 bug and over 500 patches total, and new patches are added frequently. Features and bugfixes available in Wine-Staging 1.7.34 are for example:</p>
+	<p>Please note that our Wine Staging repository does not contain the full Wine source, which would be very intransparent for our users and developers. Instead we're providing Wine Staging as a patchset which has to be applied on top of the corresponding upstream Wine version. Package maintainers can decide if they want to include our full patchset, or only want to cherry-pick patches for specific bugs. Our current version includes fixes for about 130 bug and over 500 patches total, and new patches are added frequently. Features and bugfixes available in Wine-Staging 1.7.36 are for example:</p>
 	<ul>
 		<li>CSMT (Commandstream multithreading) for better graphic performance</li>
-		<li>CUDA / PhysX Support for NVIDIA graphic cards</li>
+		<li>CUDA / PhysX / NVENC Support for NVIDIA graphic cards</li>
 		<li>Fixes for various upstream regressions</li>
 		<li>Named Pipe message mode support (Linux kernel >= 3.4 only)</li>
 		<li>Performance improvements for IO-heavy programs and memory allocation functions</li>
 		<li>S3 texture compression (DXTn) support</li>
+		<li>Threadpool API support</li>
 		<li>Various improvements to <i>d3dx9</i></li>
 		<li>Windows ACL support</li>
 		<li>Wine PulseAudio driver</li>
