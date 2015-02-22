@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="keywords" content="Wine, Staging, wine-staging" />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Wine Staging</title>
+	<link href="/css/style.css" rel="stylesheet" type="text/css" media="screen" />
+</head>
+<body>
+<div id="wrapper">
+	<div id="header-wrapper">
+		<div id="header">
+			<div id="logo">
+				<h1><a href="/index.html">Wine <span>Staging</span></a></h1>
+			</div>
+			<div id="menu">
+				<ul>
+					<li><a href="/index.html">Home</a></li>
+					<li><a href="/news.html">News</a></li>
+					<li><a href="https://github.com/wine-compholio/wine-staging/wiki/Installation" target="_blank">Install</a></li>
+					<li><a href="https://github.com/wine-compholio/wine-staging/wiki" target="_blank">Wiki</a></li>
+					<li><a href="http://bugs.wine-staging.com" target="_blank">Bugs</a></li>
+					<li><a href="/source.html">Source</a></li>
+				</ul>
+			</div>
+			<div style="clear: both;"></div>
+		</div>
+	</div>
+	<!-- end #header -->
+	<div id="page">
+		<div id="content">
+			
+        <div class="post">
+                <h2 class="title">Release 1.7.37</h2>
+                <p class="meta"><span class="author">Wine Staging Team</span>&nbsp;-&nbsp<span class="date">Sun, 22 Feb 2015</span></p>
+                <div class="entry">
+                    <p>
+Two weeks passed by and it is time for another Wine release. Before talking too much about Wine staging 1.7.37, we are happy to announce that two important features, UTF-7 support (included since Wine Staging 1.7.29) and interface change notification support (included since first version of Wine Staging) got upstream.
+</p>
+
+<p>
+The main focus of this Wine Staging release is the implementation of the DirectX Video Acceleration 2 (DXVA2) API based on VAAPI. This API is available since Vista and provides GPU accelerated functions for video processing, like video decoding or deinterlacing. We initially had this idea about a year ago (mainly to improve video playback via Pipelight), but stopped working on it when it became clear that getting it upstream will be a very long or even impossible process. The implementation we added now to Wine Staging already contains various improvements compared to initial proof-of-concept code. We improved MPEG2 video decoding support and added support for H264 decoding. We decided to use VAAPI as back-end since it is very similar to DXVA2, but wrote the implementation in such a way that it can easily support multiple back-ends later. While VAAPI mainly targets Intel based GPUs there are wrappers for the open source and proprietary drivers of AMD / NVIDIA GPUs as well, so you can also use DXVA2 through VAAPI on non-Intel systems. 
+</p>
+
+<!--PREVIEW-->
+
+<p>
+The current status is very experimental and there are a lot of know bugs, especially when using the Intel VAAPI driver, so we decided to disable it by default. If you want to play with it anyway, you can enable the feature through the Staging tab in winecfg. We do not recommend to enable this for Intel GPUs yet, since their driver is not very fault tolerant and blindly trusts the values passed by the application. Some distributions forgot to disable the assertions while compiling the driver causing the application to abort even for non-fatal problems. For other systems like NVIDIA the implementation works quite good and it is possible to use it for watching videos. The current implementation is for example sufficient to use hardware decoding in Flash through Pipelight as you can see on this YouTube screenshot:
+</p>
+
+<p>
+<center>
+	<img src="/images/flash-dxva2-news.png" />
+</center>
+</p>
+
+<p>
+We hope that we can extend DXVA2 and fix the remaining problems till the next release. Although the current patches already add over 4500 lines of code for this DLL, it is far away from being complete, nevertheless we wanted to share the code in order to give other developers the chance to participate.
+</p>
+
+<p>
+As usual there are also a lot of smaller patches and bug fixes which you can find in our <a href="https://github.com/wine-compholio/wine-staging/blob/v1.7.37/debian/changelog">changelog</a>, including various patches to improve network support of .NET/Silverlight. From now on, not only the wine users might profit from our improvements, but also the <a href="https://jira.reactos.org/browse/CORE-9246">ReactOS users</a>, since ReactOS decided to switch to Wine Staging as upstream source for Wine.
+</p>
+
+                    
+                </div>
+            </div>
+    
+		</div>
+		<div style="clear: both;"></div>
+	</div>
+	<!-- end #page -->
+</div>
+<div id="footer">
+	<p><a href="/impressum.html">Impressum</a> - Design based on Perfect Blemish by <a href="http://templated.co" rel="nofollow">TEMPLATED</a> (<a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>).</p>
+</div>
+<!-- end #footer -->
+</body>
+</html>
