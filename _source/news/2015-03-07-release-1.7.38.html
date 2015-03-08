@@ -1,0 +1,24 @@
+Title: Release 1.7.38
+Date: Sat, 07 Mar 2015
+
+<p>
+We are happy to announce Staging 1.7.38. This release introduces Job Object support and many other small bug fixes and improvements. Besides the new additions, 16 patches got removed because they were accepted upstream. Wine Staging consists now of more than 600 patches total.
+</p>
+
+<p>
+The Job Object API provides ways to manage groups of processes as a single object and is required by various applications like EA Origin, which uses this feature to detect whether games are still running. Although Job Objects are not really a "new" feature and were already available since Windows 2000, a Wine implementation was still missing so far. One year ago Andrew Cook started to work on an implementation and we recently teamed up with him to clean up the patches and to integrate this feature into Wine Staging. The code is not yet complete, but it is sufficient to make EA Origin happy.
+</p>
+
+<!--PREVIEW-->
+
+<p>
+The work on DXVA2 continued and decoding of MPEG2 and H264 content using ffmpeg / libavcodec based software is now working stable. There are still other Wine bugs which prevent programs like VLC from using DXVA2 without hacks, but we hope to fix them in future versions. We also added support for video decoding through libva-drm (besides libva-x11) which makes it possible to use a different GPU for video decoding than the one which is used by the X server.
+</p>
+
+<p>
+Thanks to our cooperation with ReactOS we also made various improvements to the shell32 part of Wine, and added an implementation for a proper file-copy and move dialog. We are planning to extend this cooperation a bit further in the future to share more ideas and existing code.
+</p>
+
+<p>
+As usual you can find all other changes in our <a href="https://github.com/wine-compholio/wine-staging/blob/v1.7.38/debian/changelog">changelog</a>.
+</p>
