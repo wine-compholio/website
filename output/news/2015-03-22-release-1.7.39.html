@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="keywords" content="Wine, Staging, wine-staging" />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Wine Staging</title>
+	<link href="/css/style.css" rel="stylesheet" type="text/css" media="screen" />
+</head>
+<body>
+<div id="wrapper">
+	<div id="header-wrapper">
+		<div id="header">
+			<div id="logo">
+				<h1><a href="/index.html">Wine <span>Staging</span></a></h1>
+			</div>
+			<div id="menu">
+				<ul>
+					<li><a href="/index.html">Home</a></li>
+					<li><a href="/news.html">News</a></li>
+					<li><a href="https://github.com/wine-compholio/wine-staging/wiki/Installation" target="_blank">Install</a></li>
+					<li><a href="https://github.com/wine-compholio/wine-staging/wiki" target="_blank">Wiki</a></li>
+					<li><a href="http://bugs.wine-staging.com" target="_blank">Bugs</a></li>
+					<li><a href="/source.html">Source</a></li>
+				</ul>
+			</div>
+			<div style="clear: both;"></div>
+		</div>
+	</div>
+	<!-- end #header -->
+	<div id="page">
+		<div id="content">
+			
+        <div class="post">
+                <h2 class="title">Release 1.7.39</h2>
+                <p class="meta"><span class="author">Wine Staging Team</span>&nbsp;-&nbsp<span class="date">Sun, 22 Mar 2015</span></p>
+                <div class="entry">
+                    <p>
+Wine Staging 1.7.39 was released a couple of hours ago. This release mostly concentrates on speed optimizations and various bug fixes related to keyboard input handling.
+</p>
+
+<p>
+One of the slowest things in Wine are wineserver calls. These calls are necessary if an applications wants to set or get an value which affects multiple programs, for example asking for the current foreground window. While this information is usually managed by the kernel on Windows, a program running in Wine needs to send a message to wineserver via a pipe and wait for the reply. Since the wineserver is a separate process the overhead of waking it up is very big, causing these calls to be about 10 times slower than on windows.
+</p>
+
+<!--PREVIEW-->
+
+<p>
+In this release we started implementing shared memory communication as an alternative. Instead of using shared memory for all wineserver calls, we decided to optimize specific frequently used functions and to prevent waking up the wineserver at all if possible. A call to <code>PeekMessage</code> for example will not wake up the wineserver as long as there are no messages available. For some functions like <code>GetActiveWindow</code> it was possible to eliminate the pipe communication in all cases. Since these changes affect many parts of Wine and might still contain some bugs, this feature is disabled by default and needs to enabled manually by setting the environment variable <code>STAGING_SHARED_MEMORY</code> to 1.
+</p>
+
+<p>
+In order to retain security, the code requires support for memfds and file sealing which is only available on Linux with Kernel versions >= 3.17. We might add compatibility code soon, to make this feature also available on older Kernels or also other platforms like FreeBSD and MacOS X, but currently we're still focusing on testing and doing performance measurements.
+</p>
+
+<p>
+Besides this new feature we also added several bug fixes related to keyboard input handling affecting for example "Photoshop CS5", the application "Sculptris" and also the game "La-Mulana". As usual you can find all other changes in our <a href="https://github.com/wine-compholio/wine-staging/blob/v1.7.39/debian/changelog">changelog</a>.
+</p>
+
+                    
+                </div>
+            </div>
+    
+		</div>
+		<div style="clear: both;"></div>
+	</div>
+	<!-- end #page -->
+</div>
+<div id="footer">
+	<p><a href="/impressum.html">Impressum</a> - Design based on Perfect Blemish by <a href="http://templated.co" rel="nofollow">TEMPLATED</a> (<a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>).</p>
+</div>
+<!-- end #footer -->
+</body>
+</html>

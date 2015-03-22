@@ -33,6 +33,24 @@
 		<div id="content">
 			
         <div class="post">
+                <h2 class="title"><a href="/news/2015-03-22-release-1.7.39.html">Release 1.7.39</a></h2>
+                <p class="meta"><span class="author">Wine Staging Team</span>&nbsp;-&nbsp<span class="date">Sun, 22 Mar 2015</span></p>
+                <div class="entry">
+                    <p>
+Wine Staging 1.7.39 was released a couple of hours ago. This release mostly concentrates on speed optimizations and various bug fixes related to keyboard input handling.
+</p>
+
+<p>
+One of the slowest things in Wine are wineserver calls. These calls are necessary if an applications wants to set or get an value which affects multiple programs, for example asking for the current foreground window. While this information is usually managed by the kernel on Windows, a program running in Wine needs to send a message to wineserver via a pipe and wait for the reply. Since the wineserver is a separate process the overhead of waking it up is very big, causing these calls to be about 10 times slower than on windows.
+</p>
+
+
+                    <p><a href="/news/2015-03-22-release-1.7.39.html">Read more</a></p>
+                </div>
+            </div>
+    
+
+        <div class="post">
                 <h2 class="title"><a href="/news/2015-03-07-release-1.7.38.html">Release 1.7.38</a></h2>
                 <p class="meta"><span class="author">Wine Staging Team</span>&nbsp;-&nbsp<span class="date">Sat, 07 Mar 2015</span></p>
                 <div class="entry">
