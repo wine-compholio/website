@@ -1,0 +1,24 @@
+Title: Release 1.7.40
+Date: Sun, 05 Apr 2015
+
+<p>
+Wine Staging 1.7.40 was released some hours ago and there are various new features available for testing. The main additions since the last release are EAX sound support (software emulated), support for realtime priorities and better handling of .NET executables.
+</p>
+
+<p>
+In 1998 Creative introduced Environmental Audio Extensions (EAX) for their sound blaster sound cards which provides a way to apply sound effects using the DSP of the sound card. This made it possible to use advanced audio effects using DirectSound without increasing the CPU usage. Modern CPUs can easily handle such calculations and we therefore started to implement an EAX software emulation in Wine. This release adds most of the stuff required for EAX 1 and gives you the possibility to enjoy these sound effects in old games even without creative hardware.
+</p>
+
+<!--PREVIEW-->
+
+<p>
+We started improving the performance of Wine in the last release by implementing shared memory communication and now we go a step further by adding (optional) realtime priority support to wine. This patchset gives the user the possibility to assign a realtime priority to a program or the wineserver. Changing the priority on the wineserver is especially useful for communication which cannot easily be removed by using shared memory. The high priority will allow the wineserver to process roughly twice the usual amount of requests (for wineserver-call limited applications). The feature is currently only supported on Linux and needs some manual configuration as described in our <a href="https://github.com/wine-compholio/wine-staging/wiki/Environment-Variables#realtime-priorities">Wiki</a>.
+</p>
+
+<p>
+So far Wine was loading .NET executables by using a fallback mechanism which is embedded into those executable to support Windows 2000 and older Windows versions. Modern Windows versions handle .NET executables in a special way and do no longer need this fallback path. The disadvantage of using the fallback code is that it allows injection of native code into .NET executables and is therefore less secure. Moreover recent .NET versions started to drop this compatibility code (at least on 64 bit), so Wine can no longer load them. In order to fix both issues, the PE loader of Wine Staging was extended to handle .NET executables in the same way as on Windows XP and above.
+</p>
+
+<p>
+Besides this new feature we also added several bug fixes. As usual you can find all other changes in our <a href="https://github.com/wine-compholio/wine-staging/blob/v1.7.40/debian/changelog">changelog</a>.
+</p>
