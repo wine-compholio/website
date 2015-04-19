@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="keywords" content="Wine, Staging, wine-staging" />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Wine Staging</title>
+	<link href="/css/style.css" rel="stylesheet" type="text/css" media="screen" />
+</head>
+<body>
+<div id="wrapper">
+	<div id="header-wrapper">
+		<div id="header">
+			<div id="logo">
+				<h1><a href="/index.html">Wine <span>Staging</span></a></h1>
+			</div>
+			<div id="menu">
+				<ul>
+					<li><a href="/index.html">Home</a></li>
+					<li><a href="/news.html">News</a></li>
+					<li><a href="https://github.com/wine-compholio/wine-staging/wiki/Installation" target="_blank">Install</a></li>
+					<li><a href="https://github.com/wine-compholio/wine-staging/wiki" target="_blank">Wiki</a></li>
+					<li><a href="http://bugs.wine-staging.com" target="_blank">Bugs</a></li>
+					<li><a href="/source.html">Source</a></li>
+				</ul>
+			</div>
+			<div style="clear: both;"></div>
+		</div>
+	</div>
+	<!-- end #header -->
+	<div id="page">
+		<div id="content">
+			
+        <div class="post">
+                <h2 class="title">Release 1.7.41</h2>
+                <p class="meta"><span class="author">Wine Staging Team</span>&nbsp;-&nbsp<span class="date">Sun, 19 Apr 2015</span></p>
+                <div class="entry">
+                    <p>
+Wine Staging 1.7.41 is out and provides small improvements and bug fixes for several applications. This release is a bit more lightweight than usual as we have a lot of infrastructure work going on behind the scenes.
+</p>
+
+<p>
+Debugging Wine applications is a non trivial task and it is often difficult to get proper debug output. You often end up with huge log files and need to find a needle in a haystack. With Wine Staging 1.7.41 we added process specific debug channels so that you can set different debugging flags based on the executable name. This is especially useful if you need to debug an application which needs to be started through a launcher or programs like Uplay. More information about this feature is available in our <a href="https://github.com/wine-compholio/wine-staging/wiki/Debug">Wiki</a>.
+</p>
+
+<!--PREVIEW-->
+
+<p>
+This release also contains bug fixes for several applications. For example Origin is now able to update itself and you can play Burnout Paradise online. In case you are using Wine Staging in order to play AOE 2 with Voobly, you can safely upgrade to 1.7.41 as the upstream regression introduced in 1.7.40 is now fixed. As usual you can find all other changes in our <a href="https://github.com/wine-compholio/wine-staging/blob/v1.7.41/debian/changelog">changelog</a>.
+</p>
+
+<p>
+In case you are wondering about which infrastructure changes we are talking: There is work going on to create a similar website to WineHQ's <a href="https://appdb.winehq.org/">AppDB</a>. The website will not only provide you with test results about programs running in Wine Staging, but will also collect information from other sources. This provides an easy way to compare the results of different wine distributions and allows you to choose the version which works best with your application.
+</p>
+
+                    
+                </div>
+            </div>
+    
+		</div>
+		<div style="clear: both;"></div>
+	</div>
+	<!-- end #page -->
+</div>
+<div id="footer">
+	<p><a href="/impressum.html">Impressum</a> - Design based on Perfect Blemish by <a href="http://templated.co" rel="nofollow">TEMPLATED</a> (<a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>).</p>
+</div>
+<!-- end #footer -->
+</body>
+</html>
