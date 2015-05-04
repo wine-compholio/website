@@ -1,0 +1,19 @@
+Title: Release 1.7.42
+Date: Mon, 04 May 2015
+
+<p>
+Time for another release! We pushed Wine Staging 1.7.42 yesterday, this time with a small delay. Besides fixes for various bugs we've been working on a category system to simplify the task of maintaining our huge amount of patches.
+</p>
+
+<p>
+When we started working on Wine Staging the idea was to provide experimental features and improve them over time until they are ready to be included into upstream wine. Even though our name implies that the version is (or at least can be) highly experimental, many users started using Staging as their default wine version. This makes it difficult to add very experimental patches while ensuring that they do not introduce regressions and therefore the demand for a more stable version increased.
+</p>
+
+<p>
+We came to the conclusion that it is not possible to maintain only one patchset if we don't want to reject work-in-progress patches. In order to solve this problem Staging 1.7.42 adds a category system, which will be used to categorize patches based on their "stability". In the future experimental patches which might have a big risk of breaking things (or have known regressions) will be added to a special category, which has to be enabled manually. More information about the category system will follow until the next release.
+</p>
+
+<p>
+Moreover, this release also added some smaller patches for games running in Origin and various other applications. As usual you can find all the changes in our <a href="https://github.com/wine-compholio/wine-staging/blob/v1.7.42/debian/changelog">changelog</a>.
+</p>
+
