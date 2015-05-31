@@ -33,6 +33,44 @@
 		<div id="content">
 			
         <div class="post">
+                <h2 class="title"><a href="/news/2015-05-31-release-1.7.44.html">Release 1.7.44</a></h2>
+                <p class="meta"><span class="author">Wine Staging Team</span>&nbsp;-&nbsp<span class="date">Sun, 31 May 2015</span></p>
+                <div class="entry">
+                    <p>
+Today we released Wine Staging 1.7.44 with several bug fixes and switched to our new build system for our prebuilt packages. Currently most of our effort goes into fixing bugs instead of adding new features, so we also changed the format of the release notes a bit. Before we tell you more about the build system changes, here is a list of all fixed bugs / added features in this release (without any particular order).
+</p>
+
+<ul>
+	<li>Add shell32 placeholder icons to match offsets with Windows, required by SuperPower 2 demo (<a href="https://bugs.winehq.org/show_bug.cgi?id=30185">Wine Bug #30185</a>)</li>
+	<li>Add stub for iphlpapi.ConvertInterfaceLuidToGuid, required by PES2015 (<a href="https://bugs.winehq.org/show_bug.cgi?id=38576">Wine Bug #38576</a>)</li>
+	<li>Add stubbed ISWbemSecurity interfaces in wbemdisp (Required by Paessler WMI Tester)</li>
+	<li>Add support for hiding wine version information from applications (<a href="https://bugs.winehq.org/show_bug.cgi?id=38656">Wine Bug #38656</a>)</li>
+	<li>Allow to enable/disable InsertMode in wineconsole settings (<a href="https://bugs.winehq.org/show_bug.cgi?id=36704">Wine Bug #36704</a>)</li>
+	<li>Also handle '\r' as whitespace in wbemprox queries (Required by Paessler WMI Tester)</li>
+	<li>Also output winedbg system information to the terminal, not only to dialog</li>
+	<li>Assign a drive serial number during prefix creation/update (<a href="https://bugs.winehq.org/show_bug.cgi?id=17823">Wine Bug #17823</a>)</li>
+	<li>Do not use unixfs for devices without mountpoint (<a href="https://appdb.winehq.org/objectManager.php?sClass=version&iId=8005">Required by 2xExplorer</a>)</li>
+	<li>Fix NULL pointer dereference in get_frame_by_name effecting various Web installers (<a href="https://bugs.winehq.org/show_bug.cgi?id=34982">Wine Bug #34982</a>)</li>
+	<li>Fix crash in Gothic 1/2 with builtin directmusic caused by wrong return value (<a href="https://bugs.winehq.org/show_bug.cgi?id=7425">Wine Bug #7425</a>)</li>
+	<li>Fix handling of opening a file with RootDirectory pointing to a file handle, required by Msys2 (<a href="https://bugs.wine-staging.com/show_bug.cgi?id=299">Wine Staging Bug #299</a>)</li>
+	<li>Fix scaling behaviour of images and mipmap levels in IDirect3DTexture2_Load (<a href="https://appdb.winehq.org/objectManager.php?sClass=version&iId=31341">Required by Prezzie Hunt</a>)</li>
+	<li>Return fake device type when systemroot is located on virtual disk (<a href="https://bugs.winehq.org/show_bug.cgi?id=36546">Wine Bug #36546</a>)</li>
+	<li>Revert upstream regression which causes broken rendering in various games (<a href="https://bugs.winehq.org/show_bug.cgi?id=38654">Wine Bug #38654</a>)</li>
+	<li>Support for ws2_32.dll.WSAPoll, required by Planetary Annihilation (<a href="https://bugs.winehq.org/show_bug.cgi?id=38601">Wine Bug #38601</a>)</li>
+	<li>Use random names when caching very long urls in wininet (<a href="https://bugs.wine-staging.com/show_bug.cgi?id=300">Wine Staging Bug #300</a>)</li>
+</ul>
+
+<p>
+As usual you can find all the changes (including removed/upstream accepted patches) in our <a href="https://github.com/wine-compholio/wine-staging/blob/v1.7.44/debian/changelog">changelog</a>.
+</p>
+
+
+                    <p><a href="/news/2015-05-31-release-1.7.44.html">Read more</a></p>
+                </div>
+            </div>
+    
+
+        <div class="post">
                 <h2 class="title"><a href="/news/2015-05-17-release-1.7.43.html">Release 1.7.43</a></h2>
                 <p class="meta"><span class="author">Wine Staging Team</span>&nbsp;-&nbsp<span class="date">Sun, 17 May 2015</span></p>
                 <div class="entry">
