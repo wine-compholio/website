@@ -33,6 +33,28 @@
 		<div id="content">
 			
         <div class="post">
+                <h2 class="title"><a href="/news/2015-06-14-release-1.7.45.html">Release 1.7.45</a></h2>
+                <p class="meta"><span class="author">Wine Staging Team</span>&nbsp;-&nbsp<span class="date">Sun, 31 May 2015</span></p>
+                <div class="entry">
+                    <p>
+Some hours ago Wine Staging 1.7.45 was released with several bug fixes and enhancements.
+</p>
+
+<p>
+Some applications use ICMP pings to check if a remote host / server is reachable, or to determine the round trip time. While Windows offers a special API to send ping requests and to receive the response, the only way to achieve the same on Linux/Unix based systems is to use raw sockets. For security reasons these sockets are limited to processes/users having the <code>CAP_NET_RAW</code> capability, which means that such programs usually do not run out of the box in Wine. Manually adjusting capability flags fixes the problem, but also gives the program the permission to sniff traffic by other applications or users on the same interface.
+</p>
+
+<p>
+In order to partially solve this problem, we implemented a fallback in Wine which makes use of the <code>ping</code> commandline tool if Wine does not have the necessary capabilities. The ping utility usually has the necessary permission and provides most of the functions offered by the Windows API. While this is not sufficient for special things like traceroutes, the most common use-case of sending simple requests in order to measure the round trip time works fine with this approach.
+</p>
+
+
+                    <p><a href="/news/2015-06-14-release-1.7.45.html">Read more</a></p>
+                </div>
+            </div>
+    
+
+        <div class="post">
                 <h2 class="title"><a href="/news/2015-05-31-release-1.7.44.html">Release 1.7.44</a></h2>
                 <p class="meta"><span class="author">Wine Staging Team</span>&nbsp;-&nbsp<span class="date">Sun, 31 May 2015</span></p>
                 <div class="entry">

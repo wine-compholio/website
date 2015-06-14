@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="keywords" content="Wine, Staging, wine-staging" />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Wine Staging</title>
+	<link href="/css/style.css" rel="stylesheet" type="text/css" media="screen" />
+</head>
+<body>
+<div id="wrapper">
+	<div id="header-wrapper">
+		<div id="header">
+			<div id="logo">
+				<h1><a href="/index.html">Wine <span>Staging</span></a></h1>
+			</div>
+			<div id="menu">
+				<ul>
+					<li><a href="/index.html">Home</a></li>
+					<li><a href="/news.html">News</a></li>
+					<li><a href="https://github.com/wine-compholio/wine-staging/wiki/Installation" target="_blank">Install</a></li>
+					<li><a href="https://github.com/wine-compholio/wine-staging/wiki" target="_blank">Wiki</a></li>
+					<li><a href="http://bugs.wine-staging.com" target="_blank">Bugs</a></li>
+					<li><a href="/source.html">Source</a></li>
+				</ul>
+			</div>
+			<div style="clear: both;"></div>
+		</div>
+	</div>
+	<!-- end #header -->
+	<div id="page">
+		<div id="content">
+			
+        <div class="post">
+                <h2 class="title">Release 1.7.45</h2>
+                <p class="meta"><span class="author">Wine Staging Team</span>&nbsp;-&nbsp<span class="date">Sun, 31 May 2015</span></p>
+                <div class="entry">
+                    <p>
+Some hours ago Wine Staging 1.7.45 was released with several bug fixes and enhancements.
+</p>
+
+<p>
+Some applications use ICMP pings to check if a remote host / server is reachable, or to determine the round trip time. While Windows offers a special API to send ping requests and to receive the response, the only way to achieve the same on Linux/Unix based systems is to use raw sockets. For security reasons these sockets are limited to processes/users having the <code>CAP_NET_RAW</code> capability, which means that such programs usually do not run out of the box in Wine. Manually adjusting capability flags fixes the problem, but also gives the program the permission to sniff traffic by other applications or users on the same interface.
+</p>
+
+<p>
+In order to partially solve this problem, we implemented a fallback in Wine which makes use of the <code>ping</code> commandline tool if Wine does not have the necessary capabilities. The ping utility usually has the necessary permission and provides most of the functions offered by the Windows API. While this is not sufficient for special things like traceroutes, the most common use-case of sending simple requests in order to measure the round trip time works fine with this approach.
+</p>
+
+<!--PREVIEW-->
+
+<p>
+One of the difficulties in Wined3d is to determine exact information about the hardware. While DirectX offers a way to get the amount of GPU memory or the PCI ID of the graphic card, a lot of this information is not accessible through the core OpenGL functions. So far Wined3d tries to match the graphic card name returned by OpenGL with an internal lookup table in order to fill out all these details. This is not always very precise and might result in false detections. One of the biggest problems is that the returned amount of detected VRAM is incorrect and the application tries to use more memory than available or decreases the graphic quality to stay within the reported limit.
+</p>
+
+<p>
+Some drivers like the NVIDIA and the Mesa driver added their own OpenGL extensions to gather these details and in this release we added support for the <code>NVX_GPU_MEMORY_INFO</code> extension by NVIDIA. We use this extension to get the total amount of GPU memory and moreover report proper memory usage to Wined3d. This is necessary to implement correct memory accounting. In case of problems it is still possible to use the old behavior by manually adjusting the amount of memory in the registry.
+</p>
+
+<p>
+Besides the changes above, here is a list of all added features:
+</p>
+
+<ul>
+	<li>Add semi-stub for FileFsVolumeInformation information class (<a href="https://bugs.winehq.org/show_bug.cgi?id=21466">Wine Bug #21466</a>)</li>
+	<li>Add stub for winscard.SCardListReadersA/W (<a href="https://bugs.winehq.org/show_bug.cgi?id=26978">Wine Bug #26978</a>)</li>
+	<li>Allow to enable/disable InsertMode in wineconsole settings (<a href="https://bugs.winehq.org/show_bug.cgi?id=38697">Wine Bug #38697</a>)</li>
+	<li>Allow to create Direct3D Device on desktop window (<a href="https://appdb.winehq.org/objectManager.php?sClass=version&iId=32194">Required by Juiced 2</a> and various other applications)</li>
+	<li>Ensure console InsertMode changes take effect immediately (<a href="https://bugs.wine-staging.com/show_bug.cgi?id=351">Wine Staging Bug #351</a>)</li>
+	<li>Fallback to system ping command when CAP_NET_RAW is not available (<a href="https://bugs.winehq.org/show_bug.cgi?id=8332">Wine Bug #8332</a>)</li>
+	<li>Fix endless loop in regedit when importing files with very long lines</li>
+	<li>Fix link notification conditions for riched20 (<a href="https://bugs.winehq.org/show_bug.cgi?id=35949">Wine Bug #35949</a>)</li>
+	<li>Forward GIF encoder requests to windowscodecs (<a href="https://bugs.winehq.org/show_bug.cgi?id=34356">Wine Bug #34356</a>)</li>
+	<li>Implement advapi32.GetWindowsAccountDomainSid (<a href="https://bugs.winehq.org/show_bug.cgi?id=38624">Wine Bug #38624</a>)</li>
+	<li>Implement default homepage button in inetcpl.cpl (Used by ReactOS)</li>
+	<li>Improve stub for NtQueryEaFile (<a href="https://bugs.wine-staging.com/show_bug.cgi?id=353">Wine Staging Bug #353</a>)</li>
+	<li>Initialize System\CurrentControlSet\Control\TimeZoneInformation registry keys (<a href="https://bugs.wine-staging.com/show_bug.cgi?id=354">Wine Staging Bug #354</a>)</li>
+	<li>Only send WM_DROPFILES when OLE dnd fails (<a href="https://bugs.winehq.org/show_bug.cgi?id=29081">Wine Bug #29081</a>)</li>
+	<li>Properly check existence of libunwind before linking against it (<a href="https://bugs.winehq.org/show_bug.cgi?id=38713">Wine Bug #38713</a>)</li>
+	<li>Return proper status codes when NtReadFile/NtWriteFile is called on closed (but not disconnected) pipe (<a href="https://bugs.wine-staging.com/show_bug.cgi?id=336">Wine Staging Bug #336</a>)</li>
+	<li>Set NamedPipeState to FILE_PIPE_CLOSING_STATE on broken pipe in NtQueryInformationFile (<a href="https://bugs.wine-staging.com/show_bug.cgi?id=336">Wine Staging Bug #336</a>)</li>
+	<li>Support for AT_ROUND_TO_PAGE flag in NtMapViewOfSection (<a href="https://bugs.wine-staging.com/show_bug.cgi?id=347">Wine Staging Bug #347</a>)</li>
+	<li>Support for NtSetInformationFile class FileLinkInformation (<a href="https://bugs.wine-staging.com/show_bug.cgi?id=297">Wine Staging Bug #297</a>)</li>
+	<li>Support for NtSetInformationFile class FileRenameInformation (<a href="https://bugs.winehq.org/show_bug.cgi?id=30399">Wine Bug #30399</a>)</li>
+	<li>Use NVX_GPU_MEMORY_INFO extension for more exact video memory accounting on NVIDIA graphic cards</li>
+</ul>
+
+<p>
+As usual you can also find all changes (including removed/upstream accepted patches) in our <a href="https://github.com/wine-compholio/wine-staging/blob/v1.7.45/debian/changelog">changelog</a>.
+</p>
+
+                    
+                </div>
+            </div>
+    
+		</div>
+		<div style="clear: both;"></div>
+	</div>
+	<!-- end #page -->
+</div>
+<div id="footer">
+	<p><a href="/impressum.html">Impressum</a> - Design based on Perfect Blemish by <a href="http://templated.co" rel="nofollow">TEMPLATED</a> (<a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>).</p>
+</div>
+<!-- end #footer -->
+</body>
+</html>
