@@ -33,6 +33,24 @@
 		<div id="content">
 			
         <div class="post">
+                <h2 class="title"><a href="/news/2015-07-12-release-1.7.47.html">Release 1.7.47</a></h2>
+                <p class="meta"><span class="author">Wine Staging Team</span>&nbsp;-&nbsp<span class="date">Sun, 12 Jul 2015</span></p>
+                <div class="entry">
+                    <p>
+In the past two weeks we worked on multi-threaded VCOMP support, added better GPU detection when using the MESA driver and improved our Mac OS X builds.
+</p>
+
+<p>
+The main feature of this new release is the improved vcomp.dll support. The Visual C++ compiler uses this dll to create and manage threads when using OpenMP. Unlike the name might suggest, the internal details of the Microsoft implementation are undocumented. Before this release Wine Staging already contained the single-threaded fallback implementation by Dan Kegel, which was replaced with a new implementation including proper multi-threading support. For many applications that depend on OpenMP support through vcomp.dll it is no longer necessary to install native libraries. Various additional functions are planned to be implemented until the next release.
+</p>
+
+
+                    <p><a href="/news/2015-07-12-release-1.7.47.html">Read more</a></p>
+                </div>
+            </div>
+    
+
+        <div class="post">
                 <h2 class="title"><a href="/news/2015-06-28-release-1.7.46.html">Release 1.7.46</a></h2>
                 <p class="meta"><span class="author">Wine Staging Team</span>&nbsp;-&nbsp<span class="date">Sun, 28 Jun 2015</span></p>
                 <div class="entry">

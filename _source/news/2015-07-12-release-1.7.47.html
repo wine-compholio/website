@@ -1,0 +1,24 @@
+Title: Release 1.7.47
+Date: Sun, 12 Jul 2015
+
+<p>
+In the past two weeks we worked on multi-threaded VCOMP support, added better GPU detection when using the MESA driver and improved our Mac OS X builds.
+</p>
+
+<p>
+The main feature of this new release is the improved vcomp.dll support. The Visual C++ compiler uses this dll to create and manage threads when using OpenMP. Unlike the name might suggest, the internal details of the Microsoft implementation are undocumented. Before this release Wine Staging already contained the single-threaded fallback implementation by Dan Kegel, which was replaced with a new implementation including proper multi-threading support. For many applications that depend on OpenMP support through vcomp.dll it is no longer necessary to install native libraries. Various additional functions are planned to be implemented until the next release.
+</p>
+
+<!--PREVIEW-->
+
+<p>
+Applications and game engines often use the information returned by Direct3D to optimize the rendering for a specific graphic card. This information includes the available amount of memory and the PCI vendor / device. Since these values are not available through OpenGL, Wine tries to match the OpenGL renderer string against a table with predefined values. This is not always very precise since some drivers only return the chipset series and the available amount of memory can differ between different graphic cards of the same type. In this release we added support for the <code>GLX_MESA_query_renderer</code> extension which is available on Mesa 10. This extension provides precise information about the memory / PCI ids and should therefore improve the detection.
+</p>
+
+<p>
+Besides adding new features, we also reached a new peak value in upstreaming patches. In total 54 patches got upstream in this release. As usual you can find all the changes in our <a href="https://github.com/wine-compholio/wine-staging/blob/v1.7.47/debian/changelog">changelog</a>.
+</p>
+
+<p>
+In the last release we added Mac OS X builds and we now improved them by adding support for hotpatchable functions. This features is used by Steam to provide in-game overlay support. While Steam simply detects that the support is missing, some other applications crash when trying to hook API functions. So far only GCC supported the necessary <code>ms_hook_prologue</code> attribute, but we patched llvm to implement the same feature. The build for Wine Staging 1.7.46 is therefore no longer affected by this bug. You can use our <code>winecheck</code> utility to check this feature, it will also show the detected Direct3D GPU values. You can find more information about the utility in our <a href="https://github.com/wine-compholio/wine-staging/wiki/Winecheck">Wiki</a>.
+</p>
