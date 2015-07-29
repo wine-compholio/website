@@ -1,0 +1,38 @@
+Title: Release 1.7.48
+Date: Wed, 29 Jul 2015
+
+<p>
+In contrast to our usual release schedule, we released Wine Staging 1.7.48 this time on Wednesday. This is just a result of the deferred upstream release and doesn't mean that we are going to change our release date in the future. The following list shows the features and bug fixes added in this release:
+</p>
+
+<!--PREVIEW-->
+
+<ul>
+	<li>Add stub for D3DXTessellateNPatches</li>
+	<li>Add stubs for D3DCompile2 and D3DCompileFromFile</li>
+	<li>Add stubs for d3dx10_43.D3DX10CreateEffectFromFileA/W (<a href="https://bugs.winehq.org/show_bug.cgi?id=27739">Wine Bug #27739</a>)</li>
+	<li>Add support for ThreadQuerySetWin32StartAddress info class (Process Explorer, <a href="https://bugs.winehq.org/show_bug.cgi?id=8277">Wine Bug #8277</a>)</li>
+	<li>Add wined3d detection for GeForce GT 425M (<a href="https://bugs.winehq.org/show_bug.cgi?id=35054">Wine Bug #35054</a>)</li>
+	<li>Avoid race-conditions with long running threadpool tasks (Fixes website loading in Steam)</li>
+	<li>Check architecture before loading a dll (<a href="https://bugs.winehq.org/show_bug.cgi?id=38021">Wine Bug #38021</a>)</li>
+	<li>Export additional OpenAL32 functions (Titan Souls, <a href="https://bugs.winehq.org/show_bug.cgi?id=38972">Wine Bug #38972</a>)</li>
+	<li>Fake success in kernel32.SetFileCompletionNotificationModes (Steam in Windows 7 mode, <a href="https://bugs.winehq.org/show_bug.cgi?id=38960">Wine Bug #38960</a>)</li>
+	<li>Fix loading of libraries with incomplete IMAGE_LOAD_CONFIG_DIRECTORY struct</li>
+	<li>Fix security cookie handling for UPX compressed executables (Free Falcon, <a href="https://bugs.winehq.org/show_bug.cgi?id=38949">Wine Bug #38949</a>)</li>
+	<li>Forward exitcode from child process when in wineconsole (<a href="https://bugs.wine-staging.com/show_bug.cgi?id=422">Wine Staging Bug #422</a>)</li>
+	<li>Implement AMStream GetMultiMediaStream functions (Medieval Total War, <a href="https://bugs.winehq.org/show_bug.cgi?id=37090">Wine Bug #37090</a>)</li>
+	<li>Implement dbghelp.UnDecorateSymbolNameW (Cerbero PE Insider, <a href="https://bugs.winehq.org/show_bug.cgi?id=38828">Wine Bug #38828</a>)</li>
+	<li>Return dummy ID3DXSkinInfo interface when skinning info not present (Face Noir, <a href="https://bugs.winehq.org/show_bug.cgi?id=33904">Wine Bug #33904</a>)</li>
+	<li>Share source of d3dx9_36 with d3dx9_33 to avoid Wine DLL forwards (<a href="https://bugs.winehq.org/show_bug.cgi?id=21817">Wine Bug #21817</a>)</li>
+	<li>Silence repeated LocaleNameToLCID/LCIDToLocaleName unsupported flags FIXMEs (<a href="https://bugs.winehq.org/show_bug.cgi?id=30076">Wine Bug #30076</a>)</li>
+	<li>Store registry timestamps with nanoseconds precision (IVONA Voices trial, <a href="https://bugs.winehq.org/show_bug.cgi?id=38927">Wine Bug #38927</a>)</li>
+	<li>Use video memory for rendering targets if possible (Zoo Tycoon / Conquest Frontier Wars, <a href="https://bugs.winehq.org/show_bug.cgi?id=34906">Wine Bug #34906</a>)</li>
+</ul>
+
+<p>
+A regression affecting various applications when CSMT is enabled should also be fixed now. Besides the newly added features we also got about 30 patches upstream since the last release.
+</p>
+
+<p>
+As usual you can find all the changes (including removed/upstream accepted patches) in our <a href="https://github.com/wine-compholio/wine-staging/blob/v1.7.48/debian/changelog">changelog</a>.
+</p>
