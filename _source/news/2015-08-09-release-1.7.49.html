@@ -1,0 +1,47 @@
+Title: Release 1.7.49
+Date: Sun, 09 Aug 2015
+
+<p>
+We are happy to announce Wine Staging 1.7.49. Although we didn't have as much time as usual due to the delayed release last time (and various other projects we are working on in the background, so stay tuned!), we have some neat features for you in this release. Especially for people who blame Wine for looking like it's still 1995.
+</p>
+
+<p>
+Starting with Windows XP Microsoft added theming support and changed it again in every Windows version since. The support for loading such themes was also added in Wine a long time ago, but due to changes in later Windows version Wine can only load Themes targeting Windows XP. Most users probably never noticed this feature as Wine doesn't ship any default themes. Needless to say that Wine looks like an alien on modern Linux desktops when using the default XP Luna theme.
+</p>
+
+<p>
+Instead of improving the existing theming implementation, the patchset added in this release adds a full alternative implementation to integrate Wine better into your Linux desktop. The feature written by Ivan Akulinchev utilizes GTK3 for rendering and makes Wine look like an ordinary GTK3 application. Since this feature is very experimental and not everyone might prefer the new look (or the possibly higher CPU usage), you need to manually enable it through the Staging tab of <code>winecfg</code>. Here are two screenshots to give you an impression on what you can do this way:
+</p>
+
+<!--PREVIEW-->
+
+<div style="text-align: center; margin-top:1em; margin-bottom: 1em;">
+	<span style="display: inline-block; height: 100%; vertical-align: middle;"></span>
+	<img src="/images/gtk3_winecfg.png" style="vertical-align: middle; margin: 2ex;">
+	<img src="/images/gtk3_file.png" style="vertical-align: middle; margin: 2ex;">
+</div>
+
+
+<p>
+There are still some bugs left and not all themes work properly, so feel free to open a <a href="https://bugs.wine-staging.com/">bug report</a> for any issues you encounter. Please also note that not all our prebuilt packages will be built using this feature due to multiarch conflicts, sorry.
+</p>
+
+<p>
+Besides this new big feature, we also got about 28 patches upstream since the last release, and added the following bug fixes and additions:
+</p>
+
+<ul>
+<li>Add stub dlls required for MSVC 2015 / Windows 10 runtime library</li>
+<li>Add stubs for additional wininet options in InternetSetOption (LogMeIn Ignition, <a href="https://bugs.wine-staging.com/show_bug.cgi?id=443">Wine Staging Bug #443</a>)</li>
+<li>Fake success in IViewObject::Draw stub (Lazarus browser, <a href="https://bugs.winehq.org/show_bug.cgi?id=30611">Wine Bug #30611</a>)</li>
+<li>Fix possible integer overflow in VarR4FromDec (.NET, <a href="https://bugs.winehq.org/show_bug.cgi?id=38988">Wine Bug #38988</a>)</li>
+<li>Implement stub for vcomp._vcomp_flush (Schein, <a href="https://bugs.winehq.org/show_bug.cgi?id=39058">Wine Bug #39058</a>)</li>
+<li>Improve stubs for dxgi MakeWindowAssociation and GetWindowAssociation</li>
+<li>Move cookie initialization code from memory management to loader (Office 2010, <a href="https://bugs.winehq.org/show_bug.cgi?id=39040">Wine Bug #39040</a>)</li>
+<li>Winhttp raw request headers must be terminated using double \r\n (Final Fantasy XIV, <a href="https://bugs.winehq.org/show_bug.cgi?id=35953">Wine Bug #35953</a>)</li>
+
+</ul>
+
+<p>
+As usual you can find all the changes (including removed/upstream accepted patches) in our <a href="https://github.com/wine-compholio/wine-staging/blob/v1.7.49/debian/changelog">changelog</a>.
+</p>

@@ -33,6 +33,28 @@
 		<div id="content">
 			
         <div class="post">
+                <h2 class="title"><a href="/news/2015-08-09-release-1.7.49.html">Release 1.7.49</a></h2>
+                <p class="meta"><span class="author">Wine Staging Team</span>&nbsp;-&nbsp<span class="date">Sun, 09 Aug 2015</span></p>
+                <div class="entry">
+                    <p>
+We are happy to announce Wine Staging 1.7.49. Although we didn't have as much time as usual due to the delayed release last time (and various other projects we are working on in the background, so stay tuned!), we have some neat features for you in this release. Especially for people who blame Wine for looking like it's still 1995.
+</p>
+
+<p>
+Starting with Windows XP Microsoft added theming support and changed it again in every Windows version since. The support for loading such themes was also added in Wine a long time ago, but due to changes in later Windows version Wine can only load Themes targeting Windows XP. Most users probably never noticed this feature as Wine doesn't ship any default themes. Needless to say that Wine looks like an alien on modern Linux desktops when using the default XP Luna theme.
+</p>
+
+<p>
+Instead of improving the existing theming implementation, the patchset added in this release adds a full alternative implementation to integrate Wine better into your Linux desktop. The feature written by Ivan Akulinchev utilizes GTK3 for rendering and makes Wine look like an ordinary GTK3 application. Since this feature is very experimental and not everyone might prefer the new look (or the possibly higher CPU usage), you need to manually enable it through the Staging tab of <code>winecfg</code>. Here are two screenshots to give you an impression on what you can do this way:
+</p>
+
+
+                    <p><a href="/news/2015-08-09-release-1.7.49.html">Read more</a></p>
+                </div>
+            </div>
+    
+
+        <div class="post">
                 <h2 class="title"><a href="/news/2015-07-29-release-1.7.48.html">Release 1.7.48</a></h2>
                 <p class="meta"><span class="author">Wine Staging Team</span>&nbsp;-&nbsp<span class="date">Wed, 29 Jul 2015</span></p>
                 <div class="entry">
