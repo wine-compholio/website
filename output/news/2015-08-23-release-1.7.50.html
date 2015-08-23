@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="keywords" content="Wine, Staging, wine-staging" />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Wine Staging</title>
+	<link href="/css/style.css" rel="stylesheet" type="text/css" media="screen" />
+</head>
+<body>
+<div id="wrapper">
+	<div id="header-wrapper">
+		<div id="header">
+			<div id="logo">
+				<h1><a href="/index.html">Wine <span>Staging</span></a></h1>
+			</div>
+			<div id="menu">
+				<ul>
+					<li><a href="/index.html">Home</a></li>
+					<li><a href="/news.html">News</a></li>
+					<li><a href="https://github.com/wine-compholio/wine-staging/wiki/Installation" target="_blank">Install</a></li>
+					<li><a href="https://github.com/wine-compholio/wine-staging/wiki" target="_blank">Wiki</a></li>
+					<li><a href="http://bugs.wine-staging.com" target="_blank">Bugs</a></li>
+					<li><a href="/source.html">Source</a></li>
+				</ul>
+			</div>
+			<div style="clear: both;"></div>
+		</div>
+	</div>
+	<!-- end #header -->
+	<div id="page">
+		<div id="content">
+			
+        <div class="post">
+                <h2 class="title">Release 1.7.50</h2>
+                <p class="meta"><span class="author">Wine Staging Team</span>&nbsp;-&nbsp<span class="date">Sun, 23 Aug 2015</span></p>
+                <div class="entry">
+                    <p>
+Yesterday we released Wine Staging 1.7.50, which improves support for MSYS2 and fixes some bugs in the recently added GTK3 theming engine.
+</p>
+
+<p>
+This release continues the ongoing effort to fix MSYS2 related bugs in order to provide a Win32 build environment through Wine. This should make it easier to develop and test applications without using Windows. Since many MSYS2 tools are based on Cygwin (a POSIX implementation for Windows), they require a lot of low level APIs and often reveal shortcomings in Wine. In the long term, fixing those bugs might also help other applications.
+</p>
+
+<p>
+Besides that, we continued to work on the recently added GTK3 theming engine. Most importantly, various users reported an issue which caused a <code>division by zero</code> exception, which should be fixed in this release.
+</p>
+
+<p>
+The full list of added features and bug fixes (including those for MSYS2) is shown below.
+</p>
+
+<!--PREVIEW-->
+
+<ul>
+	<li>Add IDragSourceHelper stub interface (Explorer++, <a href="https://bugs.winehq.org/show_bug.cgi?id=24699">Wine Bug #24699</a>)</li>
+	<li>Catch invalid memory accesses in imagehlp.CheckSumMappedFile (Opticut, <a href="https://bugs.wine-staging.com/show_bug.cgi?id=502">Wine Staging Bug #502</a>)</li>
+	<li>Do not allow to deallocate thread stack for current thread (MSYS2, <a href="https://bugs.wine-staging.com/show_bug.cgi?id=241">Wine Staging Bug #241</a>)</li>
+	<li>Fix detection of case-insensitive systems in MSYS2 (<a href="https://bugs.wine-staging.com/show_bug.cgi?id=474">Wine Staging Bug #474</a>)</li>
+	<li>Fix implementation of msvcrt.close when stdout == stderr (MSYS2, <a href="https://bugs.wine-staging.com/show_bug.cgi?id=485">Wine Staging Bug #485</a>)</li>
+	<li>Implement enumeration of sound devices and basic properties to dxdiagn (Rainbow Six: Lockdown, <a href="https://bugs.winehq.org/show_bug.cgi?id=32613">Wine Bug #32613</a>)</li>
+	<li>Implement shell32 NewMenu class with new folder item (Explorer++ et al., <a href="https://bugs.winehq.org/show_bug.cgi?id=24812">Wine Bug #24812</a>)</li>
+	<li>Implement special handling for calling GetChildContainer with an empty string (CCCP Insurgent, <a href="https://bugs.winehq.org/show_bug.cgi?id=38014">Wine Bug #38014</a>)</li>
+	<li>Improve startup performance by delaying font initialization (MSYS2, <a href="https://bugs.wine-staging.com/show_bug.cgi?id=485">Wine Staging Bug #401</a>)</li>
+	<li>Notepad should create new files immediately (<a href="https://bugs.winehq.org/show_bug.cgi?id=19425">Wine Bug #19425</a>)</li>
+	<li>Only set SFGAO_HASSUBFOLDER when there are really subfolders (Explorer++ et al., <a href="https://bugs.winehq.org/show_bug.cgi?id=24851">Wine Bug #24851</a>)</li>
+	<li>Properly implement imagehlp.ImageLoad and ImageUnload (Opticut, <a href="https://bugs.wine-staging.com/show_bug.cgi?id=502">Wine Staging Bug #502</a>)</li>
+	<li>Report correct ObjectName for NamedPipe wineserver objects (MSYS2, <a href="https://bugs.wine-staging.com/show_bug.cgi?id=363">Wine Staging Bug #363</a>)</li>
+	<li>Return STATUS_OBJECT_NAME_INVALID in wine_nt_to_unix_file_name for paths that only contain a prefix (Filterforge, <a href="https://bugs.winehq.org/show_bug.cgi?id=39133">Wine Bug #39133</a>)</li>
+	<li>Return a valid mesh in D3DXCreateTeapot (Drakensang: The Dark Eye, <a href="https://bugs.winehq.org/show_bug.cgi?id=36884">Wine Bug #36884</a>)</li>
+	<li>Set EOF on file which has a memory mapping should fail (MSYS2, <a href="https://bugs.wine-staging.com/show_bug.cgi?id=471">Wine Bug #471</a>)</li>
+	<li>Use helper function for NtWaitForMultipleObjects and NtWaitForSingleObject (Stylizer 5, <a href="https://bugs.winehq.org/show_bug.cgi?id=39127">Wine Bug #39127</a>)</li>
+</ul>
+
+<p>
+Since the last Wine Staging release about 27 patches were accepted in upstream Wine. As usual you can find all the changes (including removed/upstream accepted patches) in our <a href="https://github.com/wine-compholio/wine-staging/blob/v1.7.50/debian/changelog">changelog</a>.
+</p>
+                    
+                </div>
+            </div>
+    
+		</div>
+		<div style="clear: both;"></div>
+	</div>
+	<!-- end #page -->
+</div>
+<div id="footer">
+	<p><a href="/impressum.html">Impressum</a> - Design based on Perfect Blemish by <a href="http://templated.co" rel="nofollow">TEMPLATED</a> (<a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>).</p>
+</div>
+<!-- end #footer -->
+</body>
+</html>
