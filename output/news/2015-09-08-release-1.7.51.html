@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="keywords" content="Wine, Staging, wine-staging" />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Wine Staging</title>
+	<link href="/css/style.css" rel="stylesheet" type="text/css" media="screen" />
+</head>
+<body>
+<div id="wrapper">
+	<div id="header-wrapper">
+		<div id="header">
+			<div id="logo">
+				<h1><a href="/index.html">Wine <span>Staging</span></a></h1>
+			</div>
+			<div id="menu">
+				<ul>
+					<li><a href="/index.html">Home</a></li>
+					<li><a href="/news.html">News</a></li>
+					<li><a href="https://github.com/wine-compholio/wine-staging/wiki/Installation" target="_blank">Install</a></li>
+					<li><a href="https://github.com/wine-compholio/wine-staging/wiki" target="_blank">Wiki</a></li>
+					<li><a href="http://bugs.wine-staging.com" target="_blank">Bugs</a></li>
+					<li><a href="/source.html">Source</a></li>
+				</ul>
+			</div>
+			<div style="clear: both;"></div>
+		</div>
+	</div>
+	<!-- end #header -->
+	<div id="page">
+		<div id="content">
+			
+        <div class="post">
+                <h2 class="title">Release 1.7.51</h2>
+                <p class="meta"><span class="author">Wine Staging Team</span>&nbsp;-&nbsp<span class="date">Tue, 08 Sep 2015</span></p>
+                <div class="entry">
+                    <p>
+Yesterday we released Wine Staging 1.7.51 with a bunch of bug fixes. We continued our work on MSYS2 and also added patches for various other applications.
+</p>
+
+<p>
+For those who use the CSMT (commandstream multithreading) patchset to improve the graphic performance, it might be worth to retest existing bug reports. Several bugs were fixed in this release, and the patchset has been updated to stay in sync with the authors repository.
+</p>
+
+<!--
+<p>
+Besides adding new features, we also fixed several bugs in the CSMT patchset.
+The CSMT patchset used by Wine Staging provides an improved graphic performance and is popular with our users. In this release we fixed several smaller issues and it might be worth to check existing problems.
+</p>
+-->
+
+<!--PREVIEW-->
+
+<p>
+The full list of added features and bug fixes is shown below.
+</p>
+
+<ul>
+	<li>Add IHTMLLocation::hash property's getter implementation (<a href="https://bugs.winehq.org/show_bug.cgi?id=32967">Wine Bug #32967</a>)</li>
+	<li>Add stub for dwmapi.DwmUpdateThumbnailProperties</li>
+	<li>Add stub for winspool.SetPrinterW level 8 (PDF Factory, <a href="https://bugs.winehq.org/show_bug.cgi?id=24645">Wine Bug #24645</a>)</li>
+	<li>Allow non-nullterminated string as working directory in kernel32.create_startup_info (MSYS2, <a href="https://bugs.wine-staging.com/show_bug.cgi?id=543">Wine Staging Bug #543</a>)</li>
+	<li>Create Microsoft\Windows\Themes directory during Wineprefix creation (WinLaunch 0.4, <a href="https://bugs.winehq.org/show_bug.cgi?id=34910">Wine Bug #34910</a>)</li>
+	<li>Fallback to default comspec when %COMSPEC% is not set (MSYS2, <a href="https://bugs.wine-staging.com/show_bug.cgi?id=449">Wine Staging Bug #449</a>)</li>
+	<li>Fix access violation in MSYS2 git when cloning repository (MSYS2, <a href="https://bugs.wine-staging.com/show_bug.cgi?id=348">Wine Staging Bug #348</a>)</li>
+	<li>Fix error handling in DeferWindowPos when passing an invalid HWND (<a href="https://bugs.winehq.org/show_bug.cgi?id=23187">Wine Bug #23187</a>)</li>
+	<li>Fix failure to create anonymous file mapping after failed open_fd server call (MSYS2, <a href="https://bugs.wine-staging.com/show_bug.cgi?id=538">Wine Staging Bug #538</a>)</li>
+	<li>Implement FolderImpl_Items and stubbed FolderItems interface (Gray Matter GOG Installer)</li>
+	<li>Implement a Times New Roman replacement font (Programs using Awesomium, <a href="https://bugs.winehq.org/show_bug.cgi?id=32342">Wine Bug #32342</a>)</li>
+	<li>Implement {Set,Get}ThreadGroupAffinity and related ntdll functions (Trion's Trove, <a href="https://bugs.winehq.org/show_bug.cgi?id=36549">Wine Bug #36549</a>)</li>
+	<li>Map EXDEV error code to STATUS_NOT_SAME_DEVICE (MSYS2, <a href="https://bugs.wine-staging.com/show_bug.cgi?id=536">Wine Staging Bug #536</a>)</li>
+	<li>Properly close sockets when WSACleanup is called (QIP Infium, <a href="https://bugs.winehq.org/show_bug.cgi?id=18670">Wine Bug #18670</a>)</li>
+	<li>Properly initialize caps->dwZBufferBitDepths in ddraw7_GetCaps (Shadow Company, <a href="https://bugs.winehq.org/show_bug.cgi?id=27002">Wine Bug #27002</a>)</li>
+	<li>Properly render themed buttons when they are pressed (<a href="https://bugs.winehq.org/show_bug.cgi?id=37584">Wine Bug #37584</a>)</li>
+	<li>Return a dummy BIOS name in Win32_BIOS record (NinjaTrader, <a href="https://bugs.wine-staging.com/show_bug.cgi?id=528">Wine Staging Bug #528</a>)</li>
+	<li>SHFileOperation with FO_MOVE should create new directory on Vista+ (<a href="https://bugs.winehq.org/show_bug.cgi?id=25207">Wine Bug #25207</a>)</li>
+	<li>Translate flags in LaunchINFSectionW (Windows Media Player 6 Installer)</li>
+	<li>Update the Courier New replacement font (FEAR/AoE3/..., <a href="https://bugs.winehq.org/show_bug.cgi?id=20456">Wine Bug #20456</a>)</li>
+	<li>Use proper glyph names in wineps driver to allow copying text from generated PDF files (OrCAD, <a href="https://bugs.winehq.org/show_bug.cgi?id=6416">Wine Bug #6416</a>)</li>
+</ul>
+
+<p>
+As usual you can find all the changes (including removed/upstream accepted patches) in our <a href="https://github.com/wine-compholio/wine-staging/blob/v1.7.51/debian/changelog">changelog</a>.
+</p>
+                    
+                </div>
+            </div>
+    
+		</div>
+		<div style="clear: both;"></div>
+	</div>
+	<!-- end #page -->
+</div>
+<div id="footer">
+	<p><a href="/impressum.html">Impressum</a> - Design based on Perfect Blemish by <a href="http://templated.co" rel="nofollow">TEMPLATED</a> (<a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>).</p>
+</div>
+<!-- end #footer -->
+</body>
+</html>
