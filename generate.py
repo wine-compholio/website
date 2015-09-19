@@ -22,7 +22,7 @@ def generateStaticSites(template, destdir):
         with open(full_path, 'r') as f:
             content = f.read()
 
-        with open(os.path.join(destdir, filename), 'w') as f:
+        with open(os.path.join(destdir, filename), 'wb') as f:
             f.write("%s%s%s" % (template[0], content, template[1]))
 
 def generateNewsPost(title, date, content, extra):
@@ -84,10 +84,10 @@ def generateNewsSites(template, destdir):
         overview.append(generateNewsPost(title_link, headers["date"], preview, read_more))
 
         content = generateNewsPost(headers["title"], headers["date"], content, "")
-        with open(os.path.join(destdir, "news", filename), 'w') as f:
+        with open(os.path.join(destdir, "news", filename), 'wb') as f:
             f.write("%s%s%s" % (template[0], content, template[1]))
-      
-    with open(os.path.join(destdir, "news.html"), 'w') as f:
+
+    with open(os.path.join(destdir, "news.html"), 'wb') as f:
         f.write("%s%s%s" % (template[0], "\n".join(overview), template[1]))
 
 if __name__ == '__main__':
