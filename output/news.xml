@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><id>http://www.wine-staging.com/news.xml</id><title>Wine Staging</title><updated>2015-09-08</updated><link href="/news.xml" rel="self"></link><link href="/news.html" type="text/html" rel="alternate"></link><entry><title>Release 1.7.51</title><link href="/news/2015-09-08-release-1.7.51.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2015-09-08-release-1.7.51.html</id><updated>2015-09-08</updated><summary type="html">&lt;p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><id>http://www.wine-staging.com/news.xml</id><title>Wine Staging</title><updated>2015-09-08</updated><link href="/news.xml" rel="self"></link><link href="/news.html" type="text/html" rel="alternate"></link><entry><title>Release 1.7.51</title><link href="/news/2015-09-08-release-1.7.51.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2015-09-08-release-1.7.51.html</id><updated>2015-09-08</updated><summary type="html">
+        &lt;div class="post"&gt;
+                &lt;h2 class="title"&gt;Release 1.7.51&lt;/h2&gt;
+                &lt;p class="meta"&gt;&lt;span class="author"&gt;Wine Staging Team&lt;/span&gt;&amp;nbsp;-&amp;nbsp;&lt;span class="date"&gt;Tue, 08 Sep 2015&lt;/span&gt;&lt;/p&gt;
+                &lt;div class="entry"&gt;
+                    &lt;p&gt;
 Yesterday we released Wine Staging 1.7.51 with a bunch of bug fixes. We continued our work on MSYS2 and also added patches for various other applications.
 &lt;/p&gt;
 
@@ -14,7 +19,48 @@ The CSMT patchset used by Wine Staging provides an improved graphic performance 
 &lt;/p&gt;
 --&gt;
 
-</summary></entry><entry><title>Release 1.7.50</title><link href="/news/2015-08-23-release-1.7.50.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2015-08-23-release-1.7.50.html</id><updated>2015-08-23</updated><summary type="html">&lt;p&gt;
+&lt;!--PREVIEW--&gt;
+
+&lt;p&gt;
+The full list of added features and bug fixes is shown below.
+&lt;/p&gt;
+
+&lt;ul&gt;
+	&lt;li&gt;Add IHTMLLocation::hash property's getter implementation (&lt;a href="https://bugs.winehq.org/show_bug.cgi?id=32967"&gt;Wine Bug #32967&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Add stub for dwmapi.DwmUpdateThumbnailProperties&lt;/li&gt;
+	&lt;li&gt;Add stub for winspool.SetPrinterW level 8 (PDF Factory, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=24645"&gt;Wine Bug #24645&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Allow non-nullterminated string as working directory in kernel32.create_startup_info (MSYS2, &lt;a href="https://bugs.wine-staging.com/show_bug.cgi?id=543"&gt;Wine Staging Bug #543&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Create Microsoft\Windows\Themes directory during Wineprefix creation (WinLaunch 0.4, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=34910"&gt;Wine Bug #34910&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Fallback to default comspec when %COMSPEC% is not set (MSYS2, &lt;a href="https://bugs.wine-staging.com/show_bug.cgi?id=449"&gt;Wine Staging Bug #449&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Fix access violation in MSYS2 git when cloning repository (MSYS2, &lt;a href="https://bugs.wine-staging.com/show_bug.cgi?id=348"&gt;Wine Staging Bug #348&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Fix error handling in DeferWindowPos when passing an invalid HWND (&lt;a href="https://bugs.winehq.org/show_bug.cgi?id=23187"&gt;Wine Bug #23187&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Fix failure to create anonymous file mapping after failed open_fd server call (MSYS2, &lt;a href="https://bugs.wine-staging.com/show_bug.cgi?id=538"&gt;Wine Staging Bug #538&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Implement FolderImpl_Items and stubbed FolderItems interface (Gray Matter GOG Installer)&lt;/li&gt;
+	&lt;li&gt;Implement a Times New Roman replacement font (Programs using Awesomium, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=32342"&gt;Wine Bug #32342&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Implement {Set,Get}ThreadGroupAffinity and related ntdll functions (Trion's Trove, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=36549"&gt;Wine Bug #36549&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Map EXDEV error code to STATUS_NOT_SAME_DEVICE (MSYS2, &lt;a href="https://bugs.wine-staging.com/show_bug.cgi?id=536"&gt;Wine Staging Bug #536&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Properly close sockets when WSACleanup is called (QIP Infium, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=18670"&gt;Wine Bug #18670&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Properly initialize caps-&gt;dwZBufferBitDepths in ddraw7_GetCaps (Shadow Company, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=27002"&gt;Wine Bug #27002&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Properly render themed buttons when they are pressed (&lt;a href="https://bugs.winehq.org/show_bug.cgi?id=37584"&gt;Wine Bug #37584&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Return a dummy BIOS name in Win32_BIOS record (NinjaTrader, &lt;a href="https://bugs.wine-staging.com/show_bug.cgi?id=528"&gt;Wine Staging Bug #528&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;SHFileOperation with FO_MOVE should create new directory on Vista+ (&lt;a href="https://bugs.winehq.org/show_bug.cgi?id=25207"&gt;Wine Bug #25207&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Translate flags in LaunchINFSectionW (Windows Media Player 6 Installer)&lt;/li&gt;
+	&lt;li&gt;Update the Courier New replacement font (FEAR/AoE3/..., &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=20456"&gt;Wine Bug #20456&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Use proper glyph names in wineps driver to allow copying text from generated PDF files (OrCAD, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=6416"&gt;Wine Bug #6416&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;
+As usual you can find all the changes (including removed/upstream accepted patches) in our &lt;a href="https://github.com/wine-compholio/wine-staging/blob/v1.7.51/debian/changelog"&gt;changelog&lt;/a&gt;.
+&lt;/p&gt;
+                    
+                &lt;/div&gt;
+            &lt;/div&gt;
+    </summary></entry><entry><title>Release 1.7.50</title><link href="/news/2015-08-23-release-1.7.50.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2015-08-23-release-1.7.50.html</id><updated>2015-08-23</updated><summary type="html">
+        &lt;div class="post"&gt;
+                &lt;h2 class="title"&gt;Release 1.7.50&lt;/h2&gt;
+                &lt;p class="meta"&gt;&lt;span class="author"&gt;Wine Staging Team&lt;/span&gt;&amp;nbsp;-&amp;nbsp;&lt;span class="date"&gt;Sun, 23 Aug 2015&lt;/span&gt;&lt;/p&gt;
+                &lt;div class="entry"&gt;
+                    &lt;p&gt;
 Yesterday we released Wine Staging 1.7.50, which improves support for MSYS2 and fixes some bugs in the recently added GTK3 theming engine.
 &lt;/p&gt;
 
@@ -26,7 +72,44 @@ This release continues the ongoing effort to fix MSYS2 related bugs in order to 
 Besides that, we continued to work on the recently added GTK3 theming engine. Most importantly, various users reported an issue which caused a &lt;code&gt;division by zero&lt;/code&gt; exception, which should be fixed in this release.
 &lt;/p&gt;
 
-</summary></entry><entry><title>Release 1.7.49</title><link href="/news/2015-08-09-release-1.7.49.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2015-08-09-release-1.7.49.html</id><updated>2015-08-09</updated><summary type="html">&lt;p&gt;
+&lt;!--PREVIEW--&gt;
+
+&lt;p&gt;
+The full list of added features and bug fixes (including those for MSYS2) is shown below.
+&lt;/p&gt;
+
+&lt;ul&gt;
+	&lt;li&gt;Add IDragSourceHelper stub interface (Explorer++, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=24699"&gt;Wine Bug #24699&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Catch invalid memory accesses in imagehlp.CheckSumMappedFile (Opticut, &lt;a href="https://bugs.wine-staging.com/show_bug.cgi?id=502"&gt;Wine Staging Bug #502&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Do not allow to deallocate thread stack for current thread (MSYS2, &lt;a href="https://bugs.wine-staging.com/show_bug.cgi?id=241"&gt;Wine Staging Bug #241&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Fix detection of case-insensitive systems in MSYS2 (&lt;a href="https://bugs.wine-staging.com/show_bug.cgi?id=474"&gt;Wine Staging Bug #474&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Fix implementation of msvcrt.close when stdout == stderr (MSYS2, &lt;a href="https://bugs.wine-staging.com/show_bug.cgi?id=485"&gt;Wine Staging Bug #485&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Implement enumeration of sound devices and basic properties to dxdiagn (Rainbow Six: Lockdown, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=32613"&gt;Wine Bug #32613&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Implement shell32 NewMenu class with new folder item (Explorer++ et al., &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=24812"&gt;Wine Bug #24812&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Implement special handling for calling GetChildContainer with an empty string (CCCP Insurgent, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=38014"&gt;Wine Bug #38014&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Improve startup performance by delaying font initialization (MSYS2, &lt;a href="https://bugs.wine-staging.com/show_bug.cgi?id=401"&gt;Wine Staging Bug #401&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Notepad should create new files immediately (&lt;a href="https://bugs.winehq.org/show_bug.cgi?id=19425"&gt;Wine Bug #19425&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Only set SFGAO_HASSUBFOLDER when there are really subfolders (Explorer++ et al., &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=24851"&gt;Wine Bug #24851&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Properly implement imagehlp.ImageLoad and ImageUnload (Opticut, &lt;a href="https://bugs.wine-staging.com/show_bug.cgi?id=502"&gt;Wine Staging Bug #502&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Report correct ObjectName for NamedPipe wineserver objects (MSYS2, &lt;a href="https://bugs.wine-staging.com/show_bug.cgi?id=363"&gt;Wine Staging Bug #363&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Return STATUS_OBJECT_NAME_INVALID in wine_nt_to_unix_file_name for paths that only contain a prefix (Filterforge, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=39133"&gt;Wine Bug #39133&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Return a valid mesh in D3DXCreateTeapot (Drakensang: The Dark Eye, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=36884"&gt;Wine Bug #36884&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Set EOF on file which has a memory mapping should fail (MSYS2, &lt;a href="https://bugs.wine-staging.com/show_bug.cgi?id=471"&gt;Wine Bug #471&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Use helper function for NtWaitForMultipleObjects and NtWaitForSingleObject (Stylizer 5, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=39127"&gt;Wine Bug #39127&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;
+Since the last Wine Staging release about 27 patches were accepted in upstream Wine. As usual you can find all the changes (including removed/upstream accepted patches) in our &lt;a href="https://github.com/wine-compholio/wine-staging/blob/v1.7.50/debian/changelog"&gt;changelog&lt;/a&gt;.
+&lt;/p&gt;
+                    
+                &lt;/div&gt;
+            &lt;/div&gt;
+    </summary></entry><entry><title>Release 1.7.49</title><link href="/news/2015-08-09-release-1.7.49.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2015-08-09-release-1.7.49.html</id><updated>2015-08-09</updated><summary type="html">
+        &lt;div class="post"&gt;
+                &lt;h2 class="title"&gt;Release 1.7.49&lt;/h2&gt;
+                &lt;p class="meta"&gt;&lt;span class="author"&gt;Wine Staging Team&lt;/span&gt;&amp;nbsp;-&amp;nbsp;&lt;span class="date"&gt;Sun, 09 Aug 2015&lt;/span&gt;&lt;/p&gt;
+                &lt;div class="entry"&gt;
+                    &lt;p&gt;
 We are happy to announce Wine Staging 1.7.49. Although we didn't have as much time as usual due to the delayed release last time (and various other projects we are working on in the background, so stay tuned!), we have some neat features for you in this release. Especially for people who blame Wine for looking like it's still 1995.
 &lt;/p&gt;
 
@@ -38,11 +121,92 @@ Starting with Windows XP Microsoft added theming support and changed it again in
 Instead of improving the existing theming implementation, the patchset added in this release adds a full alternative implementation to integrate Wine better into your Linux desktop. The feature written by Ivan Akulinchev utilizes GTK3 for rendering and makes Wine look like an ordinary GTK3 application. Since this feature is very experimental and not everyone might prefer the new look (or the possibly higher CPU usage), you need to manually enable it through the Staging tab of &lt;code&gt;winecfg&lt;/code&gt;. Here are two screenshots to give you an impression on what you can do this way:
 &lt;/p&gt;
 
-</summary></entry><entry><title>Release 1.7.48</title><link href="/news/2015-07-29-release-1.7.48.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2015-07-29-release-1.7.48.html</id><updated>2015-07-29</updated><summary type="html">&lt;p&gt;
+&lt;!--PREVIEW--&gt;
+
+&lt;div style="text-align: center; margin-top:1em; margin-bottom: 1em;"&gt;
+	&lt;span style="display: inline-block; height: 100%; vertical-align: middle;"&gt;&lt;/span&gt;
+	&lt;img src="/images/gtk3_winecfg.png" style="vertical-align: middle; margin: 2ex;"&gt;
+	&lt;img src="/images/gtk3_file.png" style="vertical-align: middle; margin: 2ex;"&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;
+There are still some bugs left and not all themes work properly, so feel free to open a &lt;a href="https://bugs.wine-staging.com/"&gt;bug report&lt;/a&gt; for any issues you encounter. Please also note that not all our prebuilt packages will be built using this feature due to multiarch conflicts, sorry.
+&lt;/p&gt;
+
+&lt;p&gt;
+Besides this new big feature, we also got about 28 patches upstream since the last release, and added the following bug fixes and additions:
+&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Add stub dlls required for MSVC 2015 / Windows 10 runtime library&lt;/li&gt;
+&lt;li&gt;Add stubs for additional wininet options in InternetSetOption (LogMeIn Ignition, &lt;a href="https://bugs.wine-staging.com/show_bug.cgi?id=443"&gt;Wine Staging Bug #443&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Fake success in IViewObject::Draw stub (Lazarus browser, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=30611"&gt;Wine Bug #30611&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Fix possible integer overflow in VarR4FromDec (.NET, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=38988"&gt;Wine Bug #38988&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Implement stub for vcomp._vcomp_flush (Schein, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=39058"&gt;Wine Bug #39058&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Improve stubs for dxgi MakeWindowAssociation and GetWindowAssociation&lt;/li&gt;
+&lt;li&gt;Move cookie initialization code from memory management to loader (Office 2010, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=39040"&gt;Wine Bug #39040&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Winhttp raw request headers must be terminated using double \r\n (Final Fantasy XIV, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=35953"&gt;Wine Bug #35953&lt;/a&gt;)&lt;/li&gt;
+
+&lt;/ul&gt;
+
+&lt;p&gt;
+As usual you can find all the changes (including removed/upstream accepted patches) in our &lt;a href="https://github.com/wine-compholio/wine-staging/blob/v1.7.49/debian/changelog"&gt;changelog&lt;/a&gt;.
+&lt;/p&gt;
+
+                    
+                &lt;/div&gt;
+            &lt;/div&gt;
+    </summary></entry><entry><title>Release 1.7.48</title><link href="/news/2015-07-29-release-1.7.48.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2015-07-29-release-1.7.48.html</id><updated>2015-07-29</updated><summary type="html">
+        &lt;div class="post"&gt;
+                &lt;h2 class="title"&gt;Release 1.7.48&lt;/h2&gt;
+                &lt;p class="meta"&gt;&lt;span class="author"&gt;Wine Staging Team&lt;/span&gt;&amp;nbsp;-&amp;nbsp;&lt;span class="date"&gt;Wed, 29 Jul 2015&lt;/span&gt;&lt;/p&gt;
+                &lt;div class="entry"&gt;
+                    &lt;p&gt;
 In contrast to our usual release schedule, we released Wine Staging 1.7.48 this time on Wednesday. This is just a result of the deferred upstream release and doesn't mean that we are going to change our release date in the future. The following list shows the features and bug fixes added in this release:
 &lt;/p&gt;
 
-</summary></entry><entry><title>Release 1.7.47</title><link href="/news/2015-07-12-release-1.7.47.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2015-07-12-release-1.7.47.html</id><updated>2015-07-12</updated><summary type="html">&lt;p&gt;
+&lt;!--PREVIEW--&gt;
+
+&lt;ul&gt;
+	&lt;li&gt;Add stub for D3DXTessellateNPatches&lt;/li&gt;
+	&lt;li&gt;Add stubs for D3DCompile2 and D3DCompileFromFile&lt;/li&gt;
+	&lt;li&gt;Add stubs for d3dx10_43.D3DX10CreateEffectFromFileA/W (&lt;a href="https://bugs.winehq.org/show_bug.cgi?id=27739"&gt;Wine Bug #27739&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Add support for ThreadQuerySetWin32StartAddress info class (Process Explorer, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=8277"&gt;Wine Bug #8277&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Add wined3d detection for GeForce GT 425M (&lt;a href="https://bugs.winehq.org/show_bug.cgi?id=35054"&gt;Wine Bug #35054&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Avoid race-conditions with long running threadpool tasks (Fixes website loading in Steam)&lt;/li&gt;
+	&lt;li&gt;Check architecture before loading a dll (&lt;a href="https://bugs.winehq.org/show_bug.cgi?id=38021"&gt;Wine Bug #38021&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Export additional OpenAL32 functions (Titan Souls, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=38972"&gt;Wine Bug #38972&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Fake success in kernel32.SetFileCompletionNotificationModes (Steam in Windows 7 mode, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=38960"&gt;Wine Bug #38960&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Fix loading of libraries with incomplete IMAGE_LOAD_CONFIG_DIRECTORY struct&lt;/li&gt;
+	&lt;li&gt;Fix security cookie handling for UPX compressed executables (Free Falcon, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=38949"&gt;Wine Bug #38949&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Forward exitcode from child process when in wineconsole (&lt;a href="https://bugs.wine-staging.com/show_bug.cgi?id=422"&gt;Wine Staging Bug #422&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Implement AMStream GetMultiMediaStream functions (Medieval Total War, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=37090"&gt;Wine Bug #37090&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Implement dbghelp.UnDecorateSymbolNameW (Cerbero PE Insider, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=38828"&gt;Wine Bug #38828&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Return dummy ID3DXSkinInfo interface when skinning info not present (Face Noir, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=33904"&gt;Wine Bug #33904&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Share source of d3dx9_36 with d3dx9_33 to avoid Wine DLL forwards (&lt;a href="https://bugs.winehq.org/show_bug.cgi?id=21817"&gt;Wine Bug #21817&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Silence repeated LocaleNameToLCID/LCIDToLocaleName unsupported flags FIXMEs (&lt;a href="https://bugs.winehq.org/show_bug.cgi?id=30076"&gt;Wine Bug #30076&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Store registry timestamps with nanoseconds precision (IVONA Voices trial, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=38927"&gt;Wine Bug #38927&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Use video memory for rendering targets if possible (Zoo Tycoon / Conquest Frontier Wars, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=34906"&gt;Wine Bug #34906&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;
+A regression affecting various applications when CSMT is enabled should also be fixed now. Besides the newly added features we also got about 30 patches upstream since the last release.
+&lt;/p&gt;
+
+&lt;p&gt;
+As usual you can find all the changes (including removed/upstream accepted patches) in our &lt;a href="https://github.com/wine-compholio/wine-staging/blob/v1.7.48/debian/changelog"&gt;changelog&lt;/a&gt;.
+&lt;/p&gt;
+
+                    
+                &lt;/div&gt;
+            &lt;/div&gt;
+    </summary></entry><entry><title>Release 1.7.47</title><link href="/news/2015-07-12-release-1.7.47.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2015-07-12-release-1.7.47.html</id><updated>2015-07-12</updated><summary type="html">
+        &lt;div class="post"&gt;
+                &lt;h2 class="title"&gt;Release 1.7.47&lt;/h2&gt;
+                &lt;p class="meta"&gt;&lt;span class="author"&gt;Wine Staging Team&lt;/span&gt;&amp;nbsp;-&amp;nbsp;&lt;span class="date"&gt;Sun, 12 Jul 2015&lt;/span&gt;&lt;/p&gt;
+                &lt;div class="entry"&gt;
+                    &lt;p&gt;
 In the past two weeks we worked on multi-threaded VCOMP support, added better GPU detection when using the MESA driver and improved our Mac OS X builds.
 &lt;/p&gt;
 
@@ -50,7 +214,29 @@ In the past two weeks we worked on multi-threaded VCOMP support, added better GP
 The main feature of this new release is the improved vcomp.dll support. The Visual C++ compiler uses this dll to create and manage threads when using OpenMP. Unlike the name might suggest, the internal details of the Microsoft implementation are undocumented. Before this release Wine Staging already contained the single-threaded fallback implementation by Dan Kegel, which was replaced with a new implementation including proper multi-threading support. For many applications that depend on OpenMP support through vcomp.dll it is no longer necessary to install native libraries. Various additional functions are planned to be implemented until the next release.
 &lt;/p&gt;
 
-</summary></entry><entry><title>Release 1.7.46</title><link href="/news/2015-06-28-release-1.7.46.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2015-06-28-release-1.7.46.html</id><updated>2015-06-28</updated><summary type="html">&lt;p&gt;
+&lt;!--PREVIEW--&gt;
+
+&lt;p&gt;
+Applications and game engines often use the information returned by Direct3D to optimize the rendering for a specific graphic card. This information includes the available amount of memory and the PCI vendor / device. Since these values are not available through OpenGL, Wine tries to match the OpenGL renderer string against a table with predefined values. This is not always very precise since some drivers only return the chipset series and the available amount of memory can differ between different graphic cards of the same type. In this release we added support for the &lt;code&gt;GLX_MESA_query_renderer&lt;/code&gt; extension which is available on Mesa 10. This extension provides precise information about the memory / PCI ids and should therefore improve the detection.
+&lt;/p&gt;
+
+&lt;p&gt;
+Besides adding new features, we also reached a new peak value in upstreaming patches. In total 54 patches got upstream in this release. As usual you can find all the changes in our &lt;a href="https://github.com/wine-compholio/wine-staging/blob/v1.7.47/debian/changelog"&gt;changelog&lt;/a&gt;.
+&lt;/p&gt;
+
+&lt;p&gt;
+In the last release we added Mac OS X builds and we now improved them by adding support for hotpatchable functions. This features is used by Steam to provide in-game overlay support. While Steam simply detects that the support is missing, some other applications crash when trying to hook API functions. So far only GCC supported the necessary &lt;code&gt;ms_hook_prologue&lt;/code&gt; attribute, but we patched llvm to implement the same feature. The build for Wine Staging 1.7.46 is therefore no longer affected by this bug. You can use our &lt;code&gt;winecheck&lt;/code&gt; utility to check this feature, it will also show the detected Direct3D GPU values. You can find more information about the utility in our &lt;a href="https://github.com/wine-compholio/wine-staging/wiki/Winecheck"&gt;Wiki&lt;/a&gt;.
+&lt;/p&gt;
+
+                    
+                &lt;/div&gt;
+            &lt;/div&gt;
+    </summary></entry><entry><title>Release 1.7.46</title><link href="/news/2015-06-28-release-1.7.46.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2015-06-28-release-1.7.46.html</id><updated>2015-06-28</updated><summary type="html">
+        &lt;div class="post"&gt;
+                &lt;h2 class="title"&gt;Release 1.7.46&lt;/h2&gt;
+                &lt;p class="meta"&gt;&lt;span class="author"&gt;Wine Staging Team&lt;/span&gt;&amp;nbsp;-&amp;nbsp;&lt;span class="date"&gt;Sun, 28 Jun 2015&lt;/span&gt;&lt;/p&gt;
+                &lt;div class="entry"&gt;
+                    &lt;p&gt;
 In the past two weeks we improved the Mac OS X compatibility and worked on upstreaming patches.
 &lt;/p&gt;
 
@@ -58,7 +244,34 @@ In the past two weeks we improved the Mac OS X compatibility and worked on upstr
 Most of the Wine Staging developers and contributors use Wine on Linux based systems. This leads to the problem that some features are not directly available or might contain bugs on other unix based systems. This release however focuses mostly on Mac OS X. We fixed several smaller bugs and issues regarding cross compiling and the loading of libraries. Besides code fixes, we now also provide prebuilt packages for Mac OS X 10.8+. Further information can be found in the &lt;a href="https://github.com/wine-compholio/wine-staging/wiki/Installation#mac-os-x"&gt;installation instructions&lt;/a&gt;.
 &lt;/p&gt;
 
-</summary></entry><entry><title>Release 1.7.45</title><link href="/news/2015-06-14-release-1.7.45.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2015-06-14-release-1.7.45.html</id><updated>2015-06-14</updated><summary type="html">&lt;p&gt;
+&lt;!--PREVIEW--&gt;
+
+&lt;p&gt;
+Besides the Mac OS X work, we got 28 patches upstream and added the following features:
+&lt;/p&gt;
+
+
+&lt;ul&gt;
+	&lt;li&gt;Fix drawing in Photoshop CS5 (&lt;a href="https://bugs.winehq.org/show_bug.cgi?id=29871"&gt;Wine Bug #29871&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Implement general tab for file property dialog (&lt;a href="https://bugs.wine-staging.com/show_bug.cgi?id=357"&gt;Wine Staging Bug #357&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Fix SecuROM 5.x media validation (&lt;a href="https://bugs.winehq.org/show_bug.cgi?id=21448"&gt;Wine Bug #21448&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Fix Xuzhou network client crash (&lt;a href="https://bugs.winehq.org/show_bug.cgi?id=30378"&gt;Wine Bug #30378&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Fix wineserver crash when pipe server object is destroyed (&lt;a href="https://bugs.wine-staging.com/show_bug.cgi?id=393"&gt;Wine Staging Bug #393&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;
+As usual you can find all the changes in our &lt;a href="https://github.com/wine-compholio/wine-staging/blob/v1.7.46/debian/changelog"&gt;changelog&lt;/a&gt;.
+&lt;/p&gt;
+
+                    
+                &lt;/div&gt;
+            &lt;/div&gt;
+    </summary></entry><entry><title>Release 1.7.45</title><link href="/news/2015-06-14-release-1.7.45.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2015-06-14-release-1.7.45.html</id><updated>2015-06-14</updated><summary type="html">
+        &lt;div class="post"&gt;
+                &lt;h2 class="title"&gt;Release 1.7.45&lt;/h2&gt;
+                &lt;p class="meta"&gt;&lt;span class="author"&gt;Wine Staging Team&lt;/span&gt;&amp;nbsp;-&amp;nbsp;&lt;span class="date"&gt;Sun, 14 Jun 2015&lt;/span&gt;&lt;/p&gt;
+                &lt;div class="entry"&gt;
+                    &lt;p&gt;
 Some hours ago Wine Staging 1.7.45 was released with several bug fixes and enhancements.
 &lt;/p&gt;
 
@@ -70,7 +283,57 @@ Some applications use ICMP pings to check if a remote host / server is reachable
 In order to partially solve this problem, we implemented a fallback in Wine which makes use of the &lt;code&gt;ping&lt;/code&gt; commandline tool if Wine does not have the necessary capabilities. The ping utility usually has the necessary permission and provides most of the functions offered by the Windows API. While this is not sufficient for special things like traceroutes, the most common use-case of sending simple requests in order to measure the round trip time works fine with this approach.
 &lt;/p&gt;
 
-</summary></entry><entry><title>Release 1.7.44</title><link href="/news/2015-05-31-release-1.7.44.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2015-05-31-release-1.7.44.html</id><updated>2015-05-31</updated><summary type="html">&lt;p&gt;
+&lt;!--PREVIEW--&gt;
+
+&lt;p&gt;
+One of the difficulties in Wined3d is to determine exact information about the hardware. While DirectX offers a way to get the amount of GPU memory or the PCI ID of the graphic card, a lot of this information is not accessible through the core OpenGL functions. So far Wined3d tries to match the graphic card name returned by OpenGL with an internal lookup table in order to fill out all these details. This is not always very precise and might result in false detections. One of the biggest problems is that the returned amount of detected VRAM is incorrect and the application tries to use more memory than available or decreases the graphic quality to stay within the reported limit.
+&lt;/p&gt;
+
+&lt;p&gt;
+Some drivers like the NVIDIA and the Mesa driver added their own OpenGL extensions to gather these details and in this release we added support for the &lt;code&gt;NVX_GPU_MEMORY_INFO&lt;/code&gt; extension by NVIDIA. We use this extension to get the total amount of GPU memory and moreover report proper memory usage to Wined3d. This is necessary to implement correct memory accounting. In case of problems it is still possible to use the old behavior by manually adjusting the amount of memory in the registry.
+&lt;/p&gt;
+
+&lt;p&gt;
+Besides the changes above, here is a list of all added features:
+&lt;/p&gt;
+
+&lt;ul&gt;
+	&lt;li&gt;Add semi-stub for FileFsVolumeInformation information class (&lt;a href="https://bugs.winehq.org/show_bug.cgi?id=21466"&gt;Wine Bug #21466&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Add stub for winscard.SCardListReadersA/W (&lt;a href="https://bugs.winehq.org/show_bug.cgi?id=26978"&gt;Wine Bug #26978&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Allow to enable/disable InsertMode in wineconsole settings (&lt;a href="https://bugs.winehq.org/show_bug.cgi?id=38697"&gt;Wine Bug #38697&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Allow to create Direct3D Device on desktop window (&lt;a href="https://appdb.winehq.org/objectManager.php?sClass=version&amp;iId=32194"&gt;Required by Juiced 2&lt;/a&gt; and various other applications)&lt;/li&gt;
+	&lt;li&gt;Ensure console InsertMode changes take effect immediately (&lt;a href="https://bugs.wine-staging.com/show_bug.cgi?id=351"&gt;Wine Staging Bug #351&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Fallback to system ping command when CAP_NET_RAW is not available (&lt;a href="https://bugs.winehq.org/show_bug.cgi?id=8332"&gt;Wine Bug #8332&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Fix endless loop in regedit when importing files with very long lines&lt;/li&gt;
+	&lt;li&gt;Fix link notification conditions for riched20 (&lt;a href="https://bugs.winehq.org/show_bug.cgi?id=35949"&gt;Wine Bug #35949&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Forward GIF encoder requests to windowscodecs (&lt;a href="https://bugs.winehq.org/show_bug.cgi?id=34356"&gt;Wine Bug #34356&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Implement advapi32.GetWindowsAccountDomainSid (&lt;a href="https://bugs.winehq.org/show_bug.cgi?id=38624"&gt;Wine Bug #38624&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Implement default homepage button in inetcpl.cpl (Used by ReactOS)&lt;/li&gt;
+	&lt;li&gt;Improve stub for NtQueryEaFile (&lt;a href="https://bugs.wine-staging.com/show_bug.cgi?id=353"&gt;Wine Staging Bug #353&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Initialize System\CurrentControlSet\Control\TimeZoneInformation registry keys (&lt;a href="https://bugs.wine-staging.com/show_bug.cgi?id=354"&gt;Wine Staging Bug #354&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Only send WM_DROPFILES when OLE dnd fails (&lt;a href="https://bugs.winehq.org/show_bug.cgi?id=29081"&gt;Wine Bug #29081&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Properly check existence of libunwind before linking against it (&lt;a href="https://bugs.winehq.org/show_bug.cgi?id=38713"&gt;Wine Bug #38713&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Return proper status codes when NtReadFile/NtWriteFile is called on closed (but not disconnected) pipe (&lt;a href="https://bugs.wine-staging.com/show_bug.cgi?id=336"&gt;Wine Staging Bug #336&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Set NamedPipeState to FILE_PIPE_CLOSING_STATE on broken pipe in NtQueryInformationFile (&lt;a href="https://bugs.wine-staging.com/show_bug.cgi?id=336"&gt;Wine Staging Bug #336&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Support for AT_ROUND_TO_PAGE flag in NtMapViewOfSection (&lt;a href="https://bugs.wine-staging.com/show_bug.cgi?id=347"&gt;Wine Staging Bug #347&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Support for NtSetInformationFile class FileLinkInformation (&lt;a href="https://bugs.wine-staging.com/show_bug.cgi?id=297"&gt;Wine Staging Bug #297&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Support for NtSetInformationFile class FileRenameInformation (&lt;a href="https://bugs.winehq.org/show_bug.cgi?id=30399"&gt;Wine Bug #30399&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Use NVX_GPU_MEMORY_INFO extension for more exact video memory accounting on NVIDIA graphic cards&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;
+As usual you can also find all changes (including removed/upstream accepted patches) in our &lt;a href="https://github.com/wine-compholio/wine-staging/blob/v1.7.45/debian/changelog"&gt;changelog&lt;/a&gt;.
+&lt;/p&gt;
+
+                    
+                &lt;/div&gt;
+            &lt;/div&gt;
+    </summary></entry><entry><title>Release 1.7.44</title><link href="/news/2015-05-31-release-1.7.44.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2015-05-31-release-1.7.44.html</id><updated>2015-05-31</updated><summary type="html">
+        &lt;div class="post"&gt;
+                &lt;h2 class="title"&gt;Release 1.7.44&lt;/h2&gt;
+                &lt;p class="meta"&gt;&lt;span class="author"&gt;Wine Staging Team&lt;/span&gt;&amp;nbsp;-&amp;nbsp;&lt;span class="date"&gt;Sun, 31 May 2015&lt;/span&gt;&lt;/p&gt;
+                &lt;div class="entry"&gt;
+                    &lt;p&gt;
 Today we released Wine Staging 1.7.44 with several bug fixes and switched to our new build system for our prebuilt packages. Currently most of our effort goes into fixing bugs instead of adding new features, so we also changed the format of the release notes a bit. Before we tell you more about the build system changes, here is a list of all fixed bugs / added features in this release (without any particular order).
 &lt;/p&gt;
 
@@ -98,7 +361,25 @@ Today we released Wine Staging 1.7.44 with several bug fixes and switched to our
 As usual you can find all the changes (including removed/upstream accepted patches) in our &lt;a href="https://github.com/wine-compholio/wine-staging/blob/v1.7.44/debian/changelog"&gt;changelog&lt;/a&gt;.
 &lt;/p&gt;
 
-</summary></entry><entry><title>Release 1.7.43</title><link href="/news/2015-05-17-release-1.7.43.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2015-05-17-release-1.7.43.html</id><updated>2015-05-17</updated><summary type="html">&lt;p&gt;
+&lt;!--PREVIEW--&gt;
+
+&lt;p&gt;
+There are also various changes regarding our build servers. We provide packages for a lot of distributions and some of them (Debian Jessie or newer, Arch Linux, Mageia) are directly built by our own servers. In the past we used LXC containers to optimize the performance, but this solution was too fragile. Many distributions do not work out of the box in LXC containers and might break on any update. Starting with this release we switched to our new KVM based build system which provides many advantages over our last approach. As part of this step we added &lt;b&gt;Debian Stretch&lt;/b&gt; and &lt;b&gt;Mageia 5&lt;/b&gt; as build target and removed AVLinux 6. AVLinux is moving away from Debian Squeeze to Jessie and does no longer provide updates, so we didn't move it to our new build server. We still provide Wine Staging 1.7.42 for download though.
+&lt;/p&gt;
+
+&lt;p&gt;
+We also added a test VM which is used for daily test runs of the Wine tests. This should help us to detect new regressions in Wine staging. We already used the wine tests manually when adding a new patch, but the executed tests were often limited to the changed component (because running all tests takes a lot of time) and were run in a non-clean environment. There are still some small tasks left to ensure that the pre-requirements for all tests are met, but after fixing those, the test results will be uploaded to our website and updated daily.
+&lt;/p&gt;
+
+                    
+                &lt;/div&gt;
+            &lt;/div&gt;
+    </summary></entry><entry><title>Release 1.7.43</title><link href="/news/2015-05-17-release-1.7.43.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2015-05-17-release-1.7.43.html</id><updated>2015-05-17</updated><summary type="html">
+        &lt;div class="post"&gt;
+                &lt;h2 class="title"&gt;Release 1.7.43&lt;/h2&gt;
+                &lt;p class="meta"&gt;&lt;span class="author"&gt;Wine Staging Team&lt;/span&gt;&amp;nbsp;-&amp;nbsp;&lt;span class="date"&gt;Sun, 17 May 2015&lt;/span&gt;&lt;/p&gt;
+                &lt;div class="entry"&gt;
+                    &lt;p&gt;
 Wine Staging 1.7.43 was released yesterday with a lot of bug fixes in wininet and various other parts of Wine.
 &lt;/p&gt;
 
@@ -106,7 +387,25 @@ Wine Staging 1.7.43 was released yesterday with a lot of bug fixes in wininet an
 The upstream wininet implementation behaves different compared to Windows in various ways if an application replaces the Host header in a HTTP request. While trying to fix these problems, several other issues were discovered. This release adds a total of 13 patches to fix incorrect handling of HTTP header fields, handling of cookies and HTTP authentication. In addition a memory leak was fixed that was triggered by HTTP requests containing a cookie.
 &lt;/p&gt;
 
-</summary></entry><entry><title>Release 1.7.42</title><link href="/news/2015-05-04-release-1.7.42.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2015-05-04-release-1.7.42.html</id><updated>2015-05-04</updated><summary type="html">&lt;p&gt;
+&lt;!--PREVIEW--&gt;
+
+&lt;p&gt;
+We also continued working on our plans to categorize our patches. So far we don't have a "highly experimental" category yet, but all patches and patchsets are now properly categorized into a stable/unstable category. The stable category only contains patches which are unlikely to change during the next time. They were tested long enough to ensure that they do not introduce any critical regressions, and there are no immediate plans to improve them (besides probably minor reformatting in order to get them accepted upstream). It is possible to enable only those patches by passing &lt;code&gt;category-stable&lt;/code&gt; to our patchinstall.sh script instead of &lt;code&gt;--all&lt;/code&gt;. However, this also disables commonly used experimental patchsets like CSMT or CUDA and is therefore mostly useful for regression testing or to keep track of the state of patches.
+&lt;/p&gt;
+
+&lt;p&gt;
+Besides the features mentioned above, this release also contains some smaller patches. This includes a fix for the broken directory enumeration on FreeBSD, fixes for Xfire 2 and for Steam in Windows 7 mode. As usual you can find all the changes in our &lt;a href="https://github.com/wine-compholio/wine-staging/blob/v1.7.43/debian/changelog"&gt;changelog&lt;/a&gt;.
+&lt;/p&gt;
+
+                    
+                &lt;/div&gt;
+            &lt;/div&gt;
+    </summary></entry><entry><title>Release 1.7.42</title><link href="/news/2015-05-04-release-1.7.42.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2015-05-04-release-1.7.42.html</id><updated>2015-05-04</updated><summary type="html">
+        &lt;div class="post"&gt;
+                &lt;h2 class="title"&gt;Release 1.7.42&lt;/h2&gt;
+                &lt;p class="meta"&gt;&lt;span class="author"&gt;Wine Staging Team&lt;/span&gt;&amp;nbsp;-&amp;nbsp;&lt;span class="date"&gt;Mon, 04 May 2015&lt;/span&gt;&lt;/p&gt;
+                &lt;div class="entry"&gt;
+                    &lt;p&gt;
 Time for another release! We pushed Wine Staging 1.7.42 yesterday, this time with a small delay. Besides fixes for various bugs we've been working on a category system to simplify the task of maintaining our huge amount of patches.
 &lt;/p&gt;
 
@@ -114,7 +413,26 @@ Time for another release! We pushed Wine Staging 1.7.42 yesterday, this time wit
 When we started working on Wine Staging the idea was to provide experimental features and improve them over time until they are ready to be included into upstream wine. Even though our name implies that the version is (or at least can be) highly experimental, many users started using Staging as their default wine version. This makes it difficult to add very experimental patches while ensuring that they do not introduce regressions and therefore the demand for a more stable version increased.
 &lt;/p&gt;
 
-</summary></entry><entry><title>Release 1.7.41</title><link href="/news/2015-04-19-release-1.7.41.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2015-04-19-release-1.7.41.html</id><updated>2015-04-19</updated><summary type="html">&lt;p&gt;
+&lt;!--PREVIEW--&gt;
+
+&lt;p&gt;
+We came to the conclusion that it is not possible to maintain only one patchset if we don't want to reject work-in-progress patches. In order to solve this problem Staging 1.7.42 adds a category system, which will be used to categorize patches based on their "stability". In the future experimental patches which might have a big risk of breaking things (or have known regressions) will be added to a special category, which has to be enabled manually. More information about the category system will follow until the next release.
+&lt;/p&gt;
+
+&lt;p&gt;
+Moreover, this release also added some smaller patches for games running in Origin and various other applications. As usual you can find all the changes in our &lt;a href="https://github.com/wine-compholio/wine-staging/blob/v1.7.42/debian/changelog"&gt;changelog&lt;/a&gt;.
+&lt;/p&gt;
+
+
+                    
+                &lt;/div&gt;
+            &lt;/div&gt;
+    </summary></entry><entry><title>Release 1.7.41</title><link href="/news/2015-04-19-release-1.7.41.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2015-04-19-release-1.7.41.html</id><updated>2015-04-19</updated><summary type="html">
+        &lt;div class="post"&gt;
+                &lt;h2 class="title"&gt;Release 1.7.41&lt;/h2&gt;
+                &lt;p class="meta"&gt;&lt;span class="author"&gt;Wine Staging Team&lt;/span&gt;&amp;nbsp;-&amp;nbsp;&lt;span class="date"&gt;Sun, 19 Apr 2015&lt;/span&gt;&lt;/p&gt;
+                &lt;div class="entry"&gt;
+                    &lt;p&gt;
 Wine Staging 1.7.41 is out and provides small improvements and bug fixes for several applications. This release is a bit more lightweight than usual as we have a lot of infrastructure work going on behind the scenes.
 &lt;/p&gt;
 
@@ -122,7 +440,25 @@ Wine Staging 1.7.41 is out and provides small improvements and bug fixes for sev
 Debugging Wine applications is a non trivial task and it is often difficult to get proper debug output. You often end up with huge log files and need to find a needle in a haystack. With Wine Staging 1.7.41 we added process specific debug channels so that you can set different debugging flags based on the executable name. This is especially useful if you need to debug an application which needs to be started through a launcher or programs like Uplay. More information about this feature is available in our &lt;a href="https://github.com/wine-compholio/wine-staging/wiki/Debug"&gt;Wiki&lt;/a&gt;.
 &lt;/p&gt;
 
-</summary></entry><entry><title>Release 1.7.40</title><link href="/news/2015-04-05-release-1.7.40.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2015-04-05-release-1.7.40.html</id><updated>2015-04-05</updated><summary type="html">&lt;p&gt;
+&lt;!--PREVIEW--&gt;
+
+&lt;p&gt;
+This release also contains bug fixes for several applications. For example Origin is now able to update itself and you can play Burnout Paradise online. In case you are using Wine Staging in order to play AOE 2 with Voobly, you can safely upgrade to 1.7.41 as the upstream regression introduced in 1.7.40 is now fixed. As usual you can find all other changes in our &lt;a href="https://github.com/wine-compholio/wine-staging/blob/v1.7.41/debian/changelog"&gt;changelog&lt;/a&gt;.
+&lt;/p&gt;
+
+&lt;p&gt;
+In case you are wondering about which infrastructure changes we are talking: There is work going on to create a similar website to WineHQ's &lt;a href="https://appdb.winehq.org/"&gt;AppDB&lt;/a&gt;. The website will not only provide you with test results about programs running in Wine Staging, but will also collect information from other sources. This provides an easy way to compare the results of different wine distributions and allows you to choose the version which works best with your application.
+&lt;/p&gt;
+
+                    
+                &lt;/div&gt;
+            &lt;/div&gt;
+    </summary></entry><entry><title>Release 1.7.40</title><link href="/news/2015-04-05-release-1.7.40.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2015-04-05-release-1.7.40.html</id><updated>2015-04-05</updated><summary type="html">
+        &lt;div class="post"&gt;
+                &lt;h2 class="title"&gt;Release 1.7.40&lt;/h2&gt;
+                &lt;p class="meta"&gt;&lt;span class="author"&gt;Wine Staging Team&lt;/span&gt;&amp;nbsp;-&amp;nbsp;&lt;span class="date"&gt;Sun, 05 Apr 2015&lt;/span&gt;&lt;/p&gt;
+                &lt;div class="entry"&gt;
+                    &lt;p&gt;
 Wine Staging 1.7.40 was released some hours ago and there are various new features available for testing. The main additions since the last release are EAX sound support (software emulated), support for realtime priorities and better handling of .NET executables.
 &lt;/p&gt;
 
@@ -130,7 +466,29 @@ Wine Staging 1.7.40 was released some hours ago and there are various new featur
 In 1998 Creative introduced Environmental Audio Extensions (EAX) for their sound blaster sound cards which provides a way to apply sound effects using the DSP of the sound card. This made it possible to use advanced audio effects using DirectSound without increasing the CPU usage. Modern CPUs can easily handle such calculations and we therefore started to implement an EAX software emulation in Wine. This release adds most of the stuff required for EAX 1 and gives you the possibility to enjoy these sound effects in old games even without creative hardware.
 &lt;/p&gt;
 
-</summary></entry><entry><title>Release 1.7.39</title><link href="/news/2015-03-22-release-1.7.39.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2015-03-22-release-1.7.39.html</id><updated>2015-03-22</updated><summary type="html">&lt;p&gt;
+&lt;!--PREVIEW--&gt;
+
+&lt;p&gt;
+We started improving the performance of Wine in the last release by implementing shared memory communication and now we go a step further by adding (optional) realtime priority support to wine. This patchset gives the user the possibility to assign a realtime priority to a program or the wineserver. Changing the priority on the wineserver is especially useful for communication which cannot easily be removed by using shared memory. The high priority will allow the wineserver to process roughly twice the usual amount of requests (for wineserver-call limited applications). The feature is currently only supported on Linux and needs some manual configuration as described in our &lt;a href="https://github.com/wine-compholio/wine-staging/wiki/Environment-Variables#realtime-priorities"&gt;Wiki&lt;/a&gt;.
+&lt;/p&gt;
+
+&lt;p&gt;
+So far Wine was loading .NET executables by using a fallback mechanism which is embedded into those executable to support Windows 2000 and older Windows versions. Modern Windows versions handle .NET executables in a special way and do no longer need this fallback path. The disadvantage of using the fallback code is that it allows injection of native code into .NET executables and is therefore less secure. Moreover recent .NET versions started to drop this compatibility code (at least on 64 bit), so Wine can no longer load them. In order to fix both issues, the PE loader of Wine Staging was extended to handle .NET executables in the same way as on Windows XP and above.
+&lt;/p&gt;
+
+&lt;p&gt;
+Besides these new features we also added several bug fixes. As usual you can find all other changes in our &lt;a href="https://github.com/wine-compholio/wine-staging/blob/v1.7.40/debian/changelog"&gt;changelog&lt;/a&gt;.
+&lt;/p&gt;
+
+                    
+                &lt;/div&gt;
+            &lt;/div&gt;
+    </summary></entry><entry><title>Release 1.7.39</title><link href="/news/2015-03-22-release-1.7.39.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2015-03-22-release-1.7.39.html</id><updated>2015-03-22</updated><summary type="html">
+        &lt;div class="post"&gt;
+                &lt;h2 class="title"&gt;Release 1.7.39&lt;/h2&gt;
+                &lt;p class="meta"&gt;&lt;span class="author"&gt;Wine Staging Team&lt;/span&gt;&amp;nbsp;-&amp;nbsp;&lt;span class="date"&gt;Sun, 22 Mar 2015&lt;/span&gt;&lt;/p&gt;
+                &lt;div class="entry"&gt;
+                    &lt;p&gt;
 Wine Staging 1.7.39 was released a couple of hours ago. This release mostly concentrates on speed optimizations and various bug fixes related to keyboard input handling.
 &lt;/p&gt;
 
@@ -138,7 +496,29 @@ Wine Staging 1.7.39 was released a couple of hours ago. This release mostly conc
 One of the slowest things in Wine are wineserver calls. These calls are necessary if an applications wants to set or get an value which affects multiple programs, for example asking for the current foreground window. While this information is usually managed by the kernel on Windows, a program running in Wine needs to send a message to wineserver via a pipe and wait for the reply. Since the wineserver is a separate process the overhead of waking it up is very big, causing these calls to be about 10 times slower than on windows.
 &lt;/p&gt;
 
-</summary></entry><entry><title>Release 1.7.38</title><link href="/news/2015-03-07-release-1.7.38.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2015-03-07-release-1.7.38.html</id><updated>2015-03-07</updated><summary type="html">&lt;p&gt;
+&lt;!--PREVIEW--&gt;
+
+&lt;p&gt;
+In this release we started implementing shared memory communication as an alternative. Instead of using shared memory for all wineserver calls, we decided to optimize specific frequently used functions and to prevent waking up the wineserver at all if possible. A call to &lt;code&gt;PeekMessage&lt;/code&gt; for example will not wake up the wineserver as long as there are no messages available. For some functions like &lt;code&gt;GetActiveWindow&lt;/code&gt; it was possible to eliminate the pipe communication in all cases. Since these changes affect many parts of Wine and might still contain some bugs, this feature is disabled by default and needs to enabled manually by setting the environment variable &lt;code&gt;STAGING_SHARED_MEMORY&lt;/code&gt; to 1.
+&lt;/p&gt;
+
+&lt;p&gt;
+In order to retain security, the code requires support for memfds and file sealing which is only available on Linux with Kernel versions &gt;= 3.17. We might add compatibility code soon, to make this feature also available on older Kernels or also other platforms like FreeBSD and MacOS X, but currently we're still focusing on testing and doing performance measurements.
+&lt;/p&gt;
+
+&lt;p&gt;
+Besides this new feature we also added several bug fixes related to keyboard input handling affecting for example "Photoshop CS5", the application "Sculptris" and also the game "La-Mulana". As usual you can find all other changes in our &lt;a href="https://github.com/wine-compholio/wine-staging/blob/v1.7.39/debian/changelog"&gt;changelog&lt;/a&gt;.
+&lt;/p&gt;
+
+                    
+                &lt;/div&gt;
+            &lt;/div&gt;
+    </summary></entry><entry><title>Release 1.7.38</title><link href="/news/2015-03-07-release-1.7.38.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2015-03-07-release-1.7.38.html</id><updated>2015-03-07</updated><summary type="html">
+        &lt;div class="post"&gt;
+                &lt;h2 class="title"&gt;Release 1.7.38&lt;/h2&gt;
+                &lt;p class="meta"&gt;&lt;span class="author"&gt;Wine Staging Team&lt;/span&gt;&amp;nbsp;-&amp;nbsp;&lt;span class="date"&gt;Sat, 07 Mar 2015&lt;/span&gt;&lt;/p&gt;
+                &lt;div class="entry"&gt;
+                    &lt;p&gt;
 We are happy to announce Staging 1.7.38. This release introduces Job Object support and many other small bug fixes and improvements. Besides the new additions, 16 patches got removed because they were accepted upstream. Wine Staging consists now of more than 600 patches total.
 &lt;/p&gt;
 
@@ -146,7 +526,29 @@ We are happy to announce Staging 1.7.38. This release introduces Job Object supp
 The Job Object API provides ways to manage groups of processes as a single object and is required by various applications like EA Origin, which uses this feature to detect whether games are still running. Although Job Objects are not really a "new" feature and were already available since Windows 2000, a Wine implementation was still missing so far. One year ago Andrew Cook started to work on an implementation and we recently teamed up with him to clean up the patches and to integrate this feature into Wine Staging. The code is not yet complete, but it is sufficient to make EA Origin happy.
 &lt;/p&gt;
 
-</summary></entry><entry><title>Release 1.7.37</title><link href="/news/2015-02-22-release-1.7.37.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2015-02-22-release-1.7.37.html</id><updated>2015-02-22</updated><summary type="html">&lt;p&gt;
+&lt;!--PREVIEW--&gt;
+
+&lt;p&gt;
+The work on DXVA2 continued and decoding of MPEG2 and H264 content using ffmpeg / libavcodec based software is now working stable. There are still other Wine bugs which prevent programs like VLC from using DXVA2 without hacks, but we hope to fix them in future versions. We also added support for video decoding through libva-drm (besides libva-x11) which makes it possible to use a different GPU for video decoding than the one which is used by the X server.
+&lt;/p&gt;
+
+&lt;p&gt;
+Thanks to our cooperation with ReactOS we also made various improvements to the shell32 part of Wine, and added an implementation for a proper file-copy and move dialog. We are planning to extend this cooperation a bit further in the future to share more ideas and existing code.
+&lt;/p&gt;
+
+&lt;p&gt;
+As usual you can find all other changes in our &lt;a href="https://github.com/wine-compholio/wine-staging/blob/v1.7.38/debian/changelog"&gt;changelog&lt;/a&gt;.
+&lt;/p&gt;
+
+                    
+                &lt;/div&gt;
+            &lt;/div&gt;
+    </summary></entry><entry><title>Release 1.7.37</title><link href="/news/2015-02-22-release-1.7.37.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2015-02-22-release-1.7.37.html</id><updated>2015-02-22</updated><summary type="html">
+        &lt;div class="post"&gt;
+                &lt;h2 class="title"&gt;Release 1.7.37&lt;/h2&gt;
+                &lt;p class="meta"&gt;&lt;span class="author"&gt;Wine Staging Team&lt;/span&gt;&amp;nbsp;-&amp;nbsp;&lt;span class="date"&gt;Sun, 22 Feb 2015&lt;/span&gt;&lt;/p&gt;
+                &lt;div class="entry"&gt;
+                    &lt;p&gt;
 Two weeks passed by and it is time for another Wine release. Before talking too much about Wine staging 1.7.37, we are happy to announce that two important features, UTF-7 support (included since Wine Staging 1.7.29) and interface change notification support (included since first version of Wine Staging) got upstream.
 &lt;/p&gt;
 
@@ -154,19 +556,110 @@ Two weeks passed by and it is time for another Wine release. Before talking too 
 The main focus of this Wine Staging release is the implementation of the DirectX Video Acceleration 2 (DXVA2) API based on VAAPI. This API is available since Vista and provides GPU accelerated functions for video processing, like video decoding or deinterlacing. We initially had this idea about a year ago (mainly to improve video playback via Pipelight), but stopped working on it when it became clear that getting it upstream will be a very long or even impossible process. The implementation we added now to Wine Staging already contains various improvements compared to the initial proof-of-concept code. We improved MPEG2 video decoding support and added support for H264 decoding. We decided to use VAAPI as back-end since it is very similar to DXVA2, but wrote the implementation in such a way that it can easily support multiple back-ends later. While VAAPI mainly targets Intel based GPUs there are wrappers for the open source and proprietary drivers of AMD / NVIDIA GPUs as well, so you can also use DXVA2 through VAAPI on non-Intel systems.
 &lt;/p&gt;
 
-</summary></entry><entry><title>Release 1.7.36</title><link href="/news/2015-02-08-release-1.7.36.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2015-02-08-release-1.7.36.html</id><updated>2015-02-08</updated><summary type="html">&lt;p&gt;
+&lt;!--PREVIEW--&gt;
+
+&lt;p&gt;
+The current status is very experimental and there are a lot of know bugs, especially when using the Intel VAAPI driver, so we decided to disable it by default. If you want to play with it anyway, you can enable the feature through the Staging tab in winecfg. We do not recommend to enable this for Intel GPUs yet, since their driver is not very fault tolerant and blindly trusts the values passed by the application. Some distributions forgot to disable the assertions while compiling the driver causing the application to abort even for non-fatal problems. For other systems like NVIDIA the implementation works quite good and it is possible to use it for watching videos. The current implementation is for example sufficient to use hardware decoding in Flash through Pipelight as you can see on this YouTube screenshot:
+&lt;/p&gt;
+
+&lt;p&gt;
+&lt;center&gt;
+	&lt;img src="/images/flash-dxva2-news.png" /&gt;
+&lt;/center&gt;
+&lt;/p&gt;
+
+&lt;p&gt;
+We hope that we can extend DXVA2 and fix the remaining problems till the next release. Although the current patches already add over 4500 lines of code for this DLL, it is far away from being complete, nevertheless we wanted to share the code in order to give other developers the chance to participate.
+&lt;/p&gt;
+
+&lt;p&gt;
+As usual there are also a lot of smaller patches and bug fixes which you can find in our &lt;a href="https://github.com/wine-compholio/wine-staging/blob/v1.7.37/debian/changelog"&gt;changelog&lt;/a&gt;, including various patches to improve network support of .NET/Silverlight. From now on, not only the wine users might profit from our improvements, but also the &lt;a href="https://jira.reactos.org/browse/CORE-9246"&gt;ReactOS users&lt;/a&gt;, since ReactOS decided to switch to Wine Staging as upstream source for Wine.
+&lt;/p&gt;
+
+                    
+                &lt;/div&gt;
+            &lt;/div&gt;
+    </summary></entry><entry><title>Release 1.7.36</title><link href="/news/2015-02-08-release-1.7.36.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2015-02-08-release-1.7.36.html</id><updated>2015-02-08</updated><summary type="html">
+        &lt;div class="post"&gt;
+                &lt;h2 class="title"&gt;Release 1.7.36&lt;/h2&gt;
+                &lt;p class="meta"&gt;&lt;span class="author"&gt;Wine Staging Team&lt;/span&gt;&amp;nbsp;-&amp;nbsp;&lt;span class="date"&gt;Sun, 08 Feb 2015&lt;/span&gt;&lt;/p&gt;
+                &lt;div class="entry"&gt;
+                    &lt;p&gt;
 We just released Wine Staging 1.7.36 and we are happy to announce some interesting new features in this version. A lot of work went into the implementation of the Threadpool API framework, which is available on Windows Vista and newer. The Threadpool API provides a lot of convenience functions to simplify writing multithreaded programs, for example to assign work items to a pool of worker threads, wait for their execution and call cleanup handlers afterwards. The number of applications using this API is steadily increasing, so we decided that its definitely time to add an implementation. There are still some unimplemented functions left but the core components are available now and sufficient for most applications, including Adobe Lightroom 5.3.
 &lt;/p&gt;
 
-</summary></entry><entry><title>Release 1.7.35</title><link href="/news/2015-01-24-release-1.7.35.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2015-01-24-release-1.7.35.html</id><updated>2015-01-24</updated><summary type="html">&lt;p&gt;
+&lt;!--PREVIEW--&gt;
+
+&lt;p&gt;
+Another addition of 1.7.36 is the nvencodeapi.dll implementation which makes it possible to use the GPU encoding engine NVENC by NVIDIA. NVENC is a successor of the CUDA based nvcuvenc and is available for Kepler / Maxwell based NVIDIA cards (i.e. Geforce &gt;= 600). Unlike nvcuvenc, which can be used in Wine Staging through the native dll, nvencodeapi.dll is a wrapper to the libnvidia-encode.so library. The wrapper implements NVENC 5.0 and requires at least version 346.22 of the linux NVIDIA driver. While the current implementation is feature complete, it lacks asynchronous encoding mode since the linux drivers does not support it yet. At the moment the asynchronous mode is emulated using the synchronous mode which may decrease the performance. We are looking forward to add a more efficient emulation in the next release.
+&lt;/p&gt;
+
+&lt;p&gt;
+As usual there were also some other small improvements like an upgrade of the CUDA wrapper to CUDA 7.0 RC and fixes for mouse jittering in games like Planetside 2. The full list of changes is available in our &lt;a href="https://github.com/wine-compholio/wine-staging/blob/v1.7.36/debian/changelog"&gt;changelog&lt;/a&gt;.
+&lt;/p&gt;
+                    
+                &lt;/div&gt;
+            &lt;/div&gt;
+    </summary></entry><entry><title>Release 1.7.35</title><link href="/news/2015-01-24-release-1.7.35.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2015-01-24-release-1.7.35.html</id><updated>2015-01-24</updated><summary type="html">
+        &lt;div class="post"&gt;
+                &lt;h2 class="title"&gt;Release 1.7.35&lt;/h2&gt;
+                &lt;p class="meta"&gt;&lt;span class="author"&gt;Wine Staging Team&lt;/span&gt;&amp;nbsp;-&amp;nbsp;&lt;span class="date"&gt;Sat, 24 Jan 2015&lt;/span&gt;&lt;/p&gt;
+                &lt;div class="entry"&gt;
+                    &lt;p&gt;
 Today we released Wine Staging 1.7.35 which introduces the basis for further interesting features. This release is not as exciting as the last one from a user perspective, but contains quite some important changes for developers and contributors. We added a driver testing framework in Wine Staging which should help us to improve the ntoskrnl.exe component of Wine. Besides that Wine Staging 1.7.35 also contains various new patches and improvements, for example several improvements of CUDA support (which was added in the last release), patches to fix broken raw input in multiple games (upstream regression, which exists since 1.5.29 in upstream Wine), and also patches for Child of Light and Valiant Hearts.
 &lt;/p&gt;
 
-</summary></entry><entry><title>Release 1.7.34</title><link href="/news/2015-01-10-release-1.7.34.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2015-01-10-release-1.7.34.html</id><updated>2015-01-10</updated><summary type="html">&lt;p&gt;We are happy to announce some major new features for Wine Staging 1.7.34, which were developed during the Christmas holidays. Upstream Wine skipped the last release which gave us the possibility to add more new features than usual in this release. One of the new features is support for CUDA, the GPU calculation platform used by NVIDIA graphic cards.&lt;/p&gt;
+&lt;!--PREVIEW--&gt;
+
+&lt;p&gt;
+Most hardware related device drivers do not work in Wine by design, because Wine executes them only with user mode permissions and they can't directly access the hardware. Nevertheless, there are also some drivers which work perfectly fine without communicating to hardware, for example anti cheat software or copy protection drivers. In order to improve the support for such drivers, we implemented a testing framework, which allows to write kernel driver tests. ReactOS already provides a similar testing framework since some time, but so far Wine developers didn't have any suitable solution yet. Hopefully this feature will allow developers to extend the functionality a bit faster in the future, while ensuring that it is still compatible with Windows.
+&lt;/p&gt;
+
+&lt;p&gt;
+Whereas generic hardware access is impossible, specific devices can be emulated by using equivalent Linux libraries. In the past there were already several interesting ideas like attempts to integrate USB driver support via &lt;code&gt;libusb&lt;/code&gt; into Wine, which were not accepted because of missing tests. We were planning to look at some of this previous work, and check if its possible to integrate that into our staging tree.
+&lt;/p&gt;
+
+&lt;p&gt;As usual you can find all remaining bug fixes in our &lt;a href="https://github.com/wine-compholio/wine-staging/blob/v1.7.35/debian/changelog"&gt;changelog&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;
+We also did several changes of our infrastructure. As you might have noticed this website looks a bit different now, and we're now also hosting our own bugtracker instead of using the github integrated one.
+&lt;/p&gt;
+
+                    
+                &lt;/div&gt;
+            &lt;/div&gt;
+    </summary></entry><entry><title>Release 1.7.34</title><link href="/news/2015-01-10-release-1.7.34.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2015-01-10-release-1.7.34.html</id><updated>2015-01-10</updated><summary type="html">
+        &lt;div class="post"&gt;
+                &lt;h2 class="title"&gt;Release 1.7.34&lt;/h2&gt;
+                &lt;p class="meta"&gt;&lt;span class="author"&gt;Wine Staging Team&lt;/span&gt;&amp;nbsp;-&amp;nbsp;&lt;span class="date"&gt;Sa, 10 Jan 2015&lt;/span&gt;&lt;/p&gt;
+                &lt;div class="entry"&gt;
+                    &lt;p&gt;We are happy to announce some major new features for Wine Staging 1.7.34, which were developed during the Christmas holidays. Upstream Wine skipped the last release which gave us the possibility to add more new features than usual in this release. One of the new features is support for CUDA, the GPU calculation platform used by NVIDIA graphic cards.&lt;/p&gt;
 
 &lt;p&gt;Staging 1.7.34 contains a wrapper for &lt;code&gt;nvcuda.dll&lt;/code&gt; which redirects the function calls to the native &lt;code&gt;libcuda.so&lt;/code&gt;. Previous approaches tried to wrap &lt;code&gt;cudart.dll&lt;/code&gt; (the cuda runtime dll), but in contrast to our solutions this does not work for statically linked CUDA programs. The implementation is not yet complete and misses some Direct3D interop functions, which are rarely used by applications. If you would like to test this new feature make sure to read our Wiki entry about &lt;a href="https://github.com/wine-compholio/wine-staging/wiki/CUDA"&gt;CUDA&lt;/a&gt; to ensure that everything is set up correctly.&lt;/p&gt;
 
-</summary></entry><entry><title>Release 1.7.33</title><link href="/news/2014-12-15-release-1.7.33.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2014-12-15-release-1.7.33.html</id><updated>2014-12-15</updated><summary type="html">&lt;p&gt;We just released the updated patchset for Wine 1.7.33. Besides the 29 bugs fixed upstream since the last release, we have added about 14 additional bug fixes to Wine Staging. You can take a look at the &lt;a href="https://raw.githubusercontent.com/wine-compholio/wine-staging/v1.7.33/debian/changelog"&gt;changelog&lt;/a&gt; for the full list of changes. There is one feature I would like to point out since it was requested a lot by our users: CSMT (command stream multithreaded) support.&lt;/p&gt;
+&lt;!--PREVIEW--&gt;
+
+&lt;p&gt;Another new feature which directly depends on CUDA is GPU accelerated PhysX support. This feature is still a bit experimental since PhysX depends on a working &lt;code&gt;nvapi.dll&lt;/code&gt; implementation. This dll is part of the NVIDIA driver on Windows and provides functions to query and alter graphic cards settings. Our current implementation is sufficient for the software we tested but might not work for all games. In order to use PhysX you need to install the necessary files as explained in our Wiki entry about &lt;a href="https://github.com/wine-compholio/wine-staging/wiki/PhysX"&gt;PhysX&lt;/a&gt;. We tested several PhysX benchmarks and also the Windows version of Borderlands 2, but feel free to tell us your results in our bug tracker or on our IRC channel (#wine-staging on FreeNode).&lt;/p&gt;
+
+&lt;p&gt;Last but not least we also added message mode support for named pipes on Linux. In contrary to byte-based communication methods this mode allows applications to send and receive full packages/messages. Linux kernel 3.4 introduced the &lt;code&gt;SO_PEEK_OFF&lt;/code&gt; socket option which can be used in conjunction with sequential packets (&lt;code&gt;SOCK_SEQPACKET&lt;/code&gt;) to emulate such a message mode on Linux. The current implementation already fixes a lot of bugs but is not completely race-condition free, for example when multiple threads peek messages from the same pipe. These bugs can not be solved without kernel changes, but we are confident that we can solve this problem in cooperation with the kernel developers. We are also open to idea from *BSD kernel hackers in order to implement the same feature on BSD based system.&lt;/p&gt;
+
+&lt;p&gt;As usual you can find all remaining bug fixes, like the experimental patch for the Hearthstone timeout bug, in our &lt;a href="https://github.com/wine-compholio/wine-staging/blob/v1.7.34/debian/changelog"&gt;changelog&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;PS: This release also completes the name change from &lt;code&gt;wine-compholio&lt;/code&gt; to &lt;code&gt;wine-staging&lt;/code&gt; for our provided packages. The packages are currently building and will shortly be available under their new name.&lt;/p&gt;
+
+                    
+                &lt;/div&gt;
+            &lt;/div&gt;
+    </summary></entry><entry><title>Release 1.7.33</title><link href="/news/2014-12-15-release-1.7.33.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2014-12-15-release-1.7.33.html</id><updated>2014-12-15</updated><summary type="html">
+        &lt;div class="post"&gt;
+                &lt;h2 class="title"&gt;Release 1.7.33&lt;/h2&gt;
+                &lt;p class="meta"&gt;&lt;span class="author"&gt;Wine Staging Team&lt;/span&gt;&amp;nbsp;-&amp;nbsp;&lt;span class="date"&gt;Mon, 15 Dec 2014&lt;/span&gt;&lt;/p&gt;
+                &lt;div class="entry"&gt;
+                    &lt;p&gt;We just released the updated patchset for Wine 1.7.33. Besides the 29 bugs fixed upstream since the last release, we have added about 14 additional bug fixes to Wine Staging. You can take a look at the &lt;a href="https://raw.githubusercontent.com/wine-compholio/wine-staging/v1.7.33/debian/changelog"&gt;changelog&lt;/a&gt; for the full list of changes. There is one feature I would like to point out since it was requested a lot by our users: CSMT (command stream multithreaded) support.&lt;/p&gt;
 
 &lt;p&gt;Although originally announced by Codeweavers employee Stefan Dösinger about a year ago, there still wasn't much progress with upstreaming these patches. We were hesitating to add these patches in the past because they are known to have a negative effect for some apps. Thanks to the newly introduced &lt;a href="https://github.com/wine-compholio/wine-staging/wiki/DLL-Redirects"&gt;dll redirection scheme&lt;/a&gt; it was possible to add it anyway, by providing a CSMT and a non-CSMT version of wined3d. In order to test the CSMT feature, it is sufficient to enable it in &lt;code&gt;winecfg&lt;/code&gt; - take a look &lt;a href="https://github.com/wine-compholio/wine-staging/wiki/DLL-Redirects"&gt;here&lt;/a&gt; for instructions how to do that.&lt;/p&gt;
-</summary></entry></feed>
+
+                    
+                &lt;/div&gt;
+            &lt;/div&gt;
+    </summary></entry></feed>

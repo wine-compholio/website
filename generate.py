@@ -32,7 +32,7 @@ def generateNewsPost(title, date, content, extra):
     return """
         <div class="post">
                 <h2 class="title">%s</h2>
-                <p class="meta"><span class="author">Wine Staging Team</span>&nbsp;-&nbsp<span class="date">%s</span></p>
+                <p class="meta"><span class="author">Wine Staging Team</span>&nbsp;-&nbsp;<span class="date">%s</span></p>
                 <div class="entry">
                     %s
                     %s
@@ -148,7 +148,7 @@ def generateNewsSites(template, destdir):
         with open(os.path.join(destdir, "news", filename), 'wb') as f:
             f.write("%s%s%s" % (template[0], content, template[1]))
 
-        writeNewsAtomEntry(generator, headers["title"], headers["date"], filename, preview)
+        writeNewsAtomEntry(generator, headers["title"], headers["date"], filename, content)
 
     endAtomFeed(generator)
 
