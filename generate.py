@@ -67,7 +67,7 @@ def startAtomFeed(filename, date):
 
     return generator
 
-def writeNewsAtomEntry(generator, title, date, filename, summary):
+def writeNewsAtomEntry(generator, title, date, filename, content):
     generator.startElement(u'entry', AttributesImpl({}))
 
     generator.startElement(u'title', AttributesImpl({}))
@@ -85,9 +85,9 @@ def writeNewsAtomEntry(generator, title, date, filename, summary):
     generator.characters(filename[0:10].decode('utf8'))
     generator.endElement(u'updated')
 
-    generator.startElement(u'summary', AttributesImpl({u'type': u'html'}))
-    generator.characters(summary)
-    generator.endElement(u'summary')
+    generator.startElement(u'content', AttributesImpl({u'type': u'html'}))
+    generator.characters(content)
+    generator.endElement(u'content')
 
     generator.endElement(u'entry')
 
