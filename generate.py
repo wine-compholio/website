@@ -41,7 +41,7 @@ def generateNewsPost(title, date, content, extra):
     """ % (title, date, content, extra)
 
 def startAtomFeed(filename, date):
-    generator = XMLGenerator(open(filename, 'wb'), 'utf8')
+    generator = XMLGenerator(open(filename, 'wb'), 'utf-8')
 
     generator.startDocument()
 
@@ -56,7 +56,7 @@ def startAtomFeed(filename, date):
     generator.endElement(u'title')
 
     generator.startElement(u'updated', AttributesImpl({}))
-    generator.characters(date.decode('utf8'))
+    generator.characters(date.decode('utf8')+u"T00:00:00Z")
     generator.endElement(u'updated')
 
     generator.startElement(u'link', AttributesImpl({u'rel': u'self', u'href': u'/news.xml'}))
@@ -82,8 +82,14 @@ def writeNewsAtomEntry(generator, title, date, filename, content):
     generator.endElement(u'id')
 
     generator.startElement(u'updated', AttributesImpl({}))
-    generator.characters(filename[0:10].decode('utf8'))
+    generator.characters(filename[0:10].decode('utf8')+u"T00:00:00Z")
     generator.endElement(u'updated')
+
+    generator.startElement(u'author', AttributesImpl({}))
+    generator.startElement(u'name', AttributesImpl({}))
+    generator.characters(u"Wine Staging Team")
+    generator.endElement(u'name')
+    generator.endElement(u'author')
 
     generator.startElement(u'content', AttributesImpl({u'type': u'html'}))
     generator.characters(content)
