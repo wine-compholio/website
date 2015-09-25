@@ -1,5 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><id>http://www.wine-staging.com/news.xml</id><title>Wine Staging</title><updated>2015-09-08T00:00:00Z</updated><link href="/news.xml" rel="self"></link><link href="/news.html" type="text/html" rel="alternate"></link><entry><title>Release 1.7.51</title><link href="/news/2015-09-08-release-1.7.51.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2015-09-08-release-1.7.51.html</id><updated>2015-09-08T00:00:00Z</updated><author><name>Wine Staging Team</name></author><content type="html">
+<feed xmlns="http://www.w3.org/2005/Atom"><id>http://www.wine-staging.com/news.xml</id><title>Wine Staging</title><updated>2015-09-25T00:00:00Z</updated><link href="/news.xml" rel="self"></link><link href="/news.html" type="text/html" rel="alternate"></link><entry><title>Integration into WineHQ</title><link href="/news/2015-09-25-winehq-integration.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2015-09-25-winehq-integration.html</id><updated>2015-09-25T00:00:00Z</updated><author><name>Wine Staging Team</name></author><content type="html">
+        &lt;div class="post"&gt;
+                &lt;h2 class="title"&gt;Integration into WineHQ&lt;/h2&gt;
+                &lt;p class="meta"&gt;&lt;span class="author"&gt;Wine Staging Team&lt;/span&gt;&amp;nbsp;-&amp;nbsp;&lt;span class="date"&gt;Fri, 25 Sep 2015&lt;/span&gt;&lt;/p&gt;
+                &lt;div class="entry"&gt;
+                    &lt;p&gt;
+Wine Staging has already existed about a year and, although used by many people, until recently there was no final decision about its relation to WineHQ. Many people saw Wine Staging as a fork and, as a result, users were asked not to use the upstream bug tracker or AppDB, which pressured us to setup our own infrastructure.
+&lt;/p&gt;
+
+&lt;p&gt;
+Based on the decisions made during the Wine developer conference (WineConf 2015) last weekend, this situation is going to change. Wine Staging is now an official part of WineHQ, like the development and stable versions of Wine. The integration will cause changes on both sides and I would like to give a short overview here. For those interested in more details, I also recommend reading Alexandre Julliard’s &lt;a href="https://www.winehq.org/pipermail/wine-devel/2015-September/109392.html"&gt;summary&lt;/a&gt; on the wine-devel mailing list.
+&lt;/p&gt;
+
+&lt;!--PREVIEW--&gt;
+
+&lt;ul&gt;
+	&lt;li&gt;
+	&lt;p&gt;
+	The Wine Staging bug tracker is going to be retired. Most of the bugs in Wine Staging also appear with regular Wine and it therefore doesn't make sense to track them twice. As soon as the bug tracker changes have been integrated, all future bug reports should be filed in the upstream bug tracker as regular Wine bugs. For bugs specific to Wine Staging there will be a separate Staging product. Bugs that appear in the development version of Wine, but not in Wine Staging, will have the status &lt;code&gt;STAGED&lt;/code&gt;.
+	&lt;/p&gt;
+	&lt;/li&gt;
+
+	&lt;li&gt;
+	&lt;p&gt;
+	The idea is also to integrate Wine Staging more into the regular development process, by adding a new patch status "Staging" on the patch submission website. This status basically means that your patch is not ready or too risky to be added to the development version of Wine. Try to get it into Wine Staging first.
+	&lt;/p&gt;
+	&lt;/li&gt;
+
+	&lt;li&gt;
+	&lt;p&gt;
+	All new patch submissions should have a &lt;code&gt;Signed-Off-By&lt;/code&gt; header. Although it does not seem to be directly related to Staging, it helps us a lot. We often have multiple developers working on big features and a patch is currently limited to have one author. This makes cooperation more difficult than necessary. The new &lt;code&gt;Signed-Off-By&lt;/code&gt; header allows us to list multiple authors and should hopefully increase the development speed.
+	&lt;/p&gt;
+	&lt;/li&gt;
+
+	&lt;li&gt;
+	&lt;p&gt;
+	WineHQ is going to provide binary packages for the development version of Wine. Some distributions do not provide packages for the development version which makes it harder for users to test if a specific bug has already been fixed. We will help upstream Wine by providing our build scripts and infrastructure to build packages.
+	&lt;/p&gt;
+	&lt;/li&gt;
+
+	&lt;li&gt;
+	&lt;p&gt;
+	From a developer perspective not much will change in Wine Staging, the maintainers will stay the same for the foreseeable future. The patch submission process will be altered since the bug tracker is going to be retired, but there hasn't been a final decision yet on how this will be handled. We might either get our own mailing list at WineHQ or maybe add a special component to the Staging product in the upstream bug tracker. For now please continue using our existing bug tracker until more details are available.
+	&lt;/p&gt;
+	&lt;/li&gt;
+
+&lt;/ul&gt;
+
+&lt;p&gt;
+Not all of those changes have been realized yet, so please stay patient. We hope that everyone can benefit from these changes in the long term.
+&lt;/p&gt;
+
+                    
+                &lt;/div&gt;
+            &lt;/div&gt;
+    </content></entry><entry><title>Release 1.7.51</title><link href="/news/2015-09-08-release-1.7.51.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2015-09-08-release-1.7.51.html</id><updated>2015-09-08T00:00:00Z</updated><author><name>Wine Staging Team</name></author><content type="html">
         &lt;div class="post"&gt;
                 &lt;h2 class="title"&gt;Release 1.7.51&lt;/h2&gt;
                 &lt;p class="meta"&gt;&lt;span class="author"&gt;Wine Staging Team&lt;/span&gt;&amp;nbsp;-&amp;nbsp;&lt;span class="date"&gt;Tue, 08 Sep 2015&lt;/span&gt;&lt;/p&gt;

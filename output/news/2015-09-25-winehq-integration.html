@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="keywords" content="Wine, Staging, wine-staging" />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Wine Staging</title>
+	<link href="/css/style.css" rel="stylesheet" type="text/css" media="screen" />
+	<link href="/news.xml" rel="alternate" type="application/atom+xml" title="News Feed (atom)" />
+</head>
+<body>
+<div id="wrapper">
+	<div id="header-wrapper">
+		<div id="header">
+			<div id="logo">
+				<h1><a href="/index.html">Wine <span>Staging</span></a></h1>
+			</div>
+			<div id="menu">
+				<ul>
+					<li><a href="/index.html">Home</a></li>
+					<li><a href="/news.html">News</a></li>
+					<li><a href="https://github.com/wine-compholio/wine-staging/wiki/Installation" target="_blank">Install</a></li>
+					<li><a href="https://github.com/wine-compholio/wine-staging/wiki" target="_blank">Wiki</a></li>
+					<li><a href="http://bugs.wine-staging.com" target="_blank">Bugs</a></li>
+					<li><a href="/source.html">Source</a></li>
+				</ul>
+			</div>
+			<div style="clear: both;"></div>
+		</div>
+	</div>
+	<!-- end #header -->
+	<div id="page">
+		<div id="content">
+
+        <div class="post">
+                <h2 class="title">Integration into WineHQ</h2>
+                <p class="meta"><span class="author">Wine Staging Team</span>&nbsp;-&nbsp;<span class="date">Fri, 25 Sep 2015</span></p>
+                <div class="entry">
+                    <p>
+Wine Staging has already existed about a year and, although used by many people, until recently there was no final decision about its relation to WineHQ. Many people saw Wine Staging as a fork and, as a result, users were asked not to use the upstream bug tracker or AppDB, which pressured us to setup our own infrastructure.
+</p>
+
+<p>
+Based on the decisions made during the Wine developer conference (WineConf 2015) last weekend, this situation is going to change. Wine Staging is now an official part of WineHQ, like the development and stable versions of Wine. The integration will cause changes on both sides and I would like to give a short overview here. For those interested in more details, I also recommend reading Alexandre Julliard’s <a href="https://www.winehq.org/pipermail/wine-devel/2015-September/109392.html">summary</a> on the wine-devel mailing list.
+</p>
+
+<!--PREVIEW-->
+
+<ul>
+	<li>
+	<p>
+	The Wine Staging bug tracker is going to be retired. Most of the bugs in Wine Staging also appear with regular Wine and it therefore doesn't make sense to track them twice. As soon as the bug tracker changes have been integrated, all future bug reports should be filed in the upstream bug tracker as regular Wine bugs. For bugs specific to Wine Staging there will be a separate Staging product. Bugs that appear in the development version of Wine, but not in Wine Staging, will have the status <code>STAGED</code>.
+	</p>
+	</li>
+
+	<li>
+	<p>
+	The idea is also to integrate Wine Staging more into the regular development process, by adding a new patch status "Staging" on the patch submission website. This status basically means that your patch is not ready or too risky to be added to the development version of Wine. Try to get it into Wine Staging first.
+	</p>
+	</li>
+
+	<li>
+	<p>
+	All new patch submissions should have a <code>Signed-Off-By</code> header. Although it does not seem to be directly related to Staging, it helps us a lot. We often have multiple developers working on big features and a patch is currently limited to have one author. This makes cooperation more difficult than necessary. The new <code>Signed-Off-By</code> header allows us to list multiple authors and should hopefully increase the development speed.
+	</p>
+	</li>
+
+	<li>
+	<p>
+	WineHQ is going to provide binary packages for the development version of Wine. Some distributions do not provide packages for the development version which makes it harder for users to test if a specific bug has already been fixed. We will help upstream Wine by providing our build scripts and infrastructure to build packages.
+	</p>
+	</li>
+
+	<li>
+	<p>
+	From a developer perspective not much will change in Wine Staging, the maintainers will stay the same for the foreseeable future. The patch submission process will be altered since the bug tracker is going to be retired, but there hasn't been a final decision yet on how this will be handled. We might either get our own mailing list at WineHQ or maybe add a special component to the Staging product in the upstream bug tracker. For now please continue using our existing bug tracker until more details are available.
+	</p>
+	</li>
+
+</ul>
+
+<p>
+Not all of those changes have been realized yet, so please stay patient. We hope that everyone can benefit from these changes in the long term.
+</p>
+
+                    
+                </div>
+            </div>
+    
+		</div>
+		<div style="clear: both;"></div>
+	</div>
+	<!-- end #page -->
+</div>
+<div id="footer">
+	<p><a href="/impressum.html">Impressum</a>  - <img src="/images/feed.png" style="vertical-align:top; height:1em;">&nbsp;<a href="/news.xml">News Atom feed</a> - Design based on Perfect Blemish by <a href="http://templated.co" rel="nofollow">TEMPLATED</a> (<a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>).</p>
+</div>
+<!-- end #footer -->
+</body>
+</html>
