@@ -12,13 +12,6 @@ Yesterday we released Wine Staging 1.7.51 with a bunch of bug fixes. We continue
 For those who use the CSMT (commandstream multithreading) patchset to improve the graphic performance, it might be worth to retest existing bug reports. Several bugs were fixed in this release, and the patchset has been updated to stay in sync with the authors repository.
 &lt;/p&gt;
 
-&lt;!--
-&lt;p&gt;
-Besides adding new features, we also fixed several bugs in the CSMT patchset.
-The CSMT patchset used by Wine Staging provides an improved graphic performance and is popular with our users. In this release we fixed several smaller issues and it might be worth to check existing problems.
-&lt;/p&gt;
---&gt;
-
 &lt;!--PREVIEW--&gt;
 
 &lt;p&gt;
