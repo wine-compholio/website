@@ -36,9 +36,9 @@
 	<h2 class="title">What is Wine Staging?</h2>
 	<div class="entry">
 
-	<p><strong>Wine Staging</strong> (formerly wine-compholio) is a special wine version containing bug fixes and features, which are not yet available in regular wine versions. The idea of Wine Staging is to provide new features faster to end users and to give developers the possibility to discuss and improve their patches before they are sent <a href="https://www.winehq.org/">upstream</a>. We also intend to create a community of wine developers to share experience and to make it easier for beginners to start hacking on wine.</p>
+	<p><strong>Wine Staging</strong> is the testing area of <a href="https://www.winehq.org/">winehq.org</a>. It contains bug fixes and features, which have not been integrated into the development branch yet. The idea of Wine Staging is to provide experimental features faster to end users and to give developers the possibility to discuss and improve their patches before they are integrated into the main branch.</p>
 
-	<p>Please note that our Wine Staging repository does not contain the full Wine source, which would be very intransparent for our users and developers. Instead we're providing Wine Staging as a patchset which has to be applied on top of the corresponding upstream Wine version. Package maintainers can decide if they want to include our full patchset, or only want to cherry-pick patches for specific bugs. Our current version includes fixes for about 260 bugs and over 730 patches total, and new patches are added frequently. Features and bugfixes available in Wine-Staging 1.7.51 are for example:</p>
+	<p>Please note that our Wine Staging repository does not contain the full Wine source, which would be very intransparent for our users and developers. Instead we're providing Wine Staging as a patchset which has to be applied on top of the corresponding Wine development version. Package maintainers can decide if they want to include our full patchset, or only want to cherry-pick patches for specific bugs. Our current version includes fixes for about 260 bugs and over 730 patches total, and new patches are added frequently. Features and bugfixes available in Wine-Staging 1.7.51 are for example:</p>
 	<ul>
 		<li>CSMT (Commandstream multithreading) for better graphic performance</li>
 		<li>CUDA / PhysX / NVENC Support for NVIDIA graphic cards</li>
@@ -57,9 +57,9 @@
 		<li>Wine PulseAudio driver</li>
 	</ul>
 
-	<p>We provide packages for a lot of distributions and some of them even decided to include Wine Staging directly into their repositories. More details about installing or compiling Wine Staging can be found in our Wiki. For distributions which are not supported yet, feel free to file bug report.</p>
+	<p>We provide packages for a lot of distributions and some of them even decided to include Wine Staging directly into their repositories. More details about installing or compiling Wine Staging can be found in our Wiki. For distributions which are not supported yet, feel free to file a bug report.</p>
 
-	<p>Although we are reviewing all patches before adding them, there is no guarantee that we never accidentally introduce bugs that are not part of the regular wine version. Make sure to report such issues in our <a href="http://bugs.wine-staging.com">bug tracker</a> instead of winehq.org so that we can try to solve them in future versions. Thanks!</p>
+	<p>Although we are reviewing and testing all patches carefully before adding them, you may encounter additional bugs, which are not present in the development branch. Do not hesitate to report such issues at <a href="https://bugs.winehq.org/">bugs.winehq.org</a>, so they can be fixed before the feature gets integrated.</p>
 	</div>
 </div>
 
