@@ -1,0 +1,42 @@
+Title: Release 1.7.52
+Date: Sun, 04 Oct 2015
+
+<p>
+Some minutes ago we released Wine Staging 1.7.52. This is the first release after WineConf 2015 and the <a href="2015-09-25-winehq-integration.html">integration into WineHQ</a>.
+</p>
+
+<p>
+Some of the changes related to the integration have been realized in the meantime and you should now use the <a href="https://bugs.winehq.org/">WineHQ bug tracker</a> for reporting bugs. Just open them as regular Wine bugs and mention the used wine version. Although this news is mostly about the source code changes, I would like to mention that Arch Linux now provides an <a href="https://www.archlinux.org/packages/multilib/x86_64/wine-staging/">official package</a> which is also named <code>wine-staging</code> and therefore conflicts with our packages. The package installs into <code>/usr</code> instead of <code>/opt/wine-staging</code> so you might run into conflicts with other wine versions. Take a look at our <a href="https://github.com/wine-compholio/wine-staging/wiki/Installation#-arch-linux">Wiki</a> for more information.
+</p>
+
+
+<!--PREVIEW-->
+
+<p>
+In this release an implementation of the <a href="https://msdn.microsoft.com/en-us/library/aa370083(v=vs.85).aspx">msidb</a> tool has been added. The program can be used to create or alter MSI installers. As usual there were also several bug fixes which are listed below.
+</p>
+
+<ul>
+	<li>Add implementation for mfplat.MFTEnum (Prism Video Converter, <a href="https://bugs.winehq.org/show_bug.cgi?id=39309">Wine Bug #39309</a>)</li>
+	<li>Add implementation for msidb commandline tool</li>
+	<li>BitBlt and StretchDIBits should be marked as hotpatchable (Bad Mojo - GOG)</li>
+	<li>Codepage conversion should fail when destination length is &le; 0</li>
+	<li>Correctly parse double quotes in the msi token values</li>
+	<li>Do not trust width/height passed to edit control in WM_SIZE message (Lotus Approach, <a href="https://bugs.winehq.org/show_bug.cgi?id=37542">Wine Bug #37542</a>)</li>
+	<li>Do not use GdipAlloc and GdipFree in internal functions (Happy Foto Designer, <a href="https://bugs.winehq.org/show_bug.cgi?id=32786">Wine Bug #32786</a>)</li>
+	<li>Do not wait for hook thread startup in IDirectInput8::Initialize (Shiva Editor/Evochron, <a href="https://bugs.winehq.org/show_bug.cgi?id=21403">Wine Bug #21403</a>)</li>
+	<li>Fix calculation of listbox size when horizontal scrollbar is present (Lotus Approach, <a href="https://bugs.winehq.org/show_bug.cgi?id=38142">Wine Bug #38142</a>)</li>
+	<li>Implement additional stub functions in authz.dll (Cygwin 2.3.0, <a href="https://bugs.wine-staging.com/show_bug.cgi?id=565">Wine Staging Bug #565</a>)</li>
+	<li>Implement ws2_32.InetPtonA/W functions (Cinema 4D R17)</li>
+	<li>Mark ddraw1 and ddraw_surface1 vtable as writable (Bad Mojo - GOG)</li>
+	<li>Pass cookie by reference to msvcrt_local_unwind4 in _seh_longjmp_unwind4 (PlanCad-L, <a href="https://bugs.winehq.org/show_bug.cgi?id=39356">Wine Bug #39356</a>)</li>
+	<li>Protect TVM_GETITEM from invalid item pointers (AXE3, <a href="https://bugs.winehq.org/show_bug.cgi?id=33001">Wine Bug #33001</a>)</li>
+	<li>Refresh MDI menus when DefMDIChildProc(WM_SETTEXT) is called (Lotus Word Pro, <a href="https://bugs.winehq.org/show_bug.cgi?id=21855">Wine Bug #21855</a>)</li>
+	<li>RegOpenKeyExA, RegCloseKey and RegQueryValueExA should be hotpatchable (Bad Mojo - GOG)</li>
+	<li>Return STATUS_INVALID_DEVICE_REQUEST when trying to call NtReadFile on directory (<a href="https://bugs.wine-staging.com/show_bug.cgi?id=571">Wine Staging Bug #571</a>)</li>
+	<li>WritePrivateProfileStringA should be hotpatchable (Bad Mojo - GOG)</li>
+</ul>
+
+<p>
+All the changes (including removed/upstream accepted patches) are listed in our <a href="https://github.com/wine-compholio/wine-staging/blob/v1.7.52/debian/changelog">changelog</a>.
+</p>

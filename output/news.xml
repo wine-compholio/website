@@ -1,5 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><id>http://www.wine-staging.com/news.xml</id><title>Wine Staging</title><updated>2015-09-25T00:00:00Z</updated><link href="/news.xml" rel="self"></link><link href="/news.html" type="text/html" rel="alternate"></link><entry><title>Integration into WineHQ</title><link href="/news/2015-09-25-winehq-integration.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2015-09-25-winehq-integration.html</id><updated>2015-09-25T00:00:00Z</updated><author><name>Wine Staging Team</name></author><content type="html">
+<feed xmlns="http://www.w3.org/2005/Atom"><id>http://www.wine-staging.com/news.xml</id><title>Wine Staging</title><updated>2015-10-04T00:00:00Z</updated><link href="/news.xml" rel="self"></link><link href="/news.html" type="text/html" rel="alternate"></link><entry><title>Release 1.7.52</title><link href="/news/2015-10-04-release-1.7.52.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2015-10-04-release-1.7.52.html</id><updated>2015-10-04T00:00:00Z</updated><author><name>Wine Staging Team</name></author><content type="html">
+        &lt;div class="post"&gt;
+                &lt;h2 class="title"&gt;Release 1.7.52&lt;/h2&gt;
+                &lt;p class="meta"&gt;&lt;span class="author"&gt;Wine Staging Team&lt;/span&gt;&amp;nbsp;-&amp;nbsp;&lt;span class="date"&gt;Sun, 04 Oct 2015&lt;/span&gt;&lt;/p&gt;
+                &lt;div class="entry"&gt;
+                    &lt;p&gt;
+Some minutes ago we released Wine Staging 1.7.52. This is the first release after WineConf 2015 and the &lt;a href="2015-09-25-winehq-integration.html"&gt;integration into WineHQ&lt;/a&gt;.
+&lt;/p&gt;
+
+&lt;p&gt;
+Some of the changes related to the integration have been realized in the meantime and you should now use the &lt;a href="https://bugs.winehq.org/"&gt;WineHQ bug tracker&lt;/a&gt; for reporting bugs. Just open them as regular Wine bugs and mention the used wine version. Although this news is mostly about the source code changes, I would like to mention that Arch Linux now provides an &lt;a href="https://www.archlinux.org/packages/multilib/x86_64/wine-staging/"&gt;official package&lt;/a&gt; which is also named &lt;code&gt;wine-staging&lt;/code&gt; and therefore conflicts with our packages. The package installs into &lt;code&gt;/usr&lt;/code&gt; instead of &lt;code&gt;/opt/wine-staging&lt;/code&gt; so you might run into conflicts with other wine versions. Take a look at our &lt;a href="https://github.com/wine-compholio/wine-staging/wiki/Installation#-arch-linux"&gt;Wiki&lt;/a&gt; for more information.
+&lt;/p&gt;
+
+
+&lt;!--PREVIEW--&gt;
+
+&lt;p&gt;
+In this release an implementation of the &lt;a href="https://msdn.microsoft.com/en-us/library/aa370083(v=vs.85).aspx"&gt;msidb&lt;/a&gt; tool has been added. The program can be used to create or alter MSI installers. As usual there were also several bug fixes which are listed below.
+&lt;/p&gt;
+
+&lt;ul&gt;
+	&lt;li&gt;Add implementation for mfplat.MFTEnum (Prism Video Converter, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=39309"&gt;Wine Bug #39309&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Add implementation for msidb commandline tool&lt;/li&gt;
+	&lt;li&gt;BitBlt and StretchDIBits should be marked as hotpatchable (Bad Mojo - GOG)&lt;/li&gt;
+	&lt;li&gt;Codepage conversion should fail when destination length is &amp;le; 0&lt;/li&gt;
+	&lt;li&gt;Correctly parse double quotes in the msi token values&lt;/li&gt;
+	&lt;li&gt;Do not trust width/height passed to edit control in WM_SIZE message (Lotus Approach, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=37542"&gt;Wine Bug #37542&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Do not use GdipAlloc and GdipFree in internal functions (Happy Foto Designer, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=32786"&gt;Wine Bug #32786&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Do not wait for hook thread startup in IDirectInput8::Initialize (Shiva Editor/Evochron, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=21403"&gt;Wine Bug #21403&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Fix calculation of listbox size when horizontal scrollbar is present (Lotus Approach, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=38142"&gt;Wine Bug #38142&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Implement additional stub functions in authz.dll (Cygwin 2.3.0, &lt;a href="https://bugs.wine-staging.com/show_bug.cgi?id=565"&gt;Wine Staging Bug #565&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Implement ws2_32.InetPtonA/W functions (Cinema 4D R17)&lt;/li&gt;
+	&lt;li&gt;Mark ddraw1 and ddraw_surface1 vtable as writable (Bad Mojo - GOG)&lt;/li&gt;
+	&lt;li&gt;Pass cookie by reference to msvcrt_local_unwind4 in _seh_longjmp_unwind4 (PlanCad-L, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=39356"&gt;Wine Bug #39356&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Protect TVM_GETITEM from invalid item pointers (AXE3, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=33001"&gt;Wine Bug #33001&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Refresh MDI menus when DefMDIChildProc(WM_SETTEXT) is called (Lotus Word Pro, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=21855"&gt;Wine Bug #21855&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;RegOpenKeyExA, RegCloseKey and RegQueryValueExA should be hotpatchable (Bad Mojo - GOG)&lt;/li&gt;
+	&lt;li&gt;Return STATUS_INVALID_DEVICE_REQUEST when trying to call NtReadFile on directory (&lt;a href="https://bugs.wine-staging.com/show_bug.cgi?id=571"&gt;Wine Staging Bug #571&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;WritePrivateProfileStringA should be hotpatchable (Bad Mojo - GOG)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;
+All the changes (including removed/upstream accepted patches) are listed in our &lt;a href="https://github.com/wine-compholio/wine-staging/blob/v1.7.52/debian/changelog"&gt;changelog&lt;/a&gt;.
+&lt;/p&gt;
+
+                    
+                &lt;/div&gt;
+            &lt;/div&gt;
+    </content></entry><entry><title>Integration into WineHQ</title><link href="/news/2015-09-25-winehq-integration.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2015-09-25-winehq-integration.html</id><updated>2015-09-25T00:00:00Z</updated><author><name>Wine Staging Team</name></author><content type="html">
         &lt;div class="post"&gt;
                 &lt;h2 class="title"&gt;Integration into WineHQ&lt;/h2&gt;
                 &lt;p class="meta"&gt;&lt;span class="author"&gt;Wine Staging Team&lt;/span&gt;&amp;nbsp;-&amp;nbsp;&lt;span class="date"&gt;Fri, 25 Sep 2015&lt;/span&gt;&lt;/p&gt;
