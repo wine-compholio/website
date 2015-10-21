@@ -1,5 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><id>http://www.wine-staging.com/news.xml</id><title>Wine Staging</title><updated>2015-10-04T00:00:00Z</updated><link href="/news.xml" rel="self"></link><link href="/news.html" type="text/html" rel="alternate"></link><entry><title>Release 1.7.52</title><link href="/news/2015-10-04-release-1.7.52.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2015-10-04-release-1.7.52.html</id><updated>2015-10-04T00:00:00Z</updated><author><name>Wine Staging Team</name></author><content type="html">
+<feed xmlns="http://www.w3.org/2005/Atom"><id>http://www.wine-staging.com/news.xml</id><title>Wine Staging</title><updated>2015-10-21T00:00:00Z</updated><link href="/news.xml" rel="self"></link><link href="/news.html" type="text/html" rel="alternate"></link><entry><title>Release 1.7.53</title><link href="/news/2015-10-21-release-1.7.53.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2015-10-21-release-1.7.53.html</id><updated>2015-10-21T00:00:00Z</updated><author><name>Wine Staging Team</name></author><content type="html">
+        &lt;div class="post"&gt;
+                &lt;h2 class="title"&gt;Release 1.7.53&lt;/h2&gt;
+                &lt;p class="meta"&gt;&lt;span class="author"&gt;Wine Staging Team&lt;/span&gt;&amp;nbsp;-&amp;nbsp;&lt;span class="date"&gt;Wed, 21 Oct 2015&lt;/span&gt;&lt;/p&gt;
+                &lt;div class="entry"&gt;
+                    &lt;p&gt;
+On Sunday we released Wine Staging 1.7.53, this time with a few less changes than usual. We were mainly focusing on upstreaming various features, and got 33 patches upstream since the last release. Nevertheless, there are still some interesting changes in this release.
+&lt;/p&gt;
+
+&lt;p&gt;
+If you were using Steam lately, you might have noticed that the store and community tab doesn't show any content. The problem is caused by the embedded chromium code used by Steam. Chromium contains a sandbox to increase the security, but unlike on Linux, the Windows sandbox does not rely on any kernel features but instead modifies functions in ntdll.dll. So far this didn't cause any problem as Steam didn't make use of this sandbox, which changed in a recent update. The problem is that on Windows, ntdll mostly contains wrappers to the corresponding syscalls, while Wine implements all the kernel logic directly in ntdll. The code simply does not match what Chromium is expecting. This release contains an experimental patch to fix this issue for a pure 32 bit prefix (not for a WOW64 prefix!). Make sure to create a prefix with &lt;code&gt;WINEARCH=win32&lt;/code&gt; if you need this feature. Please also note that the patch is only enabled for Linux so far, since additional changes to the build system are required to make it Mac OS X compatible. This will be fixed very soon.
+&lt;/p&gt;
+
+&lt;!--PREVIEW--&gt;
+
+&lt;p&gt;
+Besides the fix for Steam, there were also some other small new feature and fixes:
+&lt;/p&gt;
+
+&lt;ul&gt;
+	&lt;li&gt;Add implementation for comctl32.PROPSHEET_InsertPage (&lt;a href="https://bugs.winehq.org/show_bug.cgi?id=25625"&gt;Wine Bug #25625&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Always use 64-bit registry view on WOW64 setups&lt;/li&gt;
+	&lt;li&gt;Do not check if object was signaled after user APC in server_select&lt;/li&gt;
+	&lt;li&gt;Do not signal threads until they are really gone (MSYS2, &lt;a href="https://bugs.wine-staging.com/show_bug.cgi?id=473"&gt;Wine Staging Bug #473&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Fix the initialization of combined DACLs when the new DACL is empty (&lt;a href="https://bugs.winehq.org/show_bug.cgi?id=38423"&gt;Wine Bug #38423&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Implement kernel32.GetPhysicallyInstalledSystemMemory (&lt;a href="https://bugs.winehq.org/show_bug.cgi?id=39395"&gt;Wine Bug #39395&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Return WN_NOT_CONNECTED from WNetGetUniversalName REMOTE_NAME_INFO_LEVEL stub (&lt;a href="https://bugs.winehq.org/show_bug.cgi?id=39452"&gt;Wine Bug #39452&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Show windows version when collecting system info in winedbg&lt;/li&gt;
+	&lt;li&gt;Use wrapper functions for syscalls to appease Chromium sandbox (32-bit Linux only) (Chromium and Steam, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=39403"&gt;Wine Bug #39403&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;
+All the changes (including removed/upstream accepted patches) are listed in our &lt;a href="https://github.com/wine-compholio/wine-staging/blob/v1.7.53/debian/changelog"&gt;changelog&lt;/a&gt;.
+&lt;/p&gt;
+
+&lt;p&gt;
+PS: Sorry for the unusual high delay between the actual release and the release notes, I (Michael) was really busy during the last days.
+&lt;/p&gt;
+
+                    
+                &lt;/div&gt;
+            &lt;/div&gt;
+    </content></entry><entry><title>Release 1.7.52</title><link href="/news/2015-10-04-release-1.7.52.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2015-10-04-release-1.7.52.html</id><updated>2015-10-04T00:00:00Z</updated><author><name>Wine Staging Team</name></author><content type="html">
         &lt;div class="post"&gt;
                 &lt;h2 class="title"&gt;Release 1.7.52&lt;/h2&gt;
                 &lt;p class="meta"&gt;&lt;span class="author"&gt;Wine Staging Team&lt;/span&gt;&amp;nbsp;-&amp;nbsp;&lt;span class="date"&gt;Sun, 04 Oct 2015&lt;/span&gt;&lt;/p&gt;

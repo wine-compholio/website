@@ -34,6 +34,24 @@
 		<div id="content">
 
         <div class="post">
+                <h2 class="title"><a href="/news/2015-10-21-release-1.7.53.html">Release 1.7.53</a></h2>
+                <p class="meta"><span class="author">Wine Staging Team</span>&nbsp;-&nbsp;<span class="date">Wed, 21 Oct 2015</span></p>
+                <div class="entry">
+                    <p>
+On Sunday we released Wine Staging 1.7.53, this time with a few less changes than usual. We were mainly focusing on upstreaming various features, and got 33 patches upstream since the last release. Nevertheless, there are still some interesting changes in this release.
+</p>
+
+<p>
+If you were using Steam lately, you might have noticed that the store and community tab doesn't show any content. The problem is caused by the embedded chromium code used by Steam. Chromium contains a sandbox to increase the security, but unlike on Linux, the Windows sandbox does not rely on any kernel features but instead modifies functions in ntdll.dll. So far this didn't cause any problem as Steam didn't make use of this sandbox, which changed in a recent update. The problem is that on Windows, ntdll mostly contains wrappers to the corresponding syscalls, while Wine implements all the kernel logic directly in ntdll. The code simply does not match what Chromium is expecting. This release contains an experimental patch to fix this issue for a pure 32 bit prefix (not for a WOW64 prefix!). Make sure to create a prefix with <code>WINEARCH=win32</code> if you need this feature. Please also note that the patch is only enabled for Linux so far, since additional changes to the build system are required to make it Mac OS X compatible. This will be fixed very soon.
+</p>
+
+
+                    <p><a href="/news/2015-10-21-release-1.7.53.html">Read more</a></p>
+                </div>
+            </div>
+    
+
+        <div class="post">
                 <h2 class="title"><a href="/news/2015-10-04-release-1.7.52.html">Release 1.7.52</a></h2>
                 <p class="meta"><span class="author">Wine Staging Team</span>&nbsp;-&nbsp;<span class="date">Sun, 04 Oct 2015</span></p>
                 <div class="entry">
