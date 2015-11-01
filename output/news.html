@@ -34,6 +34,28 @@
 		<div id="content">
 
         <div class="post">
+                <h2 class="title"><a href="/news/2015-11-01-release-1.7.54.html">Release 1.7.54</a></h2>
+                <p class="meta"><span class="author">Wine Staging Team</span>&nbsp;-&nbsp;<span class="date">Sun, 01 Nov 2015</span></p>
+                <div class="entry">
+                    <p>
+Yesterday we released Wine Staging 1.7.54. The release contains fixes for the widl compiler, the handling of APCs and various additional improvements for other parts of wine.
+</p>
+
+<p>
+In this releases we added multiple improvements and bug fixes for the wine IDL (widl) compiler. The widl compiler reads files in the Microsoft Interface Definition Language (MIDL) and converts them into different output formats. One possible output format are typelibs. Those files contain a binary definition of the interfaces described in the input file and are often used by scripting languages in order to communicate with COM objects. So far the widl compiler contained various bugs and the typelibs shipped with Wine were not completely correct, causing scripts to fail. Some of those problems have been fixed.
+</p>
+
+<p>
+One concept of the windows API which might be even unknown to some programmers, are Asynchronous Procedure Calls (APCs). They provide a way to pause a thread, execute a function and resume the execution. Those APCs can either be initiated from some other thread/process (user APCs) or from the windows kernel. Although Wine does not have a kernel, the idea of kernel APCs is still used, for example if you try to allocate memory in a different process. The POSIX API does not provide such a feature, so Wine needs a way to execute the memory allocation in the target process. To accomplish this, Wine can use two different ways to notify a thread about a kernel APC. This lead to a race condition in which one kernel APC could be interrupted by a different kernel APC. Although this does not lead to a crash, processing them in a wrong order can cause deadlocks. This problem has been fixed in Wine Staging 1.7.54.
+</p>
+
+
+                    <p><a href="/news/2015-11-01-release-1.7.54.html">Read more</a></p>
+                </div>
+            </div>
+    
+
+        <div class="post">
                 <h2 class="title"><a href="/news/2015-10-21-release-1.7.53.html">Release 1.7.53</a></h2>
                 <p class="meta"><span class="author">Wine Staging Team</span>&nbsp;-&nbsp;<span class="date">Wed, 21 Oct 2015</span></p>
                 <div class="entry">

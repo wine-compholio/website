@@ -1,5 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><id>http://www.wine-staging.com/news.xml</id><title>Wine Staging</title><updated>2015-10-21T00:00:00Z</updated><link href="/news.xml" rel="self"></link><link href="/news.html" type="text/html" rel="alternate"></link><entry><title>Release 1.7.53</title><link href="/news/2015-10-21-release-1.7.53.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2015-10-21-release-1.7.53.html</id><updated>2015-10-21T00:00:00Z</updated><author><name>Wine Staging Team</name></author><content type="html">
+<feed xmlns="http://www.w3.org/2005/Atom"><id>http://www.wine-staging.com/news.xml</id><title>Wine Staging</title><updated>2015-11-01T00:00:00Z</updated><link href="/news.xml" rel="self"></link><link href="/news.html" type="text/html" rel="alternate"></link><entry><title>Release 1.7.54</title><link href="/news/2015-11-01-release-1.7.54.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2015-11-01-release-1.7.54.html</id><updated>2015-11-01T00:00:00Z</updated><author><name>Wine Staging Team</name></author><content type="html">
+        &lt;div class="post"&gt;
+                &lt;h2 class="title"&gt;Release 1.7.54&lt;/h2&gt;
+                &lt;p class="meta"&gt;&lt;span class="author"&gt;Wine Staging Team&lt;/span&gt;&amp;nbsp;-&amp;nbsp;&lt;span class="date"&gt;Sun, 01 Nov 2015&lt;/span&gt;&lt;/p&gt;
+                &lt;div class="entry"&gt;
+                    &lt;p&gt;
+Yesterday we released Wine Staging 1.7.54. The release contains fixes for the widl compiler, the handling of APCs and various additional improvements for other parts of wine.
+&lt;/p&gt;
+
+&lt;p&gt;
+In this releases we added multiple improvements and bug fixes for the wine IDL (widl) compiler. The widl compiler reads files in the Microsoft Interface Definition Language (MIDL) and converts them into different output formats. One possible output format are typelibs. Those files contain a binary definition of the interfaces described in the input file and are often used by scripting languages in order to communicate with COM objects. So far the widl compiler contained various bugs and the typelibs shipped with Wine were not completely correct, causing scripts to fail. Some of those problems have been fixed.
+&lt;/p&gt;
+
+&lt;p&gt;
+One concept of the windows API which might be even unknown to some programmers, are Asynchronous Procedure Calls (APCs). They provide a way to pause a thread, execute a function and resume the execution. Those APCs can either be initiated from some other thread/process (user APCs) or from the windows kernel. Although Wine does not have a kernel, the idea of kernel APCs is still used, for example if you try to allocate memory in a different process. The POSIX API does not provide such a feature, so Wine needs a way to execute the memory allocation in the target process. To accomplish this, Wine can use two different ways to notify a thread about a kernel APC. This lead to a race condition in which one kernel APC could be interrupted by a different kernel APC. Although this does not lead to a crash, processing them in a wrong order can cause deadlocks. This problem has been fixed in Wine Staging 1.7.54.
+&lt;/p&gt;
+
+&lt;!--PREVIEW--&gt;
+
+&lt;p&gt;
+Besides various patches accepted upstream, here is a list of all new feature and fixes added since the last release:
+&lt;/p&gt;
+
+&lt;ul&gt;
+	&lt;li&gt;Add stub for SetCoalescableTimer (OneDrive for Business, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=39509"&gt;Wine Bug #39509&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Add stub for SetConsoleKeyShortcuts (FarManager v3, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=35702"&gt;Wine Bug #35702&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Add stub for SfcGetNextProtectedFile (FreshDiagnose, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=38097"&gt;Wine Bug #38097&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Do not allow interruption of system APC in server_select (OllyDbg 2, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=14697"&gt;Wine Bug #14697&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Fix multiple issues in widl typelib generation&lt;/li&gt;
+	&lt;li&gt;IEnumSTATSTG::Next should zero out returned stats when enumeration ends&lt;/li&gt;
+	&lt;li&gt;Implement FileNamesInformation class support for NtQueryDirectoryFile&lt;/li&gt;
+	&lt;li&gt;Implement SystemHandleInformation info class (ProtectDISC 6)&lt;/li&gt;
+	&lt;li&gt;Implement hal.KeQueryPerformanceCounter (Secret Files: Tunguska, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=39500"&gt;Wine Bug #39500&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Implement kernel32.GetConsoleFontSize&lt;/li&gt;
+	&lt;li&gt;Implement stub for ProcessQuotaLimits info class (MSYS2, &lt;a href="https://bugs.wine-staging.com/show_bug.cgi?id=570"&gt;Wine Staging Bug #570&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Improve INetFwAuthorizedApplication::get_ProcessImageFileName stub (VoipBuster)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;
+All the changes (including removed/upstream accepted patches) are listed in our &lt;a href="https://github.com/wine-compholio/wine-staging/blob/v1.7.54/debian/changelog"&gt;changelog&lt;/a&gt;.
+&lt;/p&gt;
+
+                    
+                &lt;/div&gt;
+            &lt;/div&gt;
+    </content></entry><entry><title>Release 1.7.53</title><link href="/news/2015-10-21-release-1.7.53.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2015-10-21-release-1.7.53.html</id><updated>2015-10-21T00:00:00Z</updated><author><name>Wine Staging Team</name></author><content type="html">
         &lt;div class="post"&gt;
                 &lt;h2 class="title"&gt;Release 1.7.53&lt;/h2&gt;
                 &lt;p class="meta"&gt;&lt;span class="author"&gt;Wine Staging Team&lt;/span&gt;&amp;nbsp;-&amp;nbsp;&lt;span class="date"&gt;Wed, 21 Oct 2015&lt;/span&gt;&lt;/p&gt;

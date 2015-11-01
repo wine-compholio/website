@@ -1,0 +1,39 @@
+Title: Release 1.7.54
+Date: Sun, 01 Nov 2015
+
+<p>
+Yesterday we released Wine Staging 1.7.54. The release contains fixes for the widl compiler, the handling of APCs and various additional improvements for other parts of wine.
+</p>
+
+<p>
+In this releases we added multiple improvements and bug fixes for the wine IDL (widl) compiler. The widl compiler reads files in the Microsoft Interface Definition Language (MIDL) and converts them into different output formats. One possible output format are typelibs. Those files contain a binary definition of the interfaces described in the input file and are often used by scripting languages in order to communicate with COM objects. So far the widl compiler contained various bugs and the typelibs shipped with Wine were not completely correct, causing scripts to fail. Some of those problems have been fixed.
+</p>
+
+<p>
+One concept of the windows API which might be even unknown to some programmers, are Asynchronous Procedure Calls (APCs). They provide a way to pause a thread, execute a function and resume the execution. Those APCs can either be initiated from some other thread/process (user APCs) or from the windows kernel. Although Wine does not have a kernel, the idea of kernel APCs is still used, for example if you try to allocate memory in a different process. The POSIX API does not provide such a feature, so Wine needs a way to execute the memory allocation in the target process. To accomplish this, Wine can use two different ways to notify a thread about a kernel APC. This lead to a race condition in which one kernel APC could be interrupted by a different kernel APC. Although this does not lead to a crash, processing them in a wrong order can cause deadlocks. This problem has been fixed in Wine Staging 1.7.54.
+</p>
+
+<!--PREVIEW-->
+
+<p>
+Besides various patches accepted upstream, here is a list of all new feature and fixes added since the last release:
+</p>
+
+<ul>
+	<li>Add stub for SetCoalescableTimer (OneDrive for Business, <a href="https://bugs.winehq.org/show_bug.cgi?id=39509">Wine Bug #39509</a>)</li>
+	<li>Add stub for SetConsoleKeyShortcuts (FarManager v3, <a href="https://bugs.winehq.org/show_bug.cgi?id=35702">Wine Bug #35702</a>)</li>
+	<li>Add stub for SfcGetNextProtectedFile (FreshDiagnose, <a href="https://bugs.winehq.org/show_bug.cgi?id=38097">Wine Bug #38097</a>)</li>
+	<li>Do not allow interruption of system APC in server_select (OllyDbg 2, <a href="https://bugs.winehq.org/show_bug.cgi?id=14697">Wine Bug #14697</a>)</li>
+	<li>Fix multiple issues in widl typelib generation</li>
+	<li>IEnumSTATSTG::Next should zero out returned stats when enumeration ends</li>
+	<li>Implement FileNamesInformation class support for NtQueryDirectoryFile</li>
+	<li>Implement SystemHandleInformation info class (ProtectDISC 6)</li>
+	<li>Implement hal.KeQueryPerformanceCounter (Secret Files: Tunguska, <a href="https://bugs.winehq.org/show_bug.cgi?id=39500">Wine Bug #39500</a>)</li>
+	<li>Implement kernel32.GetConsoleFontSize</li>
+	<li>Implement stub for ProcessQuotaLimits info class (MSYS2, <a href="https://bugs.wine-staging.com/show_bug.cgi?id=570">Wine Staging Bug #570</a>)</li>
+	<li>Improve INetFwAuthorizedApplication::get_ProcessImageFileName stub (VoipBuster)</li>
+</ul>
+
+<p>
+All the changes (including removed/upstream accepted patches) are listed in our <a href="https://github.com/wine-compholio/wine-staging/blob/v1.7.54/debian/changelog">changelog</a>.
+</p>
