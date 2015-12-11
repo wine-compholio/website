@@ -1,0 +1,41 @@
+Title: Packaging changes
+Date: Fri, 11 Dec 2015
+
+<p>
+In the past the bi-weekly release cycle of Wine causes a lot of work for developers and packagers. Not all distros can afford to update a single package every two weeks. As a result, they often only provide packages for the stable branch or ship an outdated version of the development branch. To solve this problem, there was the decision at WineConf 2015 that WineHQ should provide packages for popular distributions. Since we already build packages for Wine Staging, we offered to extend our current system to include the development branch. As part of this process we decided to drop our dependency on external build services (except Launchpad) and instead build everything in our own VMs. We also extended our build scripts to provide a more general way of building packages which is less tied to Wine Staging or Wine in general. These changes do not only affect the newly built Wine development packages but also our existing Wine Staging packages. The changes differ between distros and are described below.
+</p>
+
+<!--PREVIEW-->
+
+<hr style="border: 0; border-bottom: 1px dashed #ccc;">
+
+<p>
+<b>Debian:</b> The wine-compat package, which adds symlinks in /usr/bin to configure Wine Staging as your default wine version, was renamed to winehq-staging. A dummy package is provided to keep backwards compatibility during an upgrade. If you are still using Wheezy, the location of the repository has changed. The Wheezy packages are no longer build on the OpenSUSE build servers, but instead we build the packages on our own build system, like we do for all other debian versions. Take a look at our <a href="https://github.com/wine-compholio/wine-staging/wiki" target="_blank">Installation instructions</a> for information how to use the new repository.
+</p>
+
+<p>
+<b>OpenSUSE:</b> We decided to move all builds to our own build system since the OpenSUSE build servers only support stable versions for other distributions. Building packages for the same distribution on different services only make things more complicated. For OpenSUSE the story is a bit different though since the OBS is optimized for this distribution, so it wouldn't be a wise idea to use something different. However, since this would have been the last distro for which we are using the OBS, we asked <a href="http://wiki.winehq.org/MarcusMeissner">Marcus Meissner</a> to take care of the packages. He already provides bi-weekly updates for the wine development package. The new Wine Staging packares are published in the <code>Emulators:Wine/wine-staging</code> repository, so you will need to change to this new repoistory. More information can be found in the <a href="https://github.com/wine-compholio/wine-staging/wiki" target="_blank">Wiki</a>.
+</p>
+
+<p>
+<b>Fedora:</b> Our fedora packages changed a lot. While moving the files from OBS to our own builder, we also completely rewrote the spec file. We do not longer split Wine into different subpackages as the default wine package on Fedora does. Most users install the full Wine package anyway and leaving out some packages can easily break applications. Instead we provide now a single wine-staging package which install all files to <code>/opt/wine-staging</code> (or to be more precise, we only uses the minimum number of packages required to get a working WOW64 build). If you would like to install wine-staging as your default Wine version, you can install the winehq-staging package. Please not that this is basically identical to using the default wine package in Fedora. Don't forget to update the repository url as described in the <a href="https://github.com/wine-compholio/wine-staging/wiki" target="_blank">Wiki</a>.
+</p>
+
+<p>
+<b>Mageia:</b> For Mageia users there weren't any big changes. You can now install the winehq-staging package to configure Wine Staging as your default Wine version, but otherwise everything stays the same :-).
+</p>
+
+<p>
+<b>CentOS:</b> The support for CentOS has been dropped, we do not longer provide packages for this distribution. CentOS 6 often provides packages that are too outdated to support all features of Wine Staging and CentOS 7 didn't support i386 for a long time. We therefore concentrate our work on other packages first, but we might consider adding support for CentOS 7 at a later point.
+</p>
+
+<p>
+<b>Arch Linux:</b> In the meantime Arch Linux provides Wine Staging in the default repositories and it is therefore not necessary for us to provide packages any more. We provided a package called wine-staging-opt for some time which installed into /opt/wine-staging and didn't replace the default wine version unlike the distro provided package. However, we consider dropping this package as the number of users is quite low.
+</p>
+
+<hr style="border: 0; border-bottom: 1px dashed #ccc;">
+
+
+<p>
+This should cover the most important changes. We are still not completely done yet, but most remaining changes will only affect our internal build system and shouldn't be visible to our users. In case you are wondering why there are no release notes for the 1.8rc-* versions, we simply decided that there are not enough big changes during one week that it would make sense to write news about it. You can still find all added and removed patches in our changelog.
+</p>
