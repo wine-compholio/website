@@ -1,5 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><id>http://www.wine-staging.com/news.xml</id><title>Wine Staging</title><updated>2015-12-11T00:00:00Z</updated><link href="/news.xml" rel="self"></link><link href="/news.html" type="text/html" rel="alternate"></link><entry><title>Packaging changes</title><link href="/news/2015-12-11-packaging-changes.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2015-12-11-packaging-changes.html</id><updated>2015-12-11T00:00:00Z</updated><author><name>Wine Staging Team</name></author><content type="html">
+<feed xmlns="http://www.w3.org/2005/Atom"><id>http://www.wine-staging.com/news.xml</id><title>Wine Staging</title><updated>2015-12-22T00:00:00Z</updated><link href="/news.xml" rel="self"></link><link href="/news.html" type="text/html" rel="alternate"></link><entry><title>Release 1.8</title><link href="/news/2015-12-22-release-1.8.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2015-12-22-release-1.8.html</id><updated>2015-12-22T00:00:00Z</updated><author><name>Wine Staging Team</name></author><content type="html">
+        &lt;div class="post"&gt;
+                &lt;h2 class="title"&gt;Release 1.8&lt;/h2&gt;
+                &lt;p class="meta"&gt;&lt;span class="author"&gt;Wine Staging Team&lt;/span&gt;&amp;nbsp;-&amp;nbsp;&lt;span class="date"&gt;Tue, 22 Dec 2015&lt;/span&gt;&lt;/p&gt;
+                &lt;div class="entry"&gt;
+                    &lt;p&gt;
+Yesterday we released Wine Staging 1.8, which is kind of special as it is based on a stable release instead of a development release. Although Wine Staging was not really affected by the development code freeze, we still kept the changes small during this time, so you could consider this to be a stable staging release.
+&lt;/p&gt;
+
+&lt;p&gt;
+Anyway, Christmas is very close, so we still prepared a small present in form of a new feature for this Wine Staging release. We spent some time on implementing Windows Update in Wine. To be exact we worked on the &lt;b&gt;W&lt;/b&gt;indows &lt;b&gt;U&lt;/b&gt;pdate &lt;b&gt;S&lt;/b&gt;tand-&lt;b&gt;A&lt;/b&gt;lone Installer (WUSA). This program (wusa.exe) can be used to install Windows Updates packages on Vista and above. Sounds weird to implement something like this in Wine? Well, Microsoft didn't only decide to use this for real Windows updates but also for other software which either replaces system components or is closely tied to Windows. Prominent examples for this are .NET Framework 4.5 or the Internet Explorer. Those updates are often embedded into some executable, but you can also download some Microsoft Updates (.msu) files directly.
+&lt;/p&gt;
+
+&lt;!--PREVIEW--&gt;
+
+&lt;p&gt;
+Those updates contain a complex system of xml files which define subpackages, installation instructions, dependencies, and so on. The whole concept is very similar to how most linux package managers work. Our current implementation can successfully install x86 packages in a plain 32 bit and WOW64 prefix as well as x64 packages in a WOW64 bit prefix. There are some shortcuts and the current implementation does not work with all MSU packages yet. The main reason for this are packages using the proprietary msdelta compression which is not yet supported in Wine, so the installation will fail as wusa fails to find some files (this affects for example the IE .msu package).
+&lt;/p&gt;
+
+&lt;p&gt;
+Nevertheless, the current implementation can already be used to install .NET Framework 4.5. Just create a 32 bit prefix (x64 / WOW64 bit .NET Framework does not work properly due to other problems), change the Windows version to Vista or 7 and set mscoree to native in the library tab. Setting mscoree to native is a workaround for a different wine bug. The problem is already known, but fixing it would have had the potential of introducing regressions, so this is something we are planning for the 1.9.0 release. Now you should be able to run the normal .NET 4.5 installer and get a working installation. You can also use the &lt;a href="http://blogs.msdn.com/b/astebner/archive/2008/10/13/8999004.aspx"&gt;.NET verifier&lt;/a&gt; to check if the installation is correct. Please note that the installation would also succeed on vanilla Wine 1.8, but it would be broken because the .msu installation was simply skipped.
+&lt;/p&gt;
+
+&lt;p&gt;
+I hope you like your present of getting a clean .NET 4.5 installation without using winetricks and installing a bunch of older .NET versions. We will try to improve the wusa implementation till the 1.9.0 release next year. In the meantime we wish you a merry Christmas and happy new year. Enjoy your holidays and play some games using Wine (Staging) or whatever you have planned ;-).
+&lt;/p&gt;
+
+&lt;center&gt;&lt;img style="width: 50%;" src="/images/santa.svg"&gt;&lt;/center&gt;
+                    
+                &lt;/div&gt;
+            &lt;/div&gt;
+    </content></entry><entry><title>Packaging changes</title><link href="/news/2015-12-11-packaging-changes.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2015-12-11-packaging-changes.html</id><updated>2015-12-11T00:00:00Z</updated><author><name>Wine Staging Team</name></author><content type="html">
         &lt;div class="post"&gt;
                 &lt;h2 class="title"&gt;Packaging changes&lt;/h2&gt;
                 &lt;p class="meta"&gt;&lt;span class="author"&gt;Wine Staging Team&lt;/span&gt;&amp;nbsp;-&amp;nbsp;&lt;span class="date"&gt;Fri, 11 Dec 2015&lt;/span&gt;&lt;/p&gt;

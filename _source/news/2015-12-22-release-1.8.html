@@ -1,0 +1,26 @@
+Title: Release 1.8
+Date: Tue, 22 Dec 2015
+
+<p>
+Yesterday we released Wine Staging 1.8, which is kind of special as it is based on a stable release instead of a development release. Although Wine Staging was not really affected by the development code freeze, we still kept the changes small during this time, so you could consider this to be a stable staging release.
+</p>
+
+<p>
+Anyway, Christmas is very close, so we still prepared a small present in form of a new feature for this Wine Staging release. We spent some time on implementing Windows Update in Wine. To be exact we worked on the <b>W</b>indows <b>U</b>pdate <b>S</b>tand-<b>A</b>lone Installer (WUSA). This program (wusa.exe) can be used to install Windows Updates packages on Vista and above. Sounds weird to implement something like this in Wine? Well, Microsoft didn't only decide to use this for real Windows updates but also for other software which either replaces system components or is closely tied to Windows. Prominent examples for this are .NET Framework 4.5 or the Internet Explorer. Those updates are often embedded into some executable, but you can also download some Microsoft Updates (.msu) files directly.
+</p>
+
+<!--PREVIEW-->
+
+<p>
+Those updates contain a complex system of xml files which define subpackages, installation instructions, dependencies, and so on. The whole concept is very similar to how most linux package managers work. Our current implementation can successfully install x86 packages in a plain 32 bit and WOW64 prefix as well as x64 packages in a WOW64 bit prefix. There are some shortcuts and the current implementation does not work with all MSU packages yet. The main reason for this are packages using the proprietary msdelta compression which is not yet supported in Wine, so the installation will fail as wusa fails to find some files (this affects for example the IE .msu package).
+</p>
+
+<p>
+Nevertheless, the current implementation can already be used to install .NET Framework 4.5. Just create a 32 bit prefix (x64 / WOW64 bit .NET Framework does not work properly due to other problems), change the Windows version to Vista or 7 and set mscoree to native in the library tab. Setting mscoree to native is a workaround for a different wine bug. The problem is already known, but fixing it would have had the potential of introducing regressions, so this is something we are planning for the 1.9.0 release. Now you should be able to run the normal .NET 4.5 installer and get a working installation. You can also use the <a href="http://blogs.msdn.com/b/astebner/archive/2008/10/13/8999004.aspx">.NET verifier</a> to check if the installation is correct. Please note that the installation would also succeed on vanilla Wine 1.8, but it would be broken because the .msu installation was simply skipped.
+</p>
+
+<p>
+I hope you like your present of getting a clean .NET 4.5 installation without using winetricks and installing a bunch of older .NET versions. We will try to improve the wusa implementation till the 1.9.0 release next year. In the meantime we wish you a merry Christmas and happy new year. Enjoy your holidays and play some games using Wine (Staging) or whatever you have planned ;-).
+</p>
+
+<center><img style="width: 50%;" src="/images/santa.svg"></center>
