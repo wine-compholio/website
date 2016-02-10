@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="keywords" content="Wine, Staging, wine-staging" />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Wine Staging</title>
+	<link href="/css/style.css" rel="stylesheet" type="text/css" media="screen" />
+	<link href="/news.xml" rel="alternate" type="application/atom+xml" title="News Feed (atom)" />
+</head>
+<body>
+<div id="wrapper">
+	<div id="header-wrapper">
+		<div id="header">
+			<div id="logo">
+				<h1><a href="/index.html">Wine <span>Staging</span></a></h1>
+			</div>
+			<div id="menu">
+				<ul>
+					<li><a href="/index.html">Home</a></li>
+					<li><a href="/news.html">News</a></li>
+					<li><a href="https://github.com/wine-compholio/wine-staging/wiki/Installation" target="_blank">Install</a></li>
+					<li><a href="https://github.com/wine-compholio/wine-staging/wiki" target="_blank">Wiki</a></li>
+					<li><a href="https://bugs.winehq.org/" target="_blank">Bugs</a></li>
+					<li><a href="/source.html">Source</a></li>
+				</ul>
+			</div>
+			<div style="clear: both;"></div>
+		</div>
+	</div>
+	<!-- end #header -->
+	<div id="page">
+		<div id="content">
+
+        <div class="post">
+                <h2 class="title">Blog: How do Win 3.1 applications work in Wine?</h2>
+                <p class="meta"><span class="author">Michael Müller</span>&nbsp;-&nbsp;<span class="date">Wed, 10 Feb 2016</span></p>
+                <div class="entry">
+                    <p>
+If you read our release notes frequently, you might have noticed that I tend to explain the background behind the changes in Wine Staging as I imagine that this might be interesting for some of our readers. However, those explanations do not really belong into the release notes, so I decided to move them to separate blog posts. So welcome to my first blog post in which I explain how the 16 bit support works in Wine and which typical bugs you may encounter. I hope you enjoy reading it although it is going to be very technical, but maybe you learn something from it :-).
+</p>
+
+<p>
+Let's start with something that might surprise you: Although Wine supports 16 bit applications it basically doesn't contain any 16 bit code. Well, to be completely correct it does, but just a couple of lines of handwritten assembler code. The reason for this is simple, almost all code in Wine is written in C and intended to be compatible with different compilers. Almost no modern compiler is able to compile C code to 16 bit binary opcodes, and writing everything in assembler is also no option. Wine instead needs to use some special tricks which I will explain later. First we need to take a look at the biggest difference between 16 bit and 32 bit, the memory management.
+</p>
+
+<!--PREVIEW-->
+
+<p>
+On a 32 bit system you have a 4GB memory range which can be accessed using memory addresses from 0x00000000 to 0xFFFFFFFF. Getting the next byte is as easy as incrementing the address. On 16 bit things were a bit more complicated though. The memory was not linear but instead split into segments. When you passed a pointer (for example a string or structure) to a windows API function, it was still a 32 bit address value but it was split into two parts:
+</p>
+
+
+<div style="text-align: center; font-size: 1.5em; margin-top: 1em; margin-bottom: 1em">
+<span style="display: inline-block; border: solid black 1px;"><span style="display: inline-block; border-right: solid black 1px; width: 9ex; text-align: center;">Segment</span><span style="display: inline-block; width: 9ex; text-align: center;">Offset</span></span><br />
+	<span style="display: inline-block; width: 6ex; text-align: left;">32</span>
+	<span style="display: inline-block; width: 6ex; text-align: center;">16</span>
+	<span style="display: inline-block; width: 6ex; text-align: right;">0</span>
+</div>
+
+<p>
+The lower 16 bit of the address contain an offset while the top 16 bit contain a segment index. Since the offset is 16 bit only, a segment has the maximum size of 64kb (2^16-1). When you try to access such an address, the CPU will translate the address to a linear address by using a translation table (Local Descriptor Table) which contains an entry for each segment index. An entry defines the start address for a segment and the size. Since our offset can't be bigger than 64 kb, the usual size of a segment is 64 kb. This brings us to the following relation <code>linear address = LDT[segment].base + offset</code>.
+</p>
+
+<p>
+So how is Wine able to execute 16 bit code when using a 32 bit or 64 bit operating system? Well, I said that a 32 bit OS uses a linear memory, which is not 100% correct. The segmentation stuff also exists on 32 bit and in fact is mandatory. However, the size of the offset is now 32 bit and it is possible to put all available memory into a single segment. Basically all modern 32 bit operating systems just create one segment with start address 0 and size 4GB. Using this setup you get a linear memory and don't have to care about segments any more. The tricky part is that a LDT entry also contains flags which define if a segment contains 16 bit, 32 bit or 64 bit code. If you change to a segment, the CPU will automatically start interpreting the code inside the segment according to this value.
+</p>
+
+<div style="text-align: center; margin-top: 1.5em; margin-bottom: 1.5em;">
+<img src="/images/SegmentDescriptor.svg" style="max-height: 6em; max-width: 100%"><br />
+<i>Structure of a LDT entry when the processor is in 32 bit mode.</i><br>
+<i>The <code>DB</code> flag defines if this segment contains 32 bit code (1) or 16 bit code (0).</i><br />
+<i style="font-size: 0.8em;">Source: <a href="https://commons.wikimedia.org/wiki/File:SegmentDescriptor.svg" style="color: #3C3D3F;">Wikipedia</a></i>
+</div>
+
+<p>
+So how does Wine use this trick? The Local Descriptor Table containing all those entries are process specific and many modern operating systems allow you to mess around with them. Linux for example provides the <code>modify_ldt</code> function. When Wine starts a Win 3.1 16 bit application, it loads the executable into the memory and creates segments for it. Those segments are just 64 kb excerpts of our 32 bit memory, in fact we can now access the same memory either via a 16 bit or 32 bit address. The tricky part is when such an application tries to call an API function, since they are only available as 32 bit code. Wine generates 16 bit dlls but they only contain small wrappers to switch to our 32 bit segment and then calls the according 32 bit C function. The good thing is that Microsoft didn't change much in their API between 16 bit and 32 bit, so many functions are identical between 16 bit and 32 bit and it is sufficient to have one implementation. Well, at least in theory, there is still a nasty problem: The difference in the memory management.
+</p>
+
+<p>
+When a 16 bit application passes a pointer (for example a string or structure) to an API function, it will pass the pointer in the format (segment | offset). If we would just forward this value, for example (0x001E | 0x00F2), to a 32 bit function, the function would try to interpret this value as 32 bit address 0x001E00F2 instead of <code>LDT[0x001E].base + 0x00F2</code>. Whenever Wine passes a pointer from a 16 bit application to a 32 bit API function, all these addresses must be translated first. Since Wine sets up the LDT table, it knows how to do this, it just needs to know when it is necessary. In order to solve this, each dll has a spec file with the exported functions:
+</p>
+
+<p>
+<pre>
+144 pascal -ret16 CreateDirectory(ptr ptr) CreateDirectory16
+145 pascal -ret16 RemoveDirectory(ptr) RemoveDirectory16
+146 pascal -ret16 DeleteFile(ptr) DeleteFile16
+147 pascal -ret16 SetLastError(long) SetLastError16
+148 pascal GetLastError() GetLastError16
+149 pascal -ret16 GetVersionEx(ptr) GetVersionEx16
+</pre>
+</p>
+
+<p>
+These lines define the calling convention, the exported function including the parameter types, and which function in the source code should be called. If you write <code>ptr</code> as parameter type Wine knows that this is a pointer and automatically generates code at build time to translate the addresses to 32 bit. So the problem is solved, right? Well, there are some indirect ways to pass memory addresses to the windows API which are not covered by this. The most common one are window messages, these are messages that are sent between windows and can contain up to 2 user defined values. Sometimes they also contain pointers, but Wine can't detect them automatically. So you need to write code to hook into the communication and translate the addresses before they arrive at the real destination:
+</p>
+
+<p>
+<pre style='color:#000000;background:#ffffff;'><span style='color:#800000; font-weight:bold; '>static</span> <span style='color:#603000; '>LRESULT</span> <span style='color:#603000; '>WINAPI</span> MCIWndProc16<span style='color:#808030; '>(</span><span style='color:#603000; '>HWND</span> hwnd<span style='color:#808030; '>,</span> <span style='color:#603000; '>UINT</span> msg<span style='color:#808030; '>,</span> <span style='color:#603000; '>WPARAM</span> wparam<span style='color:#808030; '>,</span> <span style='color:#603000; '>LPARAM</span> lparam<span style='color:#808030; '>)</span>
+<span style='color:#800080; '>{</span>
+    <span style='color:#800000; font-weight:bold; '>switch</span> <span style='color:#808030; '>(</span>msg<span style='color:#808030; '>)</span>
+    <span style='color:#800080; '>{</span>
+    <span style='color:#800000; font-weight:bold; '>case </span><span style='color:#7d0045; '>MCIWNDM_SENDSTRINGA</span><span style='color:#e34adc; '>:</span>
+        lparam <span style='color:#808030; '>=</span> <span style='color:#808030; '>(</span><span style='color:#603000; '>ULONG_PTR</span><span style='color:#808030; '>)</span>MapSL<span style='color:#808030; '>(</span>lparam<span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+        <span style='color:#800000; font-weight:bold; '>break</span><span style='color:#800080; '>;</span>
+
+    <span style='color:#800000; font-weight:bold; '>case </span><span style='color:#7d0045; '>MCIWNDM_SETTIMEFORMATA</span><span style='color:#e34adc; '>:</span>
+        lparam <span style='color:#808030; '>=</span> <span style='color:#808030; '>(</span><span style='color:#603000; '>ULONG_PTR</span><span style='color:#808030; '>)</span>MapSL<span style='color:#808030; '>(</span>lparam<span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+        <span style='color:#800000; font-weight:bold; '>break</span><span style='color:#800080; '>;</span>
+
+<span style='color:#e34adc; '>&#xa0;&#xa0;&#xa0;&#xa0;</span><span style='color:#800000; font-weight:bold; '>default</span><span style='color:#e34adc; '>:</span>
+        <span style='color:#800000; font-weight:bold; '>break</span><span style='color:#800080; '>;</span>
+    <span style='color:#800080; '>}</span>
+
+    <span style='color:#800000; font-weight:bold; '>return</span> CallWindowProcA<span style='color:#808030; '>(</span>pMCIWndProc<span style='color:#808030; '>,</span> hwnd<span style='color:#808030; '>,</span> msg<span style='color:#808030; '>,</span> wparam<span style='color:#808030; '>,</span> lparam<span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+<span style='color:#800080; '>}</span>
+</pre>
+</p>
+
+<p>
+It is not important to understand how this function hooks into the communication (window subclassing, not shown here), but this function hooks the communication between a 16 bit MCI and 32 bit MCI window. Depending on the type of message (for example <code>MCIWNDM_SENDSTRINGA</code>) lparam sometimes contains pointers which need to be translated before sending the message to the original destination. The function to translate these memory addresses is MapSL. You can see how lparam is replaced before forwarding it using <code>CallWindowProcA</code>. So one typical reason why a 16 bit application crashes on Wine is that nobody added the necessary translation code yet. Another problem is that structure definition sometimes slightly differ between 32 bit and 16 bit and it is not sufficient to translate just the address. In Wine Staging 1.9.3 for example we fixed three very similar issues, caused by incorrect translation of addresses from 16-bit to 32-bit and vice versa.
+</p>
+
+<p>
+So, I hope I could give you an overview on how 16 bit works in Wine and what issues you might encounter. This surely doesn't cover all details, but should explain the idea. If you think this is very complex and nobody uses something like this in more recent software, then I have to disappoint you. In fact Windows uses a similar approach to support 32 bit applications on 64 bit Windows versions. If you start a 32 bit application on such an OS, the kernel will create a 64 bit process with a 64 bit ntdll + 32 bit ntdll. Whenever your process calls the 32 bit ntdll, Windows switches from a 32 bit segment to a 64 bit segment and calls the same function in the 64 bit ntdll. The only difference is that the address translation is much easier - just fill up the top 32 bit with zeros and you are done, so no need to translate segmented addresses back and forth.
+<p>
+
+                    
+                </div>
+            </div>
+    
+		</div>
+		<div style="clear: both;"></div>
+	</div>
+	<!-- end #page -->
+</div>
+<div id="footer">
+	<p><a href="/impressum.html">Impressum</a>  - <img src="/images/feed.png" style="vertical-align:top; height:1em;">&nbsp;<a href="/news.xml">News Atom feed</a> - Design based on Perfect Blemish by <a href="http://templated.co" rel="nofollow">TEMPLATED</a> (<a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>).</p>
+</div>
+<!-- end #footer -->
+</body>
+</html>

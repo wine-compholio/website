@@ -1,0 +1,42 @@
+Title: Release 1.9.3
+Date: Wed, 10 Feb 2016
+
+<p>
+Yesterday we released Wine Staging 1.9.3, which includes compatibility fixes for a bunch of older games.
+</p>
+
+<p>
+Before talking about the changes, I would like to apologize that there weren't any release notes since 1.8. I just didn't had much time lately to write them, but this was unrelated to the actual development progress of Wine Staging. In fact we added 116 new patches since the last release notes. We are also currently working on a website which displays the changes between different versions of Wine Staging (fixed bugs, added patchsets, removed patchsets, history of specific patches, ...). The site should hopefully be online soon, so that you can already see all changes without waiting for me to write the release notes. :-)
+</p>
+
+<p>
+As already mentioned in the first line, in this release we fixed compatibility with some older games, including some 16 bit applications. For those who are interested in more details how the general 16 bit support works in Wine and what exactly has been fixed, I have written a separate <a href="2016-02-10-blog-wine-16bit.html">blog post</a> explaining those details. I might provide more of such "behind the scenes" posts in the future if my times allows it. To keep it short for the release notes: We fixed several issues when using the 16 bit version of the avifile.dll and msvideo.dll.
+</p>
+
+<!--PREVIEW-->
+
+<p>
+Besides those fixes for older games, there were also various contributions to improve support for more recent software. We for example fixed an issue when using QT based applications (like Battle.Net) in wine and your host system at the same time. Some settings of QT can be controlled through environment variables like <code>QT_PLUGIN_PATH</code> and when you are starting wine through a QT application, either direct (QT Terminal) or indirect (QT desktop environment), chances are high that such environment variables are set. Unfortunately some of those QT related environment variables have different meanings for Linux and Windows applications, which can make QT applications refuse to start. Wine Staging 1.9.3 now filters out QT environment variables and doesn't forward them to windows applications. If you still want to pass a QT environment variable from your host system to Wine, you need to prepend <code>WINE</code> in front of them (for example <code>WINEQT_PLUGIN_PATH</code>).
+</p>
+
+<p>
+Here is a list of all changes:
+</p>
+
+<ul>
+	<li>Return expected SO_RCVBUF and SO_SNDBUF values on Linux (Joint Operations Typhoon Rising, <a href="https://bugs.winehq.org/show_bug.cgi?id=8606" target="_blank">Wine Bug #8606</a>)</li>
+	<li>Don't set HWTRANSFORMANDLIGHT flag on d3d7 RGB device (<a href="https://appdb.winehq.org/objectManager.php?sClass=application&iId=2915" target="_blank">Summoner</a>)</li>
+	<li>Improve detection of MPEG2 streams (<a href="https://appdb.winehq.org/objectManager.php?sClass=application&iId=1100" target="_blank">Wing Commander IV</a>)</li>
+	<li>Correctly convert result of AVIStreamGetFrame to a segptr in avifile.dll16 (<a href="https://appdb.winehq.org/objectManager.php?sClass=application&iId=8603" target="_blank">The Journeyman Project 2</a>)</li>
+	<li>Convert between AVISTREAMINFO (16 bit) and AVISTREAMINFOA in avifile.dll16 (<a href="https://appdb.winehq.org/objectManager.php?sClass=application&iId=8603" target="_blank">The Journeyman Project 2</a>)</li>
+	<li>Implement proper refcounting and locking for HGLOBAL based IStream</li>
+	<li>Strip invalid characters from mask in FindFirstFileExW (Earth 2160, <a href="https://bugs.winehq.org/show_bug.cgi?id=22635" target="_blank">Wine Bug #22635</a>)</li>
+	<li>Translate 16 bit address in MCIWNDM_SETTIMEFORMATA MCIWndProc16 command (<a href="https://appdb.winehq.org/objectManager.php?sClass=application&iId=8603" target="_blank">The Journeyman Project 2</a>)</li>
+	<li>Do not crash when INVALID_HANDLE_VALUE is passed to CloseThemeData (BitComet version &lt; 1.37, <a href="https://bugs.winehq.org/show_bug.cgi?id=29862" target="_blank">Wine Bug #29862</a>)</li>
+	<li>Correctly handle compressed frames when desired format is specified (<a href="https://appdb.winehq.org/objectManager.php?sClass=application&iId=8603" target="_blank">The Journeyman Project 2</a>)</li>
+	<li>Do not inherit QT_* environment variables to Windows environment (Various QT applications)</li>
+	<li>Revert patches to move mip-level dimensions fixup (multiple games, <a href="https://bugs.winehq.org/show_bug.cgi?id=40094" target="_blank">Wine Bug #40094</a>)</li>
+	<li>Return additional properties for display devices in dxdiagn (Neverwinter Nights 2 / Galactic Civilization 2 / ..., <a href="https://bugs.winehq.org/show_bug.cgi?id=34686" target="_blank">Wine Bug #34686</a>)</li>
+	<li>Allow to pass NULL as old protection in VirtualProtect for Win9x compatibility (<a href="https://appdb.winehq.org/objectManager.php?sClass=application&iId=1100" target="_blank">Wing Commander IV</a>)</li>
+	<li>Add support for AVIFile interface proxies (Rush for Berlin Gold, <a href="https://bugs.winehq.org/show_bug.cgi?id=38564" target="_blank">Wine Bug #38564</a>)</li>
+</ul>

@@ -28,17 +28,17 @@ def generateStaticSites(template, destdir):
         with open(os.path.join(destdir, filename), 'wb') as f:
             f.write("%s%s%s" % (template[0], content, template[1]))
 
-def generateNewsPost(title, date, content, extra):
+def generateNewsPost(title, date, author, content, extra):
     return """
         <div class="post">
                 <h2 class="title">%s</h2>
-                <p class="meta"><span class="author">Wine Staging Team</span>&nbsp;-&nbsp;<span class="date">%s</span></p>
+                <p class="meta"><span class="author">%s</span>&nbsp;-&nbsp;<span class="date">%s</span></p>
                 <div class="entry">
                     %s
                     %s
                 </div>
             </div>
-    """ % (title, date, content, extra)
+    """ % (title, author, date, content, extra)
 
 def startAtomFeed(filename, date):
     generator = XMLGenerator(open(filename, 'wb'), 'utf-8')
@@ -67,7 +67,7 @@ def startAtomFeed(filename, date):
 
     return generator
 
-def writeNewsAtomEntry(generator, title, date, filename, content):
+def writeNewsAtomEntry(generator, title, date, author, filename, content):
     generator.startElement(u'entry', AttributesImpl({}))
 
     generator.startElement(u'title', AttributesImpl({}))
@@ -87,7 +87,7 @@ def writeNewsAtomEntry(generator, title, date, filename, content):
 
     generator.startElement(u'author', AttributesImpl({}))
     generator.startElement(u'name', AttributesImpl({}))
-    generator.characters(u"Wine Staging Team")
+    generator.characters(author.decode('utf8'))
     generator.endElement(u'name')
     generator.endElement(u'author')
 
@@ -145,16 +145,19 @@ def generateNewsSites(template, destdir):
         if "title" not in headers or "date" not in headers:
             raise RuntimeError("News %s is missing either missing title or header" % filename)
 
+        if "author" not in headers:
+            headers["author"] = "Wine Staging Team"
+
         preview    = content.split("<!--PREVIEW-->", 1)[0]
         title_link = "<a href=\"/news/%s\">%s</a>" % (filename, headers["title"])
         read_more  = "<p><a href=\"/news/%s\">Read more</a></p>" % (filename)
-        overview.append(generateNewsPost(title_link, headers["date"], preview, read_more))
+        overview.append(generateNewsPost(title_link, headers["date"], headers["author"], preview, read_more))
 
-        content = generateNewsPost(headers["title"], headers["date"], content, "")
+        content = generateNewsPost(headers["title"], headers["date"], headers["author"], content, "")
         with open(os.path.join(destdir, "news", filename), 'wb') as f:
             f.write("%s%s%s" % (template[0], content, template[1]))
 
-        writeNewsAtomEntry(generator, headers["title"], headers["date"], filename, content)
+        writeNewsAtomEntry(generator, headers["title"], headers["date"], headers["author"], filename, content)
 
     endAtomFeed(generator)
 

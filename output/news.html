@@ -34,6 +34,46 @@
 		<div id="content">
 
         <div class="post">
+                <h2 class="title"><a href="/news/2016-02-10-release-1.9.3.html">Release 1.9.3</a></h2>
+                <p class="meta"><span class="author">Wine Staging Team</span>&nbsp;-&nbsp;<span class="date">Wed, 10 Feb 2016</span></p>
+                <div class="entry">
+                    <p>
+Yesterday we released Wine Staging 1.9.3, which includes compatibility fixes for a bunch of older games.
+</p>
+
+<p>
+Before talking about the changes, I would like to apologize that there weren't any release notes since 1.8. I just didn't had much time lately to write them, but this was unrelated to the actual development progress of Wine Staging. In fact we added 116 new patches since the last release notes. We are also currently working on a website which displays the changes between different versions of Wine Staging (fixed bugs, added patchsets, removed patchsets, history of specific patches, ...). The site should hopefully be online soon, so that you can already see all changes without waiting for me to write the release notes. :-)
+</p>
+
+<p>
+As already mentioned in the first line, in this release we fixed compatibility with some older games, including some 16 bit applications. For those who are interested in more details how the general 16 bit support works in Wine and what exactly has been fixed, I have written a separate <a href="2016-02-10-blog-wine-16bit.html">blog post</a> explaining those details. I might provide more of such "behind the scenes" posts in the future if my times allows it. To keep it short for the release notes: We fixed several issues when using the 16 bit version of the avifile.dll and msvideo.dll.
+</p>
+
+
+                    <p><a href="/news/2016-02-10-release-1.9.3.html">Read more</a></p>
+                </div>
+            </div>
+    
+
+        <div class="post">
+                <h2 class="title"><a href="/news/2016-02-10-blog-wine-16bit.html">Blog: How do Win 3.1 applications work in Wine?</a></h2>
+                <p class="meta"><span class="author">Michael Müller</span>&nbsp;-&nbsp;<span class="date">Wed, 10 Feb 2016</span></p>
+                <div class="entry">
+                    <p>
+If you read our release notes frequently, you might have noticed that I tend to explain the background behind the changes in Wine Staging as I imagine that this might be interesting for some of our readers. However, those explanations do not really belong into the release notes, so I decided to move them to separate blog posts. So welcome to my first blog post in which I explain how the 16 bit support works in Wine and which typical bugs you may encounter. I hope you enjoy reading it although it is going to be very technical, but maybe you learn something from it :-).
+</p>
+
+<p>
+Let's start with something that might surprise you: Although Wine supports 16 bit applications it basically doesn't contain any 16 bit code. Well, to be completely correct it does, but just a couple of lines of handwritten assembler code. The reason for this is simple, almost all code in Wine is written in C and intended to be compatible with different compilers. Almost no modern compiler is able to compile C code to 16 bit binary opcodes, and writing everything in assembler is also no option. Wine instead needs to use some special tricks which I will explain later. First we need to take a look at the biggest difference between 16 bit and 32 bit, the memory management.
+</p>
+
+
+                    <p><a href="/news/2016-02-10-blog-wine-16bit.html">Read more</a></p>
+                </div>
+            </div>
+    
+
+        <div class="post">
                 <h2 class="title"><a href="/news/2015-12-22-release-1.8.html">Release 1.8</a></h2>
                 <p class="meta"><span class="author">Wine Staging Team</span>&nbsp;-&nbsp;<span class="date">Tue, 22 Dec 2015</span></p>
                 <div class="entry">

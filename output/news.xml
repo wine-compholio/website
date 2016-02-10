@@ -1,5 +1,151 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><id>http://www.wine-staging.com/news.xml</id><title>Wine Staging</title><updated>2015-12-22T00:00:00Z</updated><link href="/news.xml" rel="self"></link><link href="/news.html" type="text/html" rel="alternate"></link><entry><title>Release 1.8</title><link href="/news/2015-12-22-release-1.8.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2015-12-22-release-1.8.html</id><updated>2015-12-22T00:00:00Z</updated><author><name>Wine Staging Team</name></author><content type="html">
+<feed xmlns="http://www.w3.org/2005/Atom"><id>http://www.wine-staging.com/news.xml</id><title>Wine Staging</title><updated>2016-02-10T00:00:00Z</updated><link href="/news.xml" rel="self"></link><link href="/news.html" type="text/html" rel="alternate"></link><entry><title>Release 1.9.3</title><link href="/news/2016-02-10-release-1.9.3.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2016-02-10-release-1.9.3.html</id><updated>2016-02-10T00:00:00Z</updated><author><name>Wine Staging Team</name></author><content type="html">
+        &lt;div class="post"&gt;
+                &lt;h2 class="title"&gt;Release 1.9.3&lt;/h2&gt;
+                &lt;p class="meta"&gt;&lt;span class="author"&gt;Wine Staging Team&lt;/span&gt;&amp;nbsp;-&amp;nbsp;&lt;span class="date"&gt;Wed, 10 Feb 2016&lt;/span&gt;&lt;/p&gt;
+                &lt;div class="entry"&gt;
+                    &lt;p&gt;
+Yesterday we released Wine Staging 1.9.3, which includes compatibility fixes for a bunch of older games.
+&lt;/p&gt;
+
+&lt;p&gt;
+Before talking about the changes, I would like to apologize that there weren't any release notes since 1.8. I just didn't had much time lately to write them, but this was unrelated to the actual development progress of Wine Staging. In fact we added 116 new patches since the last release notes. We are also currently working on a website which displays the changes between different versions of Wine Staging (fixed bugs, added patchsets, removed patchsets, history of specific patches, ...). The site should hopefully be online soon, so that you can already see all changes without waiting for me to write the release notes. :-)
+&lt;/p&gt;
+
+&lt;p&gt;
+As already mentioned in the first line, in this release we fixed compatibility with some older games, including some 16 bit applications. For those who are interested in more details how the general 16 bit support works in Wine and what exactly has been fixed, I have written a separate &lt;a href="2016-02-10-blog-wine-16bit.html"&gt;blog post&lt;/a&gt; explaining those details. I might provide more of such "behind the scenes" posts in the future if my times allows it. To keep it short for the release notes: We fixed several issues when using the 16 bit version of the avifile.dll and msvideo.dll.
+&lt;/p&gt;
+
+&lt;!--PREVIEW--&gt;
+
+&lt;p&gt;
+Besides those fixes for older games, there were also various contributions to improve support for more recent software. We for example fixed an issue when using QT based applications (like Battle.Net) in wine and your host system at the same time. Some settings of QT can be controlled through environment variables like &lt;code&gt;QT_PLUGIN_PATH&lt;/code&gt; and when you are starting wine through a QT application, either direct (QT Terminal) or indirect (QT desktop environment), chances are high that such environment variables are set. Unfortunately some of those QT related environment variables have different meanings for Linux and Windows applications, which can make QT applications refuse to start. Wine Staging 1.9.3 now filters out QT environment variables and doesn't forward them to windows applications. If you still want to pass a QT environment variable from your host system to Wine, you need to prepend &lt;code&gt;WINE&lt;/code&gt; in front of them (for example &lt;code&gt;WINEQT_PLUGIN_PATH&lt;/code&gt;).
+&lt;/p&gt;
+
+&lt;p&gt;
+Here is a list of all changes:
+&lt;/p&gt;
+
+&lt;ul&gt;
+	&lt;li&gt;Return expected SO_RCVBUF and SO_SNDBUF values on Linux (Joint Operations Typhoon Rising, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=8606" target="_blank"&gt;Wine Bug #8606&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Don't set HWTRANSFORMANDLIGHT flag on d3d7 RGB device (&lt;a href="https://appdb.winehq.org/objectManager.php?sClass=application&amp;iId=2915" target="_blank"&gt;Summoner&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Improve detection of MPEG2 streams (&lt;a href="https://appdb.winehq.org/objectManager.php?sClass=application&amp;iId=1100" target="_blank"&gt;Wing Commander IV&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Correctly convert result of AVIStreamGetFrame to a segptr in avifile.dll16 (&lt;a href="https://appdb.winehq.org/objectManager.php?sClass=application&amp;iId=8603" target="_blank"&gt;The Journeyman Project 2&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Convert between AVISTREAMINFO (16 bit) and AVISTREAMINFOA in avifile.dll16 (&lt;a href="https://appdb.winehq.org/objectManager.php?sClass=application&amp;iId=8603" target="_blank"&gt;The Journeyman Project 2&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Implement proper refcounting and locking for HGLOBAL based IStream&lt;/li&gt;
+	&lt;li&gt;Strip invalid characters from mask in FindFirstFileExW (Earth 2160, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=22635" target="_blank"&gt;Wine Bug #22635&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Translate 16 bit address in MCIWNDM_SETTIMEFORMATA MCIWndProc16 command (&lt;a href="https://appdb.winehq.org/objectManager.php?sClass=application&amp;iId=8603" target="_blank"&gt;The Journeyman Project 2&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Do not crash when INVALID_HANDLE_VALUE is passed to CloseThemeData (BitComet version &amp;lt; 1.37, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=29862" target="_blank"&gt;Wine Bug #29862&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Correctly handle compressed frames when desired format is specified (&lt;a href="https://appdb.winehq.org/objectManager.php?sClass=application&amp;iId=8603" target="_blank"&gt;The Journeyman Project 2&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Do not inherit QT_* environment variables to Windows environment (Various QT applications)&lt;/li&gt;
+	&lt;li&gt;Revert patches to move mip-level dimensions fixup (multiple games, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=40094" target="_blank"&gt;Wine Bug #40094&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Return additional properties for display devices in dxdiagn (Neverwinter Nights 2 / Galactic Civilization 2 / ..., &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=34686" target="_blank"&gt;Wine Bug #34686&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Allow to pass NULL as old protection in VirtualProtect for Win9x compatibility (&lt;a href="https://appdb.winehq.org/objectManager.php?sClass=application&amp;iId=1100" target="_blank"&gt;Wing Commander IV&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Add support for AVIFile interface proxies (Rush for Berlin Gold, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=38564" target="_blank"&gt;Wine Bug #38564&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+
+                    
+                &lt;/div&gt;
+            &lt;/div&gt;
+    </content></entry><entry><title>Blog: How do Win 3.1 applications work in Wine?</title><link href="/news/2016-02-10-blog-wine-16bit.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2016-02-10-blog-wine-16bit.html</id><updated>2016-02-10T00:00:00Z</updated><author><name>Michael Müller</name></author><content type="html">
+        &lt;div class="post"&gt;
+                &lt;h2 class="title"&gt;Blog: How do Win 3.1 applications work in Wine?&lt;/h2&gt;
+                &lt;p class="meta"&gt;&lt;span class="author"&gt;Michael Müller&lt;/span&gt;&amp;nbsp;-&amp;nbsp;&lt;span class="date"&gt;Wed, 10 Feb 2016&lt;/span&gt;&lt;/p&gt;
+                &lt;div class="entry"&gt;
+                    &lt;p&gt;
+If you read our release notes frequently, you might have noticed that I tend to explain the background behind the changes in Wine Staging as I imagine that this might be interesting for some of our readers. However, those explanations do not really belong into the release notes, so I decided to move them to separate blog posts. So welcome to my first blog post in which I explain how the 16 bit support works in Wine and which typical bugs you may encounter. I hope you enjoy reading it although it is going to be very technical, but maybe you learn something from it :-).
+&lt;/p&gt;
+
+&lt;p&gt;
+Let's start with something that might surprise you: Although Wine supports 16 bit applications it basically doesn't contain any 16 bit code. Well, to be completely correct it does, but just a couple of lines of handwritten assembler code. The reason for this is simple, almost all code in Wine is written in C and intended to be compatible with different compilers. Almost no modern compiler is able to compile C code to 16 bit binary opcodes, and writing everything in assembler is also no option. Wine instead needs to use some special tricks which I will explain later. First we need to take a look at the biggest difference between 16 bit and 32 bit, the memory management.
+&lt;/p&gt;
+
+&lt;!--PREVIEW--&gt;
+
+&lt;p&gt;
+On a 32 bit system you have a 4GB memory range which can be accessed using memory addresses from 0x00000000 to 0xFFFFFFFF. Getting the next byte is as easy as incrementing the address. On 16 bit things were a bit more complicated though. The memory was not linear but instead split into segments. When you passed a pointer (for example a string or structure) to a windows API function, it was still a 32 bit address value but it was split into two parts:
+&lt;/p&gt;
+
+
+&lt;div style="text-align: center; font-size: 1.5em; margin-top: 1em; margin-bottom: 1em"&gt;
+&lt;span style="display: inline-block; border: solid black 1px;"&gt;&lt;span style="display: inline-block; border-right: solid black 1px; width: 9ex; text-align: center;"&gt;Segment&lt;/span&gt;&lt;span style="display: inline-block; width: 9ex; text-align: center;"&gt;Offset&lt;/span&gt;&lt;/span&gt;&lt;br /&gt;
+	&lt;span style="display: inline-block; width: 6ex; text-align: left;"&gt;32&lt;/span&gt;
+	&lt;span style="display: inline-block; width: 6ex; text-align: center;"&gt;16&lt;/span&gt;
+	&lt;span style="display: inline-block; width: 6ex; text-align: right;"&gt;0&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;p&gt;
+The lower 16 bit of the address contain an offset while the top 16 bit contain a segment index. Since the offset is 16 bit only, a segment has the maximum size of 64kb (2^16-1). When you try to access such an address, the CPU will translate the address to a linear address by using a translation table (Local Descriptor Table) which contains an entry for each segment index. An entry defines the start address for a segment and the size. Since our offset can't be bigger than 64 kb, the usual size of a segment is 64 kb. This brings us to the following relation &lt;code&gt;linear address = LDT[segment].base + offset&lt;/code&gt;.
+&lt;/p&gt;
+
+&lt;p&gt;
+So how is Wine able to execute 16 bit code when using a 32 bit or 64 bit operating system? Well, I said that a 32 bit OS uses a linear memory, which is not 100% correct. The segmentation stuff also exists on 32 bit and in fact is mandatory. However, the size of the offset is now 32 bit and it is possible to put all available memory into a single segment. Basically all modern 32 bit operating systems just create one segment with start address 0 and size 4GB. Using this setup you get a linear memory and don't have to care about segments any more. The tricky part is that a LDT entry also contains flags which define if a segment contains 16 bit, 32 bit or 64 bit code. If you change to a segment, the CPU will automatically start interpreting the code inside the segment according to this value.
+&lt;/p&gt;
+
+&lt;div style="text-align: center; margin-top: 1.5em; margin-bottom: 1.5em;"&gt;
+&lt;img src="/images/SegmentDescriptor.svg" style="max-height: 6em; max-width: 100%"&gt;&lt;br /&gt;
+&lt;i&gt;Structure of a LDT entry when the processor is in 32 bit mode.&lt;/i&gt;&lt;br&gt;
+&lt;i&gt;The &lt;code&gt;DB&lt;/code&gt; flag defines if this segment contains 32 bit code (1) or 16 bit code (0).&lt;/i&gt;&lt;br /&gt;
+&lt;i style="font-size: 0.8em;"&gt;Source: &lt;a href="https://commons.wikimedia.org/wiki/File:SegmentDescriptor.svg" style="color: #3C3D3F;"&gt;Wikipedia&lt;/a&gt;&lt;/i&gt;
+&lt;/div&gt;
+
+&lt;p&gt;
+So how does Wine use this trick? The Local Descriptor Table containing all those entries are process specific and many modern operating systems allow you to mess around with them. Linux for example provides the &lt;code&gt;modify_ldt&lt;/code&gt; function. When Wine starts a Win 3.1 16 bit application, it loads the executable into the memory and creates segments for it. Those segments are just 64 kb excerpts of our 32 bit memory, in fact we can now access the same memory either via a 16 bit or 32 bit address. The tricky part is when such an application tries to call an API function, since they are only available as 32 bit code. Wine generates 16 bit dlls but they only contain small wrappers to switch to our 32 bit segment and then calls the according 32 bit C function. The good thing is that Microsoft didn't change much in their API between 16 bit and 32 bit, so many functions are identical between 16 bit and 32 bit and it is sufficient to have one implementation. Well, at least in theory, there is still a nasty problem: The difference in the memory management.
+&lt;/p&gt;
+
+&lt;p&gt;
+When a 16 bit application passes a pointer (for example a string or structure) to an API function, it will pass the pointer in the format (segment | offset). If we would just forward this value, for example (0x001E | 0x00F2), to a 32 bit function, the function would try to interpret this value as 32 bit address 0x001E00F2 instead of &lt;code&gt;LDT[0x001E].base + 0x00F2&lt;/code&gt;. Whenever Wine passes a pointer from a 16 bit application to a 32 bit API function, all these addresses must be translated first. Since Wine sets up the LDT table, it knows how to do this, it just needs to know when it is necessary. In order to solve this, each dll has a spec file with the exported functions:
+&lt;/p&gt;
+
+&lt;p&gt;
+&lt;pre&gt;
+144 pascal -ret16 CreateDirectory(ptr ptr) CreateDirectory16
+145 pascal -ret16 RemoveDirectory(ptr) RemoveDirectory16
+146 pascal -ret16 DeleteFile(ptr) DeleteFile16
+147 pascal -ret16 SetLastError(long) SetLastError16
+148 pascal GetLastError() GetLastError16
+149 pascal -ret16 GetVersionEx(ptr) GetVersionEx16
+&lt;/pre&gt;
+&lt;/p&gt;
+
+&lt;p&gt;
+These lines define the calling convention, the exported function including the parameter types, and which function in the source code should be called. If you write &lt;code&gt;ptr&lt;/code&gt; as parameter type Wine knows that this is a pointer and automatically generates code at build time to translate the addresses to 32 bit. So the problem is solved, right? Well, there are some indirect ways to pass memory addresses to the windows API which are not covered by this. The most common one are window messages, these are messages that are sent between windows and can contain up to 2 user defined values. Sometimes they also contain pointers, but Wine can't detect them automatically. So you need to write code to hook into the communication and translate the addresses before they arrive at the real destination:
+&lt;/p&gt;
+
+&lt;p&gt;
+&lt;pre style='color:#000000;background:#ffffff;'&gt;&lt;span style='color:#800000; font-weight:bold; '&gt;static&lt;/span&gt; &lt;span style='color:#603000; '&gt;LRESULT&lt;/span&gt; &lt;span style='color:#603000; '&gt;WINAPI&lt;/span&gt; MCIWndProc16&lt;span style='color:#808030; '&gt;(&lt;/span&gt;&lt;span style='color:#603000; '&gt;HWND&lt;/span&gt; hwnd&lt;span style='color:#808030; '&gt;,&lt;/span&gt; &lt;span style='color:#603000; '&gt;UINT&lt;/span&gt; msg&lt;span style='color:#808030; '&gt;,&lt;/span&gt; &lt;span style='color:#603000; '&gt;WPARAM&lt;/span&gt; wparam&lt;span style='color:#808030; '&gt;,&lt;/span&gt; &lt;span style='color:#603000; '&gt;LPARAM&lt;/span&gt; lparam&lt;span style='color:#808030; '&gt;)&lt;/span&gt;
+&lt;span style='color:#800080; '&gt;{&lt;/span&gt;
+    &lt;span style='color:#800000; font-weight:bold; '&gt;switch&lt;/span&gt; &lt;span style='color:#808030; '&gt;(&lt;/span&gt;msg&lt;span style='color:#808030; '&gt;)&lt;/span&gt;
+    &lt;span style='color:#800080; '&gt;{&lt;/span&gt;
+    &lt;span style='color:#800000; font-weight:bold; '&gt;case &lt;/span&gt;&lt;span style='color:#7d0045; '&gt;MCIWNDM_SENDSTRINGA&lt;/span&gt;&lt;span style='color:#e34adc; '&gt;:&lt;/span&gt;
+        lparam &lt;span style='color:#808030; '&gt;=&lt;/span&gt; &lt;span style='color:#808030; '&gt;(&lt;/span&gt;&lt;span style='color:#603000; '&gt;ULONG_PTR&lt;/span&gt;&lt;span style='color:#808030; '&gt;)&lt;/span&gt;MapSL&lt;span style='color:#808030; '&gt;(&lt;/span&gt;lparam&lt;span style='color:#808030; '&gt;)&lt;/span&gt;&lt;span style='color:#800080; '&gt;;&lt;/span&gt;
+        &lt;span style='color:#800000; font-weight:bold; '&gt;break&lt;/span&gt;&lt;span style='color:#800080; '&gt;;&lt;/span&gt;
+
+    &lt;span style='color:#800000; font-weight:bold; '&gt;case &lt;/span&gt;&lt;span style='color:#7d0045; '&gt;MCIWNDM_SETTIMEFORMATA&lt;/span&gt;&lt;span style='color:#e34adc; '&gt;:&lt;/span&gt;
+        lparam &lt;span style='color:#808030; '&gt;=&lt;/span&gt; &lt;span style='color:#808030; '&gt;(&lt;/span&gt;&lt;span style='color:#603000; '&gt;ULONG_PTR&lt;/span&gt;&lt;span style='color:#808030; '&gt;)&lt;/span&gt;MapSL&lt;span style='color:#808030; '&gt;(&lt;/span&gt;lparam&lt;span style='color:#808030; '&gt;)&lt;/span&gt;&lt;span style='color:#800080; '&gt;;&lt;/span&gt;
+        &lt;span style='color:#800000; font-weight:bold; '&gt;break&lt;/span&gt;&lt;span style='color:#800080; '&gt;;&lt;/span&gt;
+
+&lt;span style='color:#e34adc; '&gt;&amp;#xa0;&amp;#xa0;&amp;#xa0;&amp;#xa0;&lt;/span&gt;&lt;span style='color:#800000; font-weight:bold; '&gt;default&lt;/span&gt;&lt;span style='color:#e34adc; '&gt;:&lt;/span&gt;
+        &lt;span style='color:#800000; font-weight:bold; '&gt;break&lt;/span&gt;&lt;span style='color:#800080; '&gt;;&lt;/span&gt;
+    &lt;span style='color:#800080; '&gt;}&lt;/span&gt;
+
+    &lt;span style='color:#800000; font-weight:bold; '&gt;return&lt;/span&gt; CallWindowProcA&lt;span style='color:#808030; '&gt;(&lt;/span&gt;pMCIWndProc&lt;span style='color:#808030; '&gt;,&lt;/span&gt; hwnd&lt;span style='color:#808030; '&gt;,&lt;/span&gt; msg&lt;span style='color:#808030; '&gt;,&lt;/span&gt; wparam&lt;span style='color:#808030; '&gt;,&lt;/span&gt; lparam&lt;span style='color:#808030; '&gt;)&lt;/span&gt;&lt;span style='color:#800080; '&gt;;&lt;/span&gt;
+&lt;span style='color:#800080; '&gt;}&lt;/span&gt;
+&lt;/pre&gt;
+&lt;/p&gt;
+
+&lt;p&gt;
+It is not important to understand how this function hooks into the communication (window subclassing, not shown here), but this function hooks the communication between a 16 bit MCI and 32 bit MCI window. Depending on the type of message (for example &lt;code&gt;MCIWNDM_SENDSTRINGA&lt;/code&gt;) lparam sometimes contains pointers which need to be translated before sending the message to the original destination. The function to translate these memory addresses is MapSL. You can see how lparam is replaced before forwarding it using &lt;code&gt;CallWindowProcA&lt;/code&gt;. So one typical reason why a 16 bit application crashes on Wine is that nobody added the necessary translation code yet. Another problem is that structure definition sometimes slightly differ between 32 bit and 16 bit and it is not sufficient to translate just the address. In Wine Staging 1.9.3 for example we fixed three very similar issues, caused by incorrect translation of addresses from 16-bit to 32-bit and vice versa.
+&lt;/p&gt;
+
+&lt;p&gt;
+So, I hope I could give you an overview on how 16 bit works in Wine and what issues you might encounter. This surely doesn't cover all details, but should explain the idea. If you think this is very complex and nobody uses something like this in more recent software, then I have to disappoint you. In fact Windows uses a similar approach to support 32 bit applications on 64 bit Windows versions. If you start a 32 bit application on such an OS, the kernel will create a 64 bit process with a 64 bit ntdll + 32 bit ntdll. Whenever your process calls the 32 bit ntdll, Windows switches from a 32 bit segment to a 64 bit segment and calls the same function in the 64 bit ntdll. The only difference is that the address translation is much easier - just fill up the top 32 bit with zeros and you are done, so no need to translate segmented addresses back and forth.
+&lt;p&gt;
+
+                    
+                &lt;/div&gt;
+            &lt;/div&gt;
+    </content></entry><entry><title>Release 1.8</title><link href="/news/2015-12-22-release-1.8.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2015-12-22-release-1.8.html</id><updated>2015-12-22T00:00:00Z</updated><author><name>Wine Staging Team</name></author><content type="html">
         &lt;div class="post"&gt;
                 &lt;h2 class="title"&gt;Release 1.8&lt;/h2&gt;
                 &lt;p class="meta"&gt;&lt;span class="author"&gt;Wine Staging Team&lt;/span&gt;&amp;nbsp;-&amp;nbsp;&lt;span class="date"&gt;Tue, 22 Dec 2015&lt;/span&gt;&lt;/p&gt;
