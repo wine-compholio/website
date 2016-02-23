@@ -1,5 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><id>http://www.wine-staging.com/news.xml</id><title>Wine Staging</title><updated>2016-02-10T00:00:00Z</updated><link href="/news.xml" rel="self"></link><link href="/news.html" type="text/html" rel="alternate"></link><entry><title>Release 1.9.3</title><link href="/news/2016-02-10-release-1.9.3.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2016-02-10-release-1.9.3.html</id><updated>2016-02-10T00:00:00Z</updated><author><name>Wine Staging Team</name></author><content type="html">
+<feed xmlns="http://www.w3.org/2005/Atom"><id>http://www.wine-staging.com/news.xml</id><title>Wine Staging</title><updated>2016-02-23T00:00:00Z</updated><link href="/news.xml" rel="self"></link><link href="/news.html" type="text/html" rel="alternate"></link><entry><title>Release 1.9.4</title><link href="/news/2016-02-23-release-1.9.4.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2016-02-23-release-1.9.4.html</id><updated>2016-02-23T00:00:00Z</updated><author><name>Wine Staging Team</name></author><content type="html">
+        &lt;div class="post"&gt;
+                &lt;h2 class="title"&gt;Release 1.9.4&lt;/h2&gt;
+                &lt;p class="meta"&gt;&lt;span class="author"&gt;Wine Staging Team&lt;/span&gt;&amp;nbsp;-&amp;nbsp;&lt;span class="date"&gt;Tue, 23 Feb 2016&lt;/span&gt;&lt;/p&gt;
+                &lt;div class="entry"&gt;
+                    &lt;p&gt;
+A couple of hours ago, Wine Staging 1.9.4 was released. This update brings improvements for better window handling when using the &lt;code&gt;winex11&lt;/code&gt; driver, and fixes for various games and applications.
+&lt;/p&gt;
+
+&lt;p&gt;
+One of the main goals of Wine is to integrate Windows applications as seamlessly as possible into the host system. This release improves the integration when using the X11 backend and an application tries to bring a specific window to the foreground. This might for example be used to bring a progress dialog to the front after the operation has finished. The request is now forwarded to the window manager by sending a &lt;code&gt;_NET_ACTIVE_WINDOW&lt;/code&gt; message.
+&lt;/p&gt;
+
+&lt;p&gt;
+Besides various improvements for Wines &lt;code&gt;d3dx9_36&lt;/code&gt; implementation, this release also contains fixes the GOG Galaxy client, which previously took a very long time to start. As a side-effect, this also fixes the problem that the auto-updater didn't get active during the startup. Other applications which have been improved are for example Evoland (still needs CSMT, but otherwise works fine) and Adobe After Effects 4.
+&lt;/p&gt;
+
+&lt;!--PREVIEW--&gt;
+
+&lt;p&gt;
+Below is a list of all changes, without those which already have been accepted upstream:
+&lt;/p&gt;
+
+&lt;ul&gt;
+	&lt;li&gt;Implement advapi32.RegCopyTree{A,W} (MAXQDA, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=39690" target="_blank"&gt;Wine Bug #39690&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Improve WTSQueryUserToken stub (GOG Galaxy, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=39663" target="_blank"&gt;Wine Bug #39663&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Preserve beginning of extra data for MDI windows (Adobe After Effects 4, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=15473" target="_blank"&gt;Wine Bug #15473&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Use assembler wrapper to call MONITORENUMPROC callback (&lt;a href="https://bugs.winehq.org/show_bug.cgi?id=24421" target="_blank"&gt;Wine Bug #24421&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Add support for paths on a metafile HDC (&lt;a href="https://bugs.winehq.org/show_bug.cgi?id=39185" target="_blank"&gt;Wine Bug #39185&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Fix enumeration of display driver properties using setupapi (Evoland, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=35345" target="_blank"&gt;Wine Bug #35345&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Add stub program for shutdown.exe (various GOG installers)&lt;/li&gt;
+	&lt;li&gt;Fix calling convention of glDebugMessageCallback callback function (&lt;a href="https://bugs.winehq.org/show_bug.cgi?id=38402" target="_blank"&gt;Wine Bug #38402&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Forward activate window requests to WM using _NET_ACTIVE_WINDOW (&lt;a href="https://bugs.winehq.org/show_bug.cgi?id=2155" target="_blank"&gt;Wine Bug #2155&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Implement d3dx9_36.D3DXCreateTextureShader with stub interface (&lt;a href="https://appdb.winehq.org/objectManager.php?sClass=application&amp;iId=11062"&gt;The Void&lt;/a&gt;, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=37919" target="_blank"&gt;Wine Bug #37919&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Implement stub for d3dx9_36.D3DXFillCubeTextureTX (&lt;a href="https://appdb.winehq.org/objectManager.php?sClass=application&amp;iId=11062"&gt;The Void&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Initial implementation for d3dx9_36.D3DXDisassembleShader (&lt;a href="https://appdb.winehq.org/objectManager.php?sClass=application&amp;iId=11062"&gt;The Void&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Improve invalid parameter handling in NtAccessCheck (MSYS)&lt;/li&gt;
+	&lt;li&gt;Silence repeated FIXME message in Parser_QueryInterface (Independence War 2)&lt;/li&gt;
+	&lt;li&gt;MessageBox should be topmost when MB_SYSTEMMODAL style is set&lt;/li&gt;
+&lt;/ul&gt;
+
+                    
+                &lt;/div&gt;
+            &lt;/div&gt;
+    </content></entry><entry><title>Release 1.9.3</title><link href="/news/2016-02-10-release-1.9.3.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2016-02-10-release-1.9.3.html</id><updated>2016-02-10T00:00:00Z</updated><author><name>Wine Staging Team</name></author><content type="html">
         &lt;div class="post"&gt;
                 &lt;h2 class="title"&gt;Release 1.9.3&lt;/h2&gt;
                 &lt;p class="meta"&gt;&lt;span class="author"&gt;Wine Staging Team&lt;/span&gt;&amp;nbsp;-&amp;nbsp;&lt;span class="date"&gt;Wed, 10 Feb 2016&lt;/span&gt;&lt;/p&gt;

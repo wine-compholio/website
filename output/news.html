@@ -34,6 +34,28 @@
 		<div id="content">
 
         <div class="post">
+                <h2 class="title"><a href="/news/2016-02-23-release-1.9.4.html">Release 1.9.4</a></h2>
+                <p class="meta"><span class="author">Wine Staging Team</span>&nbsp;-&nbsp;<span class="date">Tue, 23 Feb 2016</span></p>
+                <div class="entry">
+                    <p>
+A couple of hours ago, Wine Staging 1.9.4 was released. This update brings improvements for better window handling when using the <code>winex11</code> driver, and fixes for various games and applications.
+</p>
+
+<p>
+One of the main goals of Wine is to integrate Windows applications as seamlessly as possible into the host system. This release improves the integration when using the X11 backend and an application tries to bring a specific window to the foreground. This might for example be used to bring a progress dialog to the front after the operation has finished. The request is now forwarded to the window manager by sending a <code>_NET_ACTIVE_WINDOW</code> message.
+</p>
+
+<p>
+Besides various improvements for Wines <code>d3dx9_36</code> implementation, this release also contains fixes the GOG Galaxy client, which previously took a very long time to start. As a side-effect, this also fixes the problem that the auto-updater didn't get active during the startup. Other applications which have been improved are for example Evoland (still needs CSMT, but otherwise works fine) and Adobe After Effects 4.
+</p>
+
+
+                    <p><a href="/news/2016-02-23-release-1.9.4.html">Read more</a></p>
+                </div>
+            </div>
+    
+
+        <div class="post">
                 <h2 class="title"><a href="/news/2016-02-10-release-1.9.3.html">Release 1.9.3</a></h2>
                 <p class="meta"><span class="author">Wine Staging Team</span>&nbsp;-&nbsp;<span class="date">Wed, 10 Feb 2016</span></p>
                 <div class="entry">

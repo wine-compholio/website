@@ -1,0 +1,38 @@
+Title: Release 1.9.4
+Date: Tue, 23 Feb 2016
+
+<p>
+A couple of hours ago, Wine Staging 1.9.4 was released. This update brings improvements for better window handling when using the <code>winex11</code> driver, and fixes for various games and applications.
+</p>
+
+<p>
+One of the main goals of Wine is to integrate Windows applications as seamlessly as possible into the host system. This release improves the integration when using the X11 backend and an application tries to bring a specific window to the foreground. This might for example be used to bring a progress dialog to the front after the operation has finished. The request is now forwarded to the window manager by sending a <code>_NET_ACTIVE_WINDOW</code> message.
+</p>
+
+<p>
+Besides various improvements for Wines <code>d3dx9_36</code> implementation, this release also contains fixes the GOG Galaxy client, which previously took a very long time to start. As a side-effect, this also fixes the problem that the auto-updater didn't get active during the startup. Other applications which have been improved are for example Evoland (still needs CSMT, but otherwise works fine) and Adobe After Effects 4.
+</p>
+
+<!--PREVIEW-->
+
+<p>
+Below is a list of all changes, without those which already have been accepted upstream:
+</p>
+
+<ul>
+	<li>Implement advapi32.RegCopyTree{A,W} (MAXQDA, <a href="https://bugs.winehq.org/show_bug.cgi?id=39690" target="_blank">Wine Bug #39690</a>)</li>
+	<li>Improve WTSQueryUserToken stub (GOG Galaxy, <a href="https://bugs.winehq.org/show_bug.cgi?id=39663" target="_blank">Wine Bug #39663</a>)</li>
+	<li>Preserve beginning of extra data for MDI windows (Adobe After Effects 4, <a href="https://bugs.winehq.org/show_bug.cgi?id=15473" target="_blank">Wine Bug #15473</a>)</li>
+	<li>Use assembler wrapper to call MONITORENUMPROC callback (<a href="https://bugs.winehq.org/show_bug.cgi?id=24421" target="_blank">Wine Bug #24421</a>)</li>
+	<li>Add support for paths on a metafile HDC (<a href="https://bugs.winehq.org/show_bug.cgi?id=39185" target="_blank">Wine Bug #39185</a>)</li>
+	<li>Fix enumeration of display driver properties using setupapi (Evoland, <a href="https://bugs.winehq.org/show_bug.cgi?id=35345" target="_blank">Wine Bug #35345</a>)</li>
+	<li>Add stub program for shutdown.exe (various GOG installers)</li>
+	<li>Fix calling convention of glDebugMessageCallback callback function (<a href="https://bugs.winehq.org/show_bug.cgi?id=38402" target="_blank">Wine Bug #38402</a>)</li>
+	<li>Forward activate window requests to WM using _NET_ACTIVE_WINDOW (<a href="https://bugs.winehq.org/show_bug.cgi?id=2155" target="_blank">Wine Bug #2155</a>)</li>
+	<li>Implement d3dx9_36.D3DXCreateTextureShader with stub interface (<a href="https://appdb.winehq.org/objectManager.php?sClass=application&iId=11062">The Void</a>, <a href="https://bugs.winehq.org/show_bug.cgi?id=37919" target="_blank">Wine Bug #37919</a>)</li>
+	<li>Implement stub for d3dx9_36.D3DXFillCubeTextureTX (<a href="https://appdb.winehq.org/objectManager.php?sClass=application&iId=11062">The Void</a>)</li>
+	<li>Initial implementation for d3dx9_36.D3DXDisassembleShader (<a href="https://appdb.winehq.org/objectManager.php?sClass=application&iId=11062">The Void</a>)</li>
+	<li>Improve invalid parameter handling in NtAccessCheck (MSYS)</li>
+	<li>Silence repeated FIXME message in Parser_QueryInterface (Independence War 2)</li>
+	<li>MessageBox should be topmost when MB_SYSTEMMODAL style is set</li>
+</ul>
