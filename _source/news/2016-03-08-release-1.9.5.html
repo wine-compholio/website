@@ -1,0 +1,49 @@
+Title: Release 1.9.5
+Date: Tue, 8 Mar 2016
+
+<p>
+Time for another release - Wine Staging 1.9.5 is now available. This version improves the compatibility with MSYS and with various older games.
+</p>
+
+<p>
+In continuation of our effort in the last version, this Wine Staging release adds a bunch of improvements mainly useful for older games and applications. Although probably not interesting for everyone, we improved the compatibility with Windows 95/98/ME in order to run software targeting these Windows versions. This includes miming the behavior of older Windows versions more correctly when selecting them in <code>winecfg</code>. So don't forget to alter the settings accordingly before trying out older games.
+</p>
+
+<p>
+Besides some improvements for MSYS, this release also implements various additional functions in Wines <code>setupapi.dll</code>. Various fixes in preparation for loading multiple drivers into a single process, a <code>ntoskrnl.exe</code> bug which has been in Wine for a very long time, have already been accepted upstream and are not separately listed below. This is ongoing work though, so hopefully the next release will support loading multiple drivers into the same address space, making it possible to implement layered drivers as a next step.
+</p>
+
+<!--PREVIEW-->
+
+<p>
+Here is a list of all changes, without those which already have been accepted upstream:
+</p>
+
+<ul>
+	<li>Return ERROR_FILE_NOT_FOUND for Win 9X when a file was not found in GetFileVersionInfoSizeEx (DAO 3.5)</li>
+	<li>Correctly return VFF_CURNEDEST flag in VerFindFileA (JCS: IAF)</li>
+	<li>Fix parsing of inf files containing garbage at the beginning of file (DAO 3.5)</li>
+	<li>Properly set ddsOldCaps field in ddraw7_GetCaps</li>
+	<li>Fix handling of DDL_DRIVES flag in user.exe16.DlgDirList (<a href="https://bugs.winehq.org/show_bug.cgi?id=18734">Wine Bug #18734</a>)</li>
+	<li>Do not reassign default handles after they got closed (Mordor, <a href="https://bugs.winehq.org/show_bug.cgi?id=19184">Wine Bug #19184</a>)</li>
+	<li>setupapi DelReg should recursively delete registry keys (<a href="https://bugs.winehq.org/show_bug.cgi?id=13548">Wine Bug #13548</a>)</li>
+	<li>Add implementation for setupapi.SetupAddToDiskSpaceListA/W (DAO 3.5)</li>
+	<li>Add implementation for setupapi.SetupQueryDrivesInDiskSpaceListA/W (DAO 3.5)</li>
+	<li>Add implementation for setupapi.SetupAdd{Install}SectionToDiskSpaceListA/W (DAO 3.5)</li>
+	<li>Avoid generating Makefiles for disabled rules (<a href="https://bugs.winehq.org/show_bug.cgi?id=40253">Wine Bug #40253</a>)</li>
+	<li>Assign random name when trying to create Window Station without name (MSYS)</li>
+	<li>Translate all invalid console handles into usable DOS handles (NFS3 autorun, <a href="https://bugs.winehq.org/show_bug.cgi?id=7106">Wine Bug #7106</a>)</li>
+	<li>Reserve some more stack space in call_thread_func_wrapper (<a href="https://bugs.winehq.org/show_bug.cgi?id=40068">Wine Bug #40068</a>)</li>
+	<li>Fix implementation of compobj.dll16.StringFromGUID2 function</li>
+	<li>Accept d3d1 and d3d2 versions of D3DFINDDEVICERESULT in IDirect3D_FindDevice (Carmageddon 2)</li>
+	<li>Do not crash in Win 9X mode when an invalid device ptr is passed to MCI_OPEN</li>
+	<li>Set ERROR_DLL_NOT_FOUND as error code for Win 9X instead of ERROR_MOD_NOT_FOUND in load_library (The Fifth Element)</li>
+	<li>Replicate Windows behavior of WM_SETTEXT handler regarding WM_CTLCOLOR* messages (SonicStage 3/4, <a href="https://bugs.winehq.org/show_bug.cgi?id=25790">Wine Bug #25790</a>)</li>
+	<li>Fix handling of WM_NOTIFY messages in PostThreadMessage (<a href="https://bugs.winehq.org/show_bug.cgi?id=40244">Wine Bug #40244</a>)</li>
+	<li>Announce WMP 12 as installed Windows feature (iCloud)</li>
+	<li>Check for invalid filename pointers in CreateFileA in Win 9x mode (Test Drive 5)</li>
+	<li>Add missing resources for IE6 buttons (<a href="https://bugs.winehq.org/show_bug.cgi?id=40236">Wine Bug #40236</a>)</li>
+	<li>Fix multiple issues in mmsystem.dll16 when translating MIDI messages (Prosound, <a href="https://bugs.winehq.org/show_bug.cgi?id=40024">Wine Bug #40024</a>)</li>
+	<li>Implement emulation of GDT and LDT access in Win98 mode (Nuclear Strike, <a href="https://bugs.winehq.org/show_bug.cgi?id=30237">Wine Bug #30237</a>)</li>
+	<li>Set DSCAPS_CERTIFIED flags in dsound (Small Soldiers)</li>
+</ul>

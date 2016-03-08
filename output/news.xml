@@ -1,5 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><id>http://www.wine-staging.com/news.xml</id><title>Wine Staging</title><updated>2016-02-23T00:00:00Z</updated><link href="/news.xml" rel="self"></link><link href="/news.html" type="text/html" rel="alternate"></link><entry><title>Release 1.9.4</title><link href="/news/2016-02-23-release-1.9.4.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2016-02-23-release-1.9.4.html</id><updated>2016-02-23T00:00:00Z</updated><author><name>Wine Staging Team</name></author><content type="html">
+<feed xmlns="http://www.w3.org/2005/Atom"><id>http://www.wine-staging.com/news.xml</id><title>Wine Staging</title><updated>2016-03-08T00:00:00Z</updated><link href="/news.xml" rel="self"></link><link href="/news.html" type="text/html" rel="alternate"></link><entry><title>Release 1.9.5</title><link href="/news/2016-03-08-release-1.9.5.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2016-03-08-release-1.9.5.html</id><updated>2016-03-08T00:00:00Z</updated><author><name>Wine Staging Team</name></author><content type="html">
+        &lt;div class="post"&gt;
+                &lt;h2 class="title"&gt;Release 1.9.5&lt;/h2&gt;
+                &lt;p class="meta"&gt;&lt;span class="author"&gt;Wine Staging Team&lt;/span&gt;&amp;nbsp;-&amp;nbsp;&lt;span class="date"&gt;Tue, 8 Mar 2016&lt;/span&gt;&lt;/p&gt;
+                &lt;div class="entry"&gt;
+                    &lt;p&gt;
+Time for another release - Wine Staging 1.9.5 is now available. This version improves the compatibility with MSYS and with various older games.
+&lt;/p&gt;
+
+&lt;p&gt;
+In continuation of our effort in the last version, this Wine Staging release adds a bunch of improvements mainly useful for older games and applications. Although probably not interesting for everyone, we improved the compatibility with Windows 95/98/ME in order to run software targeting these Windows versions. This includes miming the behavior of older Windows versions more correctly when selecting them in &lt;code&gt;winecfg&lt;/code&gt;. So don't forget to alter the settings accordingly before trying out older games.
+&lt;/p&gt;
+
+&lt;p&gt;
+Besides some improvements for MSYS, this release also implements various additional functions in Wines &lt;code&gt;setupapi.dll&lt;/code&gt;. Various fixes in preparation for loading multiple drivers into a single process, a &lt;code&gt;ntoskrnl.exe&lt;/code&gt; bug which has been in Wine for a very long time, have already been accepted upstream and are not separately listed below. This is ongoing work though, so hopefully the next release will support loading multiple drivers into the same address space, making it possible to implement layered drivers as a next step.
+&lt;/p&gt;
+
+&lt;!--PREVIEW--&gt;
+
+&lt;p&gt;
+Here is a list of all changes, without those which already have been accepted upstream:
+&lt;/p&gt;
+
+&lt;ul&gt;
+	&lt;li&gt;Return ERROR_FILE_NOT_FOUND for Win 9X when a file was not found in GetFileVersionInfoSizeEx (DAO 3.5)&lt;/li&gt;
+	&lt;li&gt;Correctly return VFF_CURNEDEST flag in VerFindFileA (JCS: IAF)&lt;/li&gt;
+	&lt;li&gt;Fix parsing of inf files containing garbage at the beginning of file (DAO 3.5)&lt;/li&gt;
+	&lt;li&gt;Properly set ddsOldCaps field in ddraw7_GetCaps&lt;/li&gt;
+	&lt;li&gt;Fix handling of DDL_DRIVES flag in user.exe16.DlgDirList (&lt;a href="https://bugs.winehq.org/show_bug.cgi?id=18734"&gt;Wine Bug #18734&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Do not reassign default handles after they got closed (Mordor, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=19184"&gt;Wine Bug #19184&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;setupapi DelReg should recursively delete registry keys (&lt;a href="https://bugs.winehq.org/show_bug.cgi?id=13548"&gt;Wine Bug #13548&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Add implementation for setupapi.SetupAddToDiskSpaceListA/W (DAO 3.5)&lt;/li&gt;
+	&lt;li&gt;Add implementation for setupapi.SetupQueryDrivesInDiskSpaceListA/W (DAO 3.5)&lt;/li&gt;
+	&lt;li&gt;Add implementation for setupapi.SetupAdd{Install}SectionToDiskSpaceListA/W (DAO 3.5)&lt;/li&gt;
+	&lt;li&gt;Avoid generating Makefiles for disabled rules (&lt;a href="https://bugs.winehq.org/show_bug.cgi?id=40253"&gt;Wine Bug #40253&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Assign random name when trying to create Window Station without name (MSYS)&lt;/li&gt;
+	&lt;li&gt;Translate all invalid console handles into usable DOS handles (NFS3 autorun, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=7106"&gt;Wine Bug #7106&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Reserve some more stack space in call_thread_func_wrapper (&lt;a href="https://bugs.winehq.org/show_bug.cgi?id=40068"&gt;Wine Bug #40068&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Fix implementation of compobj.dll16.StringFromGUID2 function&lt;/li&gt;
+	&lt;li&gt;Accept d3d1 and d3d2 versions of D3DFINDDEVICERESULT in IDirect3D_FindDevice (Carmageddon 2)&lt;/li&gt;
+	&lt;li&gt;Do not crash in Win 9X mode when an invalid device ptr is passed to MCI_OPEN&lt;/li&gt;
+	&lt;li&gt;Set ERROR_DLL_NOT_FOUND as error code for Win 9X instead of ERROR_MOD_NOT_FOUND in load_library (The Fifth Element)&lt;/li&gt;
+	&lt;li&gt;Replicate Windows behavior of WM_SETTEXT handler regarding WM_CTLCOLOR* messages (SonicStage 3/4, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=25790"&gt;Wine Bug #25790&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Fix handling of WM_NOTIFY messages in PostThreadMessage (&lt;a href="https://bugs.winehq.org/show_bug.cgi?id=40244"&gt;Wine Bug #40244&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Announce WMP 12 as installed Windows feature (iCloud)&lt;/li&gt;
+	&lt;li&gt;Check for invalid filename pointers in CreateFileA in Win 9x mode (Test Drive 5)&lt;/li&gt;
+	&lt;li&gt;Add missing resources for IE6 buttons (&lt;a href="https://bugs.winehq.org/show_bug.cgi?id=40236"&gt;Wine Bug #40236&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Fix multiple issues in mmsystem.dll16 when translating MIDI messages (Prosound, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=40024"&gt;Wine Bug #40024&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Implement emulation of GDT and LDT access in Win98 mode (Nuclear Strike, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=30237"&gt;Wine Bug #30237&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Set DSCAPS_CERTIFIED flags in dsound (Small Soldiers)&lt;/li&gt;
+&lt;/ul&gt;
+                    
+                &lt;/div&gt;
+            &lt;/div&gt;
+    </content></entry><entry><title>Release 1.9.4</title><link href="/news/2016-02-23-release-1.9.4.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2016-02-23-release-1.9.4.html</id><updated>2016-02-23T00:00:00Z</updated><author><name>Wine Staging Team</name></author><content type="html">
         &lt;div class="post"&gt;
                 &lt;h2 class="title"&gt;Release 1.9.4&lt;/h2&gt;
                 &lt;p class="meta"&gt;&lt;span class="author"&gt;Wine Staging Team&lt;/span&gt;&amp;nbsp;-&amp;nbsp;&lt;span class="date"&gt;Tue, 23 Feb 2016&lt;/span&gt;&lt;/p&gt;
