@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="keywords" content="Wine, Staging, wine-staging" />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Wine Staging</title>
+	<link href="/css/style.css" rel="stylesheet" type="text/css" media="screen" />
+	<link href="/news.xml" rel="alternate" type="application/atom+xml" title="News Feed (atom)" />
+</head>
+<body>
+<div id="wrapper">
+	<div id="header-wrapper">
+		<div id="header">
+			<div id="logo">
+				<h1><a href="/index.html">Wine <span>Staging</span></a></h1>
+			</div>
+			<div id="menu">
+				<ul>
+					<li><a href="/index.html">Home</a></li>
+					<li><a href="/news.html">News</a></li>
+					<li><a href="https://github.com/wine-compholio/wine-staging/wiki/Installation" target="_blank">Install</a></li>
+					<li><a href="https://github.com/wine-compholio/wine-staging/wiki" target="_blank">Wiki</a></li>
+					<li><a href="https://bugs.winehq.org/" target="_blank">Bugs</a></li>
+					<li><a href="/source.html">Source</a></li>
+				</ul>
+			</div>
+			<div style="clear: both;"></div>
+		</div>
+	</div>
+	<!-- end #header -->
+	<div id="page">
+		<div id="content">
+
+        <div class="post">
+                <h2 class="title">Release 1.9.6</h2>
+                <p class="meta"><span class="author">Wine Staging Team</span>&nbsp;-&nbsp;<span class="date">Mon, 21 Mar 2016</span></p>
+                <div class="entry">
+                    <p>
+We are happy to announce the release of Wine Staging 1.9.6. This version adds support for Vulkan and fixes for various other bugs.
+</p>
+
+<p>
+This release adds a first version of a Vulkan wrapper to make the Vulkan API accessible to applications running in Wine. The work was started by Erich E. Hoover and later finished by other Wine Staging maintainers. The code translates the Windows specific surface extensions to the corresponding X11 / XCB extensions and passes the remaining functions on the host Vulkan library. Although this seems to be an easy task on first sight, there are various pitfalls that make this wrapper more complicated than you might think. While the Vulkan API is almost binary compatible in 64 bit (except the differences in the calling convention), properly translating Vulkan calls on 32 bit turned out to be a bit difficult.
+</p>
+
+<p>
+The biggest problem on 32-bit is caused by alignment differences when using 64 bit integers in structures. On Windows a 64 bit integer is aligned on a 8 byte memory address, while compilers on most other systems only align them on a 4 byte boundary. Passing such a structure without conversion to the host library would cause problems and eventually lead to a crash. As the Vulkan API contains more than 120 structures, we had to spent a lot of time to implement structure and array conversions, which make the 32-bit version slightly slower than the 64-bit version. The final implementation adds about 10.000 lines of code to the Wine Staging code base.
+</p>
+
+<!--PREVIEW-->
+
+<p>
+Although this is the first beta version, we are happy to say that this version already passes all (~80300) Khronos Vulkan conformance tests (32 + 64 bit) when using a compliant driver on the host system. We also tested the windows version of the game "The Talos Principle" and various samples from the LunarG SDK and so far, we aren't aware of any bugs. If you still encounter any issues, feel free to open a <a href="http://bugs.winehq.org/">bug report</a>. Here is a screenshot showing The Talos Principle running in Wine Staging using the Vulkan option:
+</p>
+
+<div style="margin-top:1.5em; margin-bottom: 1.5em; text-align: center;">
+	<a href="/images/talos.png" target="_blank"><img style="max-width: 100%;" src="/images/talos_small.png"></a>
+</div>
+
+<p>
+Before talking about the smaller additions, there is another important announcement regarding this release. We are aware that a big group of people uses Wine Staging because of the CSMT (commandstream multithreading) patchset, and we are glad to see that there is again (slow, but steady) progress to include this feature in the development version of Wine. The whole process also has a downside though. Various design goals have been changed during the upstreaming process and we are currently not aware of any fully functional patchset, which provides all CSMT features. So far the multithreading part, which contains the actual performance improvement, is not upstream yet and the remaining patches are geting more and more incompatible. Working around all those problem (which we did in the last releases) is not possible in the long term, and we therefore decided to disable CSMT support in this release. If you depend on this feature, you should not update to Wine Staging 1.9.6. The feature might be available in future versions again, so don't forget to check the release notes.
+</p>
+
+<p>
+As mentioned at the beginning, we also added several smaller fixes. There are several patches to improve the compatibility with Python 3.5 as well as patches to improve Wines <code>gdiplus.dll</code> implementation. Here is the usual list of all changes, without those which already have been accepted upstream:
+</p>
+
+<ul>
+	<li>Do not update iosb.Status after FSCTL_PIPE_LISTEN call (Python 3.5)</li>
+	<li>Implement GdipCreateMetafileFromStream (Captvty v3, <a href="https://bugs.winehq.org/show_bug.cgi?id=40325" target="_blank">Wine Bug #40325</a>)</li>
+	<li>Implement support for WICPixelFormat32bppGrayFloat (SlovoEB 2.1, <a href="https://bugs.winehq.org/show_bug.cgi?id=36517" target="_blank">Wine Bug #36517</a>)</li>
+	<li>Fake success in dwmapi.DwmSetWindowAttribute function (Epic Games Launcher)</li>
+	<li>Implement support for Vulkan (<a href="https://bugs.winehq.org/show_bug.cgi?id=40164" target="_blank">Wine Bug #40164</a>)</li>
+	<li>Fix pointer to custom dialog control data (<a href="https://bugs.winehq.org/show_bug.cgi?id=40303" target="_blank">Wine Bug #40303</a>)</li>
+	<li>Populate CA certificate store in registry (Python 3.5)</li>
+	<li>Fix handling of GetOverlappedResult when status remains STATUS_PENDING (Python 3.5)</li>
+	<li>Implement semi-stub for ws2_32 DisconnectEx (Python 3.5)</li>
+	<li>Implement wuauserv dummy service (Python 3.5 installer)</li>
+	<li>Fix handling of INTERNET_INVALID_PORT_NUMBER in HttpOpenRequestW (<a href="https://bugs.winehq.org/show_bug.cgi?id=40169" target="_blank">Wine Bug #40169</a>)</li>
+	<li>Implement windowscodecs.WICCreateBitmapFromSection(Ex) (Paprika Recipe Manager, <a href="https://bugs.winehq.org/show_bug.cgi?id=40273" target="_blank">Wine Bug #40273</a>)</li>
+	<li>Implement a better stub for IPicture::SaveAsFile (JawsEditor, <a href="https://bugs.winehq.org/show_bug.cgi?id=8532" target="_blank">Wine Bug #8532</a>)</li>
+	<li>Implement query operation in reg.exe (<a href="https://bugs.winehq.org/show_bug.cgi?id=24017" target="_blank">Wine Bug #24017</a>)</li>
+</ul>
+                    
+                </div>
+            </div>
+    
+		</div>
+		<div style="clear: both;"></div>
+	</div>
+	<!-- end #page -->
+</div>
+<div id="footer">
+	<p><a href="/impressum.html">Impressum</a>  - <img src="/images/feed.png" style="vertical-align:top; height:1em;">&nbsp;<a href="/news.xml">News Atom feed</a> - Design based on Perfect Blemish by <a href="http://templated.co" rel="nofollow">TEMPLATED</a> (<a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>).</p>
+</div>
+<!-- end #footer -->
+</body>
+</html>
