@@ -46,7 +46,7 @@ This release adds a first version of a Vulkan wrapper to make the Vulkan API acc
 </p>
 
 <p>
-The biggest problem on 32-bit is caused by alignment differences when using 64 bit integers in structures. On Windows a 64 bit integer is aligned on a 8 byte memory address, while compilers on most other systems only align them on a 4 byte boundary. Passing such a structure without conversion to the host library would cause problems and eventually lead to a crash. As the Vulkan API contains more than 120 structures, we had to spent a lot of time to implement structure and array conversions, which make the 32-bit version slightly slower than the 64-bit version. The final implementation adds about 10.000 lines of code to the Wine Staging code base.
+The biggest problem on 32-bit is caused by alignment differences when using 64 bit integers in structures. On Windows a 64 bit integer is aligned on a 8 byte memory address, while compilers on most other systems only align them on a 4 byte boundary. Passing such a structure without conversion to the host library would cause problems and eventually lead to a crash. As the Vulkan API contains more than 120 structures, most of the time was spent to implement structure and array conversions, which make the 32-bit version slightly slower than the 64-bit version. The final implementation adds about 10.000 lines of code to the Wine Staging code base.
 </p>
 
 
