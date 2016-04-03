@@ -1,5 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><id>http://www.wine-staging.com/news.xml</id><title>Wine Staging</title><updated>2016-03-21T00:00:00Z</updated><link href="/news.xml" rel="self"></link><link href="/news.html" type="text/html" rel="alternate"></link><entry><title>Release 1.9.6</title><link href="/news/2016-03-21-release-1.9.6.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2016-03-21-release-1.9.6.html</id><updated>2016-03-21T00:00:00Z</updated><author><name>Wine Staging Team</name></author><content type="html">
+<feed xmlns="http://www.w3.org/2005/Atom"><id>http://www.wine-staging.com/news.xml</id><title>Wine Staging</title><updated>2016-04-03T00:00:00Z</updated><link href="/news.xml" rel="self"></link><link href="/news.html" type="text/html" rel="alternate"></link><entry><title>Release 1.9.7</title><link href="/news/2016-04-03-release-1.9.7.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2016-04-03-release-1.9.7.html</id><updated>2016-04-03T00:00:00Z</updated><author><name>Wine Staging Team</name></author><content type="html">
+        &lt;div class="post"&gt;
+                &lt;h2 class="title"&gt;Release 1.9.7&lt;/h2&gt;
+                &lt;p class="meta"&gt;&lt;span class="author"&gt;Wine Staging Team&lt;/span&gt;&amp;nbsp;-&amp;nbsp;&lt;span class="date"&gt;Sun, 3 Apr 2016&lt;/span&gt;&lt;/p&gt;
+                &lt;div class="entry"&gt;
+                    &lt;p&gt;
+Today we released Wine Staging 1.9.7. This version contains improvements for shell32, Video For Windows and several smaller fixes.
+&lt;/p&gt;
+
+&lt;p&gt;
+When you are using a software which displays a file list, for example a file manager or CD burning software, then chances are high that this program makes use of shell32. This component is mainly used by the Explorer on Windows and provides functions to iterate through the file system, to display the typical right click menu (copy, cut, paste, ...) as well as the property dialogs for folders and files. The implementation in Wine is still work in progress and lacks some fundamental features. In this release we fixed a bug that files couldn't be copied and added support for pasting files/folders into a selected folder (using the right click menu on a folder). We also improved support for moving files (cut, paste), so far the original file was not deleted after the copy progress finished.
+&lt;/p&gt;
+
+&lt;!--PREVIEW--&gt;
+
+&lt;p&gt;
+This release also contains various multimedia related improvements. Several bugs have been fixed in Video For Windows (VFW), the predecessor of Direct Show. This API is mostly used by older games to display intro videos or cut sequences. We also fixed a bug in the Media Foundation API (the successor of Direct Show) which caused Origin to crash after the installation of a game has finished.
+&lt;/p&gt;
+
+&lt;p&gt;
+As usual there were also many other small fixes which are included in the list below.
+&lt;/p&gt;
+
+&lt;ul&gt;
+	&lt;li&gt;Enable the correct dialog owner in DIALOG_DoDialogBox (mIRC, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=40282"&gt;Wine Bug #40282&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Implement support for converting 16 bit depth to 24 bit in msvidc32 (Lifeforce demo, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=14695"&gt;Wine Bug #14695&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Allow 320x240 as supported resolution in desktop mode (&lt;a href="https://bugs.winehq.org/show_bug.cgi?id=32979"&gt;Wine Bug #32979&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Fix implementation of ICGetDisplayFormat (Zak McKracken - Between Time and Space, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=23175"&gt;Wine Bug #23175&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Handle stack guard pages on x86_64 (MSYS)&lt;/li&gt;
+	&lt;li&gt;Improve compatibility of IMILBitmapSource interface (.NET 3.5, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=34764"&gt;Wine Bug #34764&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Fix IStream::Read() return value for partial reads&lt;/li&gt;
+	&lt;li&gt;Implement image hash verification in WinVerifyTrust&lt;/li&gt;
+	&lt;li&gt;Implement oleaut32.OleLoadPictureFile (GoodSync)&lt;/li&gt;
+	&lt;li&gt;Fix return value of RegNotifyChangeKeyValue for pending events (.NET 2, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=39863"&gt;Wine Bug #39863&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Add support for paste in item context menu (Total Commander, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=34319"&gt;Wine Bug #34319&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Fix implementation of cut file operation (Total Commander, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=34322"&gt;Wine Bug #34322&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Recognize cut/copy/paste verb strings in context menus (Total Commander, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=34321"&gt;Wine Bug #34321&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Add 'New' context menu handler registry entry for directories (CDBurnerXP, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=29523"&gt;Wine Bug #29523&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Add implementation for fsutil.exe hardlink command (FINDDUPE, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=22749"&gt;Wine Bug #22749&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Add stub for ntoskrnl.IoGetDeviceAttachmentBaseRef&lt;/li&gt;
+	&lt;li&gt;Return stub interface from mf.MFCreateMediaSession (Origin, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=39367"&gt;Wine Bug #39367&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+                    
+                &lt;/div&gt;
+            &lt;/div&gt;
+    </content></entry><entry><title>Release 1.9.6</title><link href="/news/2016-03-21-release-1.9.6.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2016-03-21-release-1.9.6.html</id><updated>2016-03-21T00:00:00Z</updated><author><name>Wine Staging Team</name></author><content type="html">
         &lt;div class="post"&gt;
                 &lt;h2 class="title"&gt;Release 1.9.6&lt;/h2&gt;
                 &lt;p class="meta"&gt;&lt;span class="author"&gt;Wine Staging Team&lt;/span&gt;&amp;nbsp;-&amp;nbsp;&lt;span class="date"&gt;Mon, 21 Mar 2016&lt;/span&gt;&lt;/p&gt;

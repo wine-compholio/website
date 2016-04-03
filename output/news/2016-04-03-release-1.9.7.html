@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="keywords" content="Wine, Staging, wine-staging" />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Wine Staging</title>
+	<link href="/css/style.css" rel="stylesheet" type="text/css" media="screen" />
+	<link href="/news.xml" rel="alternate" type="application/atom+xml" title="News Feed (atom)" />
+</head>
+<body>
+<div id="wrapper">
+	<div id="header-wrapper">
+		<div id="header">
+			<div id="logo">
+				<h1><a href="/index.html">Wine <span>Staging</span></a></h1>
+			</div>
+			<div id="menu">
+				<ul>
+					<li><a href="/index.html">Home</a></li>
+					<li><a href="/news.html">News</a></li>
+					<li><a href="https://github.com/wine-compholio/wine-staging/wiki/Installation" target="_blank">Install</a></li>
+					<li><a href="https://github.com/wine-compholio/wine-staging/wiki" target="_blank">Wiki</a></li>
+					<li><a href="https://bugs.winehq.org/" target="_blank">Bugs</a></li>
+					<li><a href="/source.html">Source</a></li>
+				</ul>
+			</div>
+			<div style="clear: both;"></div>
+		</div>
+	</div>
+	<!-- end #header -->
+	<div id="page">
+		<div id="content">
+
+        <div class="post">
+                <h2 class="title">Release 1.9.7</h2>
+                <p class="meta"><span class="author">Wine Staging Team</span>&nbsp;-&nbsp;<span class="date">Sun, 3 Apr 2016</span></p>
+                <div class="entry">
+                    <p>
+Today we released Wine Staging 1.9.7. This version contains improvements for shell32, Video For Windows and several smaller fixes.
+</p>
+
+<p>
+When you are using a software which displays a file list, for example a file manager or CD burning software, then chances are high that this program makes use of shell32. This component is mainly used by the Explorer on Windows and provides functions to iterate through the file system, to display the typical right click menu (copy, cut, paste, ...) as well as the property dialogs for folders and files. The implementation in Wine is still work in progress and lacks some fundamental features. In this release we fixed a bug that files couldn't be copied and added support for pasting files/folders into a selected folder (using the right click menu on a folder). We also improved support for moving files (cut, paste), so far the original file was not deleted after the copy progress finished.
+</p>
+
+<!--PREVIEW-->
+
+<p>
+This release also contains various multimedia related improvements. Several bugs have been fixed in Video For Windows (VFW), the predecessor of Direct Show. This API is mostly used by older games to display intro videos or cut sequences. We also fixed a bug in the Media Foundation API (the successor of Direct Show) which caused Origin to crash after the installation of a game has finished.
+</p>
+
+<p>
+As usual there were also many other small fixes which are included in the list below.
+</p>
+
+<ul>
+	<li>Enable the correct dialog owner in DIALOG_DoDialogBox (mIRC, <a href="https://bugs.winehq.org/show_bug.cgi?id=40282">Wine Bug #40282</a>)</li>
+	<li>Implement support for converting 16 bit depth to 24 bit in msvidc32 (Lifeforce demo, <a href="https://bugs.winehq.org/show_bug.cgi?id=14695">Wine Bug #14695</a>)</li>
+	<li>Allow 320x240 as supported resolution in desktop mode (<a href="https://bugs.winehq.org/show_bug.cgi?id=32979">Wine Bug #32979</a>)</li>
+	<li>Fix implementation of ICGetDisplayFormat (Zak McKracken - Between Time and Space, <a href="https://bugs.winehq.org/show_bug.cgi?id=23175">Wine Bug #23175</a>)</li>
+	<li>Handle stack guard pages on x86_64 (MSYS)</li>
+	<li>Improve compatibility of IMILBitmapSource interface (.NET 3.5, <a href="https://bugs.winehq.org/show_bug.cgi?id=34764">Wine Bug #34764</a>)</li>
+	<li>Fix IStream::Read() return value for partial reads</li>
+	<li>Implement image hash verification in WinVerifyTrust</li>
+	<li>Implement oleaut32.OleLoadPictureFile (GoodSync)</li>
+	<li>Fix return value of RegNotifyChangeKeyValue for pending events (.NET 2, <a href="https://bugs.winehq.org/show_bug.cgi?id=39863">Wine Bug #39863</a>)</li>
+	<li>Add support for paste in item context menu (Total Commander, <a href="https://bugs.winehq.org/show_bug.cgi?id=34319">Wine Bug #34319</a>)</li>
+	<li>Fix implementation of cut file operation (Total Commander, <a href="https://bugs.winehq.org/show_bug.cgi?id=34322">Wine Bug #34322</a>)</li>
+	<li>Recognize cut/copy/paste verb strings in context menus (Total Commander, <a href="https://bugs.winehq.org/show_bug.cgi?id=34321">Wine Bug #34321</a>)</li>
+	<li>Add 'New' context menu handler registry entry for directories (CDBurnerXP, <a href="https://bugs.winehq.org/show_bug.cgi?id=29523">Wine Bug #29523</a>)</li>
+	<li>Add implementation for fsutil.exe hardlink command (FINDDUPE, <a href="https://bugs.winehq.org/show_bug.cgi?id=22749">Wine Bug #22749</a>)</li>
+	<li>Add stub for ntoskrnl.IoGetDeviceAttachmentBaseRef</li>
+	<li>Return stub interface from mf.MFCreateMediaSession (Origin, <a href="https://bugs.winehq.org/show_bug.cgi?id=39367">Wine Bug #39367</a>)</li>
+</ul>
+                    
+                </div>
+            </div>
+    
+		</div>
+		<div style="clear: both;"></div>
+	</div>
+	<!-- end #page -->
+</div>
+<div id="footer">
+	<p><a href="/impressum.html">Impressum</a>  - <img src="/images/feed.png" style="vertical-align:top; height:1em;">&nbsp;<a href="/news.xml">News Atom feed</a> - Design based on Perfect Blemish by <a href="http://templated.co" rel="nofollow">TEMPLATED</a> (<a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>).</p>
+</div>
+<!-- end #footer -->
+</body>
+</html>
