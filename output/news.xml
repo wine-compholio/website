@@ -1,5 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><id>http://www.wine-staging.com/news.xml</id><title>Wine Staging</title><updated>2016-04-03T00:00:00Z</updated><link href="/news.xml" rel="self"></link><link href="/news.html" type="text/html" rel="alternate"></link><entry><title>Release 1.9.7</title><link href="/news/2016-04-03-release-1.9.7.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2016-04-03-release-1.9.7.html</id><updated>2016-04-03T00:00:00Z</updated><author><name>Wine Staging Team</name></author><content type="html">
+<feed xmlns="http://www.w3.org/2005/Atom"><id>http://www.wine-staging.com/news.xml</id><title>Wine Staging</title><updated>2016-04-19T00:00:00Z</updated><link href="/news.xml" rel="self"></link><link href="/news.html" type="text/html" rel="alternate"></link><entry><title>Release 1.9.8</title><link href="/news/2016-04-19-release-1.9.8.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2016-04-19-release-1.9.8.html</id><updated>2016-04-19T00:00:00Z</updated><author><name>Wine Staging Team</name></author><content type="html">
+        &lt;div class="post"&gt;
+                &lt;h2 class="title"&gt;Release 1.9.8&lt;/h2&gt;
+                &lt;p class="meta"&gt;&lt;span class="author"&gt;Wine Staging Team&lt;/span&gt;&amp;nbsp;-&amp;nbsp;&lt;span class="date"&gt;Tue, 19 Apr 2016&lt;/span&gt;&lt;/p&gt;
+                &lt;div class="entry"&gt;
+                    &lt;p&gt;
+Time for another release! Wine Staging 1.9.8 is now available. This version contains improvements for 64 bit support and MSYS2.
+&lt;/p&gt;
+
+&lt;p&gt;
+Running 64 bit Windows software on Linux using Wine is nothing special for most users. Although there might be some smaller bugs left that only affect 64 bit software, the basic concept is working fine. 64-bit support for OS X is a different story though. The usage of the GS segment register in Windows applications conflicts with the OS X system libraries. This basically means that Wine and OS X want to store different values at the same location. Fixing or working around this problem is difficult and it is still unknown if a fully compatible and efficient solution can be achieved. Nevertheless, there are ways to improve compatibility without implementing a complete solution.
+&lt;/p&gt;
+
+&lt;p&gt;
+This release adds an experimental patch to improve support for running 64-bit applications on OS X by partially fixing the issue. If you are interested in more technical details, you can also take a look at the Wine devel mailing list discussions &lt;a href="https://www.winehq.org/pipermail/wine-devel/2016-April/112662.html"&gt;[1]&lt;/a&gt; and &lt;a href="https://www.winehq.org/pipermail/wine-devel/2016-April/112664.html"&gt;[2]&lt;/a&gt;. Although the feedback was very promising so far, we would be happy to see some additional testers. Check out the &lt;a href="https://dl.winehq.org/wine-builds/macosx/download.html"&gt;WineHQ OS X download page&lt;/a&gt; (either use the installer or grab a 64-bit tarball) if you want to give it a try.
+&lt;/p&gt;
+
+&lt;!--PREVIEW--&gt;
+
+&lt;p&gt;
+Wine Staging 1.9.8 also continues the ongoing effort to improve compatibility with MSYS2 and adds several enhancements regarding stack handling and exception unwinding on 64-bit. Although running typical Unix applications in Wine does not sound like a high priority use-case for the average user, the low level nature of MSYS2 has already exposed a whole bunch of bugs in Wine. Fixing those can also improve compatibility with proprietary applications that are much harder to debug.
+&lt;/p&gt;
+
+&lt;p&gt;
+As usual there were also various other small fixes which are included in the list below.
+&lt;/p&gt;
+
+&lt;ul&gt;
+	&lt;li&gt;Add stubs for QUERY_TYPE_SO_STATISTICS and QUERY_TYPE_SO_OVERFLOW (3DMark Vantage, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=20776"&gt;Wine Bug #20776&lt;/a&gt;)&lt;/li&gt;&lt;/li&gt;
+	&lt;li&gt;Various improvements in wineps.drv for Adobe PageMaker compatibility&lt;/li&gt;
+	&lt;li&gt;Use a separate stack when starting new threads (MSYS2)&lt;/li&gt;
+	&lt;li&gt;Ignore invalid exit_frame when exiting thread (MSYS2)&lt;/li&gt;
+	&lt;li&gt;Trigger stack overflow exception earlier on x86_64 (MSYS2)&lt;/li&gt;
+	&lt;li&gt;Improve compatibility of 64-bit support for OS X&lt;/li&gt;
+	&lt;li&gt;Add support for async handling in InternetReadFile (ManiaPlanet / Trackmania 2)&lt;/li&gt;
+	&lt;li&gt;Fix a bug when exception handling triggers stack guard page (MSYS2)&lt;/li&gt;
+	&lt;li&gt;Fix handling of wildcard paths in GetShortPathName and GetLongPathName (The Guild 2, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=39355"&gt;Wine Bug #39355&lt;/a&gt;)&lt;/li&gt;&lt;/li&gt;
+	&lt;li&gt;Add support for loading PNG icon files (.NET 4.6, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=38959"&gt;Wine Bug #38959&lt;/a&gt;)&lt;/li&gt;&lt;/li&gt;
+	&lt;li&gt;Add feclient.dll stub (Visual C++ Build Tools 2015, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=40451"&gt;Wine Bug #40451&lt;/a&gt;)&lt;/li&gt;&lt;/li&gt;
+	&lt;li&gt;Improve handling of builtin frames for x86_64 when switching stacks (MSYS2)&lt;/li&gt;
+&lt;/ul&gt;
+
+                    
+                &lt;/div&gt;
+            &lt;/div&gt;
+    </content></entry><entry><title>Release 1.9.7</title><link href="/news/2016-04-03-release-1.9.7.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2016-04-03-release-1.9.7.html</id><updated>2016-04-03T00:00:00Z</updated><author><name>Wine Staging Team</name></author><content type="html">
         &lt;div class="post"&gt;
                 &lt;h2 class="title"&gt;Release 1.9.7&lt;/h2&gt;
                 &lt;p class="meta"&gt;&lt;span class="author"&gt;Wine Staging Team&lt;/span&gt;&amp;nbsp;-&amp;nbsp;&lt;span class="date"&gt;Sun, 3 Apr 2016&lt;/span&gt;&lt;/p&gt;
