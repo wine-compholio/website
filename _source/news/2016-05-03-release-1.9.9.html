@@ -1,0 +1,31 @@
+Title: Release 1.9.9
+Date: Tue, 03 May 2016
+
+<p>
+Wine Staging 1.9.9 was released yesterday. This updates brings some smaller improvements.
+</p>
+
+<p>
+During the last two weeks, instead of working on new features, a lot of effort was put into cleaning up, improving, and upstreaming patches which already have been tested sufficiently. We are glad to say that more than 30 patches have been accepted which is roughly about 10% of all commits added in Wine 1.9.9. This doesn't mean though that we didn't add any new features, just a bit less than usual as you can see below.
+</p>
+
+<!--PREVIEW-->
+
+<p>
+Please note that this release does no longer contain the libcef syscall workaround which has been added in 1.7.53. The patch was originally included to solve the problem that Steam does no longer show any web pages. The solution was not perfect though as it only worked in a pure 32 bit Wine prefix and some users also reported that the workaround is unreliable. Since Steam introduced a parameter (<code>-no-cef-sandbox</code>) to disable the problematic sandboxing mechanisms, we decided to drop this rather big patch. We recommend our users to use the command line switch which should work for both 32-bit and 64-bit prefixes.
+</p>
+
+<p>
+The following list contains all newly added features and bug fixes.
+</p>
+
+<ul>
+	<li>Avoid buffer overflow in mono print handler for large strings</li>
+	<li>Fill stack with meaningful values in call_process_entry mis-align workaround (MoleBox Ultra v4, <a href="https://bugs.winehq.org/show_bug.cgi?id=24374">Wine Bug #24374</a>)</li>
+	<li>Create DIB section in OleLoadPicture (MSWT Kart 2004, <a href="https://bugs.winehq.org/show_bug.cgi?id=39474">Wine Bug #39474</a>)</li>
+	<li>Implement support for loading and saving EMF to IPicture interface (XLPro3, <a href="https://bugs.winehq.org/show_bug.cgi?id=40523">Wine Bug #40523</a>)</li>
+	<li>Improve wmic cmd line parser and add support for path command</li>
+	<li>Postpone setting lpstrFileTitle in GetSaveFileNameW (BDCraft Cubik, <a href="https://bugs.winehq.org/show_bug.cgi?id=38400">Wine Bug #38400</a>)</li>
+	<li>Postpone setting lpstrFileTitle in GetSaveFileNameA (Knytt Stories editor, <a href="https://bugs.winehq.org/show_bug.cgi?id=35200">Wine Bug #35200</a>)</li>
+	<li>Implement IKsControl stub subinterface for SynthPort (Chessbase Ludwig 3, <a href="https://bugs.winehq.org/show_bug.cgi?id=30105">Wine Bug #30105</a>)</li>
+</ul>

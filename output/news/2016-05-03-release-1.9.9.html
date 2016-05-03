@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="keywords" content="Wine, Staging, wine-staging" />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Wine Staging</title>
+	<link href="/css/style.css" rel="stylesheet" type="text/css" media="screen" />
+	<link href="/news.xml" rel="alternate" type="application/atom+xml" title="News Feed (atom)" />
+</head>
+<body>
+<div id="wrapper">
+	<div id="header-wrapper">
+		<div id="header">
+			<div id="logo">
+				<h1><a href="/index.html">Wine <span>Staging</span></a></h1>
+			</div>
+			<div id="menu">
+				<ul>
+					<li><a href="/index.html">Home</a></li>
+					<li><a href="/news.html">News</a></li>
+					<li><a href="https://github.com/wine-compholio/wine-staging/wiki/Installation" target="_blank">Install</a></li>
+					<li><a href="https://github.com/wine-compholio/wine-staging/wiki" target="_blank">Wiki</a></li>
+					<li><a href="https://bugs.winehq.org/" target="_blank">Bugs</a></li>
+					<li><a href="/source.html">Source</a></li>
+				</ul>
+			</div>
+			<div style="clear: both;"></div>
+		</div>
+	</div>
+	<!-- end #header -->
+	<div id="page">
+		<div id="content">
+
+        <div class="post">
+                <h2 class="title">Release 1.9.9</h2>
+                <p class="meta"><span class="author">Wine Staging Team</span>&nbsp;-&nbsp;<span class="date">Tue, 03 May 2016</span></p>
+                <div class="entry">
+                    <p>
+Wine Staging 1.9.9 was released yesterday. This updates brings some smaller improvements.
+</p>
+
+<p>
+During the last two weeks, instead of working on new features, a lot of effort was put into cleaning up, improving, and upstreaming patches which already have been tested sufficiently. We are glad to say that more than 30 patches have been accepted which is roughly about 10% of all commits added in Wine 1.9.9. This doesn't mean though that we didn't add any new features, just a bit less than usual as you can see below.
+</p>
+
+<!--PREVIEW-->
+
+<p>
+Please note that this release does no longer contain the libcef syscall workaround which has been added in 1.7.53. The patch was originally included to solve the problem that Steam does no longer show any web pages. The solution was not perfect though as it only worked in a pure 32 bit Wine prefix and some users also reported that the workaround is unreliable. Since Steam introduced a parameter (<code>-no-cef-sandbox</code>) to disable the problematic sandboxing mechanisms, we decided to drop this rather big patch. We recommend our users to use the command line switch which should work for both 32-bit and 64-bit prefixes.
+</p>
+
+<p>
+The following list contains all newly added features and bug fixes.
+</p>
+
+<ul>
+	<li>Avoid buffer overflow in mono print handler for large strings</li>
+	<li>Fill stack with meaningful values in call_process_entry mis-align workaround (MoleBox Ultra v4, <a href="https://bugs.winehq.org/show_bug.cgi?id=24374">Wine Bug #24374</a>)</li>
+	<li>Create DIB section in OleLoadPicture (MSWT Kart 2004, <a href="https://bugs.winehq.org/show_bug.cgi?id=39474">Wine Bug #39474</a>)</li>
+	<li>Implement support for loading and saving EMF to IPicture interface (XLPro3, <a href="https://bugs.winehq.org/show_bug.cgi?id=40523">Wine Bug #40523</a>)</li>
+	<li>Improve wmic cmd line parser and add support for path command</li>
+	<li>Postpone setting lpstrFileTitle in GetSaveFileNameW (BDCraft Cubik, <a href="https://bugs.winehq.org/show_bug.cgi?id=38400">Wine Bug #38400</a>)</li>
+	<li>Postpone setting lpstrFileTitle in GetSaveFileNameA (Knytt Stories editor, <a href="https://bugs.winehq.org/show_bug.cgi?id=35200">Wine Bug #35200</a>)</li>
+	<li>Implement IKsControl stub subinterface for SynthPort (Chessbase Ludwig 3, <a href="https://bugs.winehq.org/show_bug.cgi?id=30105">Wine Bug #30105</a>)</li>
+</ul>
+
+                    
+                </div>
+            </div>
+    
+		</div>
+		<div style="clear: both;"></div>
+	</div>
+	<!-- end #page -->
+</div>
+<div id="footer">
+	<p><a href="/impressum.html">Impressum</a>  - <img src="/images/feed.png" style="vertical-align:top; height:1em;">&nbsp;<a href="/news.xml">News Atom feed</a> - Design based on Perfect Blemish by <a href="http://templated.co" rel="nofollow">TEMPLATED</a> (<a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>).</p>
+</div>
+<!-- end #footer -->
+</body>
+</html>

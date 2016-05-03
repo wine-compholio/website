@@ -1,5 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><id>http://www.wine-staging.com/news.xml</id><title>Wine Staging</title><updated>2016-04-19T00:00:00Z</updated><link href="/news.xml" rel="self"></link><link href="/news.html" type="text/html" rel="alternate"></link><entry><title>Release 1.9.8</title><link href="/news/2016-04-19-release-1.9.8.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2016-04-19-release-1.9.8.html</id><updated>2016-04-19T00:00:00Z</updated><author><name>Wine Staging Team</name></author><content type="html">
+<feed xmlns="http://www.w3.org/2005/Atom"><id>http://www.wine-staging.com/news.xml</id><title>Wine Staging</title><updated>2016-05-03T00:00:00Z</updated><link href="/news.xml" rel="self"></link><link href="/news.html" type="text/html" rel="alternate"></link><entry><title>Release 1.9.9</title><link href="/news/2016-05-03-release-1.9.9.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2016-05-03-release-1.9.9.html</id><updated>2016-05-03T00:00:00Z</updated><author><name>Wine Staging Team</name></author><content type="html">
+        &lt;div class="post"&gt;
+                &lt;h2 class="title"&gt;Release 1.9.9&lt;/h2&gt;
+                &lt;p class="meta"&gt;&lt;span class="author"&gt;Wine Staging Team&lt;/span&gt;&amp;nbsp;-&amp;nbsp;&lt;span class="date"&gt;Tue, 03 May 2016&lt;/span&gt;&lt;/p&gt;
+                &lt;div class="entry"&gt;
+                    &lt;p&gt;
+Wine Staging 1.9.9 was released yesterday. This updates brings some smaller improvements.
+&lt;/p&gt;
+
+&lt;p&gt;
+During the last two weeks, instead of working on new features, a lot of effort was put into cleaning up, improving, and upstreaming patches which already have been tested sufficiently. We are glad to say that more than 30 patches have been accepted which is roughly about 10% of all commits added in Wine 1.9.9. This doesn't mean though that we didn't add any new features, just a bit less than usual as you can see below.
+&lt;/p&gt;
+
+&lt;!--PREVIEW--&gt;
+
+&lt;p&gt;
+Please note that this release does no longer contain the libcef syscall workaround which has been added in 1.7.53. The patch was originally included to solve the problem that Steam does no longer show any web pages. The solution was not perfect though as it only worked in a pure 32 bit Wine prefix and some users also reported that the workaround is unreliable. Since Steam introduced a parameter (&lt;code&gt;-no-cef-sandbox&lt;/code&gt;) to disable the problematic sandboxing mechanisms, we decided to drop this rather big patch. We recommend our users to use the command line switch which should work for both 32-bit and 64-bit prefixes.
+&lt;/p&gt;
+
+&lt;p&gt;
+The following list contains all newly added features and bug fixes.
+&lt;/p&gt;
+
+&lt;ul&gt;
+	&lt;li&gt;Avoid buffer overflow in mono print handler for large strings&lt;/li&gt;
+	&lt;li&gt;Fill stack with meaningful values in call_process_entry mis-align workaround (MoleBox Ultra v4, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=24374"&gt;Wine Bug #24374&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Create DIB section in OleLoadPicture (MSWT Kart 2004, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=39474"&gt;Wine Bug #39474&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Implement support for loading and saving EMF to IPicture interface (XLPro3, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=40523"&gt;Wine Bug #40523&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Improve wmic cmd line parser and add support for path command&lt;/li&gt;
+	&lt;li&gt;Postpone setting lpstrFileTitle in GetSaveFileNameW (BDCraft Cubik, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=38400"&gt;Wine Bug #38400&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Postpone setting lpstrFileTitle in GetSaveFileNameA (Knytt Stories editor, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=35200"&gt;Wine Bug #35200&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Implement IKsControl stub subinterface for SynthPort (Chessbase Ludwig 3, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=30105"&gt;Wine Bug #30105&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+
+                    
+                &lt;/div&gt;
+            &lt;/div&gt;
+    </content></entry><entry><title>Release 1.9.8</title><link href="/news/2016-04-19-release-1.9.8.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2016-04-19-release-1.9.8.html</id><updated>2016-04-19T00:00:00Z</updated><author><name>Wine Staging Team</name></author><content type="html">
         &lt;div class="post"&gt;
                 &lt;h2 class="title"&gt;Release 1.9.8&lt;/h2&gt;
                 &lt;p class="meta"&gt;&lt;span class="author"&gt;Wine Staging Team&lt;/span&gt;&amp;nbsp;-&amp;nbsp;&lt;span class="date"&gt;Tue, 19 Apr 2016&lt;/span&gt;&lt;/p&gt;
