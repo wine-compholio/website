@@ -1,0 +1,37 @@
+Title: Release 1.9.10
+Date: Wed, 18 May 2016
+
+<p>
+We are happy to announce the release of Wine Staging 1.9.10. This updates brings back the support for CSMT and contains bug fixes for multiple applications.
+</p>
+
+<p>
+The support for CSMT was removed in Wine Staging 1.9.6 due to differences between the original CSMT patchset and the new design included in the development version of Wine. Maintaining the old CSMT patchset, which was based on surfaces, was not feasible any more while the rest of Wine's DirectX stack was rewritten to use textures instead. For those who rely on the CSMT feature, we have some good news though. In the mean time the complete CSMT patchset has been rewritten to use the new texture approach and is now included in Wine Staging 1.9.10. You can therefore safely update from 1.9.5 and continue to enjoy all the performance improvements. Stefan Dösinger, the author of the patchset, also indicated that he fixed some bugs during the update, so it might be a good idea to retest applications which previously didn't work well with CSMT.
+</p>
+
+<!--PREVIEW-->
+
+<p>
+As usual this release also contains many small improvements. It fixes a problem which prevents Uplay from connecting to the server and therefore making it unusable. Two bugs have been fixed in wininet which affect multiple applications (TrackMania United Forever, Rocket League, Warframe). The behavior of UnmapViewOfFile has been altered to correctly emulate the selected Windows version.
+</p>
+
+<p>
+The following list contains all newly added features and bug fixes.
+</p>
+
+<ul>
+	<li>Resize buffer when call to InternetCanonicalizeUrlW fails in InternetCrackUrlW (Warframe, <a href="https://bugs.winehq.org/show_bug.cgi?id=40598">Wine Bug #40598</a>)</li>
+	<li>Implement GdipGetMetafileHeaderFromMetafile (Sketchpad 5, <a href="https://bugs.winehq.org/show_bug.cgi?id=27415">Wine Bug #27415</a>)</li>
+	<li>Preserve custom colors between subitems for listview control (DOSCenter, <a href="https://bugs.winehq.org/show_bug.cgi?id=38941">Wine Bug #38941</a>)</li>
+	<li>Extend a vtable offset before calling 64-bit DispCallFunc() for a 32-bit typelib (x64 InstallShield - 3DMark06 (WOW64), <a href="https://bugs.winehq.org/show_bug.cgi?id=35268">Wine Bug #35268</a>)</li>
+	<li>Properly handle invalid parameters in CharToOem* and OemToChar* APIs (Info-ZIP 3, <a href="https://bugs.winehq.org/show_bug.cgi?id=21891">Wine Bug #21891</a>)</li>
+	<li>Implement support for fs segment in GetThreadSelectorEntry</li>
+	<li>Set buffer size to zero when InitializeSecurityContextW returns no data (Uplay, <a href="https://bugs.winehq.org/show_bug.cgi?id=40271">Wine Bug #40271</a>)</li>
+	<li>Return synchronously from InternetReadFile if there is no more data to read (Trackmania United Forever / Rocket League, <a href="https://bugs.winehq.org/show_bug.cgi?id=40536">Wine Bug #40536</a>)</li>
+	<li>UnmapViewOfFile should fail on Win9x when addr is not the base address of a mapping (Kings Quest 8, <a href="https://bugs.winehq.org/show_bug.cgi?id=2905">Wine Bug #2905</a>)</li>
+	<li>NtUnmapViewOfSection should succeed for any address in the mapped range</li>
+	<li>Implement msvcrt._fstat32i64</li>
+	<li>Update Wine Gecko to version 2.47-beta1</li>
+	<li>Recognize bump luminance format when loading dds file</li>
+	<li>DialogBoxParam should return -1 when dialog control creation fails (Winrar, <a href="https://bugs.winehq.org/show_bug.cgi?id=40025">Wine Bug #40025</a>)</li>
+</ul>

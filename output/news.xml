@@ -1,5 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><id>http://www.wine-staging.com/news.xml</id><title>Wine Staging</title><updated>2016-05-03T00:00:00Z</updated><link href="/news.xml" rel="self"></link><link href="/news.html" type="text/html" rel="alternate"></link><entry><title>Release 1.9.9</title><link href="/news/2016-05-03-release-1.9.9.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2016-05-03-release-1.9.9.html</id><updated>2016-05-03T00:00:00Z</updated><author><name>Wine Staging Team</name></author><content type="html">
+<feed xmlns="http://www.w3.org/2005/Atom"><id>http://www.wine-staging.com/news.xml</id><title>Wine Staging</title><updated>2016-05-18T00:00:00Z</updated><link href="/news.xml" rel="self"></link><link href="/news.html" type="text/html" rel="alternate"></link><entry><title>Release 1.9.10</title><link href="/news/2016-05-18-release-1.9.10.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2016-05-18-release-1.9.10.html</id><updated>2016-05-18T00:00:00Z</updated><author><name>Wine Staging Team</name></author><content type="html">
+        &lt;div class="post"&gt;
+                &lt;h2 class="title"&gt;Release 1.9.10&lt;/h2&gt;
+                &lt;p class="meta"&gt;&lt;span class="author"&gt;Wine Staging Team&lt;/span&gt;&amp;nbsp;-&amp;nbsp;&lt;span class="date"&gt;Wed, 18 May 2016&lt;/span&gt;&lt;/p&gt;
+                &lt;div class="entry"&gt;
+                    &lt;p&gt;
+We are happy to announce the release of Wine Staging 1.9.10. This updates brings back the support for CSMT and contains bug fixes for multiple applications.
+&lt;/p&gt;
+
+&lt;p&gt;
+The support for CSMT was removed in Wine Staging 1.9.6 due to differences between the original CSMT patchset and the new design included in the development version of Wine. Maintaining the old CSMT patchset, which was based on surfaces, was not feasible any more while the rest of Wine's DirectX stack was rewritten to use textures instead. For those who rely on the CSMT feature, we have some good news though. In the mean time the complete CSMT patchset has been rewritten to use the new texture approach and is now included in Wine Staging 1.9.10. You can therefore safely update from 1.9.5 and continue to enjoy all the performance improvements. Stefan Dösinger, the author of the patchset, also indicated that he fixed some bugs during the update, so it might be a good idea to retest applications which previously didn't work well with CSMT.
+&lt;/p&gt;
+
+&lt;!--PREVIEW--&gt;
+
+&lt;p&gt;
+As usual this release also contains many small improvements. It fixes a problem which prevents Uplay from connecting to the server and therefore making it unusable. Two bugs have been fixed in wininet which affect multiple applications (TrackMania United Forever, Rocket League, Warframe). The behavior of UnmapViewOfFile has been altered to correctly emulate the selected Windows version.
+&lt;/p&gt;
+
+&lt;p&gt;
+The following list contains all newly added features and bug fixes.
+&lt;/p&gt;
+
+&lt;ul&gt;
+	&lt;li&gt;Resize buffer when call to InternetCanonicalizeUrlW fails in InternetCrackUrlW (Warframe, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=40598"&gt;Wine Bug #40598&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Implement GdipGetMetafileHeaderFromMetafile (Sketchpad 5, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=27415"&gt;Wine Bug #27415&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Preserve custom colors between subitems for listview control (DOSCenter, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=38941"&gt;Wine Bug #38941&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Extend a vtable offset before calling 64-bit DispCallFunc() for a 32-bit typelib (x64 InstallShield - 3DMark06 (WOW64), &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=35268"&gt;Wine Bug #35268&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Properly handle invalid parameters in CharToOem* and OemToChar* APIs (Info-ZIP 3, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=21891"&gt;Wine Bug #21891&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Implement support for fs segment in GetThreadSelectorEntry&lt;/li&gt;
+	&lt;li&gt;Set buffer size to zero when InitializeSecurityContextW returns no data (Uplay, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=40271"&gt;Wine Bug #40271&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Return synchronously from InternetReadFile if there is no more data to read (Trackmania United Forever / Rocket League, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=40536"&gt;Wine Bug #40536&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;UnmapViewOfFile should fail on Win9x when addr is not the base address of a mapping (Kings Quest 8, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=2905"&gt;Wine Bug #2905&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;NtUnmapViewOfSection should succeed for any address in the mapped range&lt;/li&gt;
+	&lt;li&gt;Implement msvcrt._fstat32i64&lt;/li&gt;
+	&lt;li&gt;Update Wine Gecko to version 2.47-beta1&lt;/li&gt;
+	&lt;li&gt;Recognize bump luminance format when loading dds file&lt;/li&gt;
+	&lt;li&gt;DialogBoxParam should return -1 when dialog control creation fails (Winrar, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=40025"&gt;Wine Bug #40025&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+
+                    
+                &lt;/div&gt;
+            &lt;/div&gt;
+    </content></entry><entry><title>Release 1.9.9</title><link href="/news/2016-05-03-release-1.9.9.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2016-05-03-release-1.9.9.html</id><updated>2016-05-03T00:00:00Z</updated><author><name>Wine Staging Team</name></author><content type="html">
         &lt;div class="post"&gt;
                 &lt;h2 class="title"&gt;Release 1.9.9&lt;/h2&gt;
                 &lt;p class="meta"&gt;&lt;span class="author"&gt;Wine Staging Team&lt;/span&gt;&amp;nbsp;-&amp;nbsp;&lt;span class="date"&gt;Tue, 03 May 2016&lt;/span&gt;&lt;/p&gt;
