@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="keywords" content="Wine, Staging, wine-staging" />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Wine Staging</title>
+	<link href="/css/style.css" rel="stylesheet" type="text/css" media="screen" />
+	<link href="/news.xml" rel="alternate" type="application/atom+xml" title="News Feed (atom)" />
+</head>
+<body>
+<div id="wrapper">
+	<div id="header-wrapper">
+		<div id="header">
+			<div id="logo">
+				<h1><a href="/index.html">Wine <span>Staging</span></a></h1>
+			</div>
+			<div id="menu">
+				<ul>
+					<li><a href="/index.html">Home</a></li>
+					<li><a href="/news.html">News</a></li>
+					<li><a href="https://github.com/wine-compholio/wine-staging/wiki/Installation" target="_blank">Install</a></li>
+					<li><a href="https://github.com/wine-compholio/wine-staging/wiki" target="_blank">Wiki</a></li>
+					<li><a href="https://bugs.winehq.org/" target="_blank">Bugs</a></li>
+					<li><a href="/source.html">Source</a></li>
+				</ul>
+			</div>
+			<div style="clear: both;"></div>
+		</div>
+	</div>
+	<!-- end #header -->
+	<div id="page">
+		<div id="content">
+
+        <div class="post">
+                <h2 class="title">Release 1.9.11</h2>
+                <p class="meta"><span class="author">Wine Staging Team</span>&nbsp;-&nbsp;<span class="date">Tue, 31 May 2016</span></p>
+                <div class="entry">
+                    <p>
+Wine Staging 1.9.11 has been released this weekend. This release is a small update containing only a few improvements targeting different applications.
+</p>
+
+<p>
+Besides updating the existing patches (including CSMT) to be compatible with the current development release of Wine, this release contains only a few additions. The most noticeable one is a patch to fix a crash when launching DOOM. However, this doesn't mean that the whole DRM protection is working yet, but it is a first step. We also fixed a regression that caused problems when creating threads on FreeBSD and could also lead to issues on some Linux systems. A list containing all newly added patches is available below.
+</p>
+
+<!--PREVIEW-->
+
+<ul>
+	<li>Do not sort the InMemoryOrderModuleList by memory addresses (DOOM, <a href="https://bugs.winehq.org/show_bug.cgi?id=40623">Wine Bug #40623</a>)</li>
+	<li>Add stub for setupapi.CM_Get_DevNode_Status (DVDFab, <a href="https://bugs.winehq.org/show_bug.cgi?id=40691">Wine Bug #40691</a>)</li>
+	<li>Provide DeviceID, Location and PortName for printers (HP Diagnostic, <a href="https://bugs.winehq.org/show_bug.cgi?id=40539">Wine Bug #40539</a>)</li>
+	<li>Implement DrawDibProfileDisplay in msvideo.dll16</li>
+	<li>Workaround for Windows 3.1 apps which call LoadImage(LR_LOADFROMFILE) with a resource id (Okad2, <a href="https://bugs.winehq.org/show_bug.cgi?id=24963">Wine Bug #24963</a>)</li>
+	<li>Add stub for ntoskrnl.IoStopTimer</li>
+</ul>
+
+                    
+                </div>
+            </div>
+    
+		</div>
+		<div style="clear: both;"></div>
+	</div>
+	<!-- end #page -->
+</div>
+<div id="footer">
+	<p><a href="/impressum.html">Impressum</a>  - <img src="/images/feed.png" style="vertical-align:top; height:1em;">&nbsp;<a href="/news.xml">News Atom feed</a> - Design based on Perfect Blemish by <a href="http://templated.co" rel="nofollow">TEMPLATED</a> (<a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>).</p>
+</div>
+<!-- end #footer -->
+</body>
+</html>

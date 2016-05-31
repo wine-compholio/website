@@ -1,5 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><id>http://www.wine-staging.com/news.xml</id><title>Wine Staging</title><updated>2016-05-18T00:00:00Z</updated><link href="/news.xml" rel="self"></link><link href="/news.html" type="text/html" rel="alternate"></link><entry><title>Release 1.9.10</title><link href="/news/2016-05-18-release-1.9.10.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2016-05-18-release-1.9.10.html</id><updated>2016-05-18T00:00:00Z</updated><author><name>Wine Staging Team</name></author><content type="html">
+<feed xmlns="http://www.w3.org/2005/Atom"><id>http://www.wine-staging.com/news.xml</id><title>Wine Staging</title><updated>2016-05-19T00:00:00Z</updated><link href="/news.xml" rel="self"></link><link href="/news.html" type="text/html" rel="alternate"></link><entry><title>Release 1.9.11</title><link href="/news/2016-05-19-release-1.9.11.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2016-05-19-release-1.9.11.html</id><updated>2016-05-19T00:00:00Z</updated><author><name>Wine Staging Team</name></author><content type="html">
+        &lt;div class="post"&gt;
+                &lt;h2 class="title"&gt;Release 1.9.11&lt;/h2&gt;
+                &lt;p class="meta"&gt;&lt;span class="author"&gt;Wine Staging Team&lt;/span&gt;&amp;nbsp;-&amp;nbsp;&lt;span class="date"&gt;Tue, 31 May 2016&lt;/span&gt;&lt;/p&gt;
+                &lt;div class="entry"&gt;
+                    &lt;p&gt;
+Wine Staging 1.9.11 has been released this weekend. This release is a small update containing only a few improvements targeting different applications.
+&lt;/p&gt;
+
+&lt;p&gt;
+Besides updating the existing patches (including CSMT) to be compatible with the current development release of Wine, this release contains only a few additions. The most noticeable one is a patch to fix a crash when launching DOOM. However, this doesn't mean that the whole DRM protection is working yet, but it is a first step. We also fixed a regression that caused problems when creating threads on FreeBSD and could also lead to issues on some Linux systems. A list containing all newly added patches is available below.
+&lt;/p&gt;
+
+&lt;!--PREVIEW--&gt;
+
+&lt;ul&gt;
+	&lt;li&gt;Do not sort the InMemoryOrderModuleList by memory addresses (DOOM, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=40623"&gt;Wine Bug #40623&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Add stub for setupapi.CM_Get_DevNode_Status (DVDFab, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=40691"&gt;Wine Bug #40691&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Provide DeviceID, Location and PortName for printers (HP Diagnostic, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=40539"&gt;Wine Bug #40539&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Implement DrawDibProfileDisplay in msvideo.dll16&lt;/li&gt;
+	&lt;li&gt;Workaround for Windows 3.1 apps which call LoadImage(LR_LOADFROMFILE) with a resource id (Okad2, &lt;a href="https://bugs.winehq.org/show_bug.cgi?id=24963"&gt;Wine Bug #24963&lt;/a&gt;)&lt;/li&gt;
+	&lt;li&gt;Add stub for ntoskrnl.IoStopTimer&lt;/li&gt;
+&lt;/ul&gt;
+
+                    
+                &lt;/div&gt;
+            &lt;/div&gt;
+    </content></entry><entry><title>Release 1.9.10</title><link href="/news/2016-05-18-release-1.9.10.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2016-05-18-release-1.9.10.html</id><updated>2016-05-18T00:00:00Z</updated><author><name>Wine Staging Team</name></author><content type="html">
         &lt;div class="post"&gt;
                 &lt;h2 class="title"&gt;Release 1.9.10&lt;/h2&gt;
                 &lt;p class="meta"&gt;&lt;span class="author"&gt;Wine Staging Team&lt;/span&gt;&amp;nbsp;-&amp;nbsp;&lt;span class="date"&gt;Wed, 18 May 2016&lt;/span&gt;&lt;/p&gt;

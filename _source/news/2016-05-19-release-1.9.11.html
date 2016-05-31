@@ -1,0 +1,21 @@
+Title: Release 1.9.11
+Date: Tue, 31 May 2016
+
+<p>
+Wine Staging 1.9.11 has been released this weekend. This release is a small update containing only a few improvements targeting different applications.
+</p>
+
+<p>
+Besides updating the existing patches (including CSMT) to be compatible with the current development release of Wine, this release contains only a few additions. The most noticeable one is a patch to fix a crash when launching DOOM. However, this doesn't mean that the whole DRM protection is working yet, but it is a first step. We also fixed a regression that caused problems when creating threads on FreeBSD and could also lead to issues on some Linux systems. A list containing all newly added patches is available below.
+</p>
+
+<!--PREVIEW-->
+
+<ul>
+	<li>Do not sort the InMemoryOrderModuleList by memory addresses (DOOM, <a href="https://bugs.winehq.org/show_bug.cgi?id=40623">Wine Bug #40623</a>)</li>
+	<li>Add stub for setupapi.CM_Get_DevNode_Status (DVDFab, <a href="https://bugs.winehq.org/show_bug.cgi?id=40691">Wine Bug #40691</a>)</li>
+	<li>Provide DeviceID, Location and PortName for printers (HP Diagnostic, <a href="https://bugs.winehq.org/show_bug.cgi?id=40539">Wine Bug #40539</a>)</li>
+	<li>Implement DrawDibProfileDisplay in msvideo.dll16</li>
+	<li>Workaround for Windows 3.1 apps which call LoadImage(LR_LOADFROMFILE) with a resource id (Okad2, <a href="https://bugs.winehq.org/show_bug.cgi?id=24963">Wine Bug #24963</a>)</li>
+	<li>Add stub for ntoskrnl.IoStopTimer</li>
+</ul>
