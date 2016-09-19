@@ -1,0 +1,39 @@
+Title: Release 1.9.19
+Date: Mon, 19 Sep 2016
+
+<p>
+The Wine Staging release 1.9.19 is now available.
+</p>
+
+<p>
+What's new in this release:
+</p>
+
+<ul>
+  <li>Implementation of CIF reader and Active Setup download functionality (inseng.dll).</li>
+  <li>Allow creation of 32 bit Wine prefix in an existing directory.</li>
+  <li>Various bug fixes.</li>
+</ul>
+
+<p>
+With Wine Staging 1.9.19 the WINEARCH=win32 setting is no longer ignored if the target directory already exists and wasn't used by Wine yet. The inseng.dll changes allow the DirectX web installer to work and fixes in the Setup API prevent repeated executions of the DirectX installer every time a game is started in Steam.  
+</p>
+
+<!--PREVIEW-->
+
+<p>
+In addition, Wine Staging users will also benefit from the following changes merged in the development branch:
+</p>
+
+<ul>
+  <li>Initial version of a udev bus driver for HID.</li>
+  <li>Various improvements in joystick support.</li>
+  <li>Initial implementation of DC rendering in Direct2D.</li>
+  <li>Improved metafile support in GDI+.</li>
+  <li>Various bug fixes.</li>
+</ul>
+
+<p>
+The source is available <a href="https://github.com/wine-compholio/wine-staging/releases/tag/v1.9.19">now</a>. Binary packages are in the process of being built, and will appear soon at their respective <a href="https://github.com/wine-compholio/wine-staging/wiki/Installation">download locations</a>.
+</p>
+ 
