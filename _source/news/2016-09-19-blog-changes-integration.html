@@ -1,0 +1,69 @@
+Title: Blog: What has changed since the WineHQ integration?
+Date: Mon, 19 Sep 2016
+Author: Michael Müller
+
+<p>
+If the following text looks somewhat familiar to you, then you probably read my draft article which was unintentionally published while sharing the release notes. In the draft I was trying to respond to a user question on <a href="https://www.winehq.org/pipermail/wine-devel/2016-September/114753.html">wine-devel</a>, but later decided to answer the question directly as mail, and turned some part of the answer into this blog post instead.
+</p>
+
+<p>
+As some of you might know, on this day - a year ago, at the WineConf 2015, the decision was made to integrate Wine Staging into the WineHQ project. The idea was to include Staging into the development concept of the Wine project and share resources more efficiently. So after a year, I think it is time to look back and check what has changed from my point of view.
+</p>
+
+<!--PREVIEW-->
+
+<p>
+The best way to do this is by looking at the WineHQ integration <a href="/news/2015-09-25-winehq-integration.html">announcement</a> and to see how the individual points were realized.
+</p>
+
+<ul>
+	<li>
+		<b>Bug tracker changes:</b>
+		<p>
+			The aim was to retire the Wine Staging bug tracker and maintain all bugs at the <a href="https://bugs.winehq.org/">WineHQ</a> bug tracker. This pretty much turned out as expected. There is now a Wine Staging category for regressions and bugs only present in Wine Staging. All regular Wine bugs fixed in Wine Staging are marked as STAGED, and the bug status is automatically updated by our release script. In order to find out which bugs have been fixed by Wine Staging, just take a look at the STAGED <a href="https://bugs.winehq.org/buglist.cgi?bug_status=STAGED&product=Wine&query_format=advanced&order=changeddate%20DESC
+">bug list</a>.
+		</p>
+
+		<p>
+			By retiring our bug tracker, we unfortunately lost our old way of officially sending patches to Wine Staging and the idea of using the WineHQ bug tracker for this purpose was rejected. The problem is not completely solved yet - but, I am also not aware of anyone who didn't find a way to send us his patches, so it is a minor issue.
+		</p>
+	</li>
+	<li>
+		<b>Staging patch status:</b>
+		<p>
+			The original idea was to add a new status 'Staging' on the patch submission <a href="http://source.winehq.org/patches/">page</a>, to inform the author, that the patch is too experimental and he should try to add it to Wine Staging first. This idea was replaced by simply assigning a Wine Staging maintainer to the patch.
+		</p>
+	</li>
+	<li>
+		<b><code>Signed-Off-By</code> header:</b>
+		<p>
+			This is probably the biggest and most important change, even though it is just another line in the header of a patch. Since the start of the Wine Staging project, we have added a lot of patches from different contributors, either because they were rejected or because the authors didn't think that their code was good enough yet. Without help of the original author, those patches unfortunately often stayed in Wine Staging for a long time. Some of them needed editing, which either resulted in the author losing his authorship or changes were added under his name without his knowledge.
+		</p>
+
+		<p>
+			In order to fix the problem, we suggested to add a <code>Signed-Off-By</code> header back then. Every time someone changes a patch he adds his own <code>Signed-Off-By</code> line. This way everyone is mentioned in the patch and it is more clear who needs to be blamed when something breaks ;-). In a lot of cases this made upstreaming much easier, because everyone with enough knowledge in a specific area can now review a patch, fix remaining problems and send it upstream without any trouble. Besides improving the Wine Staging situation, it also helped the development version of Wine to include PulseAudio support and other smaller features.
+		</p>
+		<p>
+			Overall, getting patches upstream is faster now and more work is done directly on the wine-devel mailing list. Sebastian for example focuses more on helping developers with their smaller patches sent to wine-patches, while in the past, some of their work probably would have ended up in Wine Staging instead. As a result, Wine Staging changed its focus towards adding and maintaining more big and complex patches like the CSMT or CUDA support, while we're trying to get small patches upstream directly.
+		</p>
+	</li>
+	<li>
+		<b>Binary packages:</b>
+		<p>
+			At WineConf 2015 we offered to build packages for the development version of Wine since many distributions don't catch up with the biweekly release cycle. This works as announced and you can get your Wine Staging / Development packages from the official WineHQ <a href="https://www.winehq.org/download">download</a> website. The available distributions have changed a bit since the announcement, as Arch Linux for example decided to integrate Wine Staging into their official repositories, but otherwise there were not many changes for our users. It is worth to mention though that our Mac OS X packages are now properly signed with an OS X developer certificate, as a result of the WineHQ integration and cooperation with the Software Freedom Conservancy.
+		</p>
+		<p>
+			It remains an open question how to deal with packages for the stable branch of Wine. There were already some user requests in the past, but so far we hesitated to fulfill their wish. First of all, most distributions already provide stable builds and it is generally not a good idea to duplicate work. Secondly, our build servers also don't have unlimited resources. So far we are maintaining 20 build VMs and there are still requests to support more distributions.
+		</p>
+	</li>
+	<li>
+		<b>Developer perspective:</b>
+		<p>
+			From my perspective the most important change is the use of <code>Signed-Off-By</code> headers, as explained in one of the previous paragraphs. Otherwise the situation is pretty much like I predicted in the announcement. The maintainers of the project are the same people like a year ago, and we are still trying to bring the best experience to our users.
+		</p>
+	</li>
+</ul>
+
+<p>
+To sum it up, the changes of the development process decided at WineConf 2015 indeed had the desired effect. Many features can now get upstream faster and more directly than in the past. From the perspective of a Wine Staging user, I guess there were mostly positive changes. There is no need to worry about using the wrong bug tracker anymore, the OS X packages are now signed and some distributions also decided to provide packages for Wine Staging in their official repositories. There are still some minor issues left to be resolved, but overall I think we are on a good way.
+</p>
