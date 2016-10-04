@@ -1,5 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><id>http://www.wine-staging.com/news.xml</id><title>Wine Staging</title><updated>2016-09-19T00:00:00Z</updated><link href="/news.xml" rel="self"></link><link href="/news.html" type="text/html" rel="alternate"></link><entry><title>Blog: What has changed since the WineHQ integration?</title><link href="/news/2016-09-19-blog-changes-integration.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2016-09-19-blog-changes-integration.html</id><updated>2016-09-19T00:00:00Z</updated><author><name>Michael Müller</name></author><content type="html">
+<feed xmlns="http://www.w3.org/2005/Atom"><id>http://www.wine-staging.com/news.xml</id><title>Wine Staging</title><updated>2016-10-04T00:00:00Z</updated><link href="/news.xml" rel="self"></link><link href="/news.html" type="text/html" rel="alternate"></link><entry><title>Release 1.9.20</title><link href="/news/2016-10-04-release-1.9.20.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2016-10-04-release-1.9.20.html</id><updated>2016-10-04T00:00:00Z</updated><author><name>Wine Staging Team</name></author><content type="html">
+        &lt;div class="post"&gt;
+                &lt;h2 class="title"&gt;Release 1.9.20&lt;/h2&gt;
+                &lt;p class="meta"&gt;&lt;span class="author"&gt;Wine Staging Team&lt;/span&gt;&amp;nbsp;-&amp;nbsp;&lt;span class="date"&gt;Tue, 04 Oct 2016&lt;/span&gt;&lt;/p&gt;
+                &lt;div class="entry"&gt;
+                    &lt;p&gt;
+The Wine Staging release 1.9.20 is now available.
+&lt;/p&gt;
+
+&lt;p&gt;
+What's new in this release:
+&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Improved palette support in windowscodecs.dll.&lt;/li&gt;
+  &lt;li&gt;Various bug fixes.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!--PREVIEW--&gt;
+
+&lt;p&gt;
+In addition, Wine Staging users will also benefit from the following changes merged in the development branch:
+&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Reimplementation of the clipboard API.&lt;/li&gt;
+  &lt;li&gt;Message handling in WebServices.&lt;/li&gt;
+  &lt;li&gt;Many more API Set libraries.&lt;/li&gt;
+  &lt;li&gt;Various bug fixes.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;
+The source is available &lt;a href="https://github.com/wine-compholio/wine-staging/releases/tag/v1.9.20"&gt;now&lt;/a&gt;. Binary packages are in the process of being built, and will appear soon at their respective &lt;a href="https://github.com/wine-compholio/wine-staging/wiki/Installation"&gt;download locations&lt;/a&gt;.
+&lt;/p&gt;
+
+                    
+                &lt;/div&gt;
+            &lt;/div&gt;
+    </content></entry><entry><title>Blog: What has changed since the WineHQ integration?</title><link href="/news/2016-09-19-blog-changes-integration.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2016-09-19-blog-changes-integration.html</id><updated>2016-09-19T00:00:00Z</updated><author><name>Michael Müller</name></author><content type="html">
         &lt;div class="post"&gt;
                 &lt;h2 class="title"&gt;Blog: What has changed since the WineHQ integration?&lt;/h2&gt;
                 &lt;p class="meta"&gt;&lt;span class="author"&gt;Michael Müller&lt;/span&gt;&amp;nbsp;-&amp;nbsp;&lt;span class="date"&gt;Mon, 19 Sep 2016&lt;/span&gt;&lt;/p&gt;
