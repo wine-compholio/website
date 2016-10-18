@@ -1,5 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><id>http://www.wine-staging.com/news.xml</id><title>Wine Staging</title><updated>2016-10-04T00:00:00Z</updated><link href="/news.xml" rel="self"></link><link href="/news.html" type="text/html" rel="alternate"></link><entry><title>Release 1.9.20</title><link href="/news/2016-10-04-release-1.9.20.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2016-10-04-release-1.9.20.html</id><updated>2016-10-04T00:00:00Z</updated><author><name>Wine Staging Team</name></author><content type="html">
+<feed xmlns="http://www.w3.org/2005/Atom"><id>http://www.wine-staging.com/news.xml</id><title>Wine Staging</title><updated>2016-10-18T00:00:00Z</updated><link href="/news.xml" rel="self"></link><link href="/news.html" type="text/html" rel="alternate"></link><entry><title>Release 1.9.21</title><link href="/news/2016-10-18-release-1.9.21.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2016-10-18-release-1.9.21.html</id><updated>2016-10-18T00:00:00Z</updated><author><name>Wine Staging Team</name></author><content type="html">
+        &lt;div class="post"&gt;
+                &lt;h2 class="title"&gt;Release 1.9.21&lt;/h2&gt;
+                &lt;p class="meta"&gt;&lt;span class="author"&gt;Wine Staging Team&lt;/span&gt;&amp;nbsp;-&amp;nbsp;&lt;span class="date"&gt;Tue, 18 Oct 2016&lt;/span&gt;&lt;/p&gt;
+                &lt;div class="entry"&gt;
+                    &lt;p&gt;
+The Wine Staging release 1.9.21 is now available.
+&lt;/p&gt;
+
+&lt;p&gt;
+What's new in this release:
+&lt;/p&gt;
+
+&lt;ul&gt;
+	&lt;li&gt;Initial GIF encoder in windowscodecs.&lt;/li&gt;
+	&lt;li&gt;Support for METHOD_OUT_DIRECT ioctls.&lt;/li&gt;
+	&lt;li&gt;Implementation of SetFileCompletionNotificationModes.&lt;/li&gt;
+	&lt;li&gt;Ignore queued xaudio2 AL buffers after Stop.&lt;/li&gt;
+	&lt;li&gt;Vulkan wrapper improvements.&lt;/li&gt;
+	&lt;li&gt;Various bug fixes.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;
+The SetFileCompletionNotificationModes improvements make it possible to use the Steam Webbrowser in Windows 7 mode on Linux. You still need to pass &lt;code&gt;-no-cef-sandbox&lt;/code&gt; as parameter to Steam though.
+&lt;/p&gt;
+
+&lt;!--PREVIEW--&gt;
+
+&lt;p&gt;
+In addition, Wine Staging users will also benefit from the following changes merged in the development branch:
+&lt;/p&gt;
+
+&lt;ul&gt;
+	&lt;li&gt;Initial version of the HID minidriver.&lt;/li&gt;
+	&lt;li&gt;Support for lists in the RichEdit control.&lt;/li&gt;
+	&lt;li&gt;System tray improvements.&lt;/li&gt;
+	&lt;li&gt;Various bug fixes.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;
+The source is available &lt;a href="https://github.com/wine-compholio/wine-staging/releases/tag/v1.9.21"&gt;now&lt;/a&gt;. Binary packages are in the process of being built, and will appear soon at their respective &lt;a href="https://github.com/wine-compholio/wine-staging/wiki/Installation"&gt;download locations&lt;/a&gt;.
+&lt;/p&gt;
+
+                    
+                &lt;/div&gt;
+            &lt;/div&gt;
+    </content></entry><entry><title>Release 1.9.20</title><link href="/news/2016-10-04-release-1.9.20.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2016-10-04-release-1.9.20.html</id><updated>2016-10-04T00:00:00Z</updated><author><name>Wine Staging Team</name></author><content type="html">
         &lt;div class="post"&gt;
                 &lt;h2 class="title"&gt;Release 1.9.20&lt;/h2&gt;
                 &lt;p class="meta"&gt;&lt;span class="author"&gt;Wine Staging Team&lt;/span&gt;&amp;nbsp;-&amp;nbsp;&lt;span class="date"&gt;Tue, 04 Oct 2016&lt;/span&gt;&lt;/p&gt;

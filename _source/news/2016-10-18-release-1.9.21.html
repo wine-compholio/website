@@ -1,0 +1,40 @@
+Title: Release 1.9.21
+Date: Tue, 18 Oct 2016
+
+<p>
+The Wine Staging release 1.9.21 is now available.
+</p>
+
+<p>
+What's new in this release:
+</p>
+
+<ul>
+	<li>Initial GIF encoder in windowscodecs.</li>
+	<li>Support for METHOD_OUT_DIRECT ioctls.</li>
+	<li>Implementation of SetFileCompletionNotificationModes.</li>
+	<li>Ignore queued xaudio2 AL buffers after Stop.</li>
+	<li>Vulkan wrapper improvements.</li>
+	<li>Various bug fixes.</li>
+</ul>
+
+<p>
+The SetFileCompletionNotificationModes improvements make it possible to use the Steam Webbrowser in Windows 7 mode on Linux. You still need to pass <code>-no-cef-sandbox</code> as parameter to Steam though.
+</p>
+
+<!--PREVIEW-->
+
+<p>
+In addition, Wine Staging users will also benefit from the following changes merged in the development branch:
+</p>
+
+<ul>
+	<li>Initial version of the HID minidriver.</li>
+	<li>Support for lists in the RichEdit control.</li>
+	<li>System tray improvements.</li>
+	<li>Various bug fixes.</li>
+</ul>
+
+<p>
+The source is available <a href="https://github.com/wine-compholio/wine-staging/releases/tag/v1.9.21">now</a>. Binary packages are in the process of being built, and will appear soon at their respective <a href="https://github.com/wine-compholio/wine-staging/wiki/Installation">download locations</a>.
+</p>
