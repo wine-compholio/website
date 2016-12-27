@@ -34,6 +34,33 @@
 		<div id="content">
 
         <div class="post">
+                <h2 class="title"><a href="/news/2016-12-27-release-2.0-rc3.html">Release 2.0-rc3</a></h2>
+                <p class="meta"><span class="author">Wine Staging Team</span>&nbsp;-&nbsp;<span class="date">Tue, 27 Dec 2016</span></p>
+                <div class="entry">
+                    <p>
+The Wine Staging release 2.0-rc3 is now available.
+</p>
+
+<p>
+What's new in this release:
+</p>
+
+<ul>
+    <li>Add basic AES-GCM support in bcrypt.</li>
+    <li>Various improvements in gdiplus.</li>
+</ul>
+
+<p>
+This release implements the Galois/Counter Mode (GCM) for AES in <code>bcrypt.dll</code> which fixes the multiplayer mode of DOOM (2016). This features requires a Wine build linked against GnuTLS 3.0 or higher, which should be available on most modern distributions. To verify this, you can check the output of <code style="display: inline-block;">wine --check-libs</code> and search for the line referring to libgnutls. If the ABI version (the part behind <code>.so</code>) is 28 or higher, you are ready to play DOOM online.
+</p>
+
+
+                    <p><a href="/news/2016-12-27-release-2.0-rc3.html">Read more</a></p>
+                </div>
+            </div>
+    
+
+        <div class="post">
                 <h2 class="title"><a href="/news/2016-12-21-release-2.0-rc2.html">Release 2.0-rc2</a></h2>
                 <p class="meta"><span class="author">Wine Staging Team</span>&nbsp;-&nbsp;<span class="date">Wed, 21 Dec 2016</span></p>
                 <div class="entry">
