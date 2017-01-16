@@ -1,0 +1,36 @@
+Title: Release 2.0-rc5
+Date: Sun, 15 Jan 2017
+
+<p>
+The Wine Staging release 2.0-rc5 is now available.
+</p>
+
+<p>
+What's new in this release:
+</p>
+
+<ul>
+    <li>Initial support for Mandatory Integrity Control.</li>
+    <li>PE loader improvements.</li>
+    <li>Removal of 32GB memory limit on 64 bit.</li>
+    <li>Initial support for Trust Info inside manifest files.</li>
+    <li>Fixes and improvements for 13 smaller Wine bugs.</li>
+</ul>
+
+<!--PREVIEW-->
+
+<p>
+Wine Staging 2.0-rc5 improves the compatibility of various applications that require at least Windows Vista or Windows 7. This includes Origin, Uplay, GOG Galaxy and many more. Several bugs were fixed in the PE loader to support loading of packed executables with truncated headers and/or on-the-fly section decompression. If you are using the 64 bit version of Wine, you may also benefit from the memory manager improvements, which allow applications to reserve/allocate more than 32 GB of virtual memory. The memory allocations are now only constrained by resource limitations of the hardware / the operating system and no longer by an artificial design limit in Wine.
+</p>
+
+<p>
+In addition, Wine Staging users will also benefit from the following changes merged in the development branch:
+</p>
+
+<ul>
+	<li>Bug fixes only, we are in code freeze.</li>
+</ul>
+
+<p>
+The source is available <a href="https://github.com/wine-compholio/wine-staging/releases/tag/v2.0-rc5">now</a>. Binary packages are in the process of being built, and will appear soon at their respective <a href="https://github.com/wine-compholio/wine-staging/wiki/Installation">download locations</a>.
+</p>
