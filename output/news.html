@@ -34,6 +34,49 @@
 		<div id="content">
 
         <div class="post">
+                <h2 class="title"><a href="/news/2017-01-25-release-2.0.html">Release 2.0</a></h2>
+                <p class="meta"><span class="author">Wine Staging Team</span>&nbsp;-&nbsp;<span class="date">Wed, 25 Jan 2017</span></p>
+                <div class="entry">
+                    <p>
+The Wine Staging release 2.0 is now available.
+</p>
+
+<p>
+What's new in this release:
+</p>
+
+<ul>
+    <li>Support for various new windowscodecs image formats.</li>
+    <li>Improved emulation of deferred rendering contexts.</li>
+    <li>Fixes for semi-transparent layered windows.</li>
+    <li>Various smaller bug fixes.</li>
+</ul>
+
+
+                    <p><a href="/news/2017-01-25-release-2.0.html">Read more</a></p>
+                </div>
+            </div>
+    
+
+        <div class="post">
+                <h2 class="title"><a href="/news/2017-01-25-blog-vulkan-dx11.html">Blog: Current state of Vulkan, DX11 and more</a></h2>
+                <p class="meta"><span class="author">Michael Müller</span>&nbsp;-&nbsp;<span class="date">Wed, 25 Jan 2017</span></p>
+                <div class="entry">
+                    <p>
+During the last year Wine has seen a lot of changes in various areas, and it is easy to lose track of which applications or games are already working properly, and which parts of Wine need further improvements. To solve this problem, Wine development uses the code freeze before each stable release to give developers time to revisit bugs and test applications. Although Wine Staging is not directly affected by the feature freeze, we also decided to do some more extensive testing while preparing the release candidates.
+</p>
+
+<p>
+In this blog post I have collected some of the more interesting results. If you for example had the impression that Direct3D 11 is still completely unusable in Wine, this list will prove you wrong. There are lots of features still missing from Wines D3D11 implementation but luckily not every application depends on them. As you can see below, it is even possible to get some AAA games to work. For applications and games which use Direct3D your results might differ depending on your hardware and graphic driver. I used a Geforce GTX 660 with the binary NVIDIA driver for testing. This is not exactly the best card for gaming, but I usually start games in Wine to fix bugs and rarely play them. Please also note that it is not a good idea to enable CSMT for Direct3D 11 games - the patchset was originally written for older versions of Direct3D, and various aspects are not fully compatible yet. To avoid any slowdown caused by <code>fixme</code>s, we recommend to start Wine with the environment variable <code>WINEDEBUG=-all</code>.
+</p>
+
+
+                    <p><a href="/news/2017-01-25-blog-vulkan-dx11.html">Read more</a></p>
+                </div>
+            </div>
+    
+
+        <div class="post">
                 <h2 class="title"><a href="/news/2017-01-23-release-2.0-rc6.html">Release 2.0-rc6</a></h2>
                 <p class="meta"><span class="author">Wine Staging Team</span>&nbsp;-&nbsp;<span class="date">Mon, 23 Jan 2017</span></p>
                 <div class="entry">

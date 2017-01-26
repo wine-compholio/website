@@ -1,5 +1,180 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><id>http://www.wine-staging.com/news.xml</id><title>Wine Staging</title><updated>2017-01-23T00:00:00Z</updated><link href="/news.xml" rel="self"></link><link href="/news.html" type="text/html" rel="alternate"></link><entry><title>Release 2.0-rc6</title><link href="/news/2017-01-23-release-2.0-rc6.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2017-01-23-release-2.0-rc6.html</id><updated>2017-01-23T00:00:00Z</updated><author><name>Wine Staging Team</name></author><content type="html">
+<feed xmlns="http://www.w3.org/2005/Atom"><id>http://www.wine-staging.com/news.xml</id><title>Wine Staging</title><updated>2017-01-25T00:00:00Z</updated><link href="/news.xml" rel="self"></link><link href="/news.html" type="text/html" rel="alternate"></link><entry><title>Release 2.0</title><link href="/news/2017-01-25-release-2.0.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2017-01-25-release-2.0.html</id><updated>2017-01-25T00:00:00Z</updated><author><name>Wine Staging Team</name></author><content type="html">
+        &lt;div class="post"&gt;
+                &lt;h2 class="title"&gt;Release 2.0&lt;/h2&gt;
+                &lt;p class="meta"&gt;&lt;span class="author"&gt;Wine Staging Team&lt;/span&gt;&amp;nbsp;-&amp;nbsp;&lt;span class="date"&gt;Wed, 25 Jan 2017&lt;/span&gt;&lt;/p&gt;
+                &lt;div class="entry"&gt;
+                    &lt;p&gt;
+The Wine Staging release 2.0 is now available.
+&lt;/p&gt;
+
+&lt;p&gt;
+What's new in this release:
+&lt;/p&gt;
+
+&lt;ul&gt;
+    &lt;li&gt;Support for various new windowscodecs image formats.&lt;/li&gt;
+    &lt;li&gt;Improved emulation of deferred rendering contexts.&lt;/li&gt;
+    &lt;li&gt;Fixes for semi-transparent layered windows.&lt;/li&gt;
+    &lt;li&gt;Various smaller bug fixes.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!--PREVIEW--&gt;
+
+&lt;p&gt;
+The source is available &lt;a href="https://github.com/wine-compholio/wine-staging/releases/tag/v2.0"&gt;now&lt;/a&gt;. Binary packages are in the process of being built, and will appear soon at their respective &lt;a href="https://github.com/wine-compholio/wine-staging/wiki/Installation"&gt;download locations&lt;/a&gt;.
+&lt;/p&gt;
+
+&lt;p&gt;
+The Wine Staging 2.0 release doesn't have any special meaning as we don't have a code freeze or a stable version, but we still spent some time to test various games / applications. We have summarized some of the more interesting test results related to Vulkan and DirectX 11 in a separate &lt;a href="/news/2017-01-25-blog-vulkan-dx11.html"&gt;blog post&lt;/a&gt;.
+&lt;/p&gt;
+
+                    
+                &lt;/div&gt;
+            &lt;/div&gt;
+    </content></entry><entry><title>Blog: Current state of Vulkan, DX11 and more</title><link href="/news/2017-01-25-blog-vulkan-dx11.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2017-01-25-blog-vulkan-dx11.html</id><updated>2017-01-25T00:00:00Z</updated><author><name>Michael Müller</name></author><content type="html">
+        &lt;div class="post"&gt;
+                &lt;h2 class="title"&gt;Blog: Current state of Vulkan, DX11 and more&lt;/h2&gt;
+                &lt;p class="meta"&gt;&lt;span class="author"&gt;Michael Müller&lt;/span&gt;&amp;nbsp;-&amp;nbsp;&lt;span class="date"&gt;Wed, 25 Jan 2017&lt;/span&gt;&lt;/p&gt;
+                &lt;div class="entry"&gt;
+                    &lt;p&gt;
+During the last year Wine has seen a lot of changes in various areas, and it is easy to lose track of which applications or games are already working properly, and which parts of Wine need further improvements. To solve this problem, Wine development uses the code freeze before each stable release to give developers time to revisit bugs and test applications. Although Wine Staging is not directly affected by the feature freeze, we also decided to do some more extensive testing while preparing the release candidates.
+&lt;/p&gt;
+
+&lt;p&gt;
+In this blog post I have collected some of the more interesting results. If you for example had the impression that Direct3D 11 is still completely unusable in Wine, this list will prove you wrong. There are lots of features still missing from Wines D3D11 implementation but luckily not every application depends on them. As you can see below, it is even possible to get some AAA games to work. For applications and games which use Direct3D your results might differ depending on your hardware and graphic driver. I used a Geforce GTX 660 with the binary NVIDIA driver for testing. This is not exactly the best card for gaming, but I usually start games in Wine to fix bugs and rarely play them. Please also note that it is not a good idea to enable CSMT for Direct3D 11 games - the patchset was originally written for older versions of Direct3D, and various aspects are not fully compatible yet. To avoid any slowdown caused by &lt;code&gt;fixme&lt;/code&gt;s, we recommend to start Wine with the environment variable &lt;code&gt;WINEDEBUG=-all&lt;/code&gt;.
+&lt;/p&gt;
+
+&lt;!--PREVIEW--&gt;
+
+&lt;p&gt;
+The following test results were obtained with Wine Staging 2.0 or one of its release candidates. If you want to know how well these applications work in the development or stable branch, please also take a look at the AppDB. If your application is not listed below, just give it a try. Your feedback might help to get it working in future versions of Wine and Wine Staging. So don't forget to open bug reports for any issues you encounter and submit your test results.
+&lt;/p&gt;
+
+&lt;!--
+&lt;div style="margin-top: 1.5em; margin-bottom: 1.5em; border-top: 1px solid #f0f0f0;"&gt;&lt;/div&gt;
+--&gt;
+&lt;hr style="border: 0; height: 1px; border-top: 1px solid #BBBBBB; margin-top: 1.5em; margin-bottom: 1.5em;"&gt;
+
+&lt;div style="margin-bottom: 0.5em; margin-top: 1em;"&gt;&lt;b&gt;DOOM (2016)&lt;/b&gt;&lt;/div&gt;
+&lt;p&gt;
+DOOM is the first big Windows-only game that provides support for the new Vulkan API and we were eager to try it out. When DOOM dropped the Denuvo protection in December, it was finally possible to get the game working in Wine with only a few additional patches. Everything necessary is now part of Wine Staging and you should be able to enjoy DOOM at almost native speed when using the Vulkan renderer. If you don't trust me, you can for example take a look at &lt;a href="https://www.youtube.com/watch?v=1hnI6KGTfjI"&gt;this comparison&lt;/a&gt;. There might be a few minor bugs left, but all major functions of the game (single player, multi player, ...) work as expected.
+&lt;/p&gt;
+
+&lt;div style="text-align: center;"&gt;
+	&lt;div style="display: inline-block; margin: 1ex; text-align: center; max-width: 45%"&gt;
+		&lt;a href="/images/doom1.jpg" target="_blank"&gt;&lt;img src="/images/doom1_512.jpg" style="max-width:100%"&gt;&lt;/a&gt;&lt;br&gt;
+		&lt;b&gt;DOOM&lt;/b&gt;
+	&lt;/div&gt;
+	&lt;div style="display: inline-block; margin: 1ex; text-align: center; max-width: 45%"&gt;
+		&lt;a href="/images/doom2.jpg" target="_blank"&gt;&lt;img src="/images/doom2_512.jpg" style="max-width:100%"&gt;&lt;/a&gt;&lt;br&gt;
+		&lt;b&gt;DOOM&lt;/b&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div style="margin-bottom: 0.5em; margin-top: 1em;"&gt;&lt;b&gt;Hitman: Absolution&lt;/b&gt;&lt;/div&gt;
+&lt;p&gt;
+This game surprised the most as it works quite well even though it requires Direct3D 11. It needed a small patch, which is now part of Wine Staging 2.0, but otherwise I was not able to find any major bugs during my short test. You have to be careful which graphic options you enable, otherwise you might get some graphical glitches, but it is definitely playable at first glance.
+&lt;/p&gt;
+&lt;div style="text-align: center;"&gt;
+	&lt;div style="display: inline-block; margin: 1ex; text-align: center; max-width: 45%"&gt;
+		&lt;a href="/images/hitman2.jpg" target="_blank"&gt;&lt;img src="/images/hitman2_512.jpg" style="max-width:100%"&gt;&lt;/a&gt;&lt;br&gt;
+		&lt;b&gt;Hitman: Absolution&lt;/b&gt;
+	&lt;/div&gt;
+	&lt;div style="display: inline-block; margin: 1ex; text-align: center; max-width: 45%"&gt;
+		&lt;a href="/images/hitman3.jpg" target="_blank"&gt;&lt;img src="/images/hitman3_512.jpg" style="max-width:100%"&gt;&lt;/a&gt;&lt;br&gt;
+		&lt;b&gt;Hitman: Absolution&lt;/b&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div style="margin-bottom: 0.5em; margin-top: 1em;"&gt;&lt;b&gt;Unigene Heaven (DX11)&lt;/b&gt;&lt;/div&gt;
+&lt;p&gt;
+This benchmarking application supports Direct3D 9, Direct3D 11 and OpenGL. During my tests I decided to give Direct3D 11 a try. It needed some small fixes to get it going (included in the 2.0 Staging release), but everything seems to work now. You cannot use tessellation since hull and domain shaders are not yet implemented, but otherwise it should start. Enabling Anti-aliasing or Ambient Occlusion will result in graphical glitches. The Direct3D 11 support needs more work, but it is not as incomplete as some people might think.
+&lt;/p&gt;
+&lt;div style="text-align: center;"&gt;
+	&lt;div style="display: inline-block; margin: 1ex; text-align: center; max-width: 45%"&gt;
+		&lt;a href="/images/heaven1.jpg" target="_blank"&gt;&lt;img src="/images/heaven1_512.jpg" style="max-width:100%"&gt;&lt;/a&gt;&lt;br&gt;
+		&lt;b&gt;Unigine Heaven (DX11)&lt;/b&gt;
+	&lt;/div&gt;
+	&lt;div style="display: inline-block; margin: 1ex; text-align: center; max-width: 45%"&gt;
+		&lt;a href="/images/heaven3.jpg" target="_blank"&gt;&lt;img src="/images/heaven3_512.jpg" style="max-width:100%"&gt;&lt;/a&gt;&lt;br&gt;
+		&lt;b&gt;Unigine Heaven (DX11)&lt;/b&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div style="margin-bottom: 0.5em; margin-top: 1em;"&gt;&lt;b&gt;Tomb Raider (2013)&lt;/b&gt;&lt;/div&gt;
+&lt;p&gt;
+This game basically behaves like Hitman: Absolution. It works quite well in Direct3D 11 mode, but you might get graphical glitches depending on the selected graphic options. One difference is that Tomb Raider also allows you to use Direct3D 9 instead.
+&lt;/p&gt;
+&lt;div style="text-align: center;"&gt;
+	&lt;div style="display: inline-block; margin: 1ex; text-align: center; max-width: 45%"&gt;
+		&lt;a href="/images/tombraider2.jpg" target="_blank"&gt;&lt;img src="/images/tombraider2_512.jpg" style="max-width:100%"&gt;&lt;/a&gt;&lt;br&gt;
+		&lt;b&gt;Tomb Raider&lt;/b&gt;
+	&lt;/div&gt;
+	&lt;div style="display: inline-block; margin: 1ex; text-align: center; max-width: 45%"&gt;
+		&lt;a href="/images/tombraider3.jpg" target="_blank"&gt;&lt;img src="/images/tombraider3_512.jpg" style="max-width:100%"&gt;&lt;/a&gt;&lt;br&gt;
+		&lt;b&gt;Tomb Raider&lt;/b&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div style="margin-bottom: 0.5em; margin-top: 1em;"&gt;&lt;b&gt;Shantae and the Pirate's Curse&lt;/b&gt;&lt;/div&gt;
+&lt;p&gt;
+The game uses Direct3D11 and requires support for deferred contexts. In this case, we have added the necessary patches during our release testing. As you can see on the screenshots, the game works already pretty well in the latest version of Wine Staging.
+&lt;/p&gt;
+&lt;div style="text-align: center;"&gt;
+	&lt;div style="display: inline-block; margin: 1ex; text-align: center; max-width: 45%"&gt;
+		&lt;a href="/images/pirate2.png" target="_blank"&gt;&lt;img src="/images/pirate2.png" style="width: 512px; max-width:100%"&gt;&lt;/a&gt;&lt;br&gt;
+		&lt;b&gt;Shantae and the Pirate's Curse&lt;/b&gt;
+	&lt;/div&gt;
+	&lt;div style="display: inline-block; margin: 1ex; text-align: center; max-width: 45%"&gt;
+		&lt;a href="/images/pirate3.png" target="_blank"&gt;&lt;img src="/images/pirate3.png" style="width: 512px; max-width:100%"&gt;&lt;/a&gt;&lt;br&gt;
+		&lt;b&gt;Shantae and the Pirate's Curse&lt;/b&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div style="margin-bottom: 0.5em; margin-top: 1em;"&gt;&lt;b&gt;Need For Speed Most Wanted (2012)&lt;/b&gt;&lt;/div&gt;
+&lt;p&gt;
+Need For Speed Most Wanted was another Direct3D game on my test list. While it started fine in Wine Staging 2.0, it had serious performance issues. The car was almost uncontrolable, even with lowest graphic settings. With better hardware you might have more luck, but it probably needs additional debugging and some patches to work properly.
+&lt;/p&gt;
+&lt;div style="text-align: center;"&gt;
+	&lt;div style="display: inline-block; margin: 1ex; text-align: center; max-width: 45%"&gt;
+		&lt;a href="/images/nfsmw1.jpg" target="_blank"&gt;&lt;img src="/images/nfsmw1_512.jpg" style="width: 512px; max-width:100%"&gt;&lt;/a&gt;&lt;br&gt;
+		&lt;b&gt;Need For Speed Most Wanted (2012)&lt;/b&gt;
+	&lt;/div&gt;
+	&lt;div style="display: inline-block; margin: 1ex; text-align: center; max-width: 45%"&gt;
+		&lt;a href="/images/nfsmw2.jpg" target="_blank"&gt;&lt;img src="/images/nfsmw2_512.jpg" style="width: 512px; max-width:100%"&gt;&lt;/a&gt;&lt;br&gt;
+		&lt;b&gt;Need For Speed Most Wanted (2012)&lt;/b&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div style="margin-bottom: 0.5em; margin-top: 1em;"&gt;&lt;b&gt;Distribution platforms&lt;/b&gt;&lt;/div&gt;
+&lt;p&gt;
+Before you can play a game, you often have to download it first. We therefore spent some time on improving the support for Steam, Uplay, Origin, GOG Galaxy and Battle.net in the past. In Wine Staging 2.0, you should be able to use Steam, Uplay, Origin and GOG Galaxy in Windows 7 mode without any big issues. In the Battle.net client we fixed the bug that popup menus do not show up correctly. There are some issues left, most of them have an easy workaround though. You should start Steam with the &lt;code&gt;-no-cef-sandbox&lt;/code&gt; parameter and in Origin you need to disable the "Origin In Game" overlay as it is not yet compatible with Wine.
+&lt;/p&gt;
+
+&lt;div style="text-align: center;"&gt;
+	&lt;div style="display: inline-block; margin: 1ex; text-align: center; max-width: 45%"&gt;
+		&lt;a href="/images/steam_web.jpg" target="_blank"&gt;&lt;img src="/images/steam_web_512.jpg" style="width: 512px; max-width:100%"&gt;&lt;/a&gt;&lt;br&gt;
+		&lt;b&gt;Steam (Win 7)&lt;/b&gt;
+	&lt;/div&gt;
+	&lt;div style="display: inline-block; margin: 1ex; text-align: center; max-width: 45%"&gt;
+		&lt;a href="/images/origin_web.jpg" target="_blank"&gt;&lt;img src="/images/origin_web_512.jpg" style="width: 512px; max-width:100%"&gt;&lt;/a&gt;&lt;br&gt;
+		&lt;b&gt;Origin (Win 7)&lt;/b&gt;
+	&lt;/div&gt;
+	&lt;div style="display: inline-block; margin: 1ex; text-align: center; max-width: 45%"&gt;
+		&lt;a href="/images/uplay_web.jpg" target="_blank"&gt;&lt;img src="/images/uplay_web_512.jpg" style="width: 512px; max-width:100%"&gt;&lt;/a&gt;&lt;br&gt;
+		&lt;b&gt;Uplay (Win 7)&lt;/b&gt;
+	&lt;/div&gt;
+	&lt;div style="display: inline-block; margin: 1ex; text-align: center; max-width: 45%"&gt;
+		&lt;a href="/images/battlenet_web.jpg" target="_blank"&gt;&lt;img src="/images/battlenet_web_512.jpg" style="width: 512px; max-width:100%"&gt;&lt;/a&gt;&lt;br&gt;
+		&lt;b&gt;Battle.net (Win XP)&lt;/b&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+
+                    
+                &lt;/div&gt;
+            &lt;/div&gt;
+    </content></entry><entry><title>Release 2.0-rc6</title><link href="/news/2017-01-23-release-2.0-rc6.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2017-01-23-release-2.0-rc6.html</id><updated>2017-01-23T00:00:00Z</updated><author><name>Wine Staging Team</name></author><content type="html">
         &lt;div class="post"&gt;
                 &lt;h2 class="title"&gt;Release 2.0-rc6&lt;/h2&gt;
                 &lt;p class="meta"&gt;&lt;span class="author"&gt;Wine Staging Team&lt;/span&gt;&amp;nbsp;-&amp;nbsp;&lt;span class="date"&gt;Mon, 23 Jan 2017&lt;/span&gt;&lt;/p&gt;
