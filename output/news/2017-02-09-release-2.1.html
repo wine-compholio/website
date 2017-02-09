@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="keywords" content="Wine, Staging, wine-staging" />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Wine Staging</title>
+	<link href="/css/style.css" rel="stylesheet" type="text/css" media="screen" />
+	<link href="/news.xml" rel="alternate" type="application/atom+xml" title="News Feed (atom)" />
+</head>
+<body>
+<div id="wrapper">
+	<div id="header-wrapper">
+		<div id="header">
+			<div id="logo">
+				<h1><a href="/index.html">Wine <span>Staging</span></a></h1>
+			</div>
+			<div id="menu">
+				<ul>
+					<li><a href="/index.html">Home</a></li>
+					<li><a href="/news.html">News</a></li>
+					<li><a href="https://github.com/wine-compholio/wine-staging/wiki/Installation" target="_blank">Install</a></li>
+					<li><a href="https://github.com/wine-compholio/wine-staging/wiki" target="_blank">Wiki</a></li>
+					<li><a href="https://bugs.winehq.org/" target="_blank">Bugs</a></li>
+					<li><a href="/source.html">Source</a></li>
+				</ul>
+			</div>
+			<div style="clear: both;"></div>
+		</div>
+	</div>
+	<!-- end #header -->
+	<div id="page">
+		<div id="content">
+
+        <div class="post">
+                <h2 class="title">Release 2.1</h2>
+                <p class="meta"><span class="author">Wine Staging Team</span>&nbsp;-&nbsp;<span class="date">Thu, 09 Feb 2017</span></p>
+                <div class="entry">
+                    <p>
+The Wine Staging release 2.1 is now available.
+</p>
+
+<p>
+What's new in this release:
+</p>
+
+<ul>
+    <li>Reworked CSMT to support d3d10/d3d11.</li>
+    <li>Support for some processor group functions.</li>
+    <li>Various smaller bug fixes and improvements.</li>
+</ul>
+
+<p>
+The main change of this release is the reworked CSMT (Command Stream Multithreading) patchset. As many Wine Staging users will already know, the idea of CSMT is to move the execution of OpenGL commands to a separate thread, and to use available CPU and GPU resources more efficiently. In the new version the existing code has been cleaned up and various hacks have been removed. The result of this work is that all D3D related tests pass again. We also tested some D3D11 games which were previously broken with CSMT enabled and they started working. If you encountered bugs when using the CSMT, it might be a good time to retest them with the new release.
+</p>
+
+<!--PREVIEW-->
+
+<p>
+Since most of our users enable the CSMT because of the performance improvements (although it can also be used to fix drawing issues for specific games), here is one additional note. The main focus during our work was on correctness and not directly on performance. We included some new ideas to speed up the rendering but also left out some more experimental ones which were included in the old versions. The performance might therefore differ compared to Wine Staging 2.0. During our tests we got the same results using 3DMark06, but other applications might work faster or slower now. Nevertheless, there are a lot more opportunities how performance can be improved (without breaking modern games or reverting upstream changes), and we are looking forward to implement them in one of the next releases.
+</p>
+
+<p>
+In addition, Wine Staging users will also benefit from the following changes merged in the development branch:
+</p>
+
+<ul>
+	<li>Many fixes that were deferred during code freeze.</li>
+	<li>More Shader Model 5 instructions.</li>
+	<li>A number of improvements to MIME message handling.</li>
+	<li>Line breaking improvements in DirectWrite.</li>
+	<li>HID bus service now running by default.</li>
+	<li>Direct2D rendering improvements.</li>
+	<li>Various bug fixes.</li>
+</ul>
+
+<p>
+The source is available <a href="https://github.com/wine-compholio/wine-staging/releases/tag/v2.1">now</a>. Binary packages are in the process of being built, and will appear soon at their respective <a href="https://github.com/wine-compholio/wine-staging/wiki/Installation">download locations</a>.
+</p>
+
+                    
+                </div>
+            </div>
+    
+		</div>
+		<div style="clear: both;"></div>
+	</div>
+	<!-- end #page -->
+</div>
+<div id="footer">
+	<p><a href="/impressum.html">Impressum</a>  - <img src="/images/feed.png" style="vertical-align:top; height:1em;">&nbsp;<a href="/news.xml">News Atom feed</a> - Design based on Perfect Blemish by <a href="http://templated.co" rel="nofollow">TEMPLATED</a> (<a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>).</p>
+</div>
+<!-- end #footer -->
+</body>
+</html>

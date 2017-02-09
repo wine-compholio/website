@@ -34,6 +34,34 @@
 		<div id="content">
 
         <div class="post">
+                <h2 class="title"><a href="/news/2017-02-09-release-2.1.html">Release 2.1</a></h2>
+                <p class="meta"><span class="author">Wine Staging Team</span>&nbsp;-&nbsp;<span class="date">Thu, 09 Feb 2017</span></p>
+                <div class="entry">
+                    <p>
+The Wine Staging release 2.1 is now available.
+</p>
+
+<p>
+What's new in this release:
+</p>
+
+<ul>
+    <li>Reworked CSMT to support d3d10/d3d11.</li>
+    <li>Support for some processor group functions.</li>
+    <li>Various smaller bug fixes and improvements.</li>
+</ul>
+
+<p>
+The main change of this release is the reworked CSMT (Command Stream Multithreading) patchset. As many Wine Staging users will already know, the idea of CSMT is to move the execution of OpenGL commands to a separate thread, and to use available CPU and GPU resources more efficiently. In the new version the existing code has been cleaned up and various hacks have been removed. The result of this work is that all D3D related tests pass again. We also tested some D3D11 games which were previously broken with CSMT enabled and they started working. If you encountered bugs when using the CSMT, it might be a good time to retest them with the new release.
+</p>
+
+
+                    <p><a href="/news/2017-02-09-release-2.1.html">Read more</a></p>
+                </div>
+            </div>
+    
+
+        <div class="post">
                 <h2 class="title"><a href="/news/2017-01-25-release-2.0.html">Release 2.0</a></h2>
                 <p class="meta"><span class="author">Wine Staging Team</span>&nbsp;-&nbsp;<span class="date">Wed, 25 Jan 2017</span></p>
                 <div class="entry">
