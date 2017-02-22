@@ -34,6 +34,34 @@
 		<div id="content">
 
         <div class="post">
+                <h2 class="title"><a href="/news/2017-02-22-release-2.2.html">Release 2.2</a></h2>
+                <p class="meta"><span class="author">Wine Staging Team</span>&nbsp;-&nbsp;<span class="date">Wed, 22 Feb 2017</span></p>
+                <div class="entry">
+                    <p>
+The Wine Staging release 2.2 is now available.
+</p>
+
+<p>
+What's new in this release:
+</p>
+
+<ul>
+    <li>CSMT speed optimizations.</li>
+    <li>Wbemprox improvements.</li>
+    <li>Various smaller bug fixes and improvements.</li>
+</ul>
+
+<p>
+Since the last release, we tested various games with the CSMT (command stream multithreading) feature enabled to identify remaining bugs and possible ways to improve performance. As a result, this release includes various speed optimizations, especially for DX10/11 games. Some functions, for example updating subresources, which previously required synchronization with the command stream thread, can now be done asynchronously. There might still be differences compared to Wine Staging 2.0, since some of the speed improvements from the original CSMT patchset contained bugs and have not been fixed / added back yet.
+<p>
+
+
+                    <p><a href="/news/2017-02-22-release-2.2.html">Read more</a></p>
+                </div>
+            </div>
+    
+
+        <div class="post">
                 <h2 class="title"><a href="/news/2017-02-09-release-2.1.html">Release 2.1</a></h2>
                 <p class="meta"><span class="author">Wine Staging Team</span>&nbsp;-&nbsp;<span class="date">Thu, 09 Feb 2017</span></p>
                 <div class="entry">

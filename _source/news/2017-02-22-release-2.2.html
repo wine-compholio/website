@@ -1,0 +1,38 @@
+Title: Release 2.2
+Date: Wed, 22 Feb 2017
+
+<p>
+The Wine Staging release 2.2 is now available.
+</p>
+
+<p>
+What's new in this release:
+</p>
+
+<ul>
+    <li>CSMT speed optimizations.</li>
+    <li>Wbemprox improvements.</li>
+    <li>Various smaller bug fixes and improvements.</li>
+</ul>
+
+<p>
+Since the last release, we tested various games with the CSMT (command stream multithreading) feature enabled to identify remaining bugs and possible ways to improve performance. As a result, this release includes various speed optimizations, especially for DX10/11 games. Some functions, for example updating subresources, which previously required synchronization with the command stream thread, can now be done asynchronously. There might still be differences compared to Wine Staging 2.0, since some of the speed improvements from the original CSMT patchset contained bugs and have not been fixed / added back yet.
+<p>
+
+<!--PREVIEW-->
+
+<p>
+In addition, Wine Staging users will also benefit from the following changes merged in the development branch:
+</p>
+
+<ul>
+	<li>Windows version set to Windows 7 for new prefixes.</li>
+	<li>More steps towards the Direct3D command stream.</li>
+	<li>Still more Shader Model 5 instructions.</li>
+	<li>Initial support for double-buffered theme painting.</li>
+	<li>Various bug fixes.</li>
+</ul>
+
+<p>
+The source is available <a href="https://github.com/wine-compholio/wine-staging/releases/tag/v2.2">now</a>. Binary packages are in the process of being built, and will appear soon at their respective <a href="https://github.com/wine-compholio/wine-staging/wiki/Installation">download locations</a>.
+</p>
