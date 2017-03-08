@@ -1,5 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><id>http://www.wine-staging.com/news.xml</id><title>Wine Staging</title><updated>2017-02-22T00:00:00Z</updated><link href="/news.xml" rel="self"></link><link href="/news.html" type="text/html" rel="alternate"></link><entry><title>Release 2.2</title><link href="/news/2017-02-22-release-2.2.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2017-02-22-release-2.2.html</id><updated>2017-02-22T00:00:00Z</updated><author><name>Wine Staging Team</name></author><content type="html">
+<feed xmlns="http://www.w3.org/2005/Atom"><id>http://www.wine-staging.com/news.xml</id><title>Wine Staging</title><updated>2017-03-08T00:00:00Z</updated><link href="/news.xml" rel="self"></link><link href="/news.html" type="text/html" rel="alternate"></link><entry><title>Release 2.3</title><link href="/news/2017-03-08-release-2.3.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2017-03-08-release-2.3.html</id><updated>2017-03-08T00:00:00Z</updated><author><name>Wine Staging Team</name></author><content type="html">
+        &lt;div class="post"&gt;
+                &lt;h2 class="title"&gt;Release 2.3&lt;/h2&gt;
+                &lt;p class="meta"&gt;&lt;span class="author"&gt;Wine Staging Team&lt;/span&gt;&amp;nbsp;-&amp;nbsp;&lt;span class="date"&gt;Wed, 08 Mar 2017&lt;/span&gt;&lt;/p&gt;
+                &lt;div class="entry"&gt;
+                    &lt;p&gt;
+The Wine Staging release 2.3 is now available.
+&lt;/p&gt;
+
+&lt;p&gt;
+What's new in this release:
+&lt;/p&gt;
+
+&lt;ul&gt;
+	&lt;li&gt;Implementation of ECB mode in bcrypt.&lt;/li&gt;
+	&lt;li&gt;Ported some d3d11 functions to d3d10.&lt;/li&gt;
+	&lt;li&gt;Minor CSMT improvements.&lt;/li&gt;
+	&lt;li&gt;Various bug fixes.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!--PREVIEW--&gt;
+
+&lt;p&gt;
+In addition, Wine Staging users will also benefit from the following changes merged in the development branch:
+&lt;/p&gt;
+
+&lt;ul&gt;
+	&lt;li&gt;Obsolete wineinstall script removed.&lt;/li&gt;
+	&lt;li&gt;More Direct3D command stream work.&lt;/li&gt;
+	&lt;li&gt;A few more Shader Model 5 instructions.&lt;/li&gt;
+	&lt;li&gt;Better underline rendering in DirectWrite.&lt;/li&gt;
+	&lt;li&gt;Improved ODBC support on 64-bit.&lt;/li&gt;
+	&lt;li&gt;Various bug fixes.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;
+The source is available &lt;a href="https://github.com/wine-compholio/wine-staging/releases/tag/v2.3"&gt;now&lt;/a&gt;. Binary packages are in the process of being built, and will appear soon at their respective &lt;a href="https://github.com/wine-compholio/wine-staging/wiki/Installation"&gt;download locations&lt;/a&gt;.
+&lt;/p&gt;
+
+                    
+                &lt;/div&gt;
+            &lt;/div&gt;
+    </content></entry><entry><title>Release 2.2</title><link href="/news/2017-02-22-release-2.2.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2017-02-22-release-2.2.html</id><updated>2017-02-22T00:00:00Z</updated><author><name>Wine Staging Team</name></author><content type="html">
         &lt;div class="post"&gt;
                 &lt;h2 class="title"&gt;Release 2.2&lt;/h2&gt;
                 &lt;p class="meta"&gt;&lt;span class="author"&gt;Wine Staging Team&lt;/span&gt;&amp;nbsp;-&amp;nbsp;&lt;span class="date"&gt;Wed, 22 Feb 2017&lt;/span&gt;&lt;/p&gt;
