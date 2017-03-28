@@ -1,0 +1,131 @@
+<div class="post">
+	<h2 class="title">Installation</h2>
+	<div class="entry">
+
+	<p>Ready-to-use packages for Wine Staging are available for a variety of Linux distributions as well as for macOS. Just follow the installation instructions for your operating system below.</p>
+
+	<div style="text-align: center; margin-top: 1.5em; margin-bottom: 1.5em;">
+		<ul style="list-style: none; padding: 0; margin: 0; font-size: 1.3em;">
+			<li style="display: inline-block; margin: 0 3ex;">
+				<a href="#distro_debian"><img src="/images/distros/debian.png" style="height: 1em; vertical-align: middle;"> Debian</a>
+			</li>
+			<li style="display: inline-block; margin: 0 3ex;">
+				<a href="#distro_fedora"><img src="/images/distros/fedora.png" style="height: 1em; vertical-align: middle;"> Fedora</a>
+			</li>
+			<li style="display: inline-block; margin: 0 3ex;">
+				<a href="#distro_ubuntu"><img src="/images/distros/ubuntu.png" style="height: 1em; vertical-align: middle;"> Ubuntu/Linux Mint</a>
+			</li>
+			<li style="display: inline-block; margin: 0 3ex;">
+				<a href="#distro_macosx">macOS</a>
+			</li>
+		</ul>
+	</div>
+
+	<p><b>Remarks:</b></p>
+
+	<ul>
+		<li><b>Tue, 28 Mar 2017</b>: We have updated our build servers and have deprecated the repositories which were previously available at <a href="https://repos.wine-staging.com">repos.wine-staging.com</a>. We recommend all users to switch to the WineHQ repositories using the instructions below. Please see our announcement in the news section or the <a href="https://www.winehq.org/pipermail/wine-devel/2017-March/117104.html" target="_blank">mailing list post</a> for more details.</li>
+		<li style="margin-top: 1ex;">It is also possible to install multiple versions of Wine in parallel. Just replace <code>winehq-staging</code> with <code>wine-staging</code> in the instructions below, and start Wine Staging by typing the full path <code>/opt/wine-staging/bin/{wine,winecfg,...}</code>. Technically, the <code>winehq-staging</code> package depends on <code>wine-staging</code> and just installs a bunch of compatibility symlinks to <code>/usr/bin</code>.</li>
+	</ul>
+
+
+	<hr class="postline">
+
+	<h3 class="title" id="distro_debian" style="margin-bottom: 1em;"><a href="https://www.debian.org/" target="_blank"><img src="/images/distros/debian.png" style="height: 1em; vertical-align: middle;"></a> Debian</h3>
+
+	<p>Wine consists of a 32-bit and optional 64-bit part. In order to install i386 packages on a 64-bit system, you have to run the following command as a first step:</p>
+
+<div class="code">sudo dpkg --add-architecture i386
+</div>
+
+	<p>Afterwards import the key for our repository:</p>
+
+<div class="code">wget https://repos.wine-staging.com/wine/Release.key
+sudo apt-key add Release.key
+</div>
+
+	<p>And add our repository at the end of your <code>/etc/apt/sources.list</code> file:</p>
+
+<div class="code"># For Debian Wheezy add the following line:
+deb https://dl.winehq.org/wine-builds/debian/ wheezy main
+
+# For Debian Jessie this one:
+deb https://dl.winehq.org/wine-builds/debian/ jessie main
+
+# For Debian Stretch this one:
+deb https://dl.winehq.org/wine-builds/debian/ stretch main
+
+# And for Debian Sid this one:
+deb https://dl.winehq.org/wine-builds/debian/ sid main
+</div>
+
+	<p>Afterwards update the package cache and install Wine Staging:</p>
+
+<div class="code">sudo apt-get update
+sudo apt-get install winehq-staging
+</div>
+
+	<p>You should now be able to start Wine Staging. For more information about using Wine you can take a look at the <a href="https://www.winehq.org/docs/wineusr-guide/index" target="_blank">Wine User Guide</a>.</p>
+
+	<hr class="postline">
+	<h3 class="title" id="distro_fedora" style="margin-bottom: 1em;"><a href="http://fedoraproject.org/" target="_blank"><img src="/images/distros/fedora.png" style="height: 1em; vertical-align: middle;"></a> Fedora</h3>
+
+	<p><b>Note:</b> Fedora ships Wine Staging as the default version of Wine. There should be no need to use these packages, unless the support is removed again, or the version provided by Fedora is outdated. You can use <code>wine --version</code> and <code>wine --patches</code> to check whether your Wine version was built with the Staging patches applied. If the version ends with (Staging) you are already using the correct package.</p>
+
+	<p>The following commandline adds our repository to your system:</p>
+
+<div class="code"># For Fedora 24
+dnf config-manager --add-repo https://dl.winehq.org/wine-builds/fedora/24/winehq.repo
+
+# For Fedora 25
+dnf config-manager --add-repo https://dl.winehq.org/wine-builds/fedora/25/winehq.repo
+</div>
+
+	<p>Afterwards run the next command to install the package:</p>
+
+<div class="code">dnf apt-get install winehq-staging
+</div>
+
+	<p>You should now be able to start Wine Staging. For more information about using Wine you can take a look at the <a href="https://www.winehq.org/docs/wineusr-guide/index" target="_blank">Wine User Guide</a>.</p>
+
+	<hr class="postline">
+
+	<h3 class="title" id="distro_ubuntu" style="margin-bottom: 1em;"><a href="https://www.ubuntu.com/" target="_blank"><img src="/images/distros/ubuntu.png" style="height: 1em; vertical-align: middle;"></a> Ubuntu/Linux Mint</h3>
+
+	<p>Start by importing the key for our repository:</p>
+
+<div class="code">wget https://repos.wine-staging.com/wine/Release.key
+sudo apt-key add Release.key
+</div>
+
+	<p>Then use the following command to add our repository to your <code>/etc/apt/sources.list</code> file:</p>
+
+<div class="code">sudo apt-add-repository 'https://dl.winehq.org/wine-builds/ubuntu/'
+</div>
+
+	<p>As a next step, please update the package cache and install Wine Staging:</p>
+
+<div class="code">sudo apt-get update
+sudo apt-get install --install-recommends winehq-staging
+</div>
+
+	<p>You should now be able to start Wine Staging. For more information about using Wine you can take a look at the <a href="https://www.winehq.org/docs/wineusr-guide/index" target="_blank">Wine User Guide</a>.</p>
+
+	<hr class="postline">
+	<h3 class="title" id="distro_macosx" style="margin-bottom: 1em;">macOS</h3>
+
+	<p>We provide prebuilt packages for Mac OS X 10.8 or higher. They contain the Wine files including the native <code>winemac</code> driver (+ dependencies), but no graphical tools for Wine prefix management. For now it is necessary to manually download and install the new package on each new release. We might implement an auto updater in the future.</p>
+
+	<ol>
+		<li>Please install <a href="http://xquartz.macosforge.org/landing/" target="_blank">XQuartz</a> 2.7.7 or higher.</li>
+		<li>Install Wine Staging by grabbing the <code>.pkg</code> from our <a href="https://dl.winehq.org/wine-builds/macosx/download.html">repository</a> and run the installer.</li>
+	</ol>
+
+	<p>The first step is necessary because various binaries are linked against libraries from the XQuartz package. For Wine Staging, it is possible to install the package either for all users (needs administrator privileges), or just for your current user. After the installation has finished, you should find an entry "Wine Staging" in your Launchpad. When clicking on it, a new Terminal window opens with a short introduction.</p>
+
+	<p>It is recommended to run <code>wine --check-libs</code> after the installation to make sure that all necessary dependencies can be found (except libnetapi and libodbc which are not essential). You can now directly start wine/winecfg/... from the Terminal, as the <code>$PATH</code> variable is set correctly. For user convenience, the package also associates itself with all *.exe files, which means you can run windows executables just by double-clicking on them.</p>
+
+	</div>
+
+	<div style="margin-top: 1ex; margin-bottom: 0; color: gray; font-size: small;"><p>The Debian logo (Copyright 1999 Software in the Public Interest, Inc. - title: "Debian Open Use Logo" - changed background to transparent) and Mageia logo (created by Nicholas Duval - title: "Mageia 2013" - cropped) are licensed under the <a href="https://creativecommons.org/licenses/by-sa/3.0/" style="color: gray;" target="_blank">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>. This site is not affiliated with or endorsed by any of the following: the Fedora Project, the Debian Project, the Mageia Project or Canonical.</p></div>
+</div>

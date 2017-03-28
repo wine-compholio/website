@@ -276,3 +276,26 @@ tr.alt td {
     background-color: #EAF2D3;
 }
 */
+
+div.code
+{
+	background-color: #f5f5f5;
+	font-family: monospace;
+	white-space: pre-wrap;
+	padding: 1.5ex;
+	border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 0.7ex
+}
+
+div.code + p, div.code + h3
+{
+	margin-top: 1em;
+}
+
+hr.postline
+{
+	border: 0;
+	height: 1px;
+	border-bottom: 1px solid #BBBBBB;
+	margin: 2em 0;
+}
