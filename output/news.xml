@@ -1,5 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><id>http://www.wine-staging.com/news.xml</id><title>Wine Staging</title><updated>2017-03-22T00:00:00Z</updated><link href="/news.xml" rel="self"></link><link href="/news.html" type="text/html" rel="alternate"></link><entry><title>Release 2.4</title><link href="/news/2017-03-22-release-2.4.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2017-03-22-release-2.4.html</id><updated>2017-03-22T00:00:00Z</updated><author><name>Wine Staging Team</name></author><content type="html">
+<feed xmlns="http://www.w3.org/2005/Atom"><id>http://www.wine-staging.com/news.xml</id><title>Wine Staging</title><updated>2017-03-29T00:00:00Z</updated><link href="/news.xml" rel="self"></link><link href="/news.html" type="text/html" rel="alternate"></link><entry><title>Packaging changes</title><link href="/news/2017-03-29-builds.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2017-03-29-builds.html</id><updated>2017-03-29T00:00:00Z</updated><author><name>Wine Staging Team</name></author><content type="html">
+        &lt;div class="post"&gt;
+                &lt;h2 class="title"&gt;Packaging changes&lt;/h2&gt;
+                &lt;p class="meta"&gt;&lt;span class="author"&gt;Wine Staging Team&lt;/span&gt;&amp;nbsp;-&amp;nbsp;&lt;span class="date"&gt;Wed, 29 Mar 2017&lt;/span&gt;&lt;/p&gt;
+                &lt;div class="entry"&gt;
+                    &lt;p&gt;
+Today we want to announce some important changes regarding the Wine Staging packages provided at repos.wine-staging.com and &lt;a href="https://dl.winehq.org" target="_blank"&gt;dl.winehq.org&lt;/a&gt;. We completely reworked our build system to make the packages available sooner after a release and also added some new features, like downloading old packages for Debian / Ubuntu. The complete list of changes can be found in the &lt;a href="https://www.winehq.org/pipermail/wine-devel/2017-March/117104.html" target="_blank"&gt;announcement email&lt;/a&gt; on the Wine mailing list. I don't want to copy the full content, but here are the most important changes that will require your attention:
+&lt;/p&gt;
+
+&lt;!--PREVIEW--&gt;
+
+&lt;p&gt;
+The repos.wine-staging.com repository is now deprecated and will be unavailable soon. The repository was mostly provided for backwards compatibility and contained a subset of the packages available at &lt;a href="https://dl.winehq.org" target="_blank"&gt;dl.winehq.org&lt;/a&gt;. All users should now migrate to the new repository by following the instructions in the updated &lt;a href="/installation.html"&gt;installation guide&lt;/a&gt;. The old repository can be safely removed.
+&lt;/p&gt;
+
+&lt;p&gt;
+If you were using the &lt;code&gt;wine/wine-builds&lt;/code&gt; Ubuntu PPA, you will also have to switch to the new repository. We do not longer utilize Launchpad for Wine builds and instead use a unified way to build all packages in our new system. Just follow the Ubuntu instructions in the updated &lt;a href="/installation.html"&gt;installation guide&lt;/a&gt; to receive further updates.
+&lt;/p&gt;
+
+&lt;p&gt;
+We are aware that these changes might cause some inconvenience, but in the long term everyone will benefit from faster build times, permanent availability of older builds, the possibility to install Wine Stable packages and much more.
+&lt;/p&gt;
+
+                    
+                &lt;/div&gt;
+            &lt;/div&gt;
+    </content></entry><entry><title>Release 2.4</title><link href="/news/2017-03-22-release-2.4.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2017-03-22-release-2.4.html</id><updated>2017-03-22T00:00:00Z</updated><author><name>Wine Staging Team</name></author><content type="html">
         &lt;div class="post"&gt;
                 &lt;h2 class="title"&gt;Release 2.4&lt;/h2&gt;
                 &lt;p class="meta"&gt;&lt;span class="author"&gt;Wine Staging Team&lt;/span&gt;&amp;nbsp;-&amp;nbsp;&lt;span class="date"&gt;Wed, 22 Mar 2017&lt;/span&gt;&lt;/p&gt;
