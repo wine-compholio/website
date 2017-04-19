@@ -13,7 +13,10 @@
 				<a href="#distro_fedora"><img src="/images/distros/fedora.png" style="height: 1em; vertical-align: middle;"> Fedora</a>
 			</li>
 			<li style="display: inline-block; margin: 0 3ex;">
-				<a href="#distro_ubuntu"><img src="/images/distros/ubuntu.png" style="height: 1em; vertical-align: middle;"> Ubuntu/Linux Mint</a>
+				<a href="#distro_ubuntu"><img src="/images/distros/ubuntu.png" style="height: 1em; vertical-align: middle;"> Ubuntu</a>
+			</li>
+			<li style="display: inline-block; margin: 0 3ex;">
+				<a href="#distro_mint">Linux Mint</a>
 			</li>
 			<li style="display: inline-block; margin: 0 3ex;">
 				<a href="#distro_macosx">macOS</a>
@@ -89,8 +92,7 @@ dnf config-manager --add-repo https://repos.wine-staging.com/wine/fedora/25/wine
 	<p>You should now be able to start Wine Staging. For more information about using Wine you can take a look at the <a href="https://www.winehq.org/docs/wineusr-guide/index" target="_blank">Wine User Guide</a>.</p>
 
 	<hr class="postline">
-
-	<h3 class="title" id="distro_ubuntu" style="margin-bottom: 1em;"><a href="https://www.ubuntu.com/" target="_blank"><img src="/images/distros/ubuntu.png" style="height: 1em; vertical-align: middle;"></a> Ubuntu/Linux Mint</h3>
+	<h3 class="title" id="distro_ubuntu" style="margin-bottom: 1em;"><a href="https://www.ubuntu.com/" target="_blank"><img src="/images/distros/ubuntu.png" style="height: 1em; vertical-align: middle;"></a> Ubuntu</h3>
 
 	<p>Start by importing the key for our repository:</p>
 
@@ -101,6 +103,32 @@ sudo apt-key add Release.key
 	<p>Then use the following command to add our repository to your <code>/etc/apt/sources.list</code> file:</p>
 
 <div class="code">sudo apt-add-repository 'https://dl.winehq.org/wine-builds/ubuntu/'
+</div>
+
+	<p>As a next step, please update the package cache and install Wine Staging:</p>
+
+<div class="code">sudo apt-get update
+sudo apt-get install --install-recommends winehq-staging
+</div>
+
+	<p>You should now be able to start Wine Staging. For more information about using Wine you can take a look at the <a href="https://www.winehq.org/docs/wineusr-guide/index" target="_blank">Wine User Guide</a>.</p>
+
+	<hr class="postline">
+	<h3 class="title" id="distro_mint" style="margin-bottom: 1em;">Linux Mint</h3>
+
+	<p>Unfortunately, current versions of Linux Mint contain a bug in <code>apt-add-repository</code>, so the steps are a bit more complicated than on Ubuntu. Start by importing the key for our repository:</p>
+
+<div class="code">wget https://repos.wine-staging.com/wine/Release.key
+sudo apt-key add Release.key
+</div>
+
+	<p>Then use the following command to add our repository to a source file (located in <code>/etc/apt/sources.list.d</code>):</p>
+
+<div class="code"># For Linux Mint 17.x (Qiana, Rebecca, Rafaela, Rosa) run:
+sudo apt-add-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ trusty main'
+
+# And for Linux Mint 18.x (Sarah, Serena):
+sudo apt-add-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ xenial main'
 </div>
 
 	<p>As a next step, please update the package cache and install Wine Staging:</p>
