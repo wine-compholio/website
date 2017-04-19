@@ -34,6 +34,61 @@
 		<div id="content">
 
         <div class="post">
+                <h2 class="title"><a href="/news/2017-04-20-release-2.6.html">Release 2.6</a></h2>
+                <p class="meta"><span class="author">Wine Staging Team</span>&nbsp;-&nbsp;<span class="date">Thu, 20 Apr 2017</span></p>
+                <div class="entry">
+                    <p>
+The Wine Staging release 2.6 is now available.
+</p>
+
+<p>
+What's new in this release:
+</p>
+
+<ul>
+    <li>Support for recent versions of OSMesa.</li>
+    <li>Various smaller improvements.</li>
+</ul>
+
+<p>
+Since a lot of users were confused after reading the development version release notes, we would like to clarify, that the command stream multithreading (CSMT) patchset <b>has not been fully merged yet</b>. There has been a lot of progress during the last weeks, but unfortunately the performance related optimizations are still missing in the development branch. We expect them to be merged in one of the following releases. In the meantime, Wine Staging users can continue to use the CSMT performance improvements as usual (i.e. by enabling the CSMT in the winecfg Staging tab).
+</p>
+
+
+                    <p><a href="/news/2017-04-20-release-2.6.html">Read more</a></p>
+                </div>
+            </div>
+    
+
+        <div class="post">
+                <h2 class="title"><a href="/news/2017-04-19-release-2.5.html">Release 2.5</a></h2>
+                <p class="meta"><span class="author">Wine Staging Team</span>&nbsp;-&nbsp;<span class="date">Wed, 19 Apr 2017</span></p>
+                <div class="entry">
+                    <p>
+The Wine Staging release 2.5 is now available.
+</p>
+
+<p>
+What's new in this release:
+</p>
+
+<ul>
+    <li>Implementation of NtSuspendProcess and NtResumeProcess.</li>
+    <li>Support for hash links in Ldr modules.</li>
+    <li>Various smaller improvements.</li>
+</ul>
+
+<p>
+Please note that starting with this version, Wine Staging uses the new server side message-mode named pipe implementation from the development branch. In contrast to our previous implementation using <code>SOCK_SEQPACKET</code> sockets, the new implementation allows to handle some corner cases more correctly and is cross-platform compatible. A small disadvantage is that the new implementation is less complete (for example no <code>PIPE_NOWAIT</code> handling), so there is a small risk of regressions.
+</p>
+
+
+                    <p><a href="/news/2017-04-19-release-2.5.html">Read more</a></p>
+                </div>
+            </div>
+    
+
+        <div class="post">
                 <h2 class="title"><a href="/news/2017-03-29-builds.html">Packaging changes</a></h2>
                 <p class="meta"><span class="author">Wine Staging Team</span>&nbsp;-&nbsp;<span class="date">Wed, 29 Mar 2017</span></p>
                 <div class="entry">

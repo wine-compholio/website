@@ -1,0 +1,40 @@
+Title: Release 2.5
+Date: Wed, 19 Apr 2017
+
+<p>
+The Wine Staging release 2.5 is now available.
+</p>
+
+<p>
+What's new in this release:
+</p>
+
+<ul>
+    <li>Implementation of NtSuspendProcess and NtResumeProcess.</li>
+    <li>Support for hash links in Ldr modules.</li>
+    <li>Various smaller improvements.</li>
+</ul>
+
+<p>
+Please note that starting with this version, Wine Staging uses the new server side message-mode named pipe implementation from the development branch. In contrast to our previous implementation using <code>SOCK_SEQPACKET</code> sockets, the new implementation allows to handle some corner cases more correctly and is cross-platform compatible. A small disadvantage is that the new implementation is less complete (for example no <code>PIPE_NOWAIT</code> handling), so there is a small risk of regressions.
+</p>
+
+<!--PREVIEW-->
+
+<p>
+In addition, Wine Staging users will also benefit from the following changes merged in the development branch:
+</p>
+
+<ul>
+	<li>Support for message-mode named pipes.</li>
+	<li>Translation of version resources through po files.</li>
+	<li>Transform feedback support in Direct3D.</li>
+	<li>Scheduler classes in C++ runtime.</li>
+	<li>Better scrolling in popup menus.</li>
+	<li>More improvements to the XML reader.</li>
+	<li>Various bug fixes.</li>
+</ul>
+
+<p>
+The source is available <a href="https://github.com/wine-compholio/wine-staging/releases/tag/v2.5">now</a>. Binary packages are in the process of being built, and will appear soon at their respective <a href="https://github.com/wine-compholio/wine-staging/wiki/Installation">download locations</a>.
+</p>
