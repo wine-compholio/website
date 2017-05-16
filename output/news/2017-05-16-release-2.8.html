@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="keywords" content="Wine, Staging, wine-staging" />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Wine Staging</title>
+	<link href="/css/style.css" rel="stylesheet" type="text/css" media="screen" />
+	<link href="/news.xml" rel="alternate" type="application/atom+xml" title="News Feed (atom)" />
+</head>
+<body>
+<div id="wrapper">
+	<div id="header-wrapper">
+		<div id="header">
+			<div id="logo">
+				<h1><a href="/index.html">Wine <span>Staging</span></a></h1>
+			</div>
+			<div id="menu">
+				<ul>
+					<li><a href="/index.html">Home</a></li>
+					<li><a href="/news.html">News</a></li>
+					<li><a href="/installation.html">Install</a></li>
+					<li><a href="https://github.com/wine-compholio/wine-staging/wiki" target="_blank">Wiki</a></li>
+					<li><a href="https://bugs.winehq.org/" target="_blank">Bugs</a></li>
+					<li><a href="https://dev.wine-staging.com/" target="_blank">Devel</a></li>
+				</ul>
+			</div>
+			<div style="clear: both;"></div>
+		</div>
+	</div>
+	<!-- end #header -->
+	<div id="page">
+		<div id="content">
+
+        <div class="post">
+                <h2 class="title">Release 2.8</h2>
+                <p class="meta"><span class="author">Wine Staging Team</span>&nbsp;-&nbsp;<span class="date">Tue, 16 May 2017</span></p>
+                <div class="entry">
+                    <p>
+The Wine Staging release 2.8 is now available.
+</p>
+
+<p>
+What's new in this release:
+</p>
+
+<ul>
+    <li>Improved fake dll generation.</li>
+    <li>Implement updating shared data time fields.</li>
+    <li>Reset debug registers on thread creation.</li>
+    <li>Added basic ACL viewer in file properties.</li>
+    <li>Various smaller improvements and bug fixes.</li>
+</ul>
+
+<p>In this release we have merged fixes for several fundamental Wine bugs which might be worth mentioning.</p>
+
+<p>
+Starting with this release Wine Staging generates more functional 32-bit fake DLLs. For those unfamiliar with Wine internals, fake DLLs are used as a placeholder inside of Wine prefixes, whereas the real implementation resides in ELF/Mach-O libraries. The content of those placeholders does not matter unless applications try to load such files without using the Windows API, which some DRM / anticheat modules unfortunately do. With Wine Staging 2.8 you will now get a stub exception instead of a random crash when such a DLL is used. For ntdll functions starting with Nt or Zw prefix the fake DLL will correctly forward calls to the real implementation.
+</p>
+
+<!--PREVIEW-->
+
+<p>
+In this release we also implemented a mechanism to update the time fields inside the used shared data block periodically. On Windows this is done by the kernel itself during a timer interrupt, but for Wine it is necessary to do this manually. When an an application tries to read the time values for the first time, Wine Staging detects this and creates a thread to update these fields. This is required by applications like Star Wars: The Old Republic or the programming language Go. The change does not have any performance implications on other programs as the thread is only created when necessary.
+</p>
+
+<p>
+It is now also possible to view the Windows access control list (list of permissions) in the security tab of the file properties dialog. You can see them, for example, when opening the properties by right clicking on a file or directory in the explorer. This can be useful when debugging access permission related problems. So far the dialog can only show the current permissions and does not allow modifications.
+</p>
+
+<p>
+Besides the bigger changes, Wine Staging 2.8 also includes various smaller improvements, like clearing debug registers when creating new threads. One application that benefits from the new features is Starcraft I, which should now work properly in a default Windows 7 prefix.
+</p>
+
+<p>
+In addition, Wine Staging users will also benefit from the following changes merged in the development branch:
+</p>
+
+<ul>
+	<li>Better serial and parallel ports autodetection.</li>
+	<li>Still more fixes for high DPI settings.</li>
+	<li>System tray notifications on macOS.</li>
+	<li>Various bug fixes.</li>
+</ul>
+
+<p>
+The source is available <a href="https://github.com/wine-compholio/wine-staging/releases/tag/v2.8">now</a>. Binary packages are in the process of being built, and will appear soon at their respective <a href="https://github.com/wine-compholio/wine-staging/wiki/Installation">download locations</a>.
+</p>
+
+                    
+                </div>
+            </div>
+    
+		</div>
+		<div style="clear: both;"></div>
+	</div>
+	<!-- end #page -->
+</div>
+<div id="footer">
+	<p><a href="/impressum.html">Impressum</a> - <a href="/impressum.html#privacy">Privacy policy</a> - <img src="/images/feed.png" style="vertical-align:top; height:1em;">&nbsp;<a href="/news.xml">News Atom feed</a> - Design based on Perfect Blemish by <a href="http://templated.co" rel="nofollow">TEMPLATED</a> (<a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>).</p>
+</div>
+<!-- end #footer -->
+</body>
+</html>
