@@ -34,6 +34,37 @@
 		<div id="content">
 
         <div class="post">
+                <h2 class="title"><a href="/news/2017-05-30-release-2.9.html">Release 2.9</a></h2>
+                <p class="meta"><span class="author">Wine Staging Team</span>&nbsp;-&nbsp;<span class="date">Tue, 30 May 2017</span></p>
+                <div class="entry">
+                    <p>
+The Wine Staging release 2.9 is now available.
+</p>
+
+<p>
+What's new in this release:
+</p>
+
+<ul>
+    <li>Support for opening files through NT device paths.</li>
+    <li>Improved fake dll generation.</li>
+    <li>Support for pipeline statistics in d3d11.</li>
+    <li>Improved support for querying section names.</li>
+    <li>Fixes for multiple regressions.</li>
+    <li>Various smaller bug fixes.</li>
+</ul>
+
+<p>
+Wine Staging 2.9 continues to improve the compatibility with anti-cheat and DRM modules. The generated fake DLLs do no longer trigger stub errors when an application manually loads them (as in the 2.8 release), but instead they now forward the call to the correct builtin implementation. The general memory layout of the builtin ELF/Mach-O executables has also been changed to be more consistent with regular PE files. Besides those bigger chances, there are many smaller improvements, including bug fixes for the Unreal Engine 4 and Chrome.
+</p>
+
+
+                    <p><a href="/news/2017-05-30-release-2.9.html">Read more</a></p>
+                </div>
+            </div>
+    
+
+        <div class="post">
                 <h2 class="title"><a href="/news/2017-05-16-release-2.8.html">Release 2.8</a></h2>
                 <p class="meta"><span class="author">Wine Staging Team</span>&nbsp;-&nbsp;<span class="date">Tue, 16 May 2017</span></p>
                 <div class="entry">
