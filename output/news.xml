@@ -1,5 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><id>http://www.wine-staging.com/news.xml</id><title>Wine Staging</title><updated>2017-05-30T00:00:00Z</updated><link href="/news.xml" rel="self"></link><link href="/news.html" type="text/html" rel="alternate"></link><entry><title>Release 2.9</title><link href="/news/2017-05-30-release-2.9.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2017-05-30-release-2.9.html</id><updated>2017-05-30T00:00:00Z</updated><author><name>Wine Staging Team</name></author><content type="html">
+<feed xmlns="http://www.w3.org/2005/Atom"><id>http://www.wine-staging.com/news.xml</id><title>Wine Staging</title><updated>2017-06-13T00:00:00Z</updated><link href="/news.xml" rel="self"></link><link href="/news.html" type="text/html" rel="alternate"></link><entry><title>Release 2.10</title><link href="/news/2017-06-13-release-2.10.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2017-06-13-release-2.10.html</id><updated>2017-06-13T00:00:00Z</updated><author><name>Wine Staging Team</name></author><content type="html">
+        &lt;div class="post"&gt;
+                &lt;h2 class="title"&gt;Release 2.10&lt;/h2&gt;
+                &lt;p class="meta"&gt;&lt;span class="author"&gt;Wine Staging Team&lt;/span&gt;&amp;nbsp;-&amp;nbsp;&lt;span class="date"&gt;Tue, 13 Jun 2017&lt;/span&gt;&lt;/p&gt;
+                &lt;div class="entry"&gt;
+                    &lt;p&gt;
+The Wine Staging release 2.10 is now available.
+&lt;/p&gt;
+
+&lt;p&gt;
+What's new in this release:
+&lt;/p&gt;
+
+&lt;ul&gt;
+    &lt;li&gt;Preloader for macOS.&lt;/li&gt;
+    &lt;li&gt;ntoskrnl and winedevice improvements.&lt;/li&gt;
+    &lt;li&gt;Various smaller bug fixes and improvements.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;
+Starting with this release Wine Staging contains an experimental preloader for macOS. This feature is required to load applications, which expect a very specific memory layout in the process address space.
+&lt;/p&gt;
+
+&lt;p&gt;
+When a process is started on Windows, the kernel maps the executable into the memory and then hands over the control to ntdll, which loads all required DLLs. Since the executable is the first thing that is mapped into the memory, it can basically request to be loaded at any memory address it wants, the address space is mostly empty at this point. When using Wine, things look a bit different. Wine is not a kernel module and needs to be loaded into the address space first, before it can load the Windows executable. When you have bad luck, your host system maps Wine or any of its dependencies (e.g. libc) inside of an address range that the Windows executable wants to use.
+&lt;/p&gt;
+
+&lt;!--PREVIEW--&gt;
+
+&lt;p&gt;
+The preloader, which is basically a tiny executable without any dependencies, solves this problem by reserving all important memory ranges before Wine is loaded. This ensures that neither Wine nor any of the system libraries is placed at an address, which is still needed for other purposes. After the main executable is loaded, the remaining memory is released back to the system. The same mechanism is already implemented for ELF files on Linux. The added patchset will not only help applications that previously didn't work at all, it also makes more address space available for system libraries (including OpenGL) compared to the hack Wine used so far.
+&lt;/p&gt;
+
+&lt;p&gt;
+In this release we also added fixes for mouse handling problems in Unity Engine based applications, improvements for Windows kernel drivers and some more anti cheat engine related changes.
+&lt;/p&gt;
+
+&lt;p&gt;
+In addition, Wine Staging users will also benefit from the following changes merged in the development branch:
+&lt;/p&gt;
+
+&lt;ul&gt;
+	&lt;li&gt;Initial version of the Android graphics driver.&lt;/li&gt;
+	&lt;li&gt;Dictionary support in WebServices.&lt;/li&gt;
+	&lt;li&gt;A number of Direct2D fixes.&lt;/li&gt;
+	&lt;li&gt;User interface improvements in RegEdit.&lt;/li&gt;
+	&lt;li&gt;OLE clipboard cache fixes.&lt;/li&gt;
+	&lt;li&gt;Various bug fixes.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;
+The source is available &lt;a href="https://github.com/wine-compholio/wine-staging/releases/tag/v2.10"&gt;now&lt;/a&gt;. Binary packages are in the process of being built, and will appear soon at their respective &lt;a href="https://github.com/wine-compholio/wine-staging/wiki/Installation"&gt;download locations&lt;/a&gt;.
+&lt;/p&gt;
+
+                    
+                &lt;/div&gt;
+            &lt;/div&gt;
+    </content></entry><entry><title>Release 2.9</title><link href="/news/2017-05-30-release-2.9.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2017-05-30-release-2.9.html</id><updated>2017-05-30T00:00:00Z</updated><author><name>Wine Staging Team</name></author><content type="html">
         &lt;div class="post"&gt;
                 &lt;h2 class="title"&gt;Release 2.9&lt;/h2&gt;
                 &lt;p class="meta"&gt;&lt;span class="author"&gt;Wine Staging Team&lt;/span&gt;&amp;nbsp;-&amp;nbsp;&lt;span class="date"&gt;Tue, 30 May 2017&lt;/span&gt;&lt;/p&gt;

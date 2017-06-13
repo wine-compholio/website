@@ -34,6 +34,38 @@
 		<div id="content">
 
         <div class="post">
+                <h2 class="title"><a href="/news/2017-06-13-release-2.10.html">Release 2.10</a></h2>
+                <p class="meta"><span class="author">Wine Staging Team</span>&nbsp;-&nbsp;<span class="date">Tue, 13 Jun 2017</span></p>
+                <div class="entry">
+                    <p>
+The Wine Staging release 2.10 is now available.
+</p>
+
+<p>
+What's new in this release:
+</p>
+
+<ul>
+    <li>Preloader for macOS.</li>
+    <li>ntoskrnl and winedevice improvements.</li>
+    <li>Various smaller bug fixes and improvements.</li>
+</ul>
+
+<p>
+Starting with this release Wine Staging contains an experimental preloader for macOS. This feature is required to load applications, which expect a very specific memory layout in the process address space.
+</p>
+
+<p>
+When a process is started on Windows, the kernel maps the executable into the memory and then hands over the control to ntdll, which loads all required DLLs. Since the executable is the first thing that is mapped into the memory, it can basically request to be loaded at any memory address it wants, the address space is mostly empty at this point. When using Wine, things look a bit different. Wine is not a kernel module and needs to be loaded into the address space first, before it can load the Windows executable. When you have bad luck, your host system maps Wine or any of its dependencies (e.g. libc) inside of an address range that the Windows executable wants to use.
+</p>
+
+
+                    <p><a href="/news/2017-06-13-release-2.10.html">Read more</a></p>
+                </div>
+            </div>
+    
+
+        <div class="post">
                 <h2 class="title"><a href="/news/2017-05-30-release-2.9.html">Release 2.9</a></h2>
                 <p class="meta"><span class="author">Wine Staging Team</span>&nbsp;-&nbsp;<span class="date">Tue, 30 May 2017</span></p>
                 <div class="entry">
