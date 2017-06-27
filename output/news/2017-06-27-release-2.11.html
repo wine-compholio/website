@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="keywords" content="Wine, Staging, wine-staging" />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Wine Staging</title>
+	<link href="/css/style.css" rel="stylesheet" type="text/css" media="screen" />
+	<link href="/news.xml" rel="alternate" type="application/atom+xml" title="News Feed (atom)" />
+</head>
+<body>
+<div id="wrapper">
+	<div id="header-wrapper">
+		<div id="header">
+			<div id="logo">
+				<h1><a href="/index.html">Wine <span>Staging</span></a></h1>
+			</div>
+			<div id="menu">
+				<ul>
+					<li><a href="/index.html">Home</a></li>
+					<li><a href="/news.html">News</a></li>
+					<li><a href="/installation.html">Install</a></li>
+					<li><a href="https://github.com/wine-compholio/wine-staging/wiki" target="_blank">Wiki</a></li>
+					<li><a href="https://bugs.winehq.org/" target="_blank">Bugs</a></li>
+					<li><a href="https://dev.wine-staging.com/" target="_blank">Devel</a></li>
+				</ul>
+			</div>
+			<div style="clear: both;"></div>
+		</div>
+	</div>
+	<!-- end #header -->
+	<div id="page">
+		<div id="content">
+
+        <div class="post">
+                <h2 class="title">Release 2.11</h2>
+                <p class="meta"><span class="author">Wine Staging Team</span>&nbsp;-&nbsp;<span class="date">Tue, 27 Jun 2017</span></p>
+                <div class="entry">
+                    <p>
+The Wine Staging release 2.11 is now available.
+</p>
+
+<p>
+What's new in this release:
+</p>
+
+<ul>
+    <li>Preloader compatibility enhancements for older macOS versions.</li>
+    <li>NVAPI improvements.</li>
+    <li>Support for starting position-independent executables (PIE) from Wine.</li>
+    <li>Keyboard/Mouse handling fixes.</li>
+    <li>Various smaller bug fixes and improvements.</li>
+</ul>
+
+<p>
+Wine Staging 2.11 contains improvements for the macOS preloader, which was added in the last release, and should now support all macOS versions >= 10.6. Besides these host system specific changes, several patches were added to fix individual game bugs. The Witcher 3 should now display the intro videos and contain less graphical glitches compared to Wine Staging 2.10. For GTA 5 it is no longer necessary to pass <code>-GPUCount 1</code> as parameter or to change the PCI IDs to run the game on a NVIDIA graphic card (<code>-DX10</code> is still required though). The handling of low level keyboard hooks has been improved to fix input issues in GTA 5. This release also changes the handling of clipping regions to fix the remaining mouse issues with Unity based games.
+</p>
+
+<!--PREVIEW-->
+
+<p>
+In addition, Wine Staging users will also benefit from the following changes merged in the development branch:
+</p>
+
+<ul>
+	<li>OpenGL support in the Android driver.</li>
+	<li>Relay debugging on ARM64.</li>
+	<li>More dictionary support in WebServices.</li>
+	<li>New registry file parser in RegEdit.</li>
+	<li>Various bug fixes.</li>
+</ul>
+
+<p>
+The source is available <a href="https://github.com/wine-compholio/wine-staging/releases/tag/v2.11">now</a>. Binary packages are in the process of being built, and will appear soon at their respective <a href="https://github.com/wine-compholio/wine-staging/wiki/Installation">download locations</a>.
+</p>
+
+                    
+                </div>
+            </div>
+    
+		</div>
+		<div style="clear: both;"></div>
+	</div>
+	<!-- end #page -->
+</div>
+<div id="footer">
+	<p><a href="/impressum.html">Impressum</a> - <a href="/impressum.html#privacy">Privacy policy</a> - <img src="/images/feed.png" style="vertical-align:top; height:1em;">&nbsp;<a href="/news.xml">News Atom feed</a> - Design based on Perfect Blemish by <a href="http://templated.co" rel="nofollow">TEMPLATED</a> (<a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>).</p>
+</div>
+<!-- end #footer -->
+</body>
+</html>
