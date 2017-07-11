@@ -1,0 +1,39 @@
+Title: Release 2.12
+Date: Wed, 12 Jul 2017
+
+<p>
+The Wine Staging release 2.12 is now available.
+</p>
+
+<p>
+What's new in this release:
+</p>
+
+<ul>
+    <li>Support for depth bias / depth clamping in D3D11.</li>
+    <li>Support for copying between resources with compatible DXGI formats.</li>
+    <li>Use OpenGL core context when necessary.</li>
+    <li>Various smaller bug fixes and improvements.</li>
+</ul>
+
+<p>
+Wine Staging 2.12 contains various Direct3D 10/11 improvements and fixes rendering bugs in multiple applications, including Assassin's Creed III, Witcher 3, Trackmania Turbo or the Unigine Heaven benchmark. Besides these rendering fixes, users of the MESA driver no longer need to create the <code>MaxVersionGL</code> registry key when using Direct3D 10/11 applications. Starting with this release, Wine automatically detects when to use a core or compatibility context. This release also fixes a startup issue with the latest version of the Steam client (Thursday, 06 July 2017).
+</p>
+
+<!--PREVIEW-->
+
+<p>
+In addition, Wine Staging users will also benefit from the following changes merged in the development branch:
+</p>
+
+<ul>
+	<li>Audio driver for Android.</li>
+	<li>Some performance improvements with async I/O.</li>
+	<li>More RegEdit file parser improvements.</li>
+	<li>Beginnings for MSI user interface support.</li>
+	<li>Various bug fixes.</li>
+</ul>
+
+<p>
+The source is available <a href="https://github.com/wine-compholio/wine-staging/releases/tag/v2.12">now</a>. Binary packages are in the process of being built, and will appear soon at their respective <a href="https://github.com/wine-compholio/wine-staging/wiki/Installation">download locations</a>.
+</p>
