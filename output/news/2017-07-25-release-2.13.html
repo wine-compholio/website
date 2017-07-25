@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="keywords" content="Wine, Staging, wine-staging" />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Wine Staging</title>
+	<link href="/css/style.css" rel="stylesheet" type="text/css" media="screen" />
+	<link href="/news.xml" rel="alternate" type="application/atom+xml" title="News Feed (atom)" />
+</head>
+<body>
+<div id="wrapper">
+	<div id="header-wrapper">
+		<div id="header">
+			<div id="logo">
+				<h1><a href="/index.html">Wine <span>Staging</span></a></h1>
+			</div>
+			<div id="menu">
+				<ul>
+					<li><a href="/index.html">Home</a></li>
+					<li><a href="/news.html">News</a></li>
+					<li><a href="/installation.html">Install</a></li>
+					<li><a href="https://github.com/wine-compholio/wine-staging/wiki" target="_blank">Wiki</a></li>
+					<li><a href="https://bugs.winehq.org/" target="_blank">Bugs</a></li>
+					<li><a href="https://dev.wine-staging.com/" target="_blank">Devel</a></li>
+				</ul>
+			</div>
+			<div style="clear: both;"></div>
+		</div>
+	</div>
+	<!-- end #header -->
+	<div id="page">
+		<div id="content">
+
+        <div class="post">
+                <h2 class="title">Release 2.13</h2>
+                <p class="meta"><span class="author">Wine Staging Team</span>&nbsp;-&nbsp;<span class="date">Tue, 25 Jul 2017</span></p>
+                <div class="entry">
+                    <p>
+The Wine Staging release 2.13 is now available.
+</p>
+
+<p>
+What's new in this release:
+</p>
+
+<ul>
+    <li>Support for setting/copying UAV counters in d3d11.</li>
+    <li>Support for indirect drawing / compute dispatching in d3d11.</li>
+    <li>Heap manager speed improvements.</li>
+    <li>Implementation of loader notifications in ntdll.</li>
+    <li>Many smaller improvements for d3d11 and bug fixes in other dlls.</li>
+</ul>
+
+<p>
+Wine Staging 2.13 contains various Direct3D 10/11 improvements, which fix rendering glitches in multiple applications. Examples for such applications are <i>Rad Rodgers: World One</i> or <i>NieR: Automata</i>. This release also fixes a bug that caused Wine to swap buffers more often than requested, leading to a performance decrease in <i>GTA 5</i> and <i>Crysis 3</i>. Besides the d3d11 improvements, this release also introduces a modified heap manager, which should improve the performance in some corner cases where the original implementation performed poorly. More changes in this area are planned, but did not make it into this release. We will provide some statistics as soon as the remaining changes are merged. As usual, this release also adds many smaller improvements, for example deadlock / race condition fixes.
+</p>
+
+<!--PREVIEW-->
+
+<p>
+In addition, Wine Staging users will also benefit from the following changes merged in the development branch:
+</p>
+
+<ul>
+	<li>Unicode data updated to Unicode 10.0.0.</li>
+	<li>Nicer looking default mouse cursors.</li>
+	<li>Persistent connections support in WinHTTP.</li>
+	<li>Message Framing protocol support in WebServices.</li>
+	<li>Improved metafile support in GdiPlus.</li>
+	<li>Debug registers support in x86-64 exception handling.</li>
+	<li>Anti-aliasing improvements in DirectWrite.</li>
+	<li>Various bug fixes.</li>
+</ul>
+
+<p>
+The source is available <a href="https://github.com/wine-compholio/wine-staging/releases/tag/v2.13">now</a>. Binary packages are in the process of being built, and will appear soon at their respective <a href="https://github.com/wine-compholio/wine-staging/wiki/Installation">download locations</a>.
+</p>
+
+                    
+                </div>
+            </div>
+    
+		</div>
+		<div style="clear: both;"></div>
+	</div>
+	<!-- end #page -->
+</div>
+<div id="footer">
+	<p><a href="/impressum.html">Impressum</a> - <a href="/impressum.html#privacy">Privacy policy</a> - <img src="/images/feed.png" style="vertical-align:top; height:1em;">&nbsp;<a href="/news.xml">News Atom feed</a> - Design based on Perfect Blemish by <a href="http://templated.co" rel="nofollow">TEMPLATED</a> (<a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>).</p>
+</div>
+<!-- end #footer -->
+</body>
+</html>

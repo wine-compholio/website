@@ -34,6 +34,36 @@
 		<div id="content">
 
         <div class="post">
+                <h2 class="title"><a href="/news/2017-07-25-release-2.13.html">Release 2.13</a></h2>
+                <p class="meta"><span class="author">Wine Staging Team</span>&nbsp;-&nbsp;<span class="date">Tue, 25 Jul 2017</span></p>
+                <div class="entry">
+                    <p>
+The Wine Staging release 2.13 is now available.
+</p>
+
+<p>
+What's new in this release:
+</p>
+
+<ul>
+    <li>Support for setting/copying UAV counters in d3d11.</li>
+    <li>Support for indirect drawing / compute dispatching in d3d11.</li>
+    <li>Heap manager speed improvements.</li>
+    <li>Implementation of loader notifications in ntdll.</li>
+    <li>Many smaller improvements for d3d11 and bug fixes in other dlls.</li>
+</ul>
+
+<p>
+Wine Staging 2.13 contains various Direct3D 10/11 improvements, which fix rendering glitches in multiple applications. Examples for such applications are <i>Rad Rodgers: World One</i> or <i>NieR: Automata</i>. This release also fixes a bug that caused Wine to swap buffers more often than requested, leading to a performance decrease in <i>GTA 5</i> and <i>Crysis 3</i>. Besides the d3d11 improvements, this release also introduces a modified heap manager, which should improve the performance in some corner cases where the original implementation performed poorly. More changes in this area are planned, but did not make it into this release. We will provide some statistics as soon as the remaining changes are merged. As usual, this release also adds many smaller improvements, for example deadlock / race condition fixes.
+</p>
+
+
+                    <p><a href="/news/2017-07-25-release-2.13.html">Read more</a></p>
+                </div>
+            </div>
+    
+
+        <div class="post">
                 <h2 class="title"><a href="/news/2017-07-12-release-2.12.html">Release 2.12</a></h2>
                 <p class="meta"><span class="author">Wine Staging Team</span>&nbsp;-&nbsp;<span class="date">Wed, 12 Jul 2017</span></p>
                 <div class="entry">
