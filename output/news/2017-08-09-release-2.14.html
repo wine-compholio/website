@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="keywords" content="Wine, Staging, wine-staging" />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Wine Staging</title>
+	<link href="/css/style.css" rel="stylesheet" type="text/css" media="screen" />
+	<link href="/news.xml" rel="alternate" type="application/atom+xml" title="News Feed (atom)" />
+</head>
+<body>
+<div id="wrapper">
+	<div id="header-wrapper">
+		<div id="header">
+			<div id="logo">
+				<h1><a href="/index.html">Wine <span>Staging</span></a></h1>
+			</div>
+			<div id="menu">
+				<ul>
+					<li><a href="/index.html">Home</a></li>
+					<li><a href="/news.html">News</a></li>
+					<li><a href="/installation.html">Install</a></li>
+					<li><a href="https://github.com/wine-compholio/wine-staging/wiki" target="_blank">Wiki</a></li>
+					<li><a href="https://bugs.winehq.org/" target="_blank">Bugs</a></li>
+					<li><a href="https://dev.wine-staging.com/" target="_blank">Devel</a></li>
+				</ul>
+			</div>
+			<div style="clear: both;"></div>
+		</div>
+	</div>
+	<!-- end #header -->
+	<div id="page">
+		<div id="content">
+
+        <div class="post">
+                <h2 class="title">Release 2.14</h2>
+                <p class="meta"><span class="author">Wine Staging Team</span>&nbsp;-&nbsp;<span class="date">Wed, 09 Aug 2017</span></p>
+                <div class="entry">
+                    <p>
+The Wine Staging release 2.14 is now available.
+</p>
+
+<p>
+What's new in this release:
+</p>
+
+<ul>
+    <li>Basic UAC implementation.</li>
+    <li>Further heap manager performance improvements.</li>
+    <li>Various smaller bug fixes.</li>
+</ul>
+
+<p>
+Wine Staging 2.14 adds a basic User Account Control (UAC) implementation, which allows to emulate an environment where processes have either limited user rights or admin rights. So far Wine always reported full admin rights to all applications, which is no longer the case on modern Windows versions. UAC was first available in Windows Vista, and is used to ensure only trusted processes can access system components. In our case the security aspect is mostly irrelevant and the main goal is to ensure compatibility with certain applications, which refuse to run when the privileges do not exactly match the Windows behavior. If an application asks you to restart without admin rights, this can now be done with <code>wine runas /trustlevel:0x20000 program.exe</code>. As a general reminder, please note that you should never run Wine as root user - emulation of admin rights for Windows applications is not related to any privileges on your host system, neither before nor after this change. 
+</p>
+
+<!--PREVIEW-->
+
+<p>
+Besides the UAC implementation, we also merged additional heap manager performance improvements and various smaller bug fixes in this release. In addition, Wine Staging users will also benefit from the following changes merged in the development branch:
+</p>
+
+<ul>
+	<li>Mono engine updated with some bug fixes.</li>
+	<li>C++ calling convention workarounds in the IDL compiler.</li>
+	<li>Z-order support in the Android graphics driver.</li>
+	<li>Scalable mouse cursors on macOS.</li>
+	<li>Various bug fixes.</li>
+</ul>
+
+<p>
+The source is available <a href="https://github.com/wine-compholio/wine-staging/releases/tag/v2.14">now</a>. Binary packages are in the process of being built, and will appear soon at their respective <a href="/installation.html">download locations</a>.
+</p>
+
+                    
+                </div>
+            </div>
+    
+		</div>
+		<div style="clear: both;"></div>
+	</div>
+	<!-- end #page -->
+</div>
+<div id="footer">
+	<p><a href="/impressum.html">Impressum</a> - <a href="/impressum.html#privacy">Privacy policy</a> - <img src="/images/feed.png" style="vertical-align:top; height:1em;">&nbsp;<a href="/news.xml">News Atom feed</a> - Design based on Perfect Blemish by <a href="http://templated.co" rel="nofollow">TEMPLATED</a> (<a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>).</p>
+</div>
+<!-- end #footer -->
+</body>
+</html>
