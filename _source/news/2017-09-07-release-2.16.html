@@ -1,0 +1,39 @@
+Title: Release 2.16
+Date: Thu, 07 Sep 2017
+
+<p>
+The Wine Staging release 2.16 is now available.
+</p>
+
+<p>
+What's new in this release:
+</p>
+
+<ul>
+    <li>Extended deferred rendering context support in d3d11.</li>
+    <li>Added 64 bit syscall thunks in fake ntdll.dll.</li>
+    <li>Support for indexed vertex blending in d3d8/d3d9.</li>
+    <li>Smaller bug fixes and improvements.</li>
+</ul>
+
+<p>
+Wine Staging 2.16 adds more deferred rendering context functions and fixes rendering bugs in games like Crysis 3, Witcher 3 or Prey (2017). The ntdll syscall thunk emulation was extended to 64 bit in this release, which is required by the 64 bit version of World of Warcraft. A newly added feature is the support for indexed vertex blending, which is especially used by older games to simulate bones. Wine Staging 2.16 also backports a patch to fix the font rendering in Steam, Uplay and other software using libcef in Windows 7 mode.
+</p>
+
+<!--PREVIEW-->
+
+<p>
+In addition, Wine Staging users will also benefit from the following changes merged in the development branch:
+</p>
+
+<ul>
+	<li>Support for pasting metafiles in RichEdit.</li>
+	<li>Support for safety features in library loading.</li>
+	<li>Better handling of transforms in GdiPlus.</li>
+	<li>Rendering improvements in DirectWrite.</li>
+	<li>Various bug fixes.</li>
+</ul>
+
+<p>
+The source is available <a href="https://github.com/wine-compholio/wine-staging/releases/tag/v2.16">now</a>. Binary packages are in the process of being built, and will appear soon at their respective <a href="/installation.html">download locations</a>.
+</p>

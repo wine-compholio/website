@@ -1,5 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><id>http://www.wine-staging.com/news.xml</id><title>Wine Staging</title><updated>2017-08-23T00:00:00Z</updated><link href="/news.xml" rel="self"></link><link href="/news.html" type="text/html" rel="alternate"></link><entry><title>Release 2.15</title><link href="/news/2017-08-23-release-2.15.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2017-08-23-release-2.15.html</id><updated>2017-08-23T00:00:00Z</updated><author><name>Wine Staging Team</name></author><content type="html">
+<feed xmlns="http://www.w3.org/2005/Atom"><id>http://www.wine-staging.com/news.xml</id><title>Wine Staging</title><updated>2017-09-07T00:00:00Z</updated><link href="/news.xml" rel="self"></link><link href="/news.html" type="text/html" rel="alternate"></link><entry><title>Release 2.16</title><link href="/news/2017-09-07-release-2.16.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2017-09-07-release-2.16.html</id><updated>2017-09-07T00:00:00Z</updated><author><name>Wine Staging Team</name></author><content type="html">
+        &lt;div class="post"&gt;
+                &lt;h2 class="title"&gt;Release 2.16&lt;/h2&gt;
+                &lt;p class="meta"&gt;&lt;span class="author"&gt;Wine Staging Team&lt;/span&gt;&amp;nbsp;-&amp;nbsp;&lt;span class="date"&gt;Thu, 07 Sep 2017&lt;/span&gt;&lt;/p&gt;
+                &lt;div class="entry"&gt;
+                    &lt;p&gt;
+The Wine Staging release 2.16 is now available.
+&lt;/p&gt;
+
+&lt;p&gt;
+What's new in this release:
+&lt;/p&gt;
+
+&lt;ul&gt;
+    &lt;li&gt;Extended deferred rendering context support in d3d11.&lt;/li&gt;
+    &lt;li&gt;Added 64 bit syscall thunks in fake ntdll.dll.&lt;/li&gt;
+    &lt;li&gt;Support for indexed vertex blending in d3d8/d3d9.&lt;/li&gt;
+    &lt;li&gt;Smaller bug fixes and improvements.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;
+Wine Staging 2.16 adds more deferred rendering context functions and fixes rendering bugs in games like Crysis 3, Witcher 3 or Prey (2017). The ntdll syscall thunk emulation was extended to 64 bit in this release, which is required by the 64 bit version of World of Warcraft. A newly added feature is the support for indexed vertex blending, which is especially used by older games to simulate bones. Wine Staging 2.16 also backports a patch to fix the font rendering in Steam, Uplay and other software using libcef in Windows 7 mode.
+&lt;/p&gt;
+
+&lt;!--PREVIEW--&gt;
+
+&lt;p&gt;
+In addition, Wine Staging users will also benefit from the following changes merged in the development branch:
+&lt;/p&gt;
+
+&lt;ul&gt;
+	&lt;li&gt;Support for pasting metafiles in RichEdit.&lt;/li&gt;
+	&lt;li&gt;Support for safety features in library loading.&lt;/li&gt;
+	&lt;li&gt;Better handling of transforms in GdiPlus.&lt;/li&gt;
+	&lt;li&gt;Rendering improvements in DirectWrite.&lt;/li&gt;
+	&lt;li&gt;Various bug fixes.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;
+The source is available &lt;a href="https://github.com/wine-compholio/wine-staging/releases/tag/v2.16"&gt;now&lt;/a&gt;. Binary packages are in the process of being built, and will appear soon at their respective &lt;a href="/installation.html"&gt;download locations&lt;/a&gt;.
+&lt;/p&gt;
+
+                    
+                &lt;/div&gt;
+            &lt;/div&gt;
+    </content></entry><entry><title>Release 2.15</title><link href="/news/2017-08-23-release-2.15.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2017-08-23-release-2.15.html</id><updated>2017-08-23T00:00:00Z</updated><author><name>Wine Staging Team</name></author><content type="html">
         &lt;div class="post"&gt;
                 &lt;h2 class="title"&gt;Release 2.15&lt;/h2&gt;
                 &lt;p class="meta"&gt;&lt;span class="author"&gt;Wine Staging Team&lt;/span&gt;&amp;nbsp;-&amp;nbsp;&lt;span class="date"&gt;Wed, 23 Aug 2017&lt;/span&gt;&lt;/p&gt;
