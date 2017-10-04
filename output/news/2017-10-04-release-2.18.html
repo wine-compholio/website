@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="keywords" content="Wine, Staging, wine-staging" />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Wine Staging</title>
+	<link href="/css/style.css" rel="stylesheet" type="text/css" media="screen" />
+	<link href="/news.xml" rel="alternate" type="application/atom+xml" title="News Feed (atom)" />
+</head>
+<body>
+<div id="wrapper">
+	<div id="header-wrapper">
+		<div id="header">
+			<div id="logo">
+				<h1><a href="/index.html">Wine <span>Staging</span></a></h1>
+			</div>
+			<div id="menu">
+				<ul>
+					<li><a href="/index.html">Home</a></li>
+					<li><a href="/news.html">News</a></li>
+					<li><a href="/installation.html">Install</a></li>
+					<li><a href="https://github.com/wine-compholio/wine-staging/wiki" target="_blank">Wiki</a></li>
+					<li><a href="https://bugs.winehq.org/" target="_blank">Bugs</a></li>
+					<li><a href="https://dev.wine-staging.com/" target="_blank">Devel</a></li>
+				</ul>
+			</div>
+			<div style="clear: both;"></div>
+		</div>
+	</div>
+	<!-- end #header -->
+	<div id="page">
+		<div id="content">
+
+        <div class="post">
+                <h2 class="title">Release 2.18</h2>
+                <p class="meta"><span class="author">Wine Staging Team</span>&nbsp;-&nbsp;<span class="date">Wed, 04 Oct 2017</span></p>
+                <div class="entry">
+                    <p>
+The Wine Staging release 2.18 is now available.
+</p>
+
+<p>
+What's new in this release:
+</p>
+
+<ul>
+    <li>Support for ECDSA certificate chains.</li>
+    <li>Vsync handling for d3d10/d3d11.</li>
+    <li>Various smaller bug fixes and improvements.</li>
+</ul>
+
+<p>
+Wine Staging 2.18 adds support for ECDSA certificate chain verification, which is required by various libcef based programs. This fixes the login issue in Origin, the connectivity problems in Uplay, the non-working browser in Battle.net and many more applications. So far the feature is only available when compiling Wine with the GnuTLS (>= 3.0) backend. This release also improves the swap interval handling of Direct3D10/11 games and makes it possible to disable vsync. There are also various smaller changes that fix bugs in games like Cuphead and Overwatch.
+</p>
+
+<!--PREVIEW-->
+
+<p>
+In addition, Wine Staging users will also benefit from the following changes merged in the development branch:
+</p>
+
+<ul>
+	<li>Radial gradients in Direct2D.</li>
+	<li>Asynchronous message support in WebServices.</li>
+	<li>FreeType 2.8.1 compatibility fixes.</li>
+	<li>Various bug fixes.</li>
+</ul>
+
+<p>
+The source is available <a href="https://github.com/wine-compholio/wine-staging/releases/tag/v2.18">now</a>. Binary packages are in the process of being built, and will appear soon at their respective <a href="/installation.html">download locations</a>.
+</p>
+
+                    
+                </div>
+            </div>
+    
+		</div>
+		<div style="clear: both;"></div>
+	</div>
+	<!-- end #page -->
+</div>
+<div id="footer">
+	<p><a href="/impressum.html">Impressum</a> - <a href="/impressum.html#privacy">Privacy policy</a> - <img src="/images/feed.png" style="vertical-align:top; height:1em;">&nbsp;<a href="/news.xml">News Atom feed</a> - Design based on Perfect Blemish by <a href="http://templated.co" rel="nofollow">TEMPLATED</a> (<a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>).</p>
+</div>
+<!-- end #footer -->
+</body>
+</html>
