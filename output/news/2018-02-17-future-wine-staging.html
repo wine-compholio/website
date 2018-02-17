@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="keywords" content="Wine, Staging, wine-staging" />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Wine Staging</title>
+	<link href="/css/style.css" rel="stylesheet" type="text/css" media="screen" />
+	<link href="/news.xml" rel="alternate" type="application/atom+xml" title="News Feed (atom)" />
+</head>
+<body>
+<div id="wrapper">
+	<div id="header-wrapper">
+		<div id="header">
+			<div id="logo">
+				<h1><a href="/index.html">Wine <span>Staging</span></a></h1>
+			</div>
+			<div id="menu">
+				<ul>
+					<li><a href="/index.html">Home</a></li>
+					<li><a href="/news.html">News</a></li>
+					<li><a href="/installation.html">Install</a></li>
+					<li><a href="https://github.com/wine-compholio/wine-staging/wiki" target="_blank">Wiki</a></li>
+					<li><a href="https://bugs.winehq.org/" target="_blank">Bugs</a></li>
+					<li><a href="https://dev.wine-staging.com/" target="_blank">Devel</a></li>
+				</ul>
+			</div>
+			<div style="clear: both;"></div>
+		</div>
+	</div>
+	<!-- end #header -->
+	<div id="page">
+		<div id="content">
+
+        <div class="post">
+                <h2 class="title">Future of Wine Staging</h2>
+                <p class="meta"><span class="author">Wine Staging Team</span>&nbsp;-&nbsp;<span class="date">Sat, 17 Feb 2018</span></p>
+                <div class="entry">
+                    <p>
+Some of you may have already wondered why there were no Wine Staging releases lately and whether anything has changed. There are indeed some major changes, which we want to explain in this post. Before doing so, let us take a quick look at the history of this project.
+</p>
+
+<p>
+Wine Staging originated from Pipelight, a software to use Windows browser plugins in Linux/FreeBSD web browsers. In order to support Silverlight and its DRM system PlayReady, we had to create our own Wine version as the development code did not support storing Access Control Lists (ACLs) for files. It turned out that getting the support into the development version was quite difficult and Erich E. Hoover tried this since <a href="https://www.winehq.org/pipermail/wine-patches/2012-November/119626.html">2012</a>. We figured out that there must be more patches that are considered as too experimental for the development branch and started with Wine Staging in 2014. While the project got larger and larger in roughly <a href="https://github.com/wine-compholio/wine-staging">120 releases</a>, the maintenance effort also increased, especially since we follow the 2 week release cycle of the development branch.
+</p>
+
+<!--PREVIEW-->
+
+<p>
+So far Wine Staging was maintained by Sebastian and me in our spare time. Within the last four years our life changed significantly. We do no longer study computer science but now have both full time jobs. Overall, our available spare time decreased to a level that we can no longer maintain Wine Staging in the same quality as we did before (rebasing patches, reviewing new ones, testing applications before each release, etc.). We therefore decided that it is currently not possible for us to provide new releases. Sorry for keeping you guys waiting for so long, but as you can imagine, suspending the project was not an easy decision as we know that many users depend on it. You can still use the latest Wine Staging version (currently 2.21) for existing software, e.g. when you need persistent ACL support, but you should always give the most recent development version a try if something does not work. We will continue to provide new builds for the development and stable branch, so that you can easily test them. There are also attempts by other Wine developers to keep Wine Staging alive, for example <a href="https://github.com/wine-staging/wine-staging">this fork</a>, which you might want to look into.
+</p>
+
+<p>
+We also want to take the opportunity of this news post to thank all those who tried to make Wine better within in the last 4 years by reporting bugs or sending in patches. Without the help of other developers and users, projects like Wine Staging would not have been possible. Please keep up the good work by using the resources provided by WineHQ (e.g. the patch mailing list for new submissions) in the future.
+</p>
+
+<p>
+Thank you,<br />
+Michael and Sebastian
+</p>
+
+                    
+                </div>
+            </div>
+    
+		</div>
+		<div style="clear: both;"></div>
+	</div>
+	<!-- end #page -->
+</div>
+<div id="footer">
+	<p><a href="/impressum.html">Impressum</a> - <a href="/impressum.html#privacy">Privacy policy</a> - <img src="/images/feed.png" style="vertical-align:top; height:1em;">&nbsp;<a href="/news.xml">News Atom feed</a> - Design based on Perfect Blemish by <a href="http://templated.co" rel="nofollow">TEMPLATED</a> (<a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>).</p>
+</div>
+<!-- end #footer -->
+</body>
+</html>

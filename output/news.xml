@@ -1,5 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><id>http://www.wine-staging.com/news.xml</id><title>Wine Staging</title><updated>2017-10-21T00:00:00Z</updated><link href="/news.xml" rel="self"></link><link href="/news.html" type="text/html" rel="alternate"></link><entry><title>Release 2.19</title><link href="/news/2017-10-21-release-2.19.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2017-10-21-release-2.19.html</id><updated>2017-10-21T00:00:00Z</updated><author><name>Wine Staging Team</name></author><content type="html">
+<feed xmlns="http://www.w3.org/2005/Atom"><id>http://www.wine-staging.com/news.xml</id><title>Wine Staging</title><updated>2018-02-17T00:00:00Z</updated><link href="/news.xml" rel="self"></link><link href="/news.html" type="text/html" rel="alternate"></link><entry><title>Future of Wine Staging</title><link href="/news/2018-02-17-future-wine-staging.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2018-02-17-future-wine-staging.html</id><updated>2018-02-17T00:00:00Z</updated><author><name>Wine Staging Team</name></author><content type="html">
+        &lt;div class="post"&gt;
+                &lt;h2 class="title"&gt;Future of Wine Staging&lt;/h2&gt;
+                &lt;p class="meta"&gt;&lt;span class="author"&gt;Wine Staging Team&lt;/span&gt;&amp;nbsp;-&amp;nbsp;&lt;span class="date"&gt;Sat, 17 Feb 2018&lt;/span&gt;&lt;/p&gt;
+                &lt;div class="entry"&gt;
+                    &lt;p&gt;
+Some of you may have already wondered why there were no Wine Staging releases lately and whether anything has changed. There are indeed some major changes, which we want to explain in this post. Before doing so, let us take a quick look at the history of this project.
+&lt;/p&gt;
+
+&lt;p&gt;
+Wine Staging originated from Pipelight, a software to use Windows browser plugins in Linux/FreeBSD web browsers. In order to support Silverlight and its DRM system PlayReady, we had to create our own Wine version as the development code did not support storing Access Control Lists (ACLs) for files. It turned out that getting the support into the development version was quite difficult and Erich E. Hoover tried this since &lt;a href="https://www.winehq.org/pipermail/wine-patches/2012-November/119626.html"&gt;2012&lt;/a&gt;. We figured out that there must be more patches that are considered as too experimental for the development branch and started with Wine Staging in 2014. While the project got larger and larger in roughly &lt;a href="https://github.com/wine-compholio/wine-staging"&gt;120 releases&lt;/a&gt;, the maintenance effort also increased, especially since we follow the 2 week release cycle of the development branch.
+&lt;/p&gt;
+
+&lt;!--PREVIEW--&gt;
+
+&lt;p&gt;
+So far Wine Staging was maintained by Sebastian and me in our spare time. Within the last four years our life changed significantly. We do no longer study computer science but now have both full time jobs. Overall, our available spare time decreased to a level that we can no longer maintain Wine Staging in the same quality as we did before (rebasing patches, reviewing new ones, testing applications before each release, etc.). We therefore decided that it is currently not possible for us to provide new releases. Sorry for keeping you guys waiting for so long, but as you can imagine, suspending the project was not an easy decision as we know that many users depend on it. You can still use the latest Wine Staging version (currently 2.21) for existing software, e.g. when you need persistent ACL support, but you should always give the most recent development version a try if something does not work. We will continue to provide new builds for the development and stable branch, so that you can easily test them. There are also attempts by other Wine developers to keep Wine Staging alive, for example &lt;a href="https://github.com/wine-staging/wine-staging"&gt;this fork&lt;/a&gt;, which you might want to look into.
+&lt;/p&gt;
+
+&lt;p&gt;
+We also want to take the opportunity of this news post to thank all those who tried to make Wine better within in the last 4 years by reporting bugs or sending in patches. Without the help of other developers and users, projects like Wine Staging would not have been possible. Please keep up the good work by using the resources provided by WineHQ (e.g. the patch mailing list for new submissions) in the future.
+&lt;/p&gt;
+
+&lt;p&gt;
+Thank you,&lt;br /&gt;
+Michael and Sebastian
+&lt;/p&gt;
+
+                    
+                &lt;/div&gt;
+            &lt;/div&gt;
+    </content></entry><entry><title>Release 2.19</title><link href="/news/2017-10-21-release-2.19.html" rel="alternate"></link><id>http://www.wine-staging.com/news/2017-10-21-release-2.19.html</id><updated>2017-10-21T00:00:00Z</updated><author><name>Wine Staging Team</name></author><content type="html">
         &lt;div class="post"&gt;
                 &lt;h2 class="title"&gt;Release 2.19&lt;/h2&gt;
                 &lt;p class="meta"&gt;&lt;span class="author"&gt;Wine Staging Team&lt;/span&gt;&amp;nbsp;-&amp;nbsp;&lt;span class="date"&gt;Sat, 21 Oct 2017&lt;/span&gt;&lt;/p&gt;
